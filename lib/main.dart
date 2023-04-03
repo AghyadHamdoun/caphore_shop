@@ -1,5 +1,6 @@
 import 'package:caphore/core/utils/app_color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() async {
 
@@ -10,16 +11,24 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'caphore app',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(
-        appBar: AppBar(title: const Text('caphore shop'),backgroundColor: AppColor.primaryColor,),
-        body: Container(),
-      ),
+    return ScreenUtilInit(
+      designSize:const Size(393,786),
+        minTextAdapt: true,
+        splitScreenMode: true,
+      builder: (BuildContext context, Widget? child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'caphore app',
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+          ),
+          home: Scaffold(
+            appBar: AppBar(title: const Text('caphore shop'),backgroundColor: AppColor.primaryColor,),
+            body: Container(),
+          ),
+        );
+      },
+
     );
   }
 }
