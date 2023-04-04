@@ -18,11 +18,10 @@ class MyApp extends StatelessWidget {
       builder: (BuildContext context, Widget? child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'caphore app',
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
-          home: Home(),
+          home: const Home(),
         );
       },
     );
