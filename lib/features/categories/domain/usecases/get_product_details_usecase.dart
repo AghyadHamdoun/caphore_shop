@@ -24,5 +24,5 @@ class ProductDetailsParameters extends Equatable {
   const ProductDetailsParameters({required this.productId});
 
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [productId];
 }
