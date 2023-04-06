@@ -3,10 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../core/utils/app_color.dart';
 import '../widgets/BrandCard.dart';
 import '../widgets/CategoryNameAndShowAll.dart';
+import '../widgets/ImageSlider.dart';
 import '../widgets/productcard.dart';
 import '../widgets/salesavatar.dart';
 import '../widgets/textformfild.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -32,30 +32,8 @@ class Home extends StatelessWidget {
               physics: const BouncingScrollPhysics(),
               children: [
                 SizedBox(
-                  height: 150.h,
-                  child: CarouselSlider(
-                    items: imeges
-                        .map(
-                          (item) => Padding(
-                            padding: EdgeInsets.only(bottom: 10.h),
-                            child: Container(
-                              height: 150.h,
-                              width: 300.w,
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    image: NetworkImage(item),
-                                    fit: BoxFit.cover),
-                                borderRadius: BorderRadius.circular(20.r),
-                              ),
-                            ),
-                          ),
-                        )
-                        .toList(),
-                    options: CarouselOptions(
-                        autoPlay: true,
-                        aspectRatio: 2,
-                        enlargeCenterPage: true),
-                  ),
+                  height: 170.h,
+                  child: ImageSlider(imeges: imeges),
                 ),
                 SizedBox(
                   height: 144.h,
