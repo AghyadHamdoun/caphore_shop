@@ -1,4 +1,6 @@
-import 'package:caphore/core/utils/app_color.dart';
+import 'package:caphore/presentation/screens/Categorys.dart';
+import 'package:caphore/presentation/screens/categoryproducts.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:caphore/presentation/screens/home.dart';
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
-          home: const Home(),
+          home: const categoryproducts(),
         );
       },
     );

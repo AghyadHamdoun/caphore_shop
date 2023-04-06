@@ -14,7 +14,7 @@ class CategoryNameAndShowAll extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text("new products"),
+          const Text("new products"),
           TextButton(
             onPressed: () {},
             child: Text(
