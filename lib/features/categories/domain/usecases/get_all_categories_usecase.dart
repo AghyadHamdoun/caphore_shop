@@ -1,9 +1,12 @@
 import 'package:caphore/core/error/failure.dart';
 import 'package:caphore/core/usecase/base_usecase.dart';
+import 'package:caphore/features/categories/domain/entities/categories.dart';
 import 'package:caphore/features/categories/domain/repository/base_categories_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/foundation.dart';
+
+
+
 
 class GetAllCategoriesUseCase
     extends BaseUseCase<List<Category>, AllCategoriesParameters> {

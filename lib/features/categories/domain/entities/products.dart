@@ -1,19 +1,8 @@
 import 'package:equatable/equatable.dart';
 
-class AllProducts extends Equatable{
-  final List<Product> allProducts;
-
- const AllProducts({required this.allProducts});
-  @override
-  // TODO: implement props
-  List<Object?> get props => [allProducts];
-
-}
-
 class Product extends Equatable {
   final int id;
   final String name;
-  final String image;
   final String description;
   final String shortDescription;
   final String price;
@@ -25,7 +14,6 @@ class Product extends Equatable {
  const Product(
       {required this.id,
       required this.name,
-      required this.image,
       required this.description,
       required this.shortDescription,
       required this.price,
@@ -38,7 +26,6 @@ class Product extends Equatable {
   List<Object?> get props => [
         id,
         name,
-        image,
         description,
         shortDescription,
         price,
@@ -55,6 +42,7 @@ class Categories extends Equatable {
   final String slug;
 
  const Categories({required this.id, required this.name, required this.slug});
+
 
   @override
   // TODO: implement props
