@@ -20,10 +20,10 @@ class CategoryModel extends Category {
       parent: json['parent'],
       description: json['description'],
       display: json['display'],
-      image: json['image'],
+      image: ImageModel.fromJson(json['image']),
       menuOrder: json['menu_order'],
       count: json['count'],
-      lLinks: json['_links']);
+      lLinks: LinksModel.fromJson(json['_links']));
 }
 
 class ImageModel extends Image {
