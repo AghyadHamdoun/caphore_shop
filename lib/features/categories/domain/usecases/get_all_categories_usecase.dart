@@ -6,8 +6,6 @@ import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 
 
-
-
 class GetAllCategoriesUseCase
     extends BaseUseCase<List<Category>, AllCategoriesParameters> {
   final BaseCategoriesRepository baseCategoriesRepository;
