@@ -1,6 +1,6 @@
+import 'package:caphore/features/categories/presentation/screeens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:caphore/presentation/screens/home.dart';
 
 void main() async {
   runApp(const MyApp());
