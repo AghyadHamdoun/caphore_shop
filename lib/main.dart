@@ -1,5 +1,7 @@
 import 'package:caphore/presentation/screens/Categorys.dart';
+import 'package:caphore/presentation/screens/SubCategorys.dart';
 import 'package:caphore/presentation/screens/categoryproducts.dart';
+import 'package:caphore/presentation/screens/product.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -23,7 +25,14 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
-          home: const categoryproducts(),
+          home: const Home(),
+          routes: {
+            "Home": (context) => const Home(),
+            "Categorys": (context) => const Categorys(),
+            "categoryproducts": (context) => const categoryproducts(),
+            "product": (context) => const product(),
+            "subcategorys": (context) => const subcategorys(),
+          },
         );
       },
     );
