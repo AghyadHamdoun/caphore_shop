@@ -48,7 +48,7 @@ dependencies:
   google_fonts: ^3.0.1
   shimmer: ^2.0.0
   flutter_screenutil: ^5.7.0
-
+  flutter_wp_woocommerce: ^1.0.0
 
 
 dev_dependencies:

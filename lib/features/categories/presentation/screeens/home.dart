@@ -7,7 +7,6 @@ import 'package:caphore/features/categories/presentation/screeens/widgets/textfo
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
 class Home extends StatelessWidget {
   const Home({super.key});
 
