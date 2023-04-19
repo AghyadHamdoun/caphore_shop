@@ -2,7 +2,6 @@ import 'package:caphore/features/categories/presentation/screeens/product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
 class productcard extends StatelessWidget {
   const productcard({
     super.key,
@@ -12,9 +11,7 @@ class productcard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const product(),
-        ));
+        Navigator.of(context).pushNamed("/product");
       },
       child: SizedBox(
         height: 250.h,

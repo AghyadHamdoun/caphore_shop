@@ -3,6 +3,7 @@ import 'package:caphore/features/categories/presentation/screeens/SubCategorys.d
 import 'package:caphore/features/categories/presentation/screeens/categoryproducts.dart';
 import 'package:caphore/features/categories/presentation/screeens/home.dart';
 import 'package:caphore/features/categories/presentation/screeens/product.dart';
+import 'package:caphore/features/categories/presentation/screeens/searsh.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -43,8 +44,8 @@ class MyApp extends StatelessWidget {
                 ),
               ],
               currentIndex: currentPage,
-              onTap: (index){
-                currentPage=index;
+              onTap: (index) {
+                currentPage = index;
               },
               selectedFontSize: 16.sp,
               selectedIconTheme: IconThemeData(size: 30.r),
@@ -54,9 +55,10 @@ class MyApp extends StatelessWidget {
           ),
           routes: {
             "/Home": (context) => const Home(),
+            "/Search": (context) => const Search(),
             "/Categories": (context) => const Categorys(),
             "/CategoryProducts": (context) => const categoryproducts(),
-            "product": (context) => const product(),
+            "/product": (context) => const product(),
             "/subcategories": (context) => const subcategorys(),
           },
         );
@@ -64,4 +66,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
