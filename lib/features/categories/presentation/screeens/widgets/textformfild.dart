@@ -9,21 +9,26 @@ class maintextform extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      child: TextFormField(
-        enabled: false,
-        decoration: InputDecoration(
-          filled: true,
-          fillColor: AppColor.primaryColor,
-          hintText: "CAPHORE",
-          hintStyle: TextStyle(fontSize: 16.sp, color: AppColor.accentColor),
-          suffixIcon: Icon(
-            Icons.notifications,
-            size: 28.sp,
-            color: AppColor.accentColor,
-          ),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
+    return InkWell(
+      onTap: () {
+        Navigator.of(context).pushNamed("/Search");
+      },
+      child: Form(
+        child: TextFormField(
+          enabled: false,
+          decoration: InputDecoration(
+            filled: true,
+            fillColor: AppColor.primaryColor,
+            hintText: "CAPHORE",
+            hintStyle: TextStyle(fontSize: 16.sp, color: AppColor.accentColor),
+            suffixIcon: Icon(
+              Icons.notifications,
+              size: 28.sp,
+              color: AppColor.accentColor,
+            ),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
           ),
         ),
       ),

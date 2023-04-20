@@ -11,9 +11,7 @@ class categorycard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const subcategorys(),
-        ));
+        Navigator.of(context).pushNamed("/subcategories");
       },
       child: Card(
           shape: RoundedRectangleBorder(
