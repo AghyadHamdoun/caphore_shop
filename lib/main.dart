@@ -1,3 +1,4 @@
+import 'package:caphore/core/services/services_locator.dart';
 import 'package:caphore/features/categories/presentation/screeens/Categorys.dart';
 import 'package:caphore/features/categories/presentation/screeens/SubCategorys.dart';
 import 'package:caphore/features/categories/presentation/screeens/categoryproducts.dart';
@@ -7,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() async {
+  ServicesLocator().init();
   runApp(const MyApp());
 }
 

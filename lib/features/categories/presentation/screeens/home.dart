@@ -1,3 +1,8 @@
+import 'package:caphore/core/usecase/base_usecase.dart';
+import 'package:caphore/features/categories/data/datasource/categories_remote_data_source.dart';
+import 'package:caphore/features/categories/data/repository/categories_repository.dart';
+import 'package:caphore/features/categories/domain/repository/base_categories_repository.dart';
+import 'package:caphore/features/categories/domain/usecases/get_all_categories_usecase.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/BrandCard.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/CategoryNameAndShowAll.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/ImageSlider.dart';
@@ -8,6 +13,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Home extends StatelessWidget {
+  void _getData()async{
+    BaseCategoriesRemoteDataSource baseCategoriesRemoteDataSource =CategoriesRemoteDateSource();
+    BaseCategoriesRepository baseCategoriesRepository = CategoriesRepository(baseCategoriesRemoteDataSource);
+    final result = await GetAllCategoriesUseCase(baseCategoriesRepository).call(AllCategoriesParameters());
+    print(result);
+  }
+
   const Home({super.key});
 
   @override
@@ -21,6 +33,16 @@ class Home extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
+          InkWell(
+            onTap: (){
+              _getData();
+            },
+            child: Container(
+              height: 100,
+              width: 50,
+              color: Colors.red,
+            ),
+          ),
           Padding(
             padding:
                 EdgeInsets.only(top: 30.h, left: 5.w, right: 5.w, bottom: 0),
