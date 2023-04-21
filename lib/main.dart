@@ -4,7 +4,7 @@ import 'package:caphore/features/categories/presentation/screeens/SubCategorys.d
 import 'package:caphore/features/categories/presentation/screeens/categoryproducts.dart';
 import 'package:caphore/features/categories/presentation/screeens/home.dart';
 import 'package:caphore/features/categories/presentation/screeens/product.dart';
-import 'package:caphore/features/categories/presentation/screeens/searsh.dart';
+import 'package:caphore/features/categories/presentation/screeens/search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
