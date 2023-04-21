@@ -25,7 +25,6 @@ class CategoriesRemoteDateSource extends BaseCategoriesRemoteDataSource {
   Future<List<CategoryModel>> getAllCategories() async {
     final response = await Dio().get(ApiConstance.allCategoriesPath);
     if (response.statusCode == 200) {
-      print(response.data);
       return List<CategoryModel>.from((response.data).map(
         (e) => CategoryModel.fromJson(e),
       ));
