@@ -9,7 +9,7 @@ class Search extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextEditingController controller = TextEditingController();
-    int searchitems = 10;
+    int searchItems = 10;
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.only(top: 27.h),
@@ -36,7 +36,7 @@ class Search extends StatelessWidget {
             ),
             SizedBox(
               height: 20.h,
-              child: Text(" $searchitems :نتائج البحث"),
+              child: Text(" $searchItems :نتائج البحث"),
             ),
             Expanded(
               child: GridView.builder(
