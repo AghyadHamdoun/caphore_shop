@@ -9,6 +9,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
 
   CategoriesBloc(this.getAllCategoriesUseCase)
       : super(const CategoriesState()) {
+    //All Category Event
     on<GetAllCategoriesEvent>((event, emit) async {
       final result =
           await getAllCategoriesUseCase(const AllCategoriesParameters());
@@ -19,5 +20,9 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
           (r) => emit(state.copyWith(
               allCategories: r, allCategoriesState: RequestState.loaded)));
     });
+
+    //Product Details Event
+    on<GetProductDetailsEvent>((event, emit) async{});
+
   }
 }
