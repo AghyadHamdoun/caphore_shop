@@ -1,13 +1,15 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:caphore/features/categories/presentation/screeens/SubCategorys.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class categorycard extends StatelessWidget {
+class CategoryCard extends StatelessWidget {
+  final String name;
+  final String image;
 
+  const CategoryCard({super.key, required this.name, required this.image});
 
-  const categorycard({
-    super.key,
-  });
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -26,11 +28,18 @@ class categorycard extends StatelessWidget {
                 CircleAvatar(
                   backgroundColor: Colors.blue,
                   radius: 30.r,
+                  child: CachedNetworkImage(
+                    imageUrl: image,
+                    errorWidget: (context, url, error) => Icon(Icons.error),
+                  ),
                 ),
                 SizedBox(
                   height: 5.h,
                 ),
-                const Text("category\n name"),
+                Text(
+                  name,
+                  style: TextStyle(),
+                ),
               ],
             ),
           )),

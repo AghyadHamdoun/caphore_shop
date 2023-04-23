@@ -1,12 +1,13 @@
 import 'package:caphore/features/categories/presentation/screeens/widgets/CategoryCard.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/textformfild.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
 class subcategorys extends StatelessWidget {
-  const subcategorys({super.key});
+  final String name;
+  final String image;
+
+  const subcategorys({super.key, required this.name, required this.image});
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +53,10 @@ class subcategorys extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   return SizedBox(
                     height: 120.h,
-                    child: const categorycard(),
+                    child: CategoryCard(
+                      name: name,
+                      image: image,
+                    ),
                   );
                 },
               ),
