@@ -9,8 +9,13 @@ abstract class CategoriesEvent extends Equatable {
 }
 class GetAllCategoriesEvent extends CategoriesEvent {}
 
-class GetProductDetailsEvent extends CategoriesEvent {}
+class GetProductDetailsEvent extends CategoriesEvent {
+  final int productId;
+  final int categoryId;
+ const GetProductDetailsEvent({required this.productId,required this.categoryId});
+}
 
-class GetGategoryProductsEvent extends CategoriesEvent {}
+class GetGategoryProductsEvent extends CategoriesEvent {
+}
 
 
