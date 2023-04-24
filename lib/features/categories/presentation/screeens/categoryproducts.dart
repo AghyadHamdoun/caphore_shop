@@ -53,7 +53,7 @@ class _categoryproductsState extends State<categoryproducts> {
                 itemCount: 20,
                 shrinkWrap: true,
                 itemBuilder: (BuildContext context, int index) {
-                  return ProductCard(productname: productname, price: price, orginalprice: orginalprice);
+                  return ProductCard(productname: '', price: '', orginalprice: '');
                 },
               ),
             ),

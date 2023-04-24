@@ -47,7 +47,7 @@ class Home extends StatelessWidget {
                     },
                   ),
                 ),
-                 const CategoryNameAndShowAll(),
+                 const CategoryNameAndShowAll(name: '',),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
@@ -58,7 +58,7 @@ class Home extends StatelessWidget {
                         scrollDirection: Axis.horizontal,
                         itemCount: 20,
                         itemBuilder: (BuildContext context, int index) {
-                          return const productcard();
+                          return const ProductCard(productname: '', price: '', orginalprice: '',);
                         },
                       ),
                     ),
@@ -66,7 +66,7 @@ class Home extends StatelessWidget {
                 ),
                 const Padding(
                   padding: EdgeInsets.all(8.0),
-                  child: brandcard(),
+                  child: BrandCard(image: '',),
                 ),
               ],
             ),
