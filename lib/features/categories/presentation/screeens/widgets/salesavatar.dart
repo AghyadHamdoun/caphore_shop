@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class salesavatar extends StatelessWidget {
-  const salesavatar({
-    super.key,
+class SalesAvatar extends StatelessWidget {
+  final String categorysales;
+  const SalesAvatar({
+    super.key, required this.categorysales,
   });
 
   @override
@@ -16,7 +17,7 @@ class salesavatar extends StatelessWidget {
           SizedBox(
             height: 10.h,
           ),
-          const Text("category\n sales"),
+           Text(categorysales),
         ],
       ),
     );

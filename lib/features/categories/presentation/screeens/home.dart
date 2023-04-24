@@ -43,14 +43,14 @@ class Home extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       itemCount: 20,
                       itemBuilder: (BuildContext context, int index) {
-                        return const salesavatar();
+                        return const SalesAvatar(categorysales: categorysales,);
                       },
                     ),
                   ),
                 ),
                 const Padding(
                   padding: EdgeInsets.all(8.0),
-                  child: CategoryNameAndShowAll(),
+                  child: CategoryNameAndShowAll(name: name,),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -62,7 +62,7 @@ class Home extends StatelessWidget {
                         scrollDirection: Axis.horizontal,
                         itemCount: 20,
                         itemBuilder: (BuildContext context, int index) {
-                          return const productcard();
+                          return const ProductCard(productname: productname,);
                         },
                       ),
                     ),
@@ -70,7 +70,7 @@ class Home extends StatelessWidget {
                 ),
                 const Padding(
                   padding: EdgeInsets.all(8.0),
-                  child: brandcard(),
+                  child: BrandCard(image: image),
                 ),
               ],
             ),
