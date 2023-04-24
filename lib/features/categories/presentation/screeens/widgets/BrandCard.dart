@@ -1,9 +1,11 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class brandcard extends StatelessWidget {
-  const brandcard({
-    super.key,
+class BrandCard extends StatelessWidget {
+  final String image;
+  const BrandCard({
+    super.key, required this.image,
   });
 
   @override
@@ -30,7 +32,11 @@ class brandcard extends StatelessWidget {
                   ),
                 ],
                 borderRadius: BorderRadius.circular(10.r),
-                color: Colors.blue,
+
+              ),
+              child:  CachedNetworkImage(
+                imageUrl: image,
+                errorWidget: (context, url, error) => const Icon(Icons.error),
               ),
             ),
           );

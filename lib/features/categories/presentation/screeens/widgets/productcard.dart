@@ -2,9 +2,12 @@ import 'package:caphore/features/categories/presentation/screeens/product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class productcard extends StatelessWidget {
-  const productcard({
-    super.key,
+class ProductCard extends StatelessWidget {
+  final String productname;
+  final String price;
+  final String orginalprice;
+  const ProductCard({
+    super.key, required this.productname, required this.price, required this.orginalprice,
   });
 
   @override
@@ -40,7 +43,7 @@ class productcard extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
                     child: Text(
-                      "productname",
+                     productname ,
                       style: TextStyle(fontSize: 16.sp),
                     ),
                   ),
@@ -51,11 +54,11 @@ class productcard extends StatelessWidget {
                   child: Expanded(
                     child: ListTile(
                       title: Text(
-                        "price",
+                      price,
                         style: TextStyle(fontSize: 16.sp, color: Colors.blue),
                       ),
                       subtitle: Text(
-                        "orginal price",
+                        orginalprice,
                         style: TextStyle(
                             decoration: TextDecoration.lineThrough,
                             fontSize: 12.sp,

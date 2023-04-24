@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CategoryNameAndShowAll extends StatelessWidget {
+  final String name;
   const CategoryNameAndShowAll({
-    super.key,
+    super.key, required this.name,
   });
 
   @override

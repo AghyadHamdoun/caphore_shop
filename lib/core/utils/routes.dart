@@ -15,7 +15,7 @@ class MyRoutes {
     "/Categories": (context) => const Categories(),
     "/CategoryProducts": (context) => const categoryproducts(),
     "/product": (context) => const product(),
-    "/subcategories": (context) => const subcategorys(),
+    "/subcategories": (context) => const subcategorys(name: '', image: ''),
   };
 
 }
