@@ -1,4 +1,5 @@
 import 'package:caphore/core/services/services_locator.dart';
+import 'package:caphore/core/utils/app_color.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_bloc.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_event.dart';
 import 'package:caphore/features/categories/presentation/screeens/Categories.dart';
@@ -41,11 +42,11 @@ class _MyPagesState extends State<MyPages> {
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
-              label: "home",
+              label: "الرئيسية",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.category),
-              label: "categories",
+              icon: Icon(Icons.apps),
+              label: "الاصناف",
             ),
           ],
           currentIndex: select,
@@ -55,10 +56,11 @@ class _MyPagesState extends State<MyPages> {
             });
             controller.jumpToPage(select);
           },
+          selectedItemColor: AppColor.accentColor,
           selectedFontSize: 16.sp,
-          selectedIconTheme: IconThemeData(size: 30.r, color: Colors.blue),
-          unselectedFontSize: 12.sp,
-          unselectedIconTheme: IconThemeData(size: 23.r, color: Colors.grey),
+          selectedIconTheme: IconThemeData(size: 30.r, color: AppColor.accentColor),
+          showUnselectedLabels: false,
+          unselectedIconTheme: IconThemeData(size: 30.r, color: Colors.grey),
         ),
       ),
     );

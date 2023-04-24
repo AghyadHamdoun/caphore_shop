@@ -1,3 +1,4 @@
+import 'package:caphore/core/utils/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -8,18 +9,25 @@ class CategoryNameAndShowAll extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 30.h,
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 8.w,vertical:5.h),
+      height: 40.h,
       width: double.infinity,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Text("new products"),
-          TextButton(
-            onPressed: () {},
-            child: Text(
-              "show all >",
-              style: TextStyle(fontSize: 16.sp, color: Colors.blue),
+           Text("المنتجات الجديدة",style: TextStyle(fontSize: 18.sp,fontWeight: FontWeight.bold),),
+          InkWell(
+onTap:(){},
+            child: Row(
+              children: [
+
+                Text(
+                  "عرض الكل",
+                  style: TextStyle(fontSize: 16.sp, color:AppColor.accentColor,fontWeight: FontWeight.bold),
+                ),
+                Icon(Icons.keyboard_arrow_left,size: 30.r,color: AppColor.accentColor,),
+              ],
             ),
           ),
         ],

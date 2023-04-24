@@ -12,7 +12,7 @@ class ApiConstance {
       "$baseUrl/products/$id?consumer_key=$consumer_key&consumer_secret=$consumer_secret";
 
   static const String allCategoriesPath =
-      "$baseUrl/products/categories?consumer_key=$consumer_key&consumer_secret=$consumer_secret";
+      "$baseUrl/products/categories?consumer_key=$consumer_key&consumer_secret=$consumer_secret&per page=100&page=1";
 
 
 }

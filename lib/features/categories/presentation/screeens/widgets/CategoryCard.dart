@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:caphore/core/utils/app_color.dart';
 import 'package:caphore/features/categories/presentation/screeens/SubCategorys.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -20,25 +21,24 @@ class CategoryCard extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.r),
           ),
-          color: const Color.fromARGB(255, 214, 214, 214),
+          color: Colors.white70,
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CircleAvatar(
-                  backgroundColor: Colors.blue,
-                  radius: 30.r,
-                  child: CachedNetworkImage(
-                    imageUrl: image,
-                    errorWidget: (context, url, error) => Icon(Icons.error),
-                  ),
+                CachedNetworkImage(
+                  height: 50.h,
+                  width: 40.w,
+                  imageUrl: image,
+                  errorWidget: (context, url, error) => Icon(Icons.error),
                 ),
                 SizedBox(
                   height: 5.h,
                 ),
                 Text(
                   name,
-                  style: TextStyle(),
+                  style:
+                      TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w500),
                 ),
               ],
             ),

@@ -8,15 +8,17 @@ class salesavatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
+    return Container(
+      color: Colors.white12,
+      height: 100.h,
+      padding:  EdgeInsets.symmetric(horizontal: 5.w,vertical: 5.h),
       child: Column(
         children: [
-          CircleAvatar(backgroundColor: Colors.blue, radius: 40.r),
+          CircleAvatar(backgroundColor: Colors.blue, radius: 35.r),
           SizedBox(
             height: 10.h,
           ),
-          const Text("category\n sales"),
+           Text("اسم الصنف",style: TextStyle(fontSize: 16.sp,fontWeight: FontWeight.w500),),
         ],
       ),
     );

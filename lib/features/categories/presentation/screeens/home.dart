@@ -35,23 +35,19 @@ class Home extends StatelessWidget {
                   height: 170.h,
                   child: ImageSlider(imeges: imeges),
                 ),
-                SizedBox(
-                  height: 144.h,
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 5.w),
+                  height: 140.h,
                   width: double.infinity,
-                  child: Expanded(
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 20,
-                      itemBuilder: (BuildContext context, int index) {
-                        return const salesavatar();
-                      },
-                    ),
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 20,
+                    itemBuilder: (BuildContext context, int index) {
+                      return const salesavatar();
+                    },
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: CategoryNameAndShowAll(),
-                ),
+                 const CategoryNameAndShowAll(),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
