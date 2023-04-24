@@ -35,23 +35,19 @@ class Home extends StatelessWidget {
                   height: 170.h,
                   child: ImageSlider(imeges: imeges),
                 ),
-                SizedBox(
-                  height: 144.h,
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 5.w),
+                  height: 140.h,
                   width: double.infinity,
-                  child: Expanded(
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 20,
-                      itemBuilder: (BuildContext context, int index) {
-                        return const SalesAvatar(categorysales: categorysales,);
-                      },
-                    ),
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 20,
+                    itemBuilder: (BuildContext context, int index) {
+                      return const salesavatar();
+                    },
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: CategoryNameAndShowAll(name: name,),
-                ),
+                 const CategoryNameAndShowAll(name: '',),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
@@ -62,7 +58,7 @@ class Home extends StatelessWidget {
                         scrollDirection: Axis.horizontal,
                         itemCount: 20,
                         itemBuilder: (BuildContext context, int index) {
-                          return const ProductCard(productname: productname,);
+                          return const ProductCard(productname: '', price: '', orginalprice: '',);
                         },
                       ),
                     ),
@@ -70,7 +66,7 @@ class Home extends StatelessWidget {
                 ),
                 const Padding(
                   padding: EdgeInsets.all(8.0),
-                  child: BrandCard(image: image),
+                  child: BrandCard(image: '',),
                 ),
               ],
             ),

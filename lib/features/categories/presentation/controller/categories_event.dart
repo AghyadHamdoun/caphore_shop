@@ -18,4 +18,7 @@ class GetProductDetailsEvent extends CategoriesEvent {
 class GetGategoryProductsEvent extends CategoriesEvent {
 }
 
+class GetLastProductsEvent extends CategoriesEvent{}
+
+
 

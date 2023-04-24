@@ -4,6 +4,7 @@ import 'package:caphore/features/categories/presentation/screeens/pages/pages.da
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() async {
   ServicesLocator().init();
@@ -11,7 +12,7 @@ void main() async {
   await EasyLocalization.ensureInitialized();
   runApp(
       EasyLocalization(
-      supportedLocales: const [Locale('ar', 'SA'), Locale('ar', 'SA')],
+      supportedLocales: const [Locale('ar', 'SA')],
       path: 'assets/translations',
       fallbackLocale: const Locale('ar', 'SA'),
       child: const MyApp()
@@ -30,6 +31,9 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (BuildContext context, Widget? child) {
         return MaterialApp(
+          theme: ThemeData(
+            textTheme: GoogleFonts.notoNaskhArabicTextTheme()
+          ),
           localizationsDelegates: context.localizationDelegates,
           supportedLocales: context.supportedLocales,
           locale: context.locale,

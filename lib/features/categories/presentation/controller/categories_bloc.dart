@@ -25,4 +25,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     on<GetProductDetailsEvent>((event, emit) async{});
 
   }
+  void getProductDetail(int productId,int categoryId){
+    add(GetProductDetailsEvent(productId: productId, categoryId: categoryId));
+  }
 }

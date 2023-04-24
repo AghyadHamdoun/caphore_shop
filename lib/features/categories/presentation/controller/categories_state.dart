@@ -10,6 +10,10 @@ class CategoriesState extends Equatable {
   final Product product;
   final RequestState productState;
   final String productMessage;
+  final List<Product> lastProducts;
+  final RequestState lastProductsState;
+  final String lastProductsMessage;
+
 
   const CategoriesState({
     this.allCategories = const [],
@@ -27,6 +31,11 @@ class CategoriesState extends Equatable {
         images: []),
     this.productState = RequestState.loading,
     this.productMessage = '',
+    this.lastProducts=const [],
+    this.lastProductsState=RequestState.loading,
+    this.lastProductsMessage='',
+
+
   });
 
   CategoriesState copyWith({
@@ -36,6 +45,9 @@ class CategoriesState extends Equatable {
     final Product? product,
     final RequestState? productState,
     final String? productMessage,
+    final List<Product>? lastProducts,
+    final RequestState? lastProductsState,
+    final String? lastProductsMessage,
   }) {
     return CategoriesState(
         allCategories: allCategories ?? this.allCategories,

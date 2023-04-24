@@ -25,7 +25,7 @@ class product extends StatelessWidget {
         titleTextStyle: TextStyle(color: Colors.blue, fontSize: 22.sp),
         title: const Text("product name"),
       ),
-      bottomNavigationBar: ProductBottom(price: price,),
+      bottomNavigationBar: ProductBottom(price: '', orginalprice: '',),
       body: ListView(
         children: [
           Padding(
@@ -78,7 +78,7 @@ class product extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   itemCount: 20,
                   itemBuilder: (BuildContext context, int index) {
-                    return  ProductCard(productname: productname, price: price, orginalprice: orginalprice);
+                    return  ProductCard(productname: '', price: '', orginalprice: '');
                   },
                 ),
               ),

@@ -1,5 +1,6 @@
 import 'package:caphore/features/categories/presentation/controller/categories_bloc.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_state.dart';
+import 'package:caphore/features/categories/presentation/screeens/categoryproducts.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/CategoryCard.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/textformfild.dart';
 import 'package:flutter/material.dart';
@@ -29,6 +30,7 @@ class _CategoriesState extends State<Categories> {
               ),
               Expanded(
                 child: GridView.builder(
+                  padding: EdgeInsets.symmetric(horizontal: 10.w,vertical: 10.h),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
                   ),
@@ -37,7 +39,7 @@ class _CategoriesState extends State<Categories> {
                   itemBuilder: (BuildContext context, int index) {
                     return SizedBox(
                       height: 120.h,
-                      child: Text(state.allCategories[0].name),
+                      child: CategoryCard(name: state.allCategories[index].name,image: state.allCategories[index].image.src,),
                     );
                   },
                 ),
