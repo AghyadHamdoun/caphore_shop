@@ -3,12 +3,13 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ImageSliderWithIndex extends StatelessWidget {
+  final List<String> imeges;
   const ImageSliderWithIndex({
     super.key,
     required this.imeges,
   });
 
-  final List<String> imeges;
+
 
   @override
   Widget build(BuildContext context) {

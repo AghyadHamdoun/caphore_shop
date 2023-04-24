@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProductBottom extends StatelessWidget {
+  final String price;
+  final String orginalprice;
   const ProductBottom({
-    super.key,
+    super.key, required this.price, required this.orginalprice,
   });
 
   @override
@@ -28,7 +30,7 @@ class ProductBottom extends StatelessWidget {
             title: Row(
               children: [
                 Text(
-                  "price",
+                  price,
                   style: TextStyle(fontSize: 22.sp, color: Colors.blue),
                 ),
                 Padding(
@@ -44,7 +46,7 @@ class ProductBottom extends StatelessWidget {
               ],
             ),
             subtitle: Text(
-              "orginal price",
+              orginalprice,
               style: TextStyle(
                   decoration: TextDecoration.lineThrough,
                   fontSize: 16.sp,
