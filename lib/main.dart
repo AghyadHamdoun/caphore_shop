@@ -10,14 +10,11 @@ void main() async {
   ServicesLocator().init();
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  runApp(
-      EasyLocalization(
+  runApp(EasyLocalization(
       supportedLocales: const [Locale('ar', 'SA')],
       path: 'assets/translations',
       fallbackLocale: const Locale('ar', 'SA'),
-      child: const MyApp()
-      )
-  );
+      child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -31,9 +28,7 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (BuildContext context, Widget? child) {
         return MaterialApp(
-          theme: ThemeData(
-            textTheme: GoogleFonts.notoNaskhArabicTextTheme()
-          ),
+          theme: ThemeData(textTheme: GoogleFonts.notoNaskhArabicTextTheme()),
           localizationsDelegates: context.localizationDelegates,
           supportedLocales: context.supportedLocales,
           locale: context.locale,

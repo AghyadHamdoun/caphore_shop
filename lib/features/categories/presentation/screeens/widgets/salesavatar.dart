@@ -1,24 +1,31 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class salesavatar extends StatelessWidget {
-  const salesavatar({
-    super.key,
+class SalesAvatar extends StatelessWidget {
+  final String image;
+  final String name;
+  const SalesAvatar({
+    super.key,required this.name,required this.image
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white12,
-      height: 100.h,
+      height: 120.h,
       padding:  EdgeInsets.symmetric(horizontal: 5.w,vertical: 5.h),
       child: Column(
         children: [
-          CircleAvatar(backgroundColor: Colors.blue, radius: 35.r),
+          CachedNetworkImage(
+            height: 80.h,
+            width: 75.w,
+            imageUrl: image,errorWidget: (BuildContext context,a,b)=>const Icon(Icons.error),
+          ),
           SizedBox(
             height: 10.h,
           ),
-           Text("اسم الصنف",style: TextStyle(fontSize: 16.sp,fontWeight: FontWeight.w500),),
+           Text(name,style: TextStyle(fontSize: 16.sp,fontWeight: FontWeight.w500),),
         ],
       ),
     );

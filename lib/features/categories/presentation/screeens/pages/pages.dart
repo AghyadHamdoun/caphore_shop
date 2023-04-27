@@ -28,7 +28,9 @@ class _MyPagesState extends State<MyPages> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => sl<CategoriesBloc>()..add(GetAllCategoriesEvent()),
+      create: (context) => sl<CategoriesBloc>()
+        ..add(GetAllCategoriesEvent())
+        ..add(GetLastProductsEvent()),
       child: Scaffold(
         body: PageView(
           controller: controller,
@@ -58,7 +60,8 @@ class _MyPagesState extends State<MyPages> {
           },
           selectedItemColor: AppColor.accentColor,
           selectedFontSize: 16.sp,
-          selectedIconTheme: IconThemeData(size: 30.r, color: AppColor.accentColor),
+          selectedIconTheme:
+              IconThemeData(size: 30.r, color: AppColor.accentColor),
           showUnselectedLabels: false,
           unselectedIconTheme: IconThemeData(size: 30.r, color: Colors.grey),
         ),

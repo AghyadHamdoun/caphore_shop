@@ -51,34 +51,18 @@ class Categories extends Equatable {
 
 class Images extends Equatable {
   final int id;
-  final String dateCreated;
-  final String dateCreatedGmt;
-  final String dateModified;
-  final String dateModifiedGmt;
   final String src;
   final String name;
-  final String alt;
-
-  Images(
+ const Images(
       {required this.id,
-      required this.dateCreated,
-      required this.dateCreatedGmt,
-      required this.dateModified,
-      required this.dateModifiedGmt,
       required this.src,
-      required this.name,
-      required this.alt});
+      required this.name,});
 
   @override
   // TODO: implement props
   List<Object?> get props => [
         id,
-        dateCreated,
-        dateCreatedGmt,
-        dateModified,
-        dateModifiedGmt,
         src,
         name,
-        alt
       ];
 }

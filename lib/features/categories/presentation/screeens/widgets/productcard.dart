@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:caphore/features/categories/presentation/screeens/product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,8 +7,9 @@ class ProductCard extends StatelessWidget {
   final String productname;
   final String price;
   final String orginalprice;
+  final String image;
   const ProductCard({
-    super.key, required this.productname, required this.price, required this.orginalprice,
+    super.key, required this.productname, required this.price, required this.orginalprice, required this.image,
   });
 
   @override
@@ -23,21 +25,15 @@ class ProductCard extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Column(
               children: [
-                Stack(
-                  children: [
-                    Container(
-                      height: 100.h,
-                      width: 80.w,
-                      color: Colors.blue,
-                    ),
-                    Container(
-                      height: 25.h,
-                      width: 80.w,
-                      decoration: BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.circular(20.r)),
-                    ),
-                  ],
+                Container(
+                  height: 100.h,
+                  width: 80.w,
+                  child: CachedNetworkImage(
+                    imageUrl: image,
+                    errorWidget: (BuildContext context,
+                        String url,
+                        dynamic error)=>const Icon(Icons.error),
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
