@@ -1,5 +1,6 @@
 import 'package:caphore/core/services/services_locator.dart';
 import 'package:caphore/core/utils/routes.dart';
+import 'package:caphore/features/categories/presentation/screeens/OnBoarding/Splash.dart';
 import 'package:caphore/features/categories/presentation/screeens/pages/pages.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
           supportedLocales: context.supportedLocales,
           locale: context.locale,
           debugShowCheckedModeBanner: false,
-          home: const MyPages(),
+          home: const Splash(),
           routes: MyRoutes.routes,
         );
       },
