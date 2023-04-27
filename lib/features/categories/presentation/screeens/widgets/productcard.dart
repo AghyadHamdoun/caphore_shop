@@ -12,12 +12,12 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        Navigator.of(context).pushNamed("/product");
-      },
-      child: SizedBox(
-        height: 250.h,
+    return SizedBox(
+      width: 150.w,
+      child: InkWell(
+        onTap: () {
+          Navigator.of(context).pushNamed("/product");
+        },
         child: Card(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -40,7 +40,7 @@ class ProductCard extends StatelessWidget {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding:  EdgeInsets.only(top: 5.h),
                   child: SizedBox(
                     child: Text(
                      productname ,

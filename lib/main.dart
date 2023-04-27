@@ -1,5 +1,6 @@
 import 'package:caphore/core/services/services_locator.dart';
 import 'package:caphore/core/utils/routes.dart';
+import 'package:caphore/features/categories/presentation/screeens/OnBoarding/Splash.dart';
 import 'package:caphore/features/categories/presentation/screeens/pages/pages.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -10,14 +11,11 @@ void main() async {
   ServicesLocator().init();
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  runApp(
-      EasyLocalization(
+  runApp(EasyLocalization(
       supportedLocales: const [Locale('ar', 'SA')],
       path: 'assets/translations',
       fallbackLocale: const Locale('ar', 'SA'),
-      child: const MyApp()
-      )
-  );
+      child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -31,14 +29,12 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (BuildContext context, Widget? child) {
         return MaterialApp(
-          theme: ThemeData(
-            textTheme: GoogleFonts.notoNaskhArabicTextTheme()
-          ),
+          theme: ThemeData(textTheme: GoogleFonts.notoNaskhArabicTextTheme()),
           localizationsDelegates: context.localizationDelegates,
           supportedLocales: context.supportedLocales,
           locale: context.locale,
           debugShowCheckedModeBanner: false,
-          home: const MyPages(),
+          home: const Splash(),
           routes: MyRoutes.routes,
         );
       },
