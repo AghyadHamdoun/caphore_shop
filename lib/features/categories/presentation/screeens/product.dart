@@ -78,7 +78,7 @@ class product extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   itemCount: 20,
                   itemBuilder: (BuildContext context, int index) {
-                    return  ProductCard(productname: '', price: '', orginalprice: '');
+                    return  ProductCard(productname: '', price: '', orginalprice: '', image: '',);
                   },
                 ),
               ),

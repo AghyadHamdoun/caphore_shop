@@ -13,9 +13,11 @@ class CategoriesState extends Equatable {
   final List<Product> lastProducts;
   final RequestState lastProductsState;
   final String lastProductsMessage;
+  final Map<Object,List<Category>> categoryParents;
 
 
   const CategoriesState({
+    this.categoryParents=const {},
     this.allCategories = const [],
     this.allCategoriesState = RequestState.loading,
     this.allCategoriesMessage = '',
@@ -31,11 +33,9 @@ class CategoriesState extends Equatable {
         images: []),
     this.productState = RequestState.loading,
     this.productMessage = '',
-    this.lastProducts=const [],
+    this.lastProducts = const [],
     this.lastProductsState=RequestState.loading,
     this.lastProductsMessage='',
-
-
   });
 
   CategoriesState copyWith({
@@ -48,6 +48,7 @@ class CategoriesState extends Equatable {
     final List<Product>? lastProducts,
     final RequestState? lastProductsState,
     final String? lastProductsMessage,
+    final Map<Object,List<Category>>? categoryParents
   }) {
     return CategoriesState(
         allCategories: allCategories ?? this.allCategories,
@@ -56,12 +57,16 @@ class CategoriesState extends Equatable {
         allCategoriesMessage ?? this.allCategoriesMessage,
         product: product??this.product,
         productState: productState??this.productState,
-        productMessage: productMessage??this.productMessage
+        productMessage: productMessage??this.productMessage,
+        lastProducts: lastProducts??this.lastProducts,
+      lastProductsState: lastProductsState??this.lastProductsState,
+      lastProductsMessage: lastProductsMessage??this.lastProductsMessage,
+      categoryParents: categoryParents??this.categoryParents
     );
   }
 
   @override
   // TODO: implement props
   List<Object?> get props =>
-      [allCategories, allCategoriesMessage, allCategoriesState];
+      [allCategories, allCategoriesMessage, allCategoriesState,product,productMessage,productState,lastProductsMessage,lastProductsMessage,lastProducts,];
 }

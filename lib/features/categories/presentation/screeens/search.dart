@@ -44,7 +44,7 @@ class Search extends StatelessWidget {
                     crossAxisCount: 2, childAspectRatio: 0.8.h),
                 itemCount: 20,
                 itemBuilder: (BuildContext context, int index) {
-                  return ProductCard(productname: '', price: '', orginalprice: '');
+                  return ProductCard(productname: '', price: '', orginalprice: '', image: '',);
                 },
               ),
             ),
