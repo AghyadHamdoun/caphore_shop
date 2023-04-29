@@ -13,8 +13,7 @@ class MyRoutes {
     "/Home": (context) => const Home(),
     "/Search": (context) => const Search(),
     "/Categories": (context) => const Categories(),
-    "/CategoryProducts": (context) => const categoryproducts(),
-    "/product": (context) => const product(),
+    "/CategoryProducts": (context) => const CategoryProducts(categoryId: 0, categoryName: '',),
     "/subcategories": (context) => const subcategorys(
           name: '',
           image: '',
