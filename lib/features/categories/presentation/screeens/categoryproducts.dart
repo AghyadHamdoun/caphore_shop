@@ -1,19 +1,26 @@
+import 'package:caphore/core/services/services_locator.dart';
+import 'package:caphore/features/categories/presentation/controller/categories_bloc.dart';
+import 'package:caphore/features/categories/presentation/controller/categories_state.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/productcard.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/textformfild.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
-class categoryproducts extends StatefulWidget {
-  const categoryproducts({super.key});
+class CategoryProducts extends StatelessWidget {
+  final int categoryId;
+  final String categoryName;
 
-  @override
-  State<categoryproducts> createState() => _categoryproductsState();
-}
+  
+   const CategoryProducts({super.key, required this.categoryId, required this.categoryName});
 
-class _categoryproductsState extends State<categoryproducts> {
   @override
   Widget build(BuildContext context) {
+    return BlocProvider(
+  create: (context) => sl<CategoriesBloc>(),
+  child: BlocBuilder<CategoriesBloc, CategoriesState>(
+  builder: (context, state) {
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 10.w),
@@ -25,27 +32,8 @@ class _categoryproductsState extends State<categoryproducts> {
                   EdgeInsets.only(top: 30.h, left: 0, right: 0, bottom: 10.h),
               child: const maintextform(),
             ),
-            Container(
-              height: 150.h,
-              width: 370.w,
-              decoration: BoxDecoration(
-                image: const DecorationImage(
-                    image: NetworkImage(
-                      "https://images.unsplash.com/photo-1564419320461-6870880221ad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
-                    ),
-                    fit: BoxFit.cover),
-                borderRadius: BorderRadius.circular(20.r),
-              ),
-            ),
-            SizedBox(
-              height: 10.h,
-            ),
-            const Text("category name"),
-            SizedBox(
-              height: 10.h,
-            ),
-            const Text(
-                "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"),
+             Text(
+                categoryName),
             Expanded(
               child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -61,5 +49,8 @@ class _categoryproductsState extends State<categoryproducts> {
         ),
       ),
     );
+  },
+),
+);
   }
 }
