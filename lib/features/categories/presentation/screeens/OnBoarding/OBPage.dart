@@ -12,7 +12,7 @@ class OBPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final pages = [OBwidget1(), OBwidget2(), OBwidget3()];
+     final  pages = [OBwidget1(), OBwidget2(), OBwidget3()];
     final controller = LiquidController();
     return Scaffold(
       body: Stack(

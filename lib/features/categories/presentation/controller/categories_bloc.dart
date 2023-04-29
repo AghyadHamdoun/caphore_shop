@@ -1,4 +1,5 @@
 import 'package:caphore/core/utils/enums.dart';
+import 'package:caphore/features/categories/domain/entities/categories.dart';
 import 'package:caphore/features/categories/domain/usecases/get_all_categories_usecase.dart';
 import 'package:caphore/features/categories/domain/usecases/get_gategory_products_usecase.dart';
 import 'package:caphore/features/categories/domain/usecases/get_product_details_usecase.dart';
@@ -37,8 +38,6 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     on<GetLastProductsEvent>((event, emit) async {
       final result = await getCategoryProductsUseCase(
           const CategoryProductsParameters(categoryId: 42, page: 1));
-      print('result---------');
-      print(result);
       result.fold((l) =>
         emit(state.copyWith(
           lastProductsMessage: l.message,

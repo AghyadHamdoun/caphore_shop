@@ -1,3 +1,5 @@
+import 'package:caphore/core/utils/app_color.dart';
+import 'package:caphore/features/categories/domain/entities/products.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/ImageSliderWithIndex.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/productbotoom.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/productcard.dart';
@@ -6,8 +8,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 
-class product extends StatelessWidget {
-  const product({super.key});
+class ProductScreen extends StatelessWidget {
+final Product product;
+
+  const ProductScreen({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
@@ -21,22 +25,22 @@ class product extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        iconTheme: const IconThemeData(color: Colors.blue),
+        iconTheme: const IconThemeData(color: AppColor.primaryColor),
         titleTextStyle: TextStyle(color: Colors.blue, fontSize: 22.sp),
-        title: const Text("product name"),
+        title:  Text(product.name,style: const TextStyle(color: AppColor.accentColor),),
       ),
-      bottomNavigationBar: ProductBottom(price: '', orginalprice: '',),
+        bottomNavigationBar: ProductBottom(price: product.price, orginalPrice: product.regularPrice,),
       body: ListView(
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: ImageSliderWithIndex(imeges: imeges),
+            child: ImageSliderWithIndex(imeges: product.images.map((e) => e.src).toList()),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              "product name",
-              style: TextStyle(fontSize: 20.sp, color: Colors.blue),
+              product.name,
+              style: TextStyle(fontSize: 20.sp, color: Colors.black),
             ),
           ),
           Padding(
@@ -49,14 +53,14 @@ class product extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              "decrebtion",
+              "الوصف:",
               style: TextStyle(fontSize: 20.sp, color: Colors.black),
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              "ssssssssssssssssss\nsssssssssssssssss\nsssssssssss\nsssssssssss\nsssssssssss\nsssssssssss\nsssssssssss\n",
+          product.description,
               style: TextStyle(
                   fontSize: 18.sp, color: Color.fromARGB(255, 73, 73, 73)),
             ),
@@ -64,14 +68,14 @@ class product extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              "you may like ",
+              "قد يعجبك ايضا",
               style: TextStyle(fontSize: 20.sp, color: Colors.black),
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: SizedBox(
-              height: 200.h,
+              height: 250.h,
               width: double.infinity.w,
               child: Expanded(
                 child: ListView.builder(

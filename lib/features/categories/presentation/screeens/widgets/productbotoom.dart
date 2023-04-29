@@ -1,11 +1,12 @@
+import 'package:caphore/core/utils/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProductBottom extends StatelessWidget {
   final String price;
-  final String orginalprice;
+  final String orginalPrice;
   const ProductBottom({
-    super.key, required this.price, required this.orginalprice,
+    super.key, required this.price, required this.orginalPrice,
   });
 
   @override
@@ -26,39 +27,13 @@ class ProductBottom extends StatelessWidget {
       ),
       child: Column(
         children: [
-          ListTile(
-            title: Row(
-              children: [
-                Text(
-                  price,
-                  style: TextStyle(fontSize: 22.sp, color: Colors.blue),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10.w),
-                  child: Container(
-                    height: 25.h,
-                    width: 50.w,
-                    decoration: BoxDecoration(
-                        color: Colors.red,
-                        borderRadius: BorderRadius.circular(20.r)),
-                  ),
-                ),
-              ],
-            ),
-            subtitle: Text(
-              orginalprice,
-              style: TextStyle(
-                  decoration: TextDecoration.lineThrough,
-                  fontSize: 16.sp,
-                  color: Colors.grey),
-            ),
-          ),
+          Text(price,style: TextStyle(color: AppColor.primaryColor,fontSize: 20.sp),),
           ElevatedButton.icon(
             style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.green, fixedSize: Size(250.w, 40.h)),
             onPressed: () {},
-            icon: Icon(Icons.call),
-            label: Text("buy it now"),
+            icon:const Icon(Icons.call),
+            label: Text("اشتري الان",style: TextStyle(fontSize: 18.sp),),
           )
         ],
       ),
