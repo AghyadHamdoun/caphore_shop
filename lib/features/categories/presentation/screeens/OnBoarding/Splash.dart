@@ -9,7 +9,7 @@ class Splash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Timer.periodic(const Duration(seconds: 2), (timer) {
-      Navigator.of(context).pushReplacementNamed("/OBPage");
+      Navigator.of(context).pushReplacementNamed("/pages");
     });
     return Scaffold(
       backgroundColor: Colors.white,
