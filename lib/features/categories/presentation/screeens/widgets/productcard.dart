@@ -22,7 +22,7 @@ class ProductCard extends StatelessWidget {
       width: 150.w,
       child: Card(
         child: Padding(
-          padding:  EdgeInsets.symmetric(vertical: 5.h),
+          padding:  EdgeInsets.symmetric(vertical: 3.h),
           child: Column(
             children: [
               CachedNetworkImage(
@@ -60,9 +60,8 @@ class ProductCard extends StatelessWidget {
                         price,
                         style: TextStyle(fontSize: 16.sp, color: Colors.black),
                       ),
-
                     ],),
-                    Spacer(),
+                    const Spacer(),
                     Icon(
                       Icons.shopping_bag,
                       color: AppColor.accentColor,
