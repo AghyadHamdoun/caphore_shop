@@ -19,12 +19,35 @@ class maintextform extends StatelessWidget {
           decoration: InputDecoration(
             filled: true,
             fillColor: AppColor.primaryColor,
-            hintText: 'caphore',
-            hintStyle: TextStyle(fontSize: 18.sp, color: AppColor.accentColor,fontWeight: FontWeight.bold),
             suffixIcon: Icon(
               Icons.notifications,
               size: 28.sp,
               color: AppColor.accentColor,
+            ),
+            prefixIcon: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 6.w),
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.search,
+                    size: 28.sp,
+                    color: AppColor.accentColor,
+                  ),
+                  Text(
+                    " CAPHORE",
+                    style:
+                        TextStyle(fontSize: 15.sp, color: AppColor.accentColor),
+                  ),
+                  SizedBox(
+                    height: 60.h,
+                    width: 70.w,
+                    child: Image.asset(
+                      "assets/images/TT copy.png",
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ],
+              ),
             ),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),

@@ -28,9 +28,9 @@ class OBPage extends StatelessWidget {
             child: AnimatedSmoothIndicator(
               activeIndex: controller.currentPage,
               count: 3,
-              effect: const WormEffect(
+              effect:  WormEffect(
                 activeDotColor: Colors.black,
-                dotHeight: 5.0,
+                dotHeight: 5.0.h,
               ),
             ),
           ),

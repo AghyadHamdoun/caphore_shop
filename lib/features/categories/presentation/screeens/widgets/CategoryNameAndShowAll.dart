@@ -19,7 +19,7 @@ class CategoryNameAndShowAll extends StatelessWidget {
         children: [
            Text(name,style: TextStyle(fontSize: 18.sp,fontWeight: FontWeight.bold),),
           InkWell(
-onTap:(){},
+            onTap:(){},
             child: Row(
               children: [
 
