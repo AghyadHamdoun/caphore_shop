@@ -5,8 +5,11 @@ import 'package:caphore/features/categories/presentation/controller/categories_e
 import 'package:caphore/features/categories/presentation/screeens/Categories.dart';
 import 'package:caphore/features/categories/presentation/screeens/home.dart';
 import 'package:flutter/material.dart';
+
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class MyPages extends StatefulWidget {
   const MyPages({Key? key}) : super(key: key);
@@ -41,13 +44,13 @@ class _MyPagesState extends State<MyPages> {
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
-          items: const [
+          items:  [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
+              icon: SvgPicture.asset('assets/images/home_icon.svg',color: AppColor.accentColor,height: 25.h,width: 20.w,),
               label: "الرئيسية",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.apps),
+              icon: SvgPicture.asset('assets/images/categories3.svg',color: AppColor.accentColor,height: 25.h,width: 20.w,),
               label: "الاصناف",
             ),
           ],

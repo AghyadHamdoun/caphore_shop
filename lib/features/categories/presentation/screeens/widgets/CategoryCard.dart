@@ -27,7 +27,7 @@ class CategoryCard extends StatelessWidget {
                   height: 40.h,
                   width: 40.w,
                   imageUrl: image,
-                  errorWidget: (context, url, error) => Icon(Icons.error),
+                  errorWidget: (context, url, error) => Image.asset('assets/images/TT copy.png'),
                 ),
                 SizedBox(
                   height: 5.h,
