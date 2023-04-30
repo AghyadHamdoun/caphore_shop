@@ -19,8 +19,8 @@ class maintextform extends StatelessWidget {
           decoration: InputDecoration(
             filled: true,
             fillColor: AppColor.primaryColor,
-            hintText: "CAPHORE",
-            hintStyle: TextStyle(fontSize: 16.sp, color: AppColor.accentColor),
+            hintText: 'caphore',
+            hintStyle: TextStyle(fontSize: 18.sp, color: AppColor.accentColor,fontWeight: FontWeight.bold),
             suffixIcon: Icon(
               Icons.notifications,
               size: 28.sp,

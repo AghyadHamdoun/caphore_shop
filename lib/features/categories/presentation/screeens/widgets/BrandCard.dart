@@ -36,7 +36,7 @@ class BrandCard extends StatelessWidget {
               ),
               child:  CachedNetworkImage(
                 imageUrl: image,
-                errorWidget: (context, url, error) => const Icon(Icons.error),
+                errorWidget: (context, url, error) => Image.asset('assets/images/TT copy.png'),
               ),
             ),
           );

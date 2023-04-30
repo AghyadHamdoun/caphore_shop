@@ -2,7 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:caphore/core/utils/app_color.dart';
 import 'package:caphore/features/categories/presentation/screeens/product.dart';
 import 'package:flutter/material.dart';
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class ProductCard extends StatelessWidget {
   final String productname;
@@ -31,7 +33,7 @@ class ProductCard extends StatelessWidget {
                 imageUrl: image,
                 errorWidget: (BuildContext context,
                     String url,
-                    dynamic error)=>const Icon(Icons.error),
+                    dynamic error)=> Image.asset('assets/images/TT copy.png'),
               ),
               Padding(
                 padding:  EdgeInsets.only(top: 5.h),
@@ -57,17 +59,13 @@ class ProductCard extends StatelessWidget {
                             color: Colors.grey),
                       ),
                       Text(
-                        price,
+                        "$price ل.س ",
                         style: TextStyle(fontSize: 16.sp, color: Colors.black),
                       ),
 
                     ],),
                     Spacer(),
-                    Icon(
-                      Icons.shopping_bag,
-                      color: AppColor.accentColor,
-                      size: 25.r,
-                    )
+                    SvgPicture.asset('assets/images/buy.svg',color: AppColor.accentColor,height: 20.h,)
                   ],
                 ),
               ),
