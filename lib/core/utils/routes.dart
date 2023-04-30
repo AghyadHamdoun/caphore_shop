@@ -2,6 +2,7 @@ import 'package:caphore/features/categories/presentation/screeens/Categories.dar
 import 'package:caphore/features/categories/presentation/screeens/OnBoarding/OBPage.dart';
 import 'package:caphore/features/categories/presentation/screeens/SubCategorys.dart';
 import 'package:caphore/features/categories/presentation/screeens/categoryproducts.dart';
+import 'package:caphore/features/categories/presentation/screeens/pages/pages.dart';
 import 'package:caphore/features/categories/presentation/screeens/product.dart';
 import 'package:caphore/features/categories/presentation/screeens/search.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,6 @@ class MyRoutes {
           image: '',
         ),
     "/OBPage": (context) => const OBPage(),
-    "/MyPages": (context) => const MyPages(),
+    "/pages": (context) => const MyPages()
   };
 }
