@@ -1,5 +1,4 @@
 import 'package:caphore/core/utils/enums.dart';
-import 'package:caphore/features/categories/domain/entities/categories.dart';
 import 'package:caphore/features/categories/domain/usecases/get_all_categories_usecase.dart';
 import 'package:caphore/features/categories/domain/usecases/get_gategory_products_usecase.dart';
 import 'package:caphore/features/categories/domain/usecases/get_product_details_usecase.dart';
@@ -25,7 +24,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
               allCategoriesMessage: l.message,
               allCategoriesState: RequestState.error)), (r) {
         emit(state.copyWith(
-            allCategories: r,
+            allCategories: r.skipWhile((value) => value.parent!=0 || value.image.src=='').toList(),
             allCategoriesState: RequestState.loaded,
             categoryParents: r.groupListsBy((element) => element.parent)));
       });

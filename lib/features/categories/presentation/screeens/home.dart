@@ -1,12 +1,9 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_bloc.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_state.dart';
 import 'package:caphore/features/categories/presentation/screeens/categoryproducts.dart';
-import 'package:caphore/features/categories/presentation/screeens/product.dart';
-import 'package:caphore/features/categories/presentation/screeens/widgets/BrandCard.dart';
+import 'package:caphore/features/categories/presentation/screeens/component/brands_component.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/CategoryNameAndShowAll.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/ImageSlider.dart';
-import 'package:caphore/features/categories/presentation/screeens/widgets/productcard.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/salesavatar.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/textformfild.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +12,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
-
   @override
   Widget build(BuildContext context) {
     List<String> imeges = [
@@ -55,52 +51,26 @@ class Home extends StatelessWidget {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => CategoryProducts(
-                                            categoryId:
-                                                state.allCategories[index].id,
-                                            categoryName: state
-                                                .allCategories[index].name, )));
+                                        builder: (context) =>
+                                            CategoryProducts(
+                                              categoryId:
+                                              state.allCategories[index].id,
+                                              categoryName: state
+                                                  .allCategories[index]
+                                                  .name,)));
                               },
                               child: SalesAvatar(
                                   name: state.allCategories[index].name,
-                                  image: state.allCategories[index].image.src));
+                                  image: state.allCategories[index].image
+                                      .src));
                         },
                       ),
                     ),
                     const CategoryNameAndShowAll(
-                      name: '',
+                      name: 'الماركات',
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: SizedBox(
-                        height: 280.h,
-                        width: double.infinity.w,
-                        child: Expanded(
-                          child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            itemCount: state.lastProducts.length,
-                            itemBuilder: (BuildContext context, int index) {
-                              return InkWell(
-                                onTap: (){
-                                  Navigator.push(context, MaterialPageRoute(
-                                      builder: (context) => ProductScreen(product:state.lastProducts[index],)));
-                                },
-                                child: ProductCard(
-                                  productname: state.lastProducts[index].name,
-                                  price: state.lastProducts[index].price,
-                                  orginalprice:
-                                      state.lastProducts[index].regularPrice,
-                                  image: state
-                                          .lastProducts[index].images.isNotEmpty
-                                      ? state.lastProducts[index].images[0].src
-                                      : '',
-                                ),
-                              );
-                            },
-                          ),
-                        ),
-                      ),
-                    ),
+                    const BrandComponent(),
+
                     // const Padding(
                     //   padding: EdgeInsets.all(8.0),
                     //   child: BrandCard(
@@ -117,3 +87,5 @@ class Home extends StatelessWidget {
     );
   }
 }
+
+

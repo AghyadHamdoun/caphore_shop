@@ -12,7 +12,7 @@ final sl = GetIt.instance;
 class ServicesLocator {
   void init() {
     /// Bloc
-    sl.registerFactory(() => CategoriesBloc(sl(), sl(), sl()));
+    sl.registerLazySingleton(() => CategoriesBloc(sl(), sl(), sl()));
 
     /// Use Cases
     sl.registerLazySingleton(() => GetAllCategoriesUseCase(sl()));
