@@ -8,6 +8,7 @@ import 'package:caphore/features/categories/presentation/screeens/search.dart';
 import 'package:flutter/material.dart';
 
 import '../../features/categories/presentation/screeens/home.dart';
+import '../../features/categories/presentation/screeens/pages/pages.dart';
 
 class MyRoutes {
   static Map<String, WidgetBuilder> routes = {
