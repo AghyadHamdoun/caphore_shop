@@ -20,7 +20,7 @@ class SalesAvatar extends StatelessWidget {
           CachedNetworkImage(
             height: 80.h,
             width: 75.w,
-            imageUrl: image,errorWidget: (BuildContext context,a,b)=>const Icon(Icons.error),
+            imageUrl: image,errorWidget: (BuildContext context,a,b)=> Image.asset('assets/images/TT copy.png'),
           ),
           SizedBox(
             height: 10.h,
