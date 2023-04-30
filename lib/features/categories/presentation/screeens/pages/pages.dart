@@ -27,48 +27,45 @@ class _MyPagesState extends State<MyPages> {
     super.initState();
     controller = PageController(initialPage: select);
   }
-
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => sl<CategoriesBloc>()
-        ..add(GetAllCategoriesEvent())
-        ..add(const GetLastProductsEvent(pageNum: 1,categoryId: 42)),
-      child: Scaffold(
-        body: PageView(
-          controller: controller,
-          physics: const NeverScrollableScrollPhysics(),
-          children: const [
-            Home(),
-            Categories(),
-          ],
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          items:  [
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/images/home_icon.svg',color: AppColor.accentColor,height: 25.h,width: 20.w,),
-              label: "الرئيسية",
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/images/categories3.svg',color: AppColor.accentColor,height: 25.h,width: 20.w,),
-              label: "الاصناف",
-            ),
-          ],
-          currentIndex: select,
-          onTap: (index) {
-            setState(() {
-              select = index;
-            });
-            controller.jumpToPage(select);
-          },
-          selectedItemColor: AppColor.accentColor,
-          selectedFontSize: 16.sp,
-          selectedIconTheme:
-              IconThemeData(size: 30.r, color: AppColor.accentColor),
-          showUnselectedLabels: false,
-          unselectedIconTheme: IconThemeData(size: 30.r, color: Colors.grey),
-        ),
+  create: (context) => sl<CategoriesBloc>()..add(GetAllCategoriesEvent())..add(GetLastProductsEvent(pageNum: 1, categoryId: 42)),
+  child: Scaffold(
+      body: PageView(
+        controller: controller,
+        physics: const NeverScrollableScrollPhysics(),
+        children: const [
+          Home(),
+          Categories(),
+        ],
       ),
-    );
+      bottomNavigationBar: BottomNavigationBar(
+        items:  [
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset('assets/images/home_icon.svg',color: AppColor.accentColor,height: 25.h,width: 20.w,),
+            label: "الرئيسية",
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset('assets/images/categories3.svg',color: AppColor.accentColor,height: 25.h,width: 20.w,),
+            label: "الاصناف",
+          ),
+        ],
+        currentIndex: select,
+        onTap: (index) {
+          setState(() {
+            select = index;
+          });
+          controller.jumpToPage(select);
+        },
+        selectedItemColor: AppColor.accentColor,
+        selectedFontSize: 16.sp,
+        selectedIconTheme:
+            IconThemeData(size: 30.r, color: AppColor.accentColor),
+        showUnselectedLabels: false,
+        unselectedIconTheme: IconThemeData(size: 30.r, color: Colors.grey),
+      ),
+    ),
+);
   }
 }

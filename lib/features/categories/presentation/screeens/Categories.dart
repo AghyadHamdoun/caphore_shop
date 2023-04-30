@@ -29,7 +29,8 @@ class _CategoriesState extends State<Categories> {
               ),
               Expanded(
                 child: GridView.builder(
-                  padding: EdgeInsets.symmetric(horizontal: 10.w,vertical: 10.h),
+                  padding: EdgeInsets.symmetric(
+                      horizontal: 10.w, vertical: 10.h),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
                   ),
@@ -38,7 +39,9 @@ class _CategoriesState extends State<Categories> {
                   itemBuilder: (BuildContext context, int index) {
                     return SizedBox(
                       height: 120.h,
-                      child: CategoryCard(name: state.allCategories[index].name,image: state.allCategories[index].image.src,),
+                      child: CategoryCard(name: state.allCategories[index]
+                          .name,
+                        image: state.allCategories[index].image.src,),
                     );
                   },
                 ),
