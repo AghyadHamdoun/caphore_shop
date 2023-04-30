@@ -19,7 +19,7 @@ class CategoryNameAndShowAll extends StatelessWidget {
         children: [
            Text("المنتجات الجديدة",style: TextStyle(fontSize: 18.sp,fontWeight: FontWeight.bold),),
           InkWell(
-onTap:(){},
+            onTap:(){},
             child: Row(
               children: [
 
