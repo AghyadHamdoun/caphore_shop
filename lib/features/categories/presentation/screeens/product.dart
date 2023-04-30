@@ -33,47 +33,47 @@ final Product product;
       body: ListView(
         children: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding:  EdgeInsets.symmetric(horizontal: 8.w,vertical: 8.h),
             child: ImageSliderWithIndex(imeges: product.images.map((e) => e.src).toList()),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding:  EdgeInsets.symmetric(horizontal: 8.w,vertical: 8.h),
             child: Text(
               product.name,
               style: TextStyle(fontSize: 20.sp, color: Colors.black),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding:  EdgeInsets.symmetric(horizontal: 8.w,vertical: 8.h),
             child: Divider(
               color: const Color.fromARGB(255, 95, 95, 95),
               thickness: 1.h,
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding:  EdgeInsets.symmetric(horizontal: 8.w,vertical: 8.h),
             child: Text(
               "الوصف:",
               style: TextStyle(fontSize: 20.sp, color: Colors.black),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding:  EdgeInsets.symmetric(horizontal: 8.w,vertical: 8.h),
             child: Text(
           product.description,
               style: TextStyle(
-                  fontSize: 18.sp, color: Color.fromARGB(255, 73, 73, 73)),
+                  fontSize: 18.sp, color: const Color.fromARGB(255, 73, 73, 73)),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding:  EdgeInsets.symmetric(horizontal: 8.w,vertical: 8.h),
             child: Text(
               "قد يعجبك ايضا",
               style: TextStyle(fontSize: 20.sp, color: Colors.black),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding:  EdgeInsets.symmetric(horizontal: 8.w,vertical: 8.h),
             child: SizedBox(
               height: 250.h,
               width: double.infinity.w,
@@ -82,7 +82,7 @@ final Product product;
                   scrollDirection: Axis.horizontal,
                   itemCount: 20,
                   itemBuilder: (BuildContext context, int index) {
-                    return  ProductCard(productname: '', price: '', orginalprice: '', image: '',);
+                    return  const ProductCard(productname: '', price: '', orginalprice: '', image: '',);
                   },
                 ),
               ),

@@ -41,10 +41,13 @@ class Search extends StatelessWidget {
             Expanded(
               child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2, childAspectRatio: 0.8.h),
+                    crossAxisCount: 2, childAspectRatio: 0.6.h),
                 itemCount: 20,
                 itemBuilder: (BuildContext context, int index) {
-                  return ProductCard(productname: '', price: '', orginalprice: '', image: '',);
+                  return Padding(
+                    padding:  EdgeInsets.symmetric(horizontal: 3.w,vertical: 3.h),
+                    child: const ProductCard(productname: '', price: '', orginalprice: '', image: '',),
+                  );
                 },
               ),
             ),
