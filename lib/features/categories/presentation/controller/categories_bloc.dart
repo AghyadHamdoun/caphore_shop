@@ -37,7 +37,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     //last Products Event
     on<GetLastProductsEvent>((event, emit) async {
       final result = await getCategoryProductsUseCase(
-          const CategoryProductsParameters(categoryId: 42, page: 1));
+           CategoryProductsParameters(categoryId: event.categoryId, page: event.pageNum));
       result.fold((l) =>
         emit(state.copyWith(
           lastProductsMessage: l.message,
