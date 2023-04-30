@@ -33,7 +33,7 @@ class _MyPagesState extends State<MyPages> {
     return BlocProvider(
       create: (context) => sl<CategoriesBloc>()
         ..add(GetAllCategoriesEvent())
-        ..add(GetLastProductsEvent()),
+        ..add(const GetLastProductsEvent(pageNum: 1,categoryId: 42)),
       child: Scaffold(
         body: PageView(
           controller: controller,
