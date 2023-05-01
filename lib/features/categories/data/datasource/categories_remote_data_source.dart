@@ -23,6 +23,7 @@ class CategoriesRemoteDateSource extends BaseCategoriesRemoteDataSource {
 
   @override
   Future<List<CategoryModel>> getAllCategories() async {
+    print('request----------');
     final response = await Dio().get(ApiConstance.allCategoriesPath);
     if (response.statusCode == 200) {
       return List<CategoryModel>.from((response.data).map(
@@ -36,6 +37,7 @@ class CategoriesRemoteDateSource extends BaseCategoriesRemoteDataSource {
 
   @override
   Future<List<ProductModel>> getAllCategoryProducts(int id, int page) async {
+    print('products----------------');
     final response =
         await Dio().get(ApiConstance.allCategoryProductsPath(id, page));
     if (response.statusCode == 200) {
