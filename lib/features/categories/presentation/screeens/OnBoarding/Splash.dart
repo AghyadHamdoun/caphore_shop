@@ -25,11 +25,9 @@ class Splash extends StatelessWidget {
               SizedBox(
                 height: 500.h,
                 width: 500.w,
-                child: Image.asset("assets/images/TT copy.png"),
+                child:Image.asset("assets/images/TT copy.png"),
               ),
-              SizedBox(
-                height: 100.h,
-              ),
+             const Spacer(),
               SizedBox(
                 height: 80.h,
                 child: Text(

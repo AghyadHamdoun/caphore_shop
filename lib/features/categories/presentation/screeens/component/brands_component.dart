@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:animate_do/animate_do.dart';
+import 'package:lottie/lottie.dart';
 
 
 class BrandComponent extends StatelessWidget {
@@ -20,17 +21,22 @@ class BrandComponent extends StatelessWidget {
       buildWhen: (previous, current) =>
       previous.lastProductsState != current.lastProductsState,
       builder: (context, state) {
-        switch (state.lastProductsState){
+        switch (state.lastProductsState) {
           case RequestState.loading:
-            return  SizedBox(
+            return SizedBox(
               height: 280.h,
-              child:const Center(
-                child: CircularProgressIndicator(),
+              child:  Center(
+                child: Lottie.asset(
+                  'assets/lottie/digishi.json',
+                  width: 250.w,
+                  height: 280.h,
+                  fit: BoxFit.cover,
+                ),
               ),
             );
           case RequestState.loaded:
             return FadeIn(
-      duration: const Duration(milliseconds: 500),
+              duration: const Duration(milliseconds: 1000),
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
                 child: SizedBox(
@@ -73,7 +79,6 @@ class BrandComponent extends StatelessWidget {
               ),
             );
         }
-
       },
     );
   }

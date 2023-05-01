@@ -33,13 +33,8 @@ class maintextform extends StatelessWidget {
                     size: 28.sp,
                     color: AppColor.accentColor,
                   ),
-                  Text(
-                    " CAPHORE",
-                    style:
-                        TextStyle(fontSize: 15.sp, color: AppColor.accentColor),
-                  ),
                   SizedBox(
-                    height: 60.h,
+                    height: 80.h,
                     width: 70.w,
                     child: Image.asset(
                       "assets/images/TT copy.png",
