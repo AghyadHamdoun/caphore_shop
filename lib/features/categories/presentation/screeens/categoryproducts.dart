@@ -39,7 +39,7 @@ class CategoryProducts extends StatelessWidget {
                       itemCount: 20,
                       shrinkWrap: true,
                       itemBuilder: (BuildContext context, int index) {
-                        return ProductCard(
+                        return  ProductCard(
                           productname: '',
                           price: '',
                           orginalprice: '',
