@@ -38,6 +38,7 @@ class _MyPagesState extends State<MyPages> {
         children: const [
           Home(),
           Categories(),
+
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(

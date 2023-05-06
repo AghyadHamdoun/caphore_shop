@@ -51,23 +51,21 @@ class Home extends StatelessWidget {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) =>
-                                            CategoryProducts(
+                                        builder: (context) => CategoryProducts(
                                               categoryId:
-                                              state.allCategories[index].id,
+                                                  state.allCategories[index].id,
                                               categoryName: state
-                                                  .allCategories[index]
-                                                  .name,)));
+                                                  .allCategories[index].name,
+                                            )));
                               },
                               child: SalesAvatar(
                                   name: state.allCategories[index].name,
-                                  image: state.allCategories[index].image
-                                      .src));
+                                  image: state.allCategories[index].image.src));
                         },
                       ),
                     ),
                     const CategoryNameAndShowAll(
-                      name: 'الماركات',
+                      name: 'المنتجات',
                     ),
                     const BrandComponent(),
 
@@ -87,5 +85,3 @@ class Home extends StatelessWidget {
     );
   }
 }
-
-
