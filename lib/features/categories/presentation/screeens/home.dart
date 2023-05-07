@@ -64,7 +64,8 @@ class Home extends StatelessWidget {
                         },
                       ),
                     ),
-                    const CategoryNameAndShowAll(
+                     CategoryNameAndShowAll(
+                      showAllCallBack: (){},
                       name: 'المنتجات',
                     ),
                     const BrandComponent(),
