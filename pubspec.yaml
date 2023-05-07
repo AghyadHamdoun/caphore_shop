@@ -54,7 +54,8 @@ dependencies:
   smooth_page_indicator: ^1.1.0
   flutter_svg:
   lottie: ^2.3.2
-
+  dependencies:
+  simple_html_css: ^4.0.0
 
 
 dev_dependencies:

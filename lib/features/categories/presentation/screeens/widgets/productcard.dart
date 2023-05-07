@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:caphore/core/utils/app_color.dart';
-import 'package:caphore/features/categories/presentation/screeens/product.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -52,7 +51,7 @@ class ProductCard extends StatelessWidget {
                   children: [
                     Column(children: [
                       Text(
-                        orginalprice,
+                        "$orginalprice ",
                         style: TextStyle(
                             decoration: TextDecoration.lineThrough,
                             fontSize: 12.sp,
@@ -63,7 +62,7 @@ class ProductCard extends StatelessWidget {
                         style: TextStyle(fontSize: 16.sp, color: Colors.black),
                       ),
                     ],),
-                    Spacer(),
+                   const Spacer(),
                     SvgPicture.asset('assets/images/buy.svg',color: AppColor.accentColor,height: 20.h,)
 
                   ],

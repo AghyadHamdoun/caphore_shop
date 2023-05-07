@@ -27,7 +27,7 @@ class ProductBottom extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Text(price,style: TextStyle(color: AppColor.primaryColor,fontSize: 20.sp),),
+          Text('$price ل.س ',style: TextStyle(color: AppColor.primaryColor,fontSize: 20.sp),),
           ElevatedButton.icon(
             style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.green, fixedSize: Size(250.w, 40.h)),
