@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
 class Categories extends StatefulWidget {
   const Categories({super.key});
 
@@ -23,25 +22,26 @@ class _CategoriesState extends State<Categories> {
           body: Column(
             children: [
               Padding(
-                padding:
-                EdgeInsets.only(top: 30.h, left: 5.w, right: 5.w, bottom: 0),
+                padding: EdgeInsets.only(
+                    top: 30.h, left: 5.w, right: 5.w, bottom: 0),
                 child: const maintextform(),
               ),
               Expanded(
                 child: GridView.builder(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: 10.w, vertical: 10.h),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
+                    crossAxisCount: 2,
                   ),
                   itemCount: state.allCategories.length,
                   physics: const BouncingScrollPhysics(),
                   itemBuilder: (BuildContext context, int index) {
                     return SizedBox(
                       height: 120.h,
-                      child: CategoryCard(name: state.allCategories[index]
-                          .name,
-                        image: state.allCategories[index].image.src,),
+                      child: CategoryCard(
+                        name: state.allCategories[index].name,
+                        image: state.allCategories[index].image.src,
+                      ),
                     );
                   },
                 ),

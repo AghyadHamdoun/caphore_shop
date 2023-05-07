@@ -20,7 +20,7 @@ class maintextform extends StatelessWidget {
             filled: true,
             fillColor: AppColor.primaryColor,
             suffixIcon: Icon(
-              Icons.notifications,
+              Icons.search,
               size: 28.sp,
               color: AppColor.accentColor,
             ),
@@ -28,14 +28,9 @@ class maintextform extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 6.w),
               child: Row(
                 children: [
-                  Icon(
-                    Icons.search,
-                    size: 28.sp,
-                    color: AppColor.accentColor,
-                  ),
                   SizedBox(
                     height: 80.h,
-                    width: 70.w,
+                    width: 90.w,
                     child: Image.asset(
                       "assets/images/TT copy.png",
                       fit: BoxFit.cover,

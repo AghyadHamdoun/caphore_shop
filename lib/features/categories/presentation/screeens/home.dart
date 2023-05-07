@@ -2,7 +2,6 @@ import 'package:caphore/features/categories/presentation/controller/categories_b
 import 'package:caphore/features/categories/presentation/controller/categories_state.dart';
 import 'package:caphore/features/categories/presentation/screeens/categoryproducts.dart';
 import 'package:caphore/features/categories/presentation/screeens/component/brands_component.dart';
-import 'package:caphore/features/categories/presentation/screeens/component/men_clothing_component.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/CategoryNameAndShowAll.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/ImageSlider.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/salesavatar.dart';
@@ -13,13 +12,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
-
   @override
   Widget build(BuildContext context) {
     List<String> imeges = [
-      "https://caphore.sy/wp-content/uploads/2022/12/zona_optimized.jpg",
-      "https://caphore.sy/wp-content/uploads/2022/11/jf-1_optimized.jpg",
-      "https://caphore.sy/wp-content/uploads/2023/03/whatsapp-image-2023-03-11-at-7_optimized.51.19-pm-min-1024x438-1.jpg"
+      "https://images.unsplash.com/photo-1564419320461-6870880221ad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+      "https://plus.unsplash.com/premium_photo-1673971700988-346588461fa7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80",
+      "https://images.unsplash.com/photo-1680263547745-4e0555920ea2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
     ];
 
     return BlocBuilder<CategoriesBloc, CategoriesState>(
@@ -66,22 +64,8 @@ class Home extends StatelessWidget {
                         },
                       ),
                     ),
-                    CategoryNameAndShowAll(
-                      name: 'الالبسة الرجالية',
-                      showAllCallBack: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const CategoryProducts(
-                                      categoryId: 44,
-                                      categoryName: 'الالبسة الرجالية',
-                                    )));
-                      },
-                    ),
-                    const MenClothingComponent(),
-                    CategoryNameAndShowAll(
-                      name: 'الالبسة النسائية',
-                      showAllCallBack: () {},
+                    const CategoryNameAndShowAll(
+                      name: 'المنتجات',
                     ),
                     const BrandComponent(),
 
