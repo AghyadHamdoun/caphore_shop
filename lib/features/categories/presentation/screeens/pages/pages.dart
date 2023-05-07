@@ -30,7 +30,7 @@ class _MyPagesState extends State<MyPages> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-  create: (context) => sl<CategoriesBloc>()..add(GetAllCategoriesEvent())..add(GetLastProductsEvent(pageNum: 1, categoryId: 42)),
+  create: (context) => sl<CategoriesBloc>()..add(GetAllCategoriesEvent())..add(GetLastProductsEvent(pageNum: 1, categoryId: 42))..add(const GetMenClothingProductsEvent(pageNum: 1, categoryId: 44)),
   child: Scaffold(
       body: PageView(
         controller: controller,

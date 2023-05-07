@@ -4,8 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CategoryNameAndShowAll extends StatelessWidget {
   final String name;
-  const CategoryNameAndShowAll({
-    super.key, required this.name,
+  GestureTapCallback showAllCallBack;
+   CategoryNameAndShowAll({
+    super.key, required this.name,required this.showAllCallBack
   });
 
   @override
@@ -19,7 +20,7 @@ class CategoryNameAndShowAll extends StatelessWidget {
         children: [
            Text(name,style: TextStyle(fontSize: 18.sp,fontWeight: FontWeight.bold),),
           InkWell(
-            onTap:(){},
+            onTap:showAllCallBack,
             child: Row(
               children: [
 

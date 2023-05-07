@@ -46,7 +46,38 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
             lastProducts: r,
             lastProductsState: RequestState.loaded
           )));
-    });
+    }
+    );
+    //men clothing event
+    on<GetMenClothingProductsEvent>((event, emit) async {
+      final result = await getCategoryProductsUseCase(
+          CategoryProductsParameters(categoryId: event.categoryId, page: event.pageNum));
+      result.fold((l) =>
+          emit(state.copyWith(
+              menClothingProductsMessage: l.message,
+              menClothingProductsState: RequestState.error
+          ))
+          , (r) => emit(state.copyWith(
+              menClothingProducts: r,
+              menClothingProductsState: RequestState.loaded
+          )));
+    }
+    );
+    //category Products event
+    on<GetGategoryProductsEvent>((event, emit) async {
+      final result = await getCategoryProductsUseCase(
+          CategoryProductsParameters(categoryId: event.categoryId, page: event.pageNum));
+      result.fold((l) =>
+          emit(state.copyWith(
+              categoryProductsMessage: l.message,
+              categoryProductsState: RequestState.error
+          ))
+          , (r) => emit(state.copyWith(
+              categoryProducts: r,
+              categoryProductsState: RequestState.loaded
+          )));
+    }
+    );
   }
 
   void getProductDetail(int productId, int categoryId) {

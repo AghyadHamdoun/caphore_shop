@@ -9,8 +9,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:lottie/lottie.dart';
 
-class BrandComponent extends StatelessWidget {
-  const BrandComponent({
+class MenClothingComponent extends StatelessWidget {
+  const MenClothingComponent({
     Key? key,
   }) : super(key: key);
 
@@ -18,9 +18,9 @@ class BrandComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CategoriesBloc, CategoriesState>(
       buildWhen: (previous, current) =>
-          previous.lastProductsState != current.lastProductsState,
+      previous.menClothingProductsState != current.menClothingProductsState,
       builder: (context, state) {
-        switch (state.lastProductsState) {
+        switch (state.menClothingProductsState) {
           case RequestState.loading:
             return SizedBox(
               height: 280.h,
@@ -44,8 +44,8 @@ class BrandComponent extends StatelessWidget {
                   child: Expanded(
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
-                      itemCount: state.lastProducts.length < 10
-                          ? state.lastProducts.length
+                      itemCount: state.menClothingProducts.length < 10
+                          ? state.menClothingProducts.length
                           : 10,
                       itemBuilder: (BuildContext context, int index) {
                         return InkWell(
@@ -54,16 +54,16 @@ class BrandComponent extends StatelessWidget {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => ProductScreen(
-                                          product: state.lastProducts[index],
-                                        )));
+                                      product: state.menClothingProducts[index],
+                                    )));
                           },
                           child: ProductCard(
-                            productname: state.lastProducts[index].name,
-                            price: state.lastProducts[index].price,
+                            productname: state.menClothingProducts[index].name,
+                            price: state.menClothingProducts[index].price,
                             orginalprice:
-                                state.lastProducts[index].regularPrice,
-                            image: state.lastProducts[index].images.isNotEmpty
-                                ? state.lastProducts[index].images[0].src
+                            state.menClothingProducts[index].regularPrice,
+                            image: state.menClothingProducts[index].images.isNotEmpty
+                                ? state.menClothingProducts[index].images[0].src
                                 : '',
                           ),
                         );
@@ -77,7 +77,7 @@ class BrandComponent extends StatelessWidget {
             return SizedBox(
               height: 280.h,
               child: Center(
-                child: Text(state.lastProductsMessage),
+                child: Text(state.menClothingProductsMessage),
               ),
             );
         }

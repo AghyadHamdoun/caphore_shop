@@ -70,6 +70,10 @@ class CategoriesState extends Equatable {
   final List<Product> petsProducts;
   final RequestState petsProductsState;
   final String petsProductsMessage;
+  //
+  final List<Product> categoryProducts;
+  final RequestState categoryProductsState;
+  final String categoryProductsMessage;
 
 
   // 2
@@ -145,6 +149,10 @@ class CategoriesState extends Equatable {
     this.petsProducts = const [],
     this.petsProductsState = RequestState.loading,
     this.petsProductsMessage = '',
+    //
+    this.categoryProducts = const [],
+    this.categoryProductsState = RequestState.loading,
+    this.categoryProductsMessage = '',
 
 
 
@@ -215,6 +223,10 @@ class CategoriesState extends Equatable {
     final List<Product>?petsProducts,
     final RequestState? petsProductsState,
     final String? petsProductsMessage,
+    //
+    final List<Product>?categoryProducts,
+    final RequestState? categoryProductsState,
+    final String? categoryProductsMessage,
 
 
 
@@ -312,6 +324,12 @@ class CategoriesState extends Equatable {
           this.petsProductsState,
       petsProductsMessage:petsProductsMessage ??
           this.petsProductsMessage,
+      //
+      categoryProducts: categoryProducts ?? this.categoryProducts,
+      categoryProductsState: categoryProductsState ??
+          this.categoryProductsState,
+      categoryProductsMessage:categoryProductsMessage ??
+          this.categoryProductsMessage,
     );
   }
 
@@ -382,6 +400,10 @@ class CategoriesState extends Equatable {
     petsProductsState,
     petsProductsMessage,
     petsProducts,
+    //
+    categoryProducts,
+    categoryProductsMessage,
+    categoryProductsState
 
 
 
