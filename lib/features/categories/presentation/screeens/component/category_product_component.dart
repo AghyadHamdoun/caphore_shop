@@ -20,9 +20,9 @@ class _CategoryProductComponentState extends State<CategoryProductComponent> {
   Widget build(BuildContext context) {
     return BlocBuilder<CategoriesBloc, CategoriesState>(
       buildWhen: (previous, current) =>
-      previous.categoryProductsState != current.categoryProductsState,
+          previous.categoryProductsState != current.categoryProductsState,
       builder: (context, state) {
-         switch (state.categoryProductsState) {
+        switch (state.categoryProductsState) {
           case RequestState.loading:
             return Container(
               alignment: Alignment.center,
@@ -34,20 +34,17 @@ class _CategoryProductComponentState extends State<CategoryProductComponent> {
               ),
             );
           case RequestState.loaded:
-            return  GridView.builder(
-              gridDelegate:
-              SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, childAspectRatio: 0.8.h),
+            return GridView.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2, childAspectRatio: 0.6.h),
               itemCount: state.categoryProducts.length,
               shrinkWrap: true,
               itemBuilder: (BuildContext context, int index) {
                 return ProductCard(
                   productname: state.categoryProducts[index].name,
                   price: state.categoryProducts[index].price,
-                  orginalprice:
-                  state.categoryProducts[index].regularPrice,
-                  image:
-                  state.categoryProducts[index].images[0].src,
+                  orginalprice: state.categoryProducts[index].regularPrice,
+                  image: state.categoryProducts[index].images[0].src,
                 );
               },
             );
