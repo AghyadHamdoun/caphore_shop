@@ -1,6 +1,7 @@
 import 'package:caphore/core/utils/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'dart:io' show Platform;
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -42,7 +43,11 @@ class ProductBottom extends StatelessWidget {
             onPressed: () {
               whatsapp();
             },
-            icon: const Icon(Icons.call),
+            icon: SvgPicture.asset(
+              'assets/images/icons8-whatsapp.svg',
+              height: 25.h,
+              width: 20.w,
+            ),
             label: Text(
               "اشتري الان",
               style: TextStyle(fontSize: 18.sp),
