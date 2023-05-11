@@ -13,8 +13,9 @@ import 'package:simple_html_css/simple_html_css.dart';
 
 class ProductScreen extends StatelessWidget {
 final Product product;
+final List <Product> products;
 
-  const ProductScreen({super.key, required this.product});
+  const ProductScreen({super.key, required this.product, required this.products,});
 
   @override
   Widget build(BuildContext context) {
@@ -80,9 +81,14 @@ final Product product;
                 child: Expanded(
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: 20,
+                    itemCount: products.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return  const ProductCard(productname: '', price: '', orginalprice: '', image: '',);
+
+                      if(product.id!=products[index].id) {
+                        return  ProductCard(productname: products[index].name, price: products[index].price, orginalprice: products[index].regularPrice, image: products[index].images[0].src,);
+                      } else {
+                        return SizedBox();
+                      }
                     },
                   ),
                 ),

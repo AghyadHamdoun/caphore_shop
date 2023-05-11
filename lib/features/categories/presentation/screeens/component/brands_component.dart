@@ -55,6 +55,7 @@ class BrandComponent extends StatelessWidget {
                                 MaterialPageRoute(
                                     builder: (context) => ProductScreen(
                                           product: state.lastProducts[index],
+                                          products: state.lastProducts,
                                         )));
                           },
                           child: ProductCard(

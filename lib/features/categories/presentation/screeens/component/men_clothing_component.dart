@@ -54,7 +54,7 @@ class MenClothingComponent extends StatelessWidget {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => ProductScreen(
-                                      product: state.menClothingProducts[index],
+                                      product: state.menClothingProducts[index], products:state.menClothingProducts,
                                     )));
                           },
                           child: ProductCard(
