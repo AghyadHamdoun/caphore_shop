@@ -1,6 +1,7 @@
 import 'package:caphore/core/utils/enums.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_bloc.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_state.dart';
+import 'package:caphore/features/categories/presentation/screeens/product.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/productcard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -40,11 +41,21 @@ class _CategoryProductComponentState extends State<CategoryProductComponent> {
               itemCount: state.categoryProducts.length,
               shrinkWrap: true,
               itemBuilder: (BuildContext context, int index) {
-                return ProductCard(
-                  productname: state.categoryProducts[index].name,
-                  price: state.categoryProducts[index].price,
-                  orginalprice: state.categoryProducts[index].regularPrice,
-                  image: state.categoryProducts[index].images[0].src,
+                return InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ProductScreen(
+                              product: state.categoryProducts[index], products:state.categoryProducts,
+                            )));
+                  },
+                  child: ProductCard(
+                    productname: state.categoryProducts[index].name,
+                    price: state.categoryProducts[index].price,
+                    orginalprice: state.categoryProducts[index].regularPrice,
+                    image: state.categoryProducts[index].images[0].src,
+                  ),
                 );
               },
             );
