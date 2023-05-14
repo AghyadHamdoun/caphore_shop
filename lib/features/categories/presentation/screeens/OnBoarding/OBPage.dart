@@ -1,41 +1,55 @@
-import 'package:caphore/core/utils/app_color.dart';
-import 'package:caphore/features/categories/presentation/screeens/OnBoarding/OBwidgets/OBwidget2.dart';
-import 'package:caphore/features/categories/presentation/screeens/OnBoarding/OBwidgets/OBwidget3.dart';
+import 'package:caphore/features/categories/presentation/screeens/widgets/OBwidget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'OBwidgets/OBwidget1.dart';
 
 class OBPage extends StatelessWidget {
-  const OBPage({Key? key}) : super(key: key);
+  OBPage({Key? key}) : super(key: key);
+
+  final controller = LiquidController();
+  int currentpage = 0;
 
   @override
   Widget build(BuildContext context) {
-     final  pages = [OBwidget1(), OBwidget2(), OBwidget3()];
-    final controller = LiquidController();
+    final pages = [
+      OBwidget(
+        image: "assets/images/1R.png",
+        text1: "text1",
+        text2: "text2",
+      ),
+      OBwidget(
+        image: "assets/images/2R.png",
+        text1: "text1",
+        text2: "text2",
+      ),
+      OBwidget(
+        image: "assets/images/3R.png",
+        text1: "text1",
+        text2: "text2",
+      ),
+    ];
+
     return Scaffold(
       body: Stack(
         children: [
           LiquidSwipe(
+            initialPage: 0,
+            enableLoop: false,
+            liquidController: controller,
+            onPageChangeCallback: onPageChangeCallback,
             pages: pages,
-            slideIconWidget: const Icon(Icons.arrow_back_ios),
-            enableSideReveal: true,
-          ),
-          Positioned(
-            bottom: 30.h,
-            right: 170.w,
-            child: AnimatedSmoothIndicator(
-              activeIndex: controller.currentPage,
-              count: 3,
-              effect:  WormEffect(
-                activeDotColor: Colors.black,
-                dotHeight: 5.0.h,
-              ),
-            ),
+            enableSideReveal: false,
           ),
         ],
       ),
     );
+  }
+
+  void onPageChangeCallback(int activePageIndex) {
+    currentpage = activePageIndex;
+  }
+
+  page1a2f() {
+    int nextpage = controller.currentPage + 1;
+    controller.animateToPage(page: nextpage);
   }
 }

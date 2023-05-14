@@ -16,7 +16,7 @@ class MyRoutes {
           name: '',
           image: '',
         ),
-    "/OBPage": (context) => const OBPage(),
+    "/OBPage": (context) => OBPage(),
     "/pages": (context) => const MyPages()
   };
 }
