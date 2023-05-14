@@ -14,7 +14,6 @@ import 'package:simple_html_css/simple_html_css.dart';
 class ProductScreen extends StatelessWidget {
 final Product product;
 final List <Product> products;
-
   const ProductScreen({super.key, required this.product, required this.products,});
 
   @override

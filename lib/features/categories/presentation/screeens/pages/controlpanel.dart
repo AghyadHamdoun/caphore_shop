@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../../core/utils/app_color.dart';
+import '../../../../../core/utils/app_color.dart';
 
 class ControlPanel extends StatelessWidget {
   const ControlPanel({super.key});
@@ -13,8 +13,10 @@ class ControlPanel extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Container(
+          alignment: Alignment.center,
           color: Colors.white,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: const [
               LegalPageWidget(
                   name: "الشروط والأحكام",
