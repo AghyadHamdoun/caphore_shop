@@ -4,13 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Splash extends StatelessWidget {
-  const Splash({Key? key}) : super(key: key);
+  Splash({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    Timer.periodic(const Duration(seconds: 2), (timer) {
-      Navigator.of(context).pushReplacementNamed("/OBPage");
-    });
+
+      Timer.periodic(const Duration(seconds: 2), (timer) async {
+        Navigator.of(context).pushReplacementNamed("/OBPage");
+      });
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SizedBox(
