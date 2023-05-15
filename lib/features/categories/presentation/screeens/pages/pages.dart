@@ -2,9 +2,9 @@ import 'package:caphore/core/services/services_locator.dart';
 import 'package:caphore/core/utils/app_color.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_bloc.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_event.dart';
-import 'package:caphore/features/categories/presentation/screeens/Categories.dart';
-import 'package:caphore/features/categories/presentation/screeens/controlpanel.dart';
-import 'package:caphore/features/categories/presentation/screeens/home.dart';
+import 'package:caphore/features/categories/presentation/screeens/pages/categories.dart';
+import 'package:caphore/features/categories/presentation/screeens/pages/controlpanel.dart';
+import 'package:caphore/features/categories/presentation/screeens/pages/home.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
