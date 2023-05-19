@@ -1,4 +1,4 @@
-import 'package:caphore/features/categories/presentation/screeens/pages/categories.dart';
+import 'package:caphore/features/categories/presentation/screeens/pages/stores.dart';
 import 'package:caphore/features/categories/presentation/screeens/OnBoarding/OBPage.dart';
 import 'package:caphore/features/categories/presentation/screeens/sub_categories.dart';
 import 'package:caphore/features/categories/presentation/screeens/pages/pages.dart';
@@ -11,7 +11,7 @@ class MyRoutes {
   static Map<String, WidgetBuilder> routes = {
     "/Home": (context) => const Home(),
     "/Search": (context) => const Search(),
-    "/Categories": (context) => const Categories(),
+    "/Stores": (context) => const Stores(),
     "/subcategories": (context) => const subcategorys(
           name: '',
           image: '',

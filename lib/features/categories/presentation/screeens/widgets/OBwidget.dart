@@ -89,22 +89,6 @@ class OBwidget extends StatelessWidget {
                   ),
                 ],
               ),
-              Positioned(
-                bottom: 60.h,
-                left: 130.w,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColor.primaryColor.withOpacity(1),
-                    shape: const StadiumBorder(),
-                    fixedSize: Size(130.w, 45.h),
-                  ),
-                  onPressed: () {},
-                  child: Text(
-                    "   التالي   ",
-                    style: TextStyle(fontSize: 18.sp),
-                  ),
-                ),
-              ),
             ],
           ),
         ),
