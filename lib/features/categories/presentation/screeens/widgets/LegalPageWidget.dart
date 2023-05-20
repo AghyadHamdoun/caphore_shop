@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -5,21 +6,22 @@ import 'package:flutter_svg/svg.dart';
 import '../../../../../core/utils/app_color.dart';
 
 class LegalPageWidget extends StatelessWidget {
-  final GestureTapCallback onTap;
   final String svgpath;
   final String name;
-  const LegalPageWidget({
-    super.key,
+  GestureTapCallback gotopage;
+  LegalPageWidget({
+    Key? key,
     required this.svgpath,
-    required this.name, required this.onTap,
-  });
+    required this.name,
+    required this.gotopage,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 7.w),
       child: InkWell(
-        onTap: onTap,
+        onTap: gotopage,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

@@ -2,7 +2,9 @@ import 'package:caphore/core/services/services_locator.dart';
 import 'package:caphore/core/utils/app_color.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_bloc.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_event.dart';
-import 'package:caphore/features/categories/presentation/screeens/pages/categories.dart';
+import 'package:caphore/features/categories/presentation/screeens/pages/brands.dart';
+import 'package:caphore/features/categories/presentation/screeens/pages/restaurants.dart';
+import 'package:caphore/features/categories/presentation/screeens/pages/stores.dart';
 import 'package:caphore/features/categories/presentation/screeens/pages/controlpanel.dart';
 import 'package:caphore/features/categories/presentation/screeens/pages/home.dart';
 import 'package:flutter/material.dart';
@@ -40,13 +42,24 @@ class _MyPagesState extends State<MyPages> {
           controller: controller,
           physics: const NeverScrollableScrollPhysics(),
           children: const [
+            Brands(),
             Home(),
-            Categories(),
+            Stores(),
+            Restaurants(),
             ControlPanel(),
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
           items: [
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(
+                'assets/images/diamond-svgrepo-com.svg',
+                color: AppColor.accentColor,
+                height: 25.h,
+                width: 20.w,
+              ),
+              label: "الماركات",
+            ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
                 'assets/images/home_icon.svg',
@@ -58,12 +71,21 @@ class _MyPagesState extends State<MyPages> {
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
-                'assets/images/categories3.svg',
+                "assets/images/store-svgrepo-com.svg",
                 color: AppColor.accentColor,
                 height: 25.h,
                 width: 20.w,
               ),
-              label: "الاصناف",
+              label: "المتاجر",
+            ),
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(
+                "assets/images/restaurant-plate-svgrepo-com.svg",
+                color: AppColor.accentColor,
+                height: 25.h,
+                width: 20.w,
+              ),
+              label: "المطاعم",
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
