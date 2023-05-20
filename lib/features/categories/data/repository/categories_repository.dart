@@ -43,5 +43,17 @@ class CategoriesRepository extends BaseCategoriesRepository{
     }
   }
 
+  @override
+  Future<Either<Failure, List<Product>>> getLastProducts(CategoryProductsParameters parameters) async {
+    final result = await baseCategoriesRemoteDataSource.getLastProducts(parameters.page);
+    try {
+      return Right(result);
+    } on ServerException catch (failure) {
+      return Left(ServerFailure(failure.errorMessageModel.statusMessage));
+    }
+  }
+
+
+
 
 }

@@ -10,6 +10,8 @@ import 'package:flutter_wp_woocommerce/woocommerce.dart';
 abstract class BaseCategoriesRemoteDataSource {
   Future<List<ProductModel>> getAllCategoryProducts(int id, int page);
 
+  Future<List<ProductModel>> getLastProducts(int page);
+
   Future<List<CategoryModel>> getAllCategories();
 
   Future<ProductModel> getProductDetails(int id);
@@ -56,6 +58,21 @@ class CategoriesRemoteDateSource extends BaseCategoriesRemoteDataSource {
     final response = await Dio().get(ApiConstance.oneProductsPath(id));
     if (response.statusCode == 200) {
       return response.data;
+    } else {
+      throw ServerException(
+        errorMessageModel: ErrorMessageModel.fromJson(response.data),
+      );
+    }
+  }
+
+  @override
+  Future<List<ProductModel>> getLastProducts(int page) async {
+    final response =
+        await Dio().get(ApiConstance.lastProductsPath(page));
+    if (response.statusCode == 200) {
+      return List<ProductModel>.from((response.data as List).map(
+            (e) => ProductModel.fromJson(e),
+      ));
     } else {
       throw ServerException(
         errorMessageModel: ErrorMessageModel.fromJson(response.data),

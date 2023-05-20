@@ -9,8 +9,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:lottie/lottie.dart';
 
-class BrandComponent extends StatelessWidget {
-  const BrandComponent({
+class LastProductComponent extends StatelessWidget {
+  const LastProductComponent({
     Key? key,
   }) : super(key: key);
 

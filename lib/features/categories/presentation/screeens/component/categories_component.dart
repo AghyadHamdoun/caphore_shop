@@ -1,4 +1,5 @@
 import 'package:caphore/features/categories/presentation/controller/categories_bloc.dart';
+import 'package:caphore/features/categories/presentation/controller/categories_event.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_state.dart';
 import 'package:caphore/features/categories/presentation/screeens/categoryproducts.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/salesavatar.dart';
@@ -16,6 +17,7 @@ class CategoriesComponent extends StatelessWidget {
     previous.allCategoriesState != current.allCategoriesState,
         builder: (context, state) {
       return Container(
+        color: Colors.white12,
         padding: EdgeInsets.symmetric(horizontal: 5.w),
         height: 140.h,
         width: double.infinity,
@@ -29,7 +31,7 @@ class CategoriesComponent extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                           builder: (context) => CategoryProducts(
-                                categoryId: state.allCategories[index].id,
+                              event:GetGategoryProductsEvent(pageNum:1, categoryId: state.allCategories[index].id ) ,
                                 categoryName: state.allCategories[index].name,
                               )));
                 },

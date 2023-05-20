@@ -13,12 +13,13 @@ import 'package:simple_html_css/simple_html_css.dart';
 
 class ProductScreen extends StatelessWidget {
 final Product product;
-final List <Product> products;
+ final List <Product> products;
   const ProductScreen({super.key, required this.product, required this.products,});
 
   @override
   Widget build(BuildContext context) {
-
+    products.sort((a,b){return a.name.hashCode.compareTo(b.name.hashCode);
+    } );
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -82,9 +83,18 @@ final List <Product> products;
                     scrollDirection: Axis.horizontal,
                     itemCount: products.length,
                     itemBuilder: (BuildContext context, int index) {
-
                       if(product.id!=products[index].id) {
-                        return  ProductCard(productname: products[index].name, price: products[index].price, orginalprice: products[index].regularPrice, image: products[index].images[0].src,);
+                        return  InkWell(
+                            onTap: (){
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ProductScreen(
+                                        product: products[index],
+                                        products: products,
+                                      )));
+                            },
+                            child: ProductCard(productname: products[index].name, price: products[index].price, orginalprice: products[index].regularPrice, image: products[index].images.isNotEmpty ?products[index].images[0].src:'',));
                       } else {
                         return SizedBox();
                       }

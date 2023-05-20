@@ -6,14 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class Categories extends StatefulWidget {
+class Categories extends StatelessWidget {
   const Categories({super.key});
 
-  @override
-  State<Categories> createState() => _CategoriesState();
-}
-
-class _CategoriesState extends State<Categories> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CategoriesBloc, CategoriesState>(

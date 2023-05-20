@@ -27,9 +27,8 @@ class GetGategoryProductsEvent extends CategoriesEvent {
 
 class GetLastProductsEvent extends CategoriesEvent {
   final int pageNum;
-  final int categoryId;
 
-  const GetLastProductsEvent({required this.pageNum, required this.categoryId});
+  const GetLastProductsEvent({required this.pageNum});
 }
 
 class GetBrandsProductsEvent extends CategoriesEvent {

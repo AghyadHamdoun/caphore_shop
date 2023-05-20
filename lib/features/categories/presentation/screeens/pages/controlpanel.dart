@@ -17,20 +17,21 @@ class ControlPanel extends StatelessWidget {
           color: Colors.white,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
+            children:  [
               LegalPageWidget(
+                onTap: (){Navigator.pushNamed(context, '/terms');},
                   name: "الشروط والأحكام",
                   svgpath: "assets/images/justice-law-svgrepo-com.svg"),
               LegalPageWidget(
                   name: "لمحة عن كافور",
-                  svgpath: "assets/images/about-svgrepo-com.svg"),
+                  svgpath: "assets/images/about-svgrepo-com.svg", onTap: () {  },),
               LegalPageWidget(
                   name: "سياسة الخصوصية",
-                  svgpath: "assets/images/shield-antivirus-svgrepo-com.svg"),
+                  svgpath: "assets/images/shield-antivirus-svgrepo-com.svg", onTap: () {  },),
               LegalPageWidget(
                   name: " تواصل معنا",
                   svgpath:
-                      "assets/images/headphones-microphone-svgrepo-com.svg"),
+                      "assets/images/headphones-microphone-svgrepo-com.svg", onTap: () {  },),
             ],
           ),
         ),
