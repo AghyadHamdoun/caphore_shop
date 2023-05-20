@@ -8,15 +8,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 
-class CategoryProductComponent extends StatefulWidget {
+class CategoryProductComponent extends StatelessWidget {
   const CategoryProductComponent({Key? key}) : super(key: key);
 
-  @override
-  State<CategoryProductComponent> createState() =>
-      _CategoryProductComponentState();
-}
-
-class _CategoryProductComponentState extends State<CategoryProductComponent> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CategoriesBloc, CategoriesState>(
@@ -54,7 +48,7 @@ class _CategoryProductComponentState extends State<CategoryProductComponent> {
                     productname: state.categoryProducts[index].name,
                     price: state.categoryProducts[index].price,
                     orginalprice: state.categoryProducts[index].regularPrice,
-                    image: state.categoryProducts[index].images[0].src,
+                    image: state.categoryProducts[index].images.isNotEmpty?state.categoryProducts[index].images[0].src:'',
                   ),
                 );
               },

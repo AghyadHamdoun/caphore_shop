@@ -6,10 +6,10 @@ class ApiConstance {
       "cs_3fe564c516e38ed51dcd7caef07c95baadc4f294";
 
   static String allCategoryProductsPath(int id, int page) =>
-      "$baseUrl/products?category=$id&consumer_key=$consumer_key&consumer_secret=$consumer_secret&page=$page";
+      "$baseUrl/products?category=$id&consumer_key=$consumer_key&consumer_secret=$consumer_secret&page=$page&per_page=100";
 
-  static String lastProductsPath() =>
-      "$baseUrl/products?consumer_key=$consumer_key&consumer_secret=$consumer_secret";
+  static String lastProductsPath(int page) =>
+      "$baseUrl/products?consumer_key=$consumer_key&consumer_secret=$consumer_secret&page=$page&per_page=100";
 
   static String brandsProductsPath() =>
       "$baseUrl/tags?consumer_key=$consumer_key&consumer_secret=$consumer_secret";

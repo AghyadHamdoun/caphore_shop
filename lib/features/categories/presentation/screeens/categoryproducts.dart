@@ -10,19 +10,22 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CategoryProducts extends StatelessWidget {
-  final int categoryId;
-  final String categoryName;
+final CategoriesEvent event;
+final String categoryName;
 
   const CategoryProducts(
       {super.key,
-      required this.categoryId,
-      required this.categoryName,});
+        required this.event,
+        required this.categoryName
+   });
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
         create: (context) => sl<CategoriesBloc>()
-          ..add(GetGategoryProductsEvent(pageNum: 1, categoryId: categoryId)),
+          ..add(
+           event
+          ),
         child: Scaffold(
               body: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10.w),

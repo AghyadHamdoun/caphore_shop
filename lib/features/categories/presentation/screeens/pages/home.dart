@@ -1,5 +1,6 @@
+import 'package:caphore/features/categories/presentation/controller/categories_event.dart';
 import 'package:caphore/features/categories/presentation/screeens/categoryproducts.dart';
-import 'package:caphore/features/categories/presentation/screeens/component/brands_component.dart';
+import 'package:caphore/features/categories/presentation/screeens/component/last_product.dart';
 import 'package:caphore/features/categories/presentation/screeens/component/categories_component.dart';
 import 'package:caphore/features/categories/presentation/screeens/component/men_clothing_component.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/CategoryNameAndShowAll.dart';
@@ -35,6 +36,19 @@ class Home extends StatelessWidget {
                   height: 170.h,
                   child: ImageSlider(imeges: imeges),
                 ),
+                CategoryNameAndShowAll(
+                  name: 'عروض كافور',
+                  showAllCallBack: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const CategoryProducts(
+                              event: GetLastProductsEvent(pageNum: 1),
+                              categoryName: 'عروض كافور',
+                            )));
+                  },
+                ),
+                const LastProductComponent(),
                 const CategoriesComponent(),
                 CategoryNameAndShowAll(
                   name: 'الالبسة الرجالية',
@@ -43,17 +57,13 @@ class Home extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => const CategoryProducts(
-                                  categoryId: 44,
+                                  event: GetGategoryProductsEvent(categoryId: 42,pageNum: 1),
                                   categoryName: 'الالبسة الرجالية',
                                 )));
                   },
                 ),
                 const MenClothingComponent(),
-                CategoryNameAndShowAll(
-                  name: 'الالبسة النسائية',
-                  showAllCallBack: () {},
-                ),
-                const BrandComponent(),
+
 
                 // const Padding(
                 //   padding: EdgeInsets.all(8.0),
