@@ -25,7 +25,7 @@ class CategoriesRepository extends BaseCategoriesRepository{
 
   @override
   Future<Either<Failure, List<Product>>> getCategoryProducts(CategoryProductsParameters parameters) async{
-    final result = await baseCategoriesRemoteDataSource.getAllCategoryProducts(parameters.categoryId, parameters.page);
+    final result = await baseCategoriesRemoteDataSource.getAllCategoryProducts(parameters.categoryId, parameters.page,parameters.perPage);
     try {
       return Right(result);
     } on ServerException catch (failure) {
@@ -45,7 +45,7 @@ class CategoriesRepository extends BaseCategoriesRepository{
 
   @override
   Future<Either<Failure, List<Product>>> getLastProducts(CategoryProductsParameters parameters) async {
-    final result = await baseCategoriesRemoteDataSource.getLastProducts(parameters.page);
+    final result = await baseCategoriesRemoteDataSource.getLastProducts(parameters.page,parameters.perPage);
     try {
       return Right(result);
     } on ServerException catch (failure) {

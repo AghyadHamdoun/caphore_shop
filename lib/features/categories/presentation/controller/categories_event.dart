@@ -20,115 +20,130 @@ class GetProductDetailsEvent extends CategoriesEvent {
 class GetGategoryProductsEvent extends CategoriesEvent {
   final int pageNum;
   final int categoryId;
+  final int perPage;
 
   const GetGategoryProductsEvent(
-      {required this.pageNum, required this.categoryId});
+      {required this.pageNum, required this.categoryId,required this.perPage});
 }
 
 class GetLastProductsEvent extends CategoriesEvent {
   final int pageNum;
+  final int perPage;
 
-  const GetLastProductsEvent({required this.pageNum});
+  const GetLastProductsEvent({required this.pageNum,required this.perPage});
 }
 
 class GetBrandsProductsEvent extends CategoriesEvent {
   final int pageNum;
   final int categoryId;
+  final int perPage;
 
   const GetBrandsProductsEvent(
-      {required this.pageNum, required this.categoryId});
+      {required this.pageNum, required this.categoryId,required this.perPage});
 }
 
 class GetWomenClothingProductsEvent extends CategoriesEvent {
   final int pageNum;
   final int categoryId;
+  final int perPage;
 
   const GetWomenClothingProductsEvent(
-      {required this.pageNum, required this.categoryId});
+      {required this.pageNum, required this.categoryId,required this.perPage});
 }
 
 class GetMenClothingProductsEvent extends CategoriesEvent {
   final int pageNum;
   final int categoryId;
+  final int perPage;
 
   const GetMenClothingProductsEvent(
-      {required this.pageNum, required this.categoryId});
+      {required this.pageNum, required this.categoryId,required this.perPage});
 }
 
 class GetChildrenClothingProductsEvent extends CategoriesEvent {
   final int pageNum;
   final int categoryId;
+  final int perPage;
 
   const GetChildrenClothingProductsEvent(
-      {required this.pageNum, required this.categoryId});
+      {required this.pageNum, required this.categoryId,required this.perPage});
 }
 
 class GetFoodProductsEvent extends CategoriesEvent {
   final int pageNum;
   final int categoryId;
+  final int perPage;
 
-  const GetFoodProductsEvent({required this.pageNum, required this.categoryId});
+  const GetFoodProductsEvent({required this.pageNum, required this.categoryId,required this.perPage});
 }
 
 class GetShoesAndBagsProductsEvent extends CategoriesEvent {
   final int pageNum;
   final int categoryId;
+  final int perPage;
 
   const GetShoesAndBagsProductsEvent(
-      {required this.pageNum, required this.categoryId});
+      {required this.pageNum, required this.categoryId,required this.perPage});
 }
 
 class GetWatchesAndAccessoriesProductsEvent extends CategoriesEvent {
   final int pageNum;
   final int categoryId;
+  final int perPage;
 
   const GetWatchesAndAccessoriesProductsEvent(
-      {required this.pageNum, required this.categoryId});
+      {required this.pageNum, required this.categoryId,required this.perPage});
 }
 
 class GetMobilesProductsEvent extends CategoriesEvent {
   final int pageNum;
   final int categoryId;
+  final int perPage;
 
   const GetMobilesProductsEvent(
-      {required this.pageNum, required this.categoryId});
+      {required this.pageNum, required this.categoryId,required this.perPage});
 }
 
 class GetPerfumesProductsEvent extends CategoriesEvent {
   final int pageNum;
   final int categoryId;
+  final int perPage;
 
   const GetPerfumesProductsEvent(
-      {required this.pageNum, required this.categoryId});
+      {required this.pageNum, required this.categoryId,required this.perPage});
 }
 
 class GetHouseAndKitchenProductsEvent extends CategoriesEvent {
   final int pageNum;
   final int categoryId;
+  final int perPage;
 
   const GetHouseAndKitchenProductsEvent(
-      {required this.pageNum, required this.categoryId});
+      {required this.pageNum, required this.categoryId,required this.perPage});
 }
 
 class GetElectronicEquipmentProductsEvent extends CategoriesEvent {
   final int pageNum;
   final int categoryId;
+  final int perPage;
 
   const GetElectronicEquipmentProductsEvent(
-      {required this.pageNum, required this.categoryId});
+      {required this.pageNum, required this.categoryId,required this.perPage});
 }
 
 class GetMakeUpProductsEvent extends CategoriesEvent {
   final int pageNum;
   final int categoryId;
+  final int perPage;
 
   const GetMakeUpProductsEvent(
-      {required this.pageNum, required this.categoryId});
+      {required this.pageNum, required this.categoryId,required this.perPage});
 }
 
 class GetPetsProductsEvent extends CategoriesEvent {
   final int pageNum;
   final int categoryId;
+  final int perPage;
 
-  const GetPetsProductsEvent({required this.pageNum, required this.categoryId});
+  const GetPetsProductsEvent({required this.pageNum, required this.categoryId,required this.perPage});
 }

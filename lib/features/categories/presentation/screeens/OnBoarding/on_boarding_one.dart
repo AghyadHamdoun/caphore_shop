@@ -81,7 +81,6 @@ class OnBoardingOne extends StatelessWidget {
                     padding: EdgeInsets.only(top: 20.h),
                     child: Container(
                       height: 80.h,
-                      color: AppColor.darkOrangeColor,
                     ),
                   ),
                 ],

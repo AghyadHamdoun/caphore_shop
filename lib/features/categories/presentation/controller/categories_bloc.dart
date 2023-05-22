@@ -42,7 +42,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     on<GetGategoryProductsEvent>((event, emit) async {
       final result = await getCategoryProductsUseCase(
           CategoryProductsParameters(
-              categoryId: event.categoryId, page: event.pageNum));
+              categoryId: event.categoryId, page: event.pageNum,perPage: event.perPage));
       result.fold(
           (l) => emit(state.copyWith(
               categoryProductsMessage: l.message,
@@ -55,7 +55,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     //last Products Event
     on<GetLastProductsEvent>((event, emit) async {
       final result = await getLastProductsUseCase(
-          CategoryProductsParameters(categoryId: 0, page: event.pageNum));
+          CategoryProductsParameters(categoryId: 0, page: event.pageNum,perPage: event.perPage));
       result.fold(
           (l) => emit(state.copyWith(
               lastProductsMessage: l.message,
@@ -72,7 +72,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     on<GetMenClothingProductsEvent>((event, emit) async {
       final result = await getCategoryProductsUseCase(
           CategoryProductsParameters(
-              categoryId: event.categoryId, page: event.pageNum));
+              categoryId: event.categoryId, page: event.pageNum,perPage: event.perPage));
       result.fold(
           (l) => emit(state.copyWith(
               menClothingProductsMessage: l.message,
@@ -85,7 +85,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     on<GetWomenClothingProductsEvent>((event, emit) async {
       final result = await getCategoryProductsUseCase(
           CategoryProductsParameters(
-              categoryId: event.categoryId, page: event.pageNum));
+              categoryId: event.categoryId, page: event.pageNum,perPage: event.perPage));
       result.fold(
           (l) => emit(state.copyWith(
               womenClothingProductsMessage: l.message,
@@ -100,7 +100,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     on<GetChildrenClothingProductsEvent>((event, emit) async {
       final result = await getCategoryProductsUseCase(
           CategoryProductsParameters(
-              categoryId: event.categoryId, page: event.pageNum));
+              categoryId: event.categoryId, page: event.pageNum,perPage: event.perPage));
       result.fold(
           (l) => emit(state.copyWith(
               childrenClothingProductsMessage: l.message,
@@ -114,7 +114,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     on<GetFoodProductsEvent>((event, emit) async {
       final result = await getCategoryProductsUseCase(
           CategoryProductsParameters(
-              categoryId: event.categoryId, page: event.pageNum));
+              categoryId: event.categoryId, page: event.pageNum,perPage: event.perPage));
       result.fold(
           (l) => emit(state.copyWith(
               foodProductsMessage: l.message,
@@ -127,7 +127,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     on<GetShoesAndBagsProductsEvent>((event, emit) async {
       final result = await getCategoryProductsUseCase(
           CategoryProductsParameters(
-              categoryId: event.categoryId, page: event.pageNum));
+              categoryId: event.categoryId, page: event.pageNum,perPage: event.perPage));
       result.fold(
           (l) => emit(state.copyWith(
               shoesAndBagsProductsMessage: l.message,
@@ -141,7 +141,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     on<GetWatchesAndAccessoriesProductsEvent>((event, emit) async {
       final result = await getCategoryProductsUseCase(
           CategoryProductsParameters(
-              categoryId: event.categoryId, page: event.pageNum));
+              categoryId: event.categoryId, page: event.pageNum,perPage: event.perPage));
       result.fold(
           (l) => emit(state.copyWith(
               watchesAndAccessoriesProductsMessage: l.message,
@@ -155,7 +155,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     on<GetMobilesProductsEvent>((event, emit) async {
       final result = await getCategoryProductsUseCase(
           CategoryProductsParameters(
-              categoryId: event.categoryId, page: event.pageNum));
+              categoryId: event.categoryId, page: event.pageNum,perPage: event.perPage));
       result.fold(
           (l) => emit(state.copyWith(
               mobilesProductsMessage: l.message,
@@ -168,7 +168,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     on<GetPerfumesProductsEvent>((event, emit) async {
       final result = await getCategoryProductsUseCase(
           CategoryProductsParameters(
-              categoryId: event.categoryId, page: event.pageNum));
+              categoryId: event.categoryId, page: event.pageNum,perPage: event.perPage));
       result.fold(
           (l) => emit(state.copyWith(
               mobilesProductsMessage: l.message,
@@ -181,7 +181,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     on<GetHouseAndKitchenProductsEvent>((event, emit) async {
       final result = await getCategoryProductsUseCase(
           CategoryProductsParameters(
-              categoryId: event.categoryId, page: event.pageNum));
+              categoryId: event.categoryId, page: event.pageNum,perPage: event.perPage));
       result.fold(
           (l) => emit(state.copyWith(
               houseAndKitchenProductsMessage: l.message,
@@ -195,7 +195,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     on<GetElectronicEquipmentProductsEvent>((event, emit) async {
       final result = await getCategoryProductsUseCase(
           CategoryProductsParameters(
-              categoryId: event.categoryId, page: event.pageNum));
+              categoryId: event.categoryId, page: event.pageNum, perPage: event.perPage));
       result.fold(
           (l) => emit(state.copyWith(
               electronicEquipmentProductsMessage: l.message,
@@ -209,7 +209,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     on<GetMakeUpProductsEvent>((event, emit) async {
       final result = await getCategoryProductsUseCase(
           CategoryProductsParameters(
-              categoryId: event.categoryId, page: event.pageNum));
+              categoryId: event.categoryId, page: event.pageNum,perPage: event.perPage));
       result.fold(
           (l) => emit(state.copyWith(
               makeUpProductsMessage: l.message,
@@ -223,7 +223,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     on<GetPetsProductsEvent>((event, emit) async {
       final result = await getCategoryProductsUseCase(
           CategoryProductsParameters(
-              categoryId: event.categoryId, page: event.pageNum));
+              categoryId: event.categoryId, page: event.pageNum,perPage: event.perPage));
       result.fold(
               (l) => emit(state.copyWith(
               petsProductsMessage: l.message,

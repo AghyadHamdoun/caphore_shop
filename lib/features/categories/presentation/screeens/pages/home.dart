@@ -3,6 +3,7 @@ import 'package:caphore/features/categories/presentation/screeens/categoryproduc
 import 'package:caphore/features/categories/presentation/screeens/component/last_product.dart';
 import 'package:caphore/features/categories/presentation/screeens/component/categories_component.dart';
 import 'package:caphore/features/categories/presentation/screeens/component/men_clothing_component.dart';
+import 'package:caphore/features/categories/presentation/screeens/component/women_clothing_component.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/CategoryNameAndShowAll.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/ImageSlider.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/textformfild.dart';
@@ -17,7 +18,7 @@ class Home extends StatelessWidget {
     List<String> imeges = [
       "https://caphore.sy/wp-content/uploads/2022/12/zona_optimized.jpg",
       "https://caphore.sy/wp-content/uploads/2022/11/jf-1_optimized.jpg",
-      "https://ca phore.sy/wp-content/uploads/2023/03/whatsapp-image-2023-03-11-at-7_optimized.51.19-pm-min-1024x438-1.jpg"
+      "https://caphore.sy/wp-content/uploads/2023/03/whatsapp-image-2023-03-11-at-7_optimized.51.19-pm-min-1024x438-1.jpg"
     ];
 
     return Scaffold(
@@ -43,9 +44,9 @@ class Home extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => const CategoryProducts(
-                              event: GetLastProductsEvent(pageNum: 1),
-                              categoryName: 'عروض كافور',
-                            )));
+                                  event: GetLastProductsEvent(pageNum: 1,perPage: 10),
+                                  categoryName: 'عروض كافور',
+                                )));
                   },
                 ),
                 const LastProductComponent(),
@@ -57,13 +58,27 @@ class Home extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => const CategoryProducts(
-                                  event: GetGategoryProductsEvent(categoryId: 42,pageNum: 1),
-                                  categoryName: 'الالبسة الرجالية',
-                                )));
+                              event: GetGategoryProductsEvent(
+                                  categoryId: 44, pageNum: 1,perPage: 100),
+                              categoryName: 'الالبسة الرجالية',
+                            )));
                   },
                 ),
                 const MenClothingComponent(),
-
+                CategoryNameAndShowAll(
+                  name: 'الالبسة النسائية',
+                  showAllCallBack: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const CategoryProducts(
+                              event: GetGategoryProductsEvent(
+                                  categoryId: 42, pageNum: 1,perPage: 100),
+                              categoryName: 'الالبسة النسائية',
+                            )));
+                  },
+                ),
+                const WomenClothingComponent(),
 
                 // const Padding(
                 //   padding: EdgeInsets.all(8.0),
