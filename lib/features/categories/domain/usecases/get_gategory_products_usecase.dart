@@ -21,9 +21,10 @@ class GetCategoryProductsUseCase
 class CategoryProductsParameters extends Equatable {
   final int categoryId;
   final int page;
+  final int perPage;
 
-  const CategoryProductsParameters({required this.categoryId,required this.page});
+  const CategoryProductsParameters({required this.categoryId,required this.page,required this.perPage});
 
   @override
-  List<Object?> get props => [categoryId,page];
+  List<Object?> get props => [categoryId,page,perPage];
 }

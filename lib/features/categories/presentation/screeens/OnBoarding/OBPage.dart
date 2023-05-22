@@ -1,11 +1,9 @@
 import 'package:caphore/features/categories/presentation/screeens/OnBoarding/on_boarding_one.dart';
 import 'package:caphore/features/categories/presentation/screeens/OnBoarding/on_boarding_three.dart';
 import 'package:caphore/features/categories/presentation/screeens/OnBoarding/on_boarding_two.dart';
-import 'package:caphore/features/categories/presentation/screeens/widgets/OBwidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../../core/utils/app_color.dart';
 

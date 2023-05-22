@@ -8,9 +8,9 @@ import 'package:dio/dio.dart';
 import 'package:flutter_wp_woocommerce/woocommerce.dart';
 
 abstract class BaseCategoriesRemoteDataSource {
-  Future<List<ProductModel>> getAllCategoryProducts(int id, int page);
+  Future<List<ProductModel>> getAllCategoryProducts(int id, int page,int perPage);
 
-  Future<List<ProductModel>> getLastProducts(int page);
+  Future<List<ProductModel>> getLastProducts(int pag,int perPage);
 
   Future<List<CategoryModel>> getAllCategories();
 
@@ -38,10 +38,10 @@ class CategoriesRemoteDateSource extends BaseCategoriesRemoteDataSource {
   }
 
   @override
-  Future<List<ProductModel>> getAllCategoryProducts(int id, int page) async {
+  Future<List<ProductModel>> getAllCategoryProducts(int id, int page,int perPage) async {
     print('products----------------');
     final response =
-        await Dio().get(ApiConstance.allCategoryProductsPath(id, page));
+        await Dio().get(ApiConstance.allCategoryProductsPath(id, page,perPage));
     if (response.statusCode == 200) {
       return List<ProductModel>.from((response.data as List).map(
         (e) => ProductModel.fromJson(e),
@@ -66,9 +66,9 @@ class CategoriesRemoteDateSource extends BaseCategoriesRemoteDataSource {
   }
 
   @override
-  Future<List<ProductModel>> getLastProducts(int page) async {
+  Future<List<ProductModel>> getLastProducts(int page,int perPage) async {
     final response =
-        await Dio().get(ApiConstance.lastProductsPath(page));
+        await Dio().get(ApiConstance.lastProductsPath(page,perPage));
     if (response.statusCode == 200) {
       return List<ProductModel>.from((response.data as List).map(
             (e) => ProductModel.fromJson(e),

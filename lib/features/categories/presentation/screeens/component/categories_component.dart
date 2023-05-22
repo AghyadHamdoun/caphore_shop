@@ -31,7 +31,7 @@ class CategoriesComponent extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                           builder: (context) => CategoryProducts(
-                              event:GetGategoryProductsEvent(pageNum:1, categoryId: state.allCategories[index].id ) ,
+                              event:GetGategoryProductsEvent(pageNum:1, categoryId: state.allCategories[index].id,perPage: 100 ) ,
                                 categoryName: state.allCategories[index].name,
                               )));
                 },
