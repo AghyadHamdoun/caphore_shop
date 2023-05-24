@@ -21,7 +21,7 @@ class MyPages extends StatefulWidget {
 }
 
 class _MyPagesState extends State<MyPages> {
-  late int select = 0;
+  late int select = 1;
   late PageController controller;
 
   @override

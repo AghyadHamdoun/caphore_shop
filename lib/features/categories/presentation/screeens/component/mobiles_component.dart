@@ -58,15 +58,18 @@ class MobilesComponent extends StatelessWidget {
                                           products: state.mobilesProducts,
                                         )));
                           },
-                          child: ProductCard(
-                            productname: state.mobilesProducts[index].name,
-                            price: state.mobilesProducts[index].price,
-                            orginalprice:
-                                state.mobilesProducts[index].regularPrice,
-                            image:
-                                state.mobilesProducts[index].images.isNotEmpty
-                                    ? state.mobilesProducts[index].images[0].src
-                                    : '',
+                          child: SizedBox(
+                            width: 170.w,
+                            child: ProductCard(
+                              productname: state.mobilesProducts[index].name,
+                              price: state.mobilesProducts[index].price,
+                              orginalprice:
+                                  state.mobilesProducts[index].regularPrice,
+                              image: state
+                                      .mobilesProducts[index].images.isNotEmpty
+                                  ? state.mobilesProducts[index].images[0].src
+                                  : '',
+                            ),
                           ),
                         );
                       },
