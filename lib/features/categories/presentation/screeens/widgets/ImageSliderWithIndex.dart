@@ -9,8 +9,6 @@ class ImageSliderWithIndex extends StatelessWidget {
     required this.imeges,
   });
 
-
-
   @override
   Widget build(BuildContext context) {
     int current = 0;
@@ -22,11 +20,13 @@ class ImageSliderWithIndex extends StatelessWidget {
                 (item) => Padding(
                   padding: EdgeInsets.only(bottom: 10.h),
                   child: Container(
-                    height: 170.h,
+                    height: 180.h,
                     width: double.infinity,
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: NetworkImage(item), fit: BoxFit.cover),
+                        image: NetworkImage(item),
+                        fit: BoxFit.cover,
+                      ),
                       borderRadius: BorderRadius.circular(20.r),
                     ),
                   ),

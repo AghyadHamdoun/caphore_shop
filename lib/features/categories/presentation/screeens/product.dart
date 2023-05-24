@@ -23,6 +23,7 @@ class ProductScreen extends StatelessWidget {
     products.sort((a, b) {
       return a.name.hashCode.compareTo(b.name.hashCode);
     });
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -45,8 +46,14 @@ class ProductScreen extends StatelessWidget {
           children: [
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 10.h),
-              child: ImageSliderWithIndex(
-                  imeges: product.images.map((e) => e.src).toList()),
+              child: (product.images.length == 1)
+                  ? Image.network(
+                      product.images[0].src,
+                      fit: BoxFit.fill,
+                      height: 250.h,
+                    )
+                  : ImageSliderWithIndex(
+                      imeges: product.images.map((e) => e.src).toList()),
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
@@ -62,13 +69,23 @@ class ProductScreen extends StatelessWidget {
                 thickness: 1.h,
               ),
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
-              child: Text(
-                "الوصف:",
-                style: TextStyle(fontSize: 20.sp, color: Colors.black),
-              ),
-            ),
+            (product.shortDescription.isEmpty)
+                ? Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
+                    child: Text(
+                      "لا يوجد وصف ",
+                      style: TextStyle(fontSize: 20.sp, color: Colors.grey),
+                    ),
+                  )
+                : Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
+                    child: Text(
+                      "الوصف:",
+                      style: TextStyle(fontSize: 20.sp, color: Colors.black),
+                    ),
+                  ),
             Padding(
                 padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
                 child: RichText(
@@ -78,14 +95,14 @@ class ProductScreen extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
               child: Text(
-                "قد يعجبك ايضا",
+                "قد يعجبك ايضا:",
                 style: TextStyle(fontSize: 20.sp, color: Colors.black),
               ),
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
               child: SizedBox(
-                height: 250.h,
+                height: 280.h,
                 width: double.infinity.w,
                 child: Expanded(
                   child: ListView.builder(
