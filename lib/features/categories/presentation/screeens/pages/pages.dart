@@ -35,7 +35,7 @@ class _MyPagesState extends State<MyPages> {
     return BlocProvider(
       create: (context) => sl<CategoriesBloc>()
         ..add(GetAllCategoriesEvent())
-        ..add(const GetLastProductsEvent(pageNum: 1,perPage: 10))
+        ..add(const GetLastProductsEvent(pageNum: 1,perPage: 20))
         ..add(const GetMenClothingProductsEvent(pageNum: 1, categoryId: 44,perPage: 10))
         ..add(const GetWomenClothingProductsEvent(pageNum: 1, categoryId: 42, perPage: 10))
         ..add(const GetChildrenClothingProductsEvent(pageNum: 1, categoryId: 61, perPage: 10))
@@ -46,6 +46,9 @@ class _MyPagesState extends State<MyPages> {
         ..add(const GetPerfumesProductsEvent(pageNum: 1, categoryId: 108, perPage: 10))
         ..add(const GetMakeUpProductsEvent(pageNum: 1, categoryId: 117, perPage: 10))
         ..add(const GetPetsProductsEvent(pageNum: 1, categoryId: 421, perPage: 10))
+        ..add(const GetBrandTermsEvent(pageNum: 1,perPage: 10, attributeId: 7))
+
+
 
 
 

@@ -1,3 +1,4 @@
+import 'package:caphore/features/categories/presentation/screeens/controlpanel/privacy_policy.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/LegalPageWidget.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +21,10 @@ class ControlPanel extends StatelessWidget {
                   name: "لمحة عن كافور",
                   svgpath: "assets/images/about-svgrepo-com.svg"),
               LegalPageWidget(
-                  gotopage: () {},
+                  gotopage: () {  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>const PrivacyPolicy()));},
                   name: "سياسة الخصوصية",
                   svgpath: "assets/images/shield-antivirus-svgrepo-com.svg"),
               LegalPageWidget(

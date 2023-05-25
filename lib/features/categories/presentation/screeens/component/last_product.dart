@@ -44,9 +44,7 @@ class LastProductComponent extends StatelessWidget {
                   child: Expanded(
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
-                      itemCount: state.lastProducts.length < 10
-                          ? state.lastProducts.length
-                          : 10,
+                      itemCount: state.lastProducts.length ,
                       itemBuilder: (BuildContext context, int index) {
                         return InkWell(
                           onTap: () {

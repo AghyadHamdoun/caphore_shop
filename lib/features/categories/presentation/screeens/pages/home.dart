@@ -44,7 +44,7 @@ class Home extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => const CategoryProducts(
-                                  event: GetLastProductsEvent(pageNum: 1,perPage: 10),
+                                  event: GetLastProductsEvent(pageNum: 1,perPage: 100),
                                   categoryName: 'عروض كافور',
                                 )));
                   },
