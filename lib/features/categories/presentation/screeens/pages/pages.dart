@@ -21,7 +21,7 @@ class MyPages extends StatefulWidget {
 }
 
 class _MyPagesState extends State<MyPages> {
-  late int select = 1;
+  late int select = 0;
   late PageController controller;
 
   @override
@@ -35,27 +35,24 @@ class _MyPagesState extends State<MyPages> {
     return BlocProvider(
       create: (context) => sl<CategoriesBloc>()
         ..add(GetAllCategoriesEvent())
-        ..add(const GetLastProductsEvent(pageNum: 1, perPage: 10))
-        ..add(const GetMenClothingProductsEvent(
-            pageNum: 1, categoryId: 44, perPage: 10))
-        ..add(const GetWomenClothingProductsEvent(
-            pageNum: 1, categoryId: 42, perPage: 10))
-        ..add(const GetChildrenClothingProductsEvent(
-            pageNum: 1, categoryId: 61, perPage: 10))
-        ..add(const GetFoodProductsEvent(
-            pageNum: 1, categoryId: 195, perPage: 10))
-        ..add(const GetShoesAndBagsProductsEvent(
-            pageNum: 1, categoryId: 102, perPage: 10))
-        ..add(const GetWatchesAndAccessoriesProductsEvent(
-            pageNum: 1, categoryId: 118, perPage: 10))
-        ..add(const GetMobilesProductsEvent(
-            pageNum: 1, categoryId: 123, perPage: 10))
-        ..add(const GetPerfumesProductsEvent(
-            pageNum: 1, categoryId: 108, perPage: 10))
-        ..add(const GetMakeUpProductsEvent(
-            pageNum: 1, categoryId: 117, perPage: 10))
-        ..add(const GetPetsProductsEvent(
-            pageNum: 1, categoryId: 421, perPage: 10)),
+        ..add(const GetLastProductsEvent(pageNum: 1,perPage: 20))
+        ..add(const GetMenClothingProductsEvent(pageNum: 1, categoryId: 44,perPage: 10))
+        ..add(const GetWomenClothingProductsEvent(pageNum: 1, categoryId: 42, perPage: 10))
+        ..add(const GetChildrenClothingProductsEvent(pageNum: 1, categoryId: 61, perPage: 10))
+        ..add(const GetFoodProductsEvent(pageNum: 1, categoryId: 195, perPage: 10))
+        ..add(const GetShoesAndBagsProductsEvent(pageNum: 1, categoryId: 102, perPage: 10))
+        ..add(const GetWatchesAndAccessoriesProductsEvent(pageNum: 1, categoryId: 118, perPage: 10))
+        ..add(const GetMobilesProductsEvent(pageNum: 1, categoryId: 123, perPage: 10))
+        ..add(const GetPerfumesProductsEvent(pageNum: 1, categoryId: 108, perPage: 10))
+        ..add(const GetMakeUpProductsEvent(pageNum: 1, categoryId: 117, perPage: 10))
+        ..add(const GetPetsProductsEvent(pageNum: 1, categoryId: 421, perPage: 10))
+        ..add(const GetBrandTermsEvent(pageNum: 1,perPage: 10, attributeId: 7))
+
+
+
+
+
+      ,
       child: Scaffold(
         body: PageView(
           controller: controller,

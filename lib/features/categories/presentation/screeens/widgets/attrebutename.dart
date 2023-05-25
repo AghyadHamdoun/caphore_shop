@@ -3,9 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/utils/app_color.dart';
 
-class AtterbuteName extends StatelessWidget {
+class AttributeName extends StatelessWidget {
   final String name;
-  const AtterbuteName({
+  const AttributeName({
     super.key,
     required this.name,
   });

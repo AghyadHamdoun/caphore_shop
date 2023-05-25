@@ -1,6 +1,7 @@
 import 'package:caphore/core/utils/enums.dart';
 import 'package:caphore/features/categories/domain/entities/categories.dart';
 import 'package:caphore/features/categories/domain/entities/products.dart';
+import 'package:caphore/features/categories/domain/entities/terms.dart';
 import 'package:equatable/equatable.dart';
 
 class CategoriesState extends Equatable {
@@ -74,6 +75,11 @@ class CategoriesState extends Equatable {
   final List<Product> categoryProducts;
   final RequestState categoryProductsState;
   final String categoryProductsMessage;
+
+  //attribute terms
+  final List<Term> brandsTerms;
+  final RequestState brandsTermsState;
+  final String brandsTermsMessage;
 
 
   // 2
@@ -153,10 +159,13 @@ class CategoriesState extends Equatable {
     this.categoryProducts = const [],
     this.categoryProductsState = RequestState.loading,
     this.categoryProductsMessage = '',
+    //
 
+    //attribute terms
 
-
-
+    this.brandsTerms = const [],
+    this.brandsTermsState = RequestState.loading,
+    this.brandsTermsMessage = ''
   });
 
   CategoriesState copyWith({
@@ -228,7 +237,11 @@ class CategoriesState extends Equatable {
     final RequestState? categoryProductsState,
     final String? categoryProductsMessage,
 
+    // attribute terms
 
+    final List<Term>?brandsTerms,
+    final RequestState? brandsTermsState,
+    final String? brandsTermsMessage,
 
 
 
@@ -330,6 +343,10 @@ class CategoriesState extends Equatable {
           this.categoryProductsState,
       categoryProductsMessage:categoryProductsMessage ??
           this.categoryProductsMessage,
+
+      brandsTerms: brandsTerms??this.brandsTerms,
+      brandsTermsState: brandsTermsState??this.brandsTermsState,
+      brandsTermsMessage: brandsTermsMessage??this.brandsTermsMessage
     );
   }
 
@@ -403,9 +420,12 @@ class CategoriesState extends Equatable {
     //
     categoryProducts,
     categoryProductsMessage,
-    categoryProductsState
+    categoryProductsState,
 
-
+  //attribute terms
+    brandsTerms,
+    brandsTermsMessage,
+    brandsTermsState
 
 
   ];

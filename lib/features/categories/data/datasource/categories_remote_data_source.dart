@@ -3,6 +3,7 @@ import 'package:caphore/core/network/error_message_model.dart';
 import 'package:caphore/features/categories/data/models/categories_model.dart';
 import 'package:caphore/features/categories/data/models/products_model.dart';
 import 'package:caphore/core/network/api_constance.dart';
+import 'package:caphore/features/categories/data/models/terms_model.dart';
 
 import 'package:dio/dio.dart';
 import 'package:flutter_wp_woocommerce/woocommerce.dart';
@@ -15,6 +16,9 @@ abstract class BaseCategoriesRemoteDataSource {
   Future<List<CategoryModel>> getAllCategories();
 
   Future<ProductModel> getProductDetails(int id);
+
+  Future<List<TermModel>> getTerms({required int id,required int page,required int perPage});
+
 }
 
 class CategoriesRemoteDateSource extends BaseCategoriesRemoteDataSource {
@@ -79,4 +83,20 @@ class CategoriesRemoteDateSource extends BaseCategoriesRemoteDataSource {
       );
     }
   }
+  @override
+  Future<List<TermModel>> getTerms({required int id,required int page,required int perPage}) async {
+    print('terms----------------');
+    final response =
+    await Dio().get(ApiConstance.attributeTermsPath(id, page, perPage));
+    if (response.statusCode == 200) {
+      return List<TermModel>.from((response.data as List).map(
+            (e) => TermModel.fromJson(e),
+      ));
+    } else {
+      throw ServerException(
+        errorMessageModel: ErrorMessageModel.fromJson(response.data),
+      );
+    }
+  }
+
 }

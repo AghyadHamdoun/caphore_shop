@@ -3,6 +3,7 @@ import 'package:caphore/features/categories/domain/usecases/get_all_categories_u
 import 'package:caphore/features/categories/domain/usecases/get_gategory_products_usecase.dart';
 import 'package:caphore/features/categories/domain/usecases/get_last_products_usecase.dart';
 import 'package:caphore/features/categories/domain/usecases/get_product_details_usecase.dart';
+import 'package:caphore/features/categories/domain/usecases/get_terms_usecase.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_event.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,9 +14,10 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
   GetProductDetailsUseCase getProductDetailsUseCase;
   GetCategoryProductsUseCase getCategoryProductsUseCase;
   GetLastProductsUseCase getLastProductsUseCase;
+  GetTermsUseCase getTermsUseCase;
 
   CategoriesBloc(this.getAllCategoriesUseCase, this.getProductDetailsUseCase,
-      this.getCategoryProductsUseCase, this.getLastProductsUseCase)
+      this.getCategoryProductsUseCase, this.getLastProductsUseCase,this.getTermsUseCase)
       : super(const CategoriesState()) {
     //All Category Event
     on<GetAllCategoriesEvent>((event, emit) async {
@@ -63,9 +65,9 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
               categoryProductsMessage: l.message,
               categoryProductsState: RequestState.error)),
           (r) => emit(state.copyWith(
-              lastProducts: r,
+              lastProducts: r.skipWhile((value) => value.name=='AUTO-DRAFT').toList(),
               lastProductsState: RequestState.loaded,
-              categoryProducts: r,
+              categoryProducts: r.skipWhile((value) => value.name=='AUTO-DRAFT').toList(),
               categoryProductsState: RequestState.loaded)));
     });
     //men clothing event
@@ -233,7 +235,27 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
               petsProductsState: RequestState.loaded)));
     });
 
+    //------ Attribute Terms------
+
+    on<GetBrandTermsEvent>((event, emit) async {
+      final result = await getTermsUseCase(
+          TermsParameters(
+              id: event.attributeId, page: event.pageNum,perPage: event.perPage));
+      result.fold(
+              (l) => emit(state.copyWith(
+              brandsTermsMessage: l.message,
+              brandsTermsState: RequestState.error)),
+              (r) =>
+                emit(state.copyWith(
+              brandsTerms: r,
+              brandsTermsState: RequestState.loaded)));
+    });
+
   }
+
+
+
+
 
   void getProductDetail(int productId, int categoryId) {
     add(GetProductDetailsEvent(productId: productId, categoryId: categoryId));

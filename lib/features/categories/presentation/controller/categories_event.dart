@@ -147,3 +147,11 @@ class GetPetsProductsEvent extends CategoriesEvent {
 
   const GetPetsProductsEvent({required this.pageNum, required this.categoryId,required this.perPage});
 }
+
+class GetBrandTermsEvent extends CategoriesEvent {
+  final int pageNum;
+  final int attributeId;
+  final int perPage;
+
+  const GetBrandTermsEvent({required this.pageNum, required this.attributeId,required this.perPage});
+}

@@ -1,4 +1,3 @@
-import 'package:caphore/core/utils/app_color.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_bloc.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_state.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/CategoryCard.dart';
@@ -26,7 +25,7 @@ class Brands extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(
                     top: 10.h, left: 10.w, right: 10.w, bottom: 0),
-                child: AtterbuteName(name: "الالبسة"),
+                child: const AttributeName(name: "الالبسة"),
               ),
               Expanded(
                 child: GridView.builder(
