@@ -16,12 +16,20 @@ class OBPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final pages = [
-      OnBoardingOne(
-          image: "assets/images/1R.png", text1: "text1", text2: "text2"),
-      OnBoardingTwo(
-          image: "assets/images/2R.png", text1: "text1", text2: "text2"),
-      OnBoardingTree(
-          image: "assets/images/3R.png", text1: "text1", text2: "text2"),
+      const OnBoardingOne(
+          image: "assets/images/1R.png",
+          text1: "اختر ما تريد!",
+          text2:
+              "يحتوي كافور مول الكثير من المنتجات\nالمميزة والأنيقةالتي يحتاجها الجميع"),
+      const OnBoardingTwo(
+          image: "assets/images/2R.png",
+          text1: "سهولة الطلب",
+          text2:
+              "اطلب ما تريدعن طريق الواتس اب\nوالتواصل مع صاحب المتجر مباشرة"),
+      const OnBoardingTree(
+          image: "assets/images/3R.png",
+          text1: "استلم طلبك",
+          text2: "بعد طلب المنتج المراد يتم توصيله اليك\nبكل سهولة وسرعة"),
     ];
 
     return Scaffold(

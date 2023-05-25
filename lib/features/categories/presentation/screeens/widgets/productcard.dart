@@ -22,7 +22,7 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
-      width: 150.w,
+      width: 170.w,
       child: Card(
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 3.h),
@@ -42,6 +42,7 @@ class ProductCard extends StatelessWidget {
                   child: Flexible(
                     child: Text(
                       productname,
+                      maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(fontSize: 16.sp),
                       textAlign: TextAlign.center,
@@ -52,31 +53,33 @@ class ProductCard extends StatelessWidget {
               const Spacer(),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 5.w),
-                child: Row(
-                  children: [
-                    Column(
-                      children: [
-                        Text(
-                          "$orginalprice ",
-                          style: TextStyle(
-                              decoration: TextDecoration.lineThrough,
-                              fontSize: 12.sp,
-                              color: Colors.grey),
-                        ),
-                        Text(
-                          "$price ل.س ",
-                          style:
-                              TextStyle(fontSize: 16.sp, color: Colors.black),
-                        ),
-                      ],
-                    ),
-                    const Spacer(),
-                    SvgPicture.asset(
-                      'assets/images/buy.svg',
-                      color: AppColor.accentColor,
-                      height: 20.h,
-                    )
-                  ],
+                child: SizedBox(
+                  child: Row(
+                    children: [
+                      Column(
+                        children: [
+                          Text(
+                            "$orginalprice ",
+                            style: TextStyle(
+                                decoration: TextDecoration.lineThrough,
+                                fontSize: 10.sp,
+                                color: Colors.grey),
+                          ),
+                          Text(
+                            "$price ل.س ",
+                            style:
+                                TextStyle(fontSize: 16.sp, color: Colors.black),
+                          ),
+                        ],
+                      ),
+                      const Spacer(),
+                      SvgPicture.asset(
+                        'assets/images/buy.svg',
+                        color: AppColor.accentColor,
+                        height: 20.h,
+                      )
+                    ],
+                  ),
                 ),
               ),
             ],

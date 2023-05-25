@@ -1,8 +1,16 @@
 import 'package:caphore/features/categories/presentation/controller/categories_event.dart';
 import 'package:caphore/features/categories/presentation/screeens/categoryproducts.dart';
+import 'package:caphore/features/categories/presentation/screeens/component/children_clothing_component.dart';
+import 'package:caphore/features/categories/presentation/screeens/component/food_component.dart';
 import 'package:caphore/features/categories/presentation/screeens/component/last_product.dart';
 import 'package:caphore/features/categories/presentation/screeens/component/categories_component.dart';
+import 'package:caphore/features/categories/presentation/screeens/component/makeup_component.dart';
 import 'package:caphore/features/categories/presentation/screeens/component/men_clothing_component.dart';
+import 'package:caphore/features/categories/presentation/screeens/component/mobiles_component.dart';
+import 'package:caphore/features/categories/presentation/screeens/component/perfumes_component.dart';
+import 'package:caphore/features/categories/presentation/screeens/component/pets_component.dart';
+import 'package:caphore/features/categories/presentation/screeens/component/shoesandbags_component.dart';
+import 'package:caphore/features/categories/presentation/screeens/component/watchesandaccessories_component.dart';
 import 'package:caphore/features/categories/presentation/screeens/component/women_clothing_component.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/CategoryNameAndShowAll.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/ImageSlider.dart';
@@ -44,7 +52,8 @@ class Home extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => const CategoryProducts(
-                                  event: GetLastProductsEvent(pageNum: 1,perPage: 100),
+                                  event: GetLastProductsEvent(
+                                      pageNum: 1, perPage: 10),
                                   categoryName: 'عروض كافور',
                                 )));
                   },
@@ -58,10 +67,10 @@ class Home extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => const CategoryProducts(
-                              event: GetGategoryProductsEvent(
-                                  categoryId: 44, pageNum: 1,perPage: 100),
-                              categoryName: 'الالبسة الرجالية',
-                            )));
+                                  event: GetGategoryProductsEvent(
+                                      categoryId: 44, pageNum: 1, perPage: 100),
+                                  categoryName: 'الالبسة الرجالية',
+                                )));
                   },
                 ),
                 const MenClothingComponent(),
@@ -72,20 +81,140 @@ class Home extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => const CategoryProducts(
-                              event: GetGategoryProductsEvent(
-                                  categoryId: 42, pageNum: 1,perPage: 100),
-                              categoryName: 'الالبسة النسائية',
-                            )));
+                                  event: GetGategoryProductsEvent(
+                                      categoryId: 42, pageNum: 1, perPage: 100),
+                                  categoryName: 'الالبسة النسائية',
+                                )));
                   },
                 ),
                 const WomenClothingComponent(),
-
-                // const Padding(
-                //   padding: EdgeInsets.all(8.0),
-                //   child: BrandCard(
-                //     image: '',
-                //   ),
-                // ),
+                // step number 2
+                CategoryNameAndShowAll(
+                  name: ' الألبسة الولادية',
+                  showAllCallBack: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const CategoryProducts(
+                                  event: GetGategoryProductsEvent(
+                                      categoryId: 61, pageNum: 1, perPage: 100),
+                                  categoryName: 'الألبسة الولادية ',
+                                )));
+                  },
+                ),
+                const ChildrenClothingComponent(),
+                CategoryNameAndShowAll(
+                  name: ' المأكولات',
+                  showAllCallBack: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const CategoryProducts(
+                                  event: GetGategoryProductsEvent(
+                                      categoryId: 195,
+                                      pageNum: 1,
+                                      perPage: 100),
+                                  categoryName: 'المأكولات ',
+                                )));
+                  },
+                ),
+                const FoodComponent(),
+                CategoryNameAndShowAll(
+                  name: ' الأحذية والحقائب',
+                  showAllCallBack: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const CategoryProducts(
+                                  event: GetGategoryProductsEvent(
+                                      categoryId: 102,
+                                      pageNum: 1,
+                                      perPage: 100),
+                                  categoryName: 'الأحذية والحقائب ',
+                                )));
+                  },
+                ),
+                const ShoesandbagsComponent(),
+                CategoryNameAndShowAll(
+                  name: ' الساعات والاكسسوارات ',
+                  showAllCallBack: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const CategoryProducts(
+                                  event: GetGategoryProductsEvent(
+                                      categoryId: 118,
+                                      pageNum: 1,
+                                      perPage: 100),
+                                  categoryName: ' الساعات والاكسسوارات ',
+                                )));
+                  },
+                ),
+                const WatchesandaccessoriesComponent(),
+                CategoryNameAndShowAll(
+                  name: '  الالكترونيات ',
+                  showAllCallBack: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const CategoryProducts(
+                                  event: GetGategoryProductsEvent(
+                                      categoryId: 123,
+                                      pageNum: 1,
+                                      perPage: 100),
+                                  categoryName: '  الالكترونيات ',
+                                )));
+                  },
+                ),
+                const MobilesComponent(),
+                CategoryNameAndShowAll(
+                  name: '  العطور ',
+                  showAllCallBack: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const CategoryProducts(
+                                  event: GetGategoryProductsEvent(
+                                      categoryId: 108,
+                                      pageNum: 1,
+                                      perPage: 100),
+                                  categoryName: '  العطور ',
+                                )));
+                  },
+                ),
+                const PerfumesComponent(),
+                CategoryNameAndShowAll(
+                  name: '  المكياج ',
+                  showAllCallBack: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const CategoryProducts(
+                                  event: GetGategoryProductsEvent(
+                                      categoryId: 117,
+                                      pageNum: 1,
+                                      perPage: 100),
+                                  categoryName: '  المكياج ',
+                                )));
+                  },
+                ),
+                const MakeupComponent(),
+                CategoryNameAndShowAll(
+                  name: '  الحيوانات الأليفة ',
+                  showAllCallBack: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const CategoryProducts(
+                                  event: GetGategoryProductsEvent(
+                                      categoryId: 421,
+                                      pageNum: 1,
+                                      perPage: 100),
+                                  categoryName: '  الحيونات الأليفة ',
+                                )));
+                  },
+                ),
+                const PetsComponent(),
               ],
             ),
           ),
@@ -93,4 +222,10 @@ class Home extends StatelessWidget {
       ),
     );
   }
-}
+}  
+// const Padding(
+                //   padding: EdgeInsets.all(8.0),
+                //   child: BrandCard(
+                //     image: '',
+                //   ),
+                // ),

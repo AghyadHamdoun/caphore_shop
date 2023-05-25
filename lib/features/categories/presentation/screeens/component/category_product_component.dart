@@ -31,7 +31,7 @@ class CategoryProductComponent extends StatelessWidget {
           case RequestState.loaded:
             return GridView.builder(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, childAspectRatio: 0.6.h),
+                  crossAxisCount: 2, childAspectRatio: 0.55.h),
               itemCount: state.categoryProducts.length,
               shrinkWrap: true,
               itemBuilder: (BuildContext context, int index) {
@@ -41,14 +41,17 @@ class CategoryProductComponent extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => ProductScreen(
-                              product: state.categoryProducts[index], products:state.categoryProducts,
-                            )));
+                                  product: state.categoryProducts[index],
+                                  products: state.categoryProducts,
+                                )));
                   },
                   child: ProductCard(
                     productname: state.categoryProducts[index].name,
                     price: state.categoryProducts[index].price,
                     orginalprice: state.categoryProducts[index].regularPrice,
-                    image: state.categoryProducts[index].images.isNotEmpty?state.categoryProducts[index].images[0].src:'',
+                    image: state.categoryProducts[index].images.isNotEmpty
+                        ? state.categoryProducts[index].images[0].src
+                        : '',
                   ),
                 );
               },
