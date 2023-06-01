@@ -18,14 +18,14 @@ class BrandsComponent extends StatelessWidget {
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
           ),
-          itemCount: state.allCategories.length,
+          itemCount: state.brandsTerms.length,
           physics: const BouncingScrollPhysics(),
           itemBuilder: (BuildContext context, int index) {
             return SizedBox(
               height: 120.h,
               child: CategoryCard(
                 name: state.brandsTerms[index].name,
-                image: state.allCategories[index].image.src,
+                image: (state.brandsTerms[index].description.split(';')[1])??'',
               ),
             );
           },

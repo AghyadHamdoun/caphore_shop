@@ -284,7 +284,7 @@ class CategoriesState extends Equatable {
       childrenClothingProductsMessage: childrenClothingProductsMessage ??
           this.childrenClothingProductsMessage,
       //
-      foodProducts: childrenClothingProducts ?? this.foodProducts,
+      foodProducts: foodProducts ?? this.foodProducts,
       foodProductsState: foodProductsState ??
           this.foodProductsState,
       foodProductsMessage: foodProductsMessage ??
