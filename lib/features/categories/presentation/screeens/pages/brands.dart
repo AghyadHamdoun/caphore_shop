@@ -1,5 +1,6 @@
 import 'package:caphore/features/categories/presentation/controller/categories_bloc.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_state.dart';
+import 'package:caphore/features/categories/presentation/screeens/component/attributes/brands_component.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/CategoryCard.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/attrebutename.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/textformfild.dart';
@@ -25,27 +26,10 @@ class Brands extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(
                     top: 10.h, left: 10.w, right: 10.w, bottom: 0),
-                child: const AttributeName(name: "الالبسة"),
+                child: const AttributeName(name: "الماركات"),
               ),
-              Expanded(
-                child: GridView.builder(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                  ),
-                  itemCount: state.allCategories.length,
-                  physics: const BouncingScrollPhysics(),
-                  itemBuilder: (BuildContext context, int index) {
-                    return SizedBox(
-                      height: 120.h,
-                      child: CategoryCard(
-                        name: state.allCategories[index].name,
-                        image: state.allCategories[index].image.src,
-                      ),
-                    );
-                  },
-                ),
+             const Expanded(
+                child: BrandsComponent(),
               ),
             ],
           ),

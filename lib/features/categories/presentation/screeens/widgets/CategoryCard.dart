@@ -12,10 +12,9 @@ class CategoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        Navigator.of(context).pushNamed("/subcategories");
-      },
+    return SizedBox(
+      height: 200.h,
+      width: 200.w,
       child: Card(
 
           shape: RoundedRectangleBorder(

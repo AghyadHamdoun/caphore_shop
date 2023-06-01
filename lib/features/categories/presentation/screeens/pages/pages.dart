@@ -46,7 +46,7 @@ class _MyPagesState extends State<MyPages> {
         ..add(const GetPerfumesProductsEvent(pageNum: 1, categoryId: 108, perPage: 10))
         ..add(const GetMakeUpProductsEvent(pageNum: 1, categoryId: 117, perPage: 10))
         ..add(const GetPetsProductsEvent(pageNum: 1, categoryId: 421, perPage: 10))
-        ..add(const GetBrandTermsEvent(pageNum: 1,perPage: 10, attributeId: 7))
+        ..add(const GetBrandTermsEvent(pageNum: 1,perPage: 100, attributeId: 7))
 
 
 
