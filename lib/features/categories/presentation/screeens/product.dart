@@ -20,6 +20,9 @@ class ProductScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("=======================");
+    print(product.id);
+    print(product.categories[0].name);
     products.sort((a, b) {
       return a.name.hashCode.compareTo(b.name.hashCode);
     });
@@ -50,7 +53,7 @@ class ProductScreen extends StatelessWidget {
                   ? Image.network(
                       product.images[0].src,
                       fit: BoxFit.fill,
-                      height: 250.h,
+                      height: 300.h,
                     )
                   : ImageSliderWithIndex(
                       imeges: product.images.map((e) => e.src).toList()),

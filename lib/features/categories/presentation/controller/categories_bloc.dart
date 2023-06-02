@@ -16,8 +16,12 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
   GetLastProductsUseCase getLastProductsUseCase;
   GetTermsUseCase getTermsUseCase;
 
-  CategoriesBloc(this.getAllCategoriesUseCase, this.getProductDetailsUseCase,
-      this.getCategoryProductsUseCase, this.getLastProductsUseCase,this.getTermsUseCase)
+  CategoriesBloc(
+      this.getAllCategoriesUseCase,
+      this.getProductDetailsUseCase,
+      this.getCategoryProductsUseCase,
+      this.getLastProductsUseCase,
+      this.getTermsUseCase)
       : super(const CategoriesState()) {
     //All Category Event
     on<GetAllCategoriesEvent>((event, emit) async {
@@ -44,7 +48,9 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     on<GetGategoryProductsEvent>((event, emit) async {
       final result = await getCategoryProductsUseCase(
           CategoryProductsParameters(
-              categoryId: event.categoryId, page: event.pageNum,perPage: event.perPage));
+              categoryId: event.categoryId,
+              page: event.pageNum,
+              perPage: event.perPage));
       result.fold(
           (l) => emit(state.copyWith(
               categoryProductsMessage: l.message,
@@ -56,8 +62,8 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
 
     //last Products Event
     on<GetLastProductsEvent>((event, emit) async {
-      final result = await getLastProductsUseCase(
-          CategoryProductsParameters(categoryId: 0, page: event.pageNum,perPage: event.perPage));
+      final result = await getLastProductsUseCase(CategoryProductsParameters(
+          categoryId: 0, page: event.pageNum, perPage: event.perPage));
       result.fold(
           (l) => emit(state.copyWith(
               lastProductsMessage: l.message,
@@ -65,16 +71,20 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
               categoryProductsMessage: l.message,
               categoryProductsState: RequestState.error)),
           (r) => emit(state.copyWith(
-              lastProducts: r.skipWhile((value) => value.name=='AUTO-DRAFT').toList(),
+              lastProducts:
+                  r.skipWhile((value) => value.name == 'AUTO-DRAFT').toList(),
               lastProductsState: RequestState.loaded,
-              categoryProducts: r.skipWhile((value) => value.name=='AUTO-DRAFT').toList(),
+              categoryProducts:
+                  r.skipWhile((value) => value.name == 'AUTO-DRAFT').toList(),
               categoryProductsState: RequestState.loaded)));
     });
     //men clothing event
     on<GetMenClothingProductsEvent>((event, emit) async {
       final result = await getCategoryProductsUseCase(
           CategoryProductsParameters(
-              categoryId: event.categoryId, page: event.pageNum,perPage: event.perPage));
+              categoryId: event.categoryId,
+              page: event.pageNum,
+              perPage: event.perPage));
       result.fold(
           (l) => emit(state.copyWith(
               menClothingProductsMessage: l.message,
@@ -87,7 +97,9 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     on<GetWomenClothingProductsEvent>((event, emit) async {
       final result = await getCategoryProductsUseCase(
           CategoryProductsParameters(
-              categoryId: event.categoryId, page: event.pageNum,perPage: event.perPage));
+              categoryId: event.categoryId,
+              page: event.pageNum,
+              perPage: event.perPage));
       result.fold(
           (l) => emit(state.copyWith(
               womenClothingProductsMessage: l.message,
@@ -102,7 +114,9 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     on<GetChildrenClothingProductsEvent>((event, emit) async {
       final result = await getCategoryProductsUseCase(
           CategoryProductsParameters(
-              categoryId: event.categoryId, page: event.pageNum,perPage: event.perPage));
+              categoryId: event.categoryId,
+              page: event.pageNum,
+              perPage: event.perPage));
       result.fold(
           (l) => emit(state.copyWith(
               childrenClothingProductsMessage: l.message,
@@ -116,7 +130,9 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     on<GetFoodProductsEvent>((event, emit) async {
       final result = await getCategoryProductsUseCase(
           CategoryProductsParameters(
-              categoryId: event.categoryId, page: event.pageNum,perPage: event.perPage));
+              categoryId: event.categoryId,
+              page: event.pageNum,
+              perPage: event.perPage));
       result.fold(
           (l) => emit(state.copyWith(
               foodProductsMessage: l.message,
@@ -129,7 +145,9 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     on<GetShoesAndBagsProductsEvent>((event, emit) async {
       final result = await getCategoryProductsUseCase(
           CategoryProductsParameters(
-              categoryId: event.categoryId, page: event.pageNum,perPage: event.perPage));
+              categoryId: event.categoryId,
+              page: event.pageNum,
+              perPage: event.perPage));
       result.fold(
           (l) => emit(state.copyWith(
               shoesAndBagsProductsMessage: l.message,
@@ -143,7 +161,9 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     on<GetWatchesAndAccessoriesProductsEvent>((event, emit) async {
       final result = await getCategoryProductsUseCase(
           CategoryProductsParameters(
-              categoryId: event.categoryId, page: event.pageNum,perPage: event.perPage));
+              categoryId: event.categoryId,
+              page: event.pageNum,
+              perPage: event.perPage));
       result.fold(
           (l) => emit(state.copyWith(
               watchesAndAccessoriesProductsMessage: l.message,
@@ -157,7 +177,9 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     on<GetMobilesProductsEvent>((event, emit) async {
       final result = await getCategoryProductsUseCase(
           CategoryProductsParameters(
-              categoryId: event.categoryId, page: event.pageNum,perPage: event.perPage));
+              categoryId: event.categoryId,
+              page: event.pageNum,
+              perPage: event.perPage));
       result.fold(
           (l) => emit(state.copyWith(
               mobilesProductsMessage: l.message,
@@ -170,7 +192,9 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     on<GetPerfumesProductsEvent>((event, emit) async {
       final result = await getCategoryProductsUseCase(
           CategoryProductsParameters(
-              categoryId: event.categoryId, page: event.pageNum,perPage: event.perPage));
+              categoryId: event.categoryId,
+              page: event.pageNum,
+              perPage: event.perPage));
       result.fold(
           (l) => emit(state.copyWith(
               mobilesProductsMessage: l.message,
@@ -183,7 +207,9 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     on<GetHouseAndKitchenProductsEvent>((event, emit) async {
       final result = await getCategoryProductsUseCase(
           CategoryProductsParameters(
-              categoryId: event.categoryId, page: event.pageNum,perPage: event.perPage));
+              categoryId: event.categoryId,
+              page: event.pageNum,
+              perPage: event.perPage));
       result.fold(
           (l) => emit(state.copyWith(
               houseAndKitchenProductsMessage: l.message,
@@ -197,7 +223,9 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     on<GetElectronicEquipmentProductsEvent>((event, emit) async {
       final result = await getCategoryProductsUseCase(
           CategoryProductsParameters(
-              categoryId: event.categoryId, page: event.pageNum, perPage: event.perPage));
+              categoryId: event.categoryId,
+              page: event.pageNum,
+              perPage: event.perPage));
       result.fold(
           (l) => emit(state.copyWith(
               electronicEquipmentProductsMessage: l.message,
@@ -211,51 +239,235 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     on<GetMakeUpProductsEvent>((event, emit) async {
       final result = await getCategoryProductsUseCase(
           CategoryProductsParameters(
-              categoryId: event.categoryId, page: event.pageNum,perPage: event.perPage));
+              categoryId: event.categoryId,
+              page: event.pageNum,
+              perPage: event.perPage));
       result.fold(
           (l) => emit(state.copyWith(
               makeUpProductsMessage: l.message,
               makeUpProductsState: RequestState.error)),
           (r) => emit(state.copyWith(
-              makeUpProducts: r,
-              makeUpProductsState: RequestState.loaded)));
+              makeUpProducts: r, makeUpProductsState: RequestState.loaded)));
     });
 
     //pets products event
     on<GetPetsProductsEvent>((event, emit) async {
       final result = await getCategoryProductsUseCase(
           CategoryProductsParameters(
-              categoryId: event.categoryId, page: event.pageNum,perPage: event.perPage));
+              categoryId: event.categoryId,
+              page: event.pageNum,
+              perPage: event.perPage));
       result.fold(
-              (l) => emit(state.copyWith(
+          (l) => emit(state.copyWith(
               petsProductsMessage: l.message,
               petsProductsState: RequestState.error)),
-              (r) => emit(state.copyWith(
-              petsProducts: r,
-              petsProductsState: RequestState.loaded)));
+          (r) => emit(state.copyWith(
+              petsProducts: r, petsProductsState: RequestState.loaded)));
     });
 
     //------ Attribute Terms------
-
+    //begin
+    //event
     on<GetBrandTermsEvent>((event, emit) async {
-      final result = await getTermsUseCase(
-          TermsParameters(
-              id: event.attributeId, page: event.pageNum,perPage: event.perPage));
+      final result = await getTermsUseCase(TermsParameters(
+          id: event.attributeId, page: event.pageNum, perPage: event.perPage));
       result.fold(
-              (l) => emit(state.copyWith(
+          (l) => emit(state.copyWith(
+              //state
               brandsTermsMessage: l.message,
               brandsTermsState: RequestState.error)),
-              (r) =>
-                emit(state.copyWith(
+          (r) => emit(state.copyWith(
+              //state
               brandsTerms: r,
               brandsTermsState: RequestState.loaded)));
     });
-
+    //end
+    //
+    on<GetClothingTermsEvent>((event, emit) async {
+      final result = await getTermsUseCase(TermsParameters(
+          id: event.attributeId, page: event.pageNum, perPage: event.perPage));
+      result.fold(
+          (l) => emit(state.copyWith(
+              //state
+              clothingTermsMessage: l.message,
+              clothingTermsState: RequestState.error)),
+          (r) => emit(state.copyWith(
+              //state
+              clothingTerms: r,
+              clothingTermsState: RequestState.loaded)));
+    });
+    on<GetShoesAndBagsTermsEvent>((event, emit) async {
+      final result = await getTermsUseCase(TermsParameters(
+          id: event.attributeId, page: event.pageNum, perPage: event.perPage));
+      result.fold(
+          (l) => emit(state.copyWith(
+              //state
+              shoesandbagsTermsMessage: l.message,
+              shoesandbagsTermsState: RequestState.error)),
+          (r) => emit(state.copyWith(
+              //state
+              shoesandbagsTerms: r,
+              shoesandbagsTermsState: RequestState.loaded)));
+    });
+    //
+    on<GetElectronicEquipmentTermsEvent>((event, emit) async {
+      final result = await getTermsUseCase(TermsParameters(
+          id: event.attributeId, page: event.pageNum, perPage: event.perPage));
+      result.fold(
+          (l) => emit(state.copyWith(
+              //state
+              electronicequipmentTermsMessage: l.message,
+              electronicequipmentTermsState: RequestState.error)),
+          (r) => emit(state.copyWith(
+              //state
+              electronicequipmentTerms: r,
+              electronicequipmentTermsState: RequestState.loaded)));
+    });
+    //
+    on<GetHouseAndKitchenTermsEvent>((event, emit) async {
+      final result = await getTermsUseCase(TermsParameters(
+          id: event.attributeId, page: event.pageNum, perPage: event.perPage));
+      result.fold(
+          (l) => emit(state.copyWith(
+              //state
+              houseandkitchenTermsMessage: l.message,
+              houseandkitchenTermsState: RequestState.error)),
+          (r) => emit(state.copyWith(
+              //state
+              houseandkitchenTerms: r,
+              houseandkitchenTermsState: RequestState.loaded)));
+    });
+    on<GetMakeUpTermsEvent>((event, emit) async {
+      final result = await getTermsUseCase(TermsParameters(
+          id: event.attributeId, page: event.pageNum, perPage: event.perPage));
+      result.fold(
+          (l) => emit(state.copyWith(
+              //state
+              makeupTermsMessage: l.message,
+              makeupTermsState: RequestState.error)),
+          (r) => emit(state.copyWith(
+              //state
+              makeupTerms: r,
+              makeupTermsState: RequestState.loaded)));
+    });
+    on<GetWatchesAndAccessoriesTermsEvent>((event, emit) async {
+      final result = await getTermsUseCase(TermsParameters(
+          id: event.attributeId, page: event.pageNum, perPage: event.perPage));
+      result.fold(
+          (l) => emit(state.copyWith(
+              //state
+              watchesandaccessoriesTermsMessage: l.message,
+              watchesandaccessoriesTermsState: RequestState.error)),
+          (r) => emit(state.copyWith(
+              //state
+              watchesandaccessoriesTerms: r,
+              watchesandaccessoriesTermsState: RequestState.loaded)));
+    });
+    on<GetPerfumesTermsEvent>((event, emit) async {
+      final result = await getTermsUseCase(TermsParameters(
+          id: event.attributeId, page: event.pageNum, perPage: event.perPage));
+      result.fold(
+          (l) => emit(state.copyWith(
+              //state
+              perfumesTermsMessage: l.message,
+              perfumesTermsState: RequestState.error)),
+          (r) => emit(state.copyWith(
+              //state
+              perfumesTerms: r,
+              perfumesTermsState: RequestState.loaded)));
+    });
+    on<GetHandMadeTermsEvent>((event, emit) async {
+      final result = await getTermsUseCase(TermsParameters(
+          id: event.attributeId, page: event.pageNum, perPage: event.perPage));
+      result.fold(
+          (l) => emit(state.copyWith(
+              //state
+              handmadeTermsMessage: l.message,
+              handmadeTermsState: RequestState.error)),
+          (r) => emit(state.copyWith(
+              //state
+              handmadeTerms: r,
+              handmadeTermsState: RequestState.loaded)));
+    });
+    on<GetPetsTermsEvent>((event, emit) async {
+      final result = await getTermsUseCase(TermsParameters(
+          id: event.attributeId, page: event.pageNum, perPage: event.perPage));
+      result.fold(
+          (l) => emit(state.copyWith(
+              //state
+              petsTermsMessage: l.message,
+              petsTermsState: RequestState.error)),
+          (r) => emit(state.copyWith(
+              //state
+              petsTerms: r,
+              petsTermsState: RequestState.loaded)));
+    });
+    on<GetToysTermsEvent>((event, emit) async {
+      final result = await getTermsUseCase(TermsParameters(
+          id: event.attributeId, page: event.pageNum, perPage: event.perPage));
+      result.fold(
+          (l) => emit(state.copyWith(
+              //state
+              toysTermsMessage: l.message,
+              toysTermsState: RequestState.error)),
+          (r) => emit(state.copyWith(
+              //state
+              toysTerms: r,
+              toysTermsState: RequestState.loaded)));
+    });
+    on<GetFastFoodTermsEvent>((event, emit) async {
+      final result = await getTermsUseCase(TermsParameters(
+          id: event.attributeId, page: event.pageNum, perPage: event.perPage));
+      result.fold(
+          (l) => emit(state.copyWith(
+              //state
+              fastfoodTermsMessage: l.message,
+              fastfoodTermsState: RequestState.error)),
+          (r) => emit(state.copyWith(
+              //state
+              fastfoodTerms: r,
+              fastfoodTermsState: RequestState.loaded)));
+    });
+    on<GetArabFoodTermsEvent>((event, emit) async {
+      final result = await getTermsUseCase(TermsParameters(
+          id: event.attributeId, page: event.pageNum, perPage: event.perPage));
+      result.fold(
+          (l) => emit(state.copyWith(
+              //state
+              arabfoodTermsMessage: l.message,
+              arabfoodTermsState: RequestState.error)),
+          (r) => emit(state.copyWith(
+              //state
+              arabfoodTerms: r,
+              arabfoodTermsState: RequestState.loaded)));
+    });
+    on<GetSweetTermsEvent>((event, emit) async {
+      final result = await getTermsUseCase(TermsParameters(
+          id: event.attributeId, page: event.pageNum, perPage: event.perPage));
+      result.fold(
+          (l) => emit(state.copyWith(
+              //state
+              sweetTermsMessage: l.message,
+              sweetTermsState: RequestState.error)),
+          (r) => emit(state.copyWith(
+              //state
+              sweetTerms: r,
+              sweetTermsState: RequestState.loaded)));
+    });
+    on<GetCoffeTermsEvent>((event, emit) async {
+      final result = await getTermsUseCase(TermsParameters(
+          id: event.attributeId, page: event.pageNum, perPage: event.perPage));
+      result.fold(
+          (l) => emit(state.copyWith(
+              //state
+              coffeTermsMessage: l.message,
+              coffeTermsState: RequestState.error)),
+          (r) => emit(state.copyWith(
+              //state
+              coffeTerms: r,
+              coffeTermsState: RequestState.loaded)));
+    });
   }
-
-
-
-
 
   void getProductDetail(int productId, int categoryId) {
     add(GetProductDetailsEvent(productId: productId, categoryId: categoryId));

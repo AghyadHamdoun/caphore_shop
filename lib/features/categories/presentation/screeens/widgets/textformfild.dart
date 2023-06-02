@@ -13,34 +13,37 @@ class maintextform extends StatelessWidget {
       onTap: () {
         Navigator.of(context).pushNamed("/Search");
       },
-      child: Form(
-        child: TextFormField(
-          enabled: false,
-          decoration: InputDecoration(
-            filled: true,
-            fillColor: AppColor.primaryColor,
-            suffixIcon: Icon(
-              Icons.search,
-              size: 28.sp,
-              color: AppColor.accentColor,
-            ),
-            prefixIcon: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 6.w),
-              child: Row(
-                children: [
-                  SizedBox(
-                    height: 80.h,
-                    width: 90.w,
-                    child: Image.asset(
-                      "assets/images/TT copy.png",
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ],
+      child: SizedBox(
+        height: 85.h,
+        child: Form(
+          child: TextFormField(
+            enabled: false,
+            decoration: InputDecoration(
+              filled: true,
+              fillColor: AppColor.primaryColor,
+              suffixIcon: Icon(
+                Icons.search,
+                size: 28.sp,
+                color: AppColor.accentColor,
               ),
-            ),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20),
+              prefixIcon: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 6.w),
+                child: Row(
+                  children: [
+                    SizedBox(
+                      height: 85.h,
+                      width: 100.w,
+                      child: Image.asset(
+                        "assets/images/TT copy.png",
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
             ),
           ),
         ),
