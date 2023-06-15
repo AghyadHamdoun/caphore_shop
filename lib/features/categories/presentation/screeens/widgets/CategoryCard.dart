@@ -16,19 +16,22 @@ class CategoryCard extends StatelessWidget {
       height: 200.h,
       width: 200.w,
       child: Card(
-
-          shape: RoundedRectangleBorder(
-
+        elevation: 4.r,
+        shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.r),
-            side: BorderSide(color: AppColor.accentColor,width: 2.w )
-          ),
-          color: const Color.fromARGB(255, 255, 255, 255),
-          child:  CachedNetworkImage(
+            side: BorderSide(color: AppColor.accentColor, width: 2.w)),
+        color: const Color.fromARGB(255, 255, 255, 255),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 3.w, vertical: 3.h),
+          child: CachedNetworkImage(
             height: 40.h,
             width: 40.w,
             imageUrl: image,
-            errorWidget: (context, url, error) => Image.asset('assets/images/TT copy.png'),
-          ),),
+            errorWidget: (context, url, error) =>
+                Image.asset('assets/images/TT copy.png'),
+          ),
+        ),
+      ),
     );
   }
 }

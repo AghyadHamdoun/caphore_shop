@@ -18,7 +18,7 @@ class ProductBottom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 130.h,
+      height: 165.h,
       width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.white,
@@ -33,12 +33,43 @@ class ProductBottom extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Text(
-            "$price ل.س",
-            style: TextStyle(
-                color: AppColor.accentColor,
-                fontSize: 20.sp,
-                fontWeight: FontWeight.bold),
+          Row(
+            children: [
+              Text(
+                "  السعر:   ",
+                style: TextStyle(fontSize: 20.sp),
+              ),
+              (price == "33")
+                  ? Text(
+                      " تواصل لمعرفةالسعر",
+                      style: TextStyle(
+                          color: AppColor.accentColor,
+                          fontSize: 20.sp,
+                          fontWeight: FontWeight.bold),
+                    )
+                  : Text(
+                      "$price ل.س ",
+                      style: TextStyle(
+                          color: AppColor.accentColor,
+                          fontSize: 20.sp,
+                          fontWeight: FontWeight.bold),
+                    ),
+            ],
+          ),
+          Row(
+            children: [
+              Text(
+                "  المتجر:  ",
+                style: TextStyle(fontSize: 20.sp),
+              ),
+              Text(
+                "  name",
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 25.sp,
+                    fontWeight: FontWeight.bold),
+              ),
+            ],
           ),
           SizedBox(
             height: 25.h,
@@ -58,6 +89,9 @@ class ProductBottom extends StatelessWidget {
               "اشتري الان",
               style: TextStyle(fontSize: 18.sp),
             ),
+          ),
+          SizedBox(
+            height: 10.h,
           )
         ],
       ),

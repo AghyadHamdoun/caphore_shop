@@ -14,6 +14,7 @@ import 'package:caphore/features/categories/presentation/screeens/component/prod
 import 'package:caphore/features/categories/presentation/screeens/component/products/women_clothing_component.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/CategoryNameAndShowAll.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/ImageSlider.dart';
+import 'package:caphore/features/categories/presentation/screeens/widgets/ImageSliderWithIndex.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/textformfild.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -42,9 +43,8 @@ class Home extends StatelessWidget {
               physics: const BouncingScrollPhysics(),
               children: [
                 SizedBox(
-                  height: 170.h,
-                  child: ImageSlider(imeges: imeges),
-                ),
+                    height: 220.h, child: ImageSliderWithIndex(imeges: imeges)),
+                const CategoriesComponent(),
                 CategoryNameAndShowAll(
                   name: 'عروض كافور',
                   showAllCallBack: () {
@@ -59,7 +59,7 @@ class Home extends StatelessWidget {
                   },
                 ),
                 const LastProductComponent(),
-                const CategoriesComponent(),
+
                 CategoryNameAndShowAll(
                   name: 'الالبسة الرجالية',
                   showAllCallBack: () {

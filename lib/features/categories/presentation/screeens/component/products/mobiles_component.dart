@@ -23,7 +23,7 @@ class MobilesComponent extends StatelessWidget {
         switch (state.mobilesProductsState) {
           case RequestState.loading:
             return SizedBox(
-              height: 280.h,
+              height: 285.h,
               child: Center(
                 child: Lottie.asset(
                   'assets/lottie/digishi.json',
@@ -39,7 +39,7 @@ class MobilesComponent extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
                 child: SizedBox(
-                  height: 280.h,
+                  height: 288.h,
                   width: double.infinity.w,
                   child: Expanded(
                     child: ListView.builder(
@@ -59,7 +59,7 @@ class MobilesComponent extends StatelessWidget {
                                         )));
                           },
                           child: SizedBox(
-                            width: 170.w,
+                            width: 180.w,
                             child: ProductCard(
                               productname: state.mobilesProducts[index].name,
                               price: state.mobilesProducts[index].price,

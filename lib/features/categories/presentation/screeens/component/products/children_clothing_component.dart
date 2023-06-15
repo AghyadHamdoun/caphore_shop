@@ -24,7 +24,7 @@ class ChildrenClothingComponent extends StatelessWidget {
         switch (state.childrenClothingProductsState) {
           case RequestState.loading:
             return SizedBox(
-              height: 280.h,
+              height: 285.h,
               child: Center(
                 child: Lottie.asset(
                   'assets/lottie/digishi.json',
@@ -40,7 +40,7 @@ class ChildrenClothingComponent extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
                 child: SizedBox(
-                  height: 280.h,
+                  height: 285.h,
                   width: double.infinity.w,
                   child: Expanded(
                     child: ListView.builder(

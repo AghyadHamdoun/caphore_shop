@@ -9,8 +9,6 @@ class ImageSlider extends StatelessWidget {
     required this.imeges,
   });
 
-
-
   @override
   Widget build(BuildContext context) {
     return CarouselSlider(
@@ -19,11 +17,9 @@ class ImageSlider extends StatelessWidget {
             (item) => Padding(
               padding: EdgeInsets.only(bottom: 10.h),
               child: Container(
-                height: 170.h,
-                width: 350.w,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: NetworkImage(item), fit: BoxFit.cover),
+                      image: NetworkImage(item), fit: BoxFit.fill),
                   borderRadius: BorderRadius.circular(20.r),
                 ),
               ),
@@ -31,7 +27,9 @@ class ImageSlider extends StatelessWidget {
           )
           .toList(),
       options: CarouselOptions(
-          autoPlay: true, aspectRatio: 2, enlargeCenterPage: true),
+          autoPlay: false, aspectRatio: 0.6, enlargeCenterPage: false),
     );
   }
 }
+//  height: 270.h,
+        //        width: 400.w,
