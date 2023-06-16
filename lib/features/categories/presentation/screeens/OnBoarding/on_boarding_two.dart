@@ -16,7 +16,7 @@ class OnBoardingTwo extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Container(
-          color: Colors.white,
+          color: Colors.blue,
           child: Stack(
             children: [
               Column(
@@ -81,7 +81,6 @@ class OnBoardingTwo extends StatelessWidget {
                     padding: EdgeInsets.only(top: 20.h),
                     child: Container(
                       height: 80.h,
-
                     ),
                   ),
                 ],

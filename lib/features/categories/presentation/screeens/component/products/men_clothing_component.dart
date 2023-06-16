@@ -18,12 +18,12 @@ class MenClothingComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CategoriesBloc, CategoriesState>(
       buildWhen: (previous, current) =>
-      previous.menClothingProductsState != current.menClothingProductsState,
+          previous.menClothingProductsState != current.menClothingProductsState,
       builder: (context, state) {
         switch (state.menClothingProductsState) {
           case RequestState.loading:
             return SizedBox(
-              height: 280.h,
+              height: 285.h,
               child: Center(
                 child: Lottie.asset(
                   'assets/lottie/digishi.json',
@@ -39,7 +39,7 @@ class MenClothingComponent extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
                 child: SizedBox(
-                  height: 280.h,
+                  height: 285.h,
                   width: double.infinity.w,
                   child: Expanded(
                     child: ListView.builder(
@@ -54,15 +54,18 @@ class MenClothingComponent extends StatelessWidget {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => ProductScreen(
-                                      product: state.menClothingProducts[index], products:state.menClothingProducts,
-                                    )));
+                                          product:
+                                              state.menClothingProducts[index],
+                                          products: state.menClothingProducts,
+                                        )));
                           },
                           child: ProductCard(
                             productname: state.menClothingProducts[index].name,
                             price: state.menClothingProducts[index].price,
                             orginalprice:
-                            state.menClothingProducts[index].regularPrice,
-                            image: state.menClothingProducts[index].images.isNotEmpty
+                                state.menClothingProducts[index].regularPrice,
+                            image: state.menClothingProducts[index].images
+                                    .isNotEmpty
                                 ? state.menClothingProducts[index].images[0].src
                                 : '',
                           ),

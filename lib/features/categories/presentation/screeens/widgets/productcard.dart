@@ -20,21 +20,31 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
-      width: 170.w,
-      child: Card(
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
+      child: Container(
+        width: 170.w,
+        decoration: BoxDecoration(
+            image: DecorationImage(
+              alignment: Alignment.topCenter,
+              image: NetworkImage(
+                image,
+              ),
+            ),
+            boxShadow: [
+              BoxShadow(
+                  blurRadius: 5.r,
+                  blurStyle: BlurStyle.outer,
+                  spreadRadius: 5.r,
+                  color: Colors.grey),
+            ],
+            borderRadius: BorderRadius.circular(20.r)),
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 3.h),
           child: Column(
             children: [
-              CachedNetworkImage(
-                height: 150.h,
-                width: double.infinity,
-                imageUrl: image,
-                errorWidget:
-                    (BuildContext context, String url, dynamic error) =>
-                        Image.asset('assets/images/TT copy.png'),
+              SizedBox(
+                height: 145.h,
               ),
               Padding(
                 padding: EdgeInsets.only(top: 5.h),
@@ -65,11 +75,21 @@ class ProductCard extends StatelessWidget {
                                 fontSize: 10.sp,
                                 color: Colors.grey),
                           ),
-                          Text(
-                            "$price ل.س ",
-                            style:
-                                TextStyle(fontSize: 16.sp, color: Colors.black),
-                          ),
+                          (price == "33")
+                              ? Text(
+                                  " تواصل لمعرفةالسعر",
+                                  style: TextStyle(
+                                      color: AppColor.accentColor,
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.bold),
+                                )
+                              : Text(
+                                  "$price ل.س ",
+                                  style: TextStyle(
+                                      color: AppColor.accentColor,
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.bold),
+                                ),
                         ],
                       ),
                       const Spacer(),
@@ -89,3 +109,11 @@ class ProductCard extends StatelessWidget {
     );
   }
 }
+ // CachedNetworkImage(
+     //           height: 150.h,
+       //         width: double.infinity,
+         //       imageUrl: image,
+           //     errorWidget:
+             //      (BuildContext context, String url, dynamic error) =>
+               //        Image.asset('assets/images/TT copy.png'),
+              //),

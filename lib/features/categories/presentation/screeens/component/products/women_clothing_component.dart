@@ -18,12 +18,13 @@ class WomenClothingComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CategoriesBloc, CategoriesState>(
       buildWhen: (previous, current) =>
-      previous.womenClothingProductsState != current.womenClothingProductsState,
+          previous.womenClothingProductsState !=
+          current.womenClothingProductsState,
       builder: (context, state) {
         switch (state.womenClothingProductsState) {
           case RequestState.loading:
             return SizedBox(
-              height: 280.h,
+              height: 285.h,
               child: Center(
                 child: Lottie.asset(
                   'assets/lottie/digishi.json',
@@ -39,7 +40,7 @@ class WomenClothingComponent extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
                 child: SizedBox(
-                  height: 280.h,
+                  height: 285.h,
                   width: double.infinity.w,
                   child: Expanded(
                     child: ListView.builder(
@@ -52,16 +53,21 @@ class WomenClothingComponent extends StatelessWidget {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => ProductScreen(
-                                      product: state.womenClothingProducts[index], products:state.womenClothingProducts,
-                                    )));
+                                          product: state
+                                              .womenClothingProducts[index],
+                                          products: state.womenClothingProducts,
+                                        )));
                           },
                           child: ProductCard(
-                            productname: state.womenClothingProducts[index].name,
+                            productname:
+                                state.womenClothingProducts[index].name,
                             price: state.womenClothingProducts[index].price,
                             orginalprice:
-                            state.womenClothingProducts[index].regularPrice,
-                            image: state.womenClothingProducts[index].images.isNotEmpty
-                                ? state.womenClothingProducts[index].images[0].src
+                                state.womenClothingProducts[index].regularPrice,
+                            image: state.womenClothingProducts[index].images
+                                    .isNotEmpty
+                                ? state
+                                    .womenClothingProducts[index].images[0].src
                                 : '',
                           ),
                         );

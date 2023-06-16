@@ -22,7 +22,7 @@ class ControlPanel extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) =>const TermsAndConditions()));
+                            builder: (context) => const TermsAndConditions()));
                   },
                   name: "الشروط والأحكام",
                   svgpath: "assets/images/justice-law-svgrepo-com.svg"),
@@ -31,23 +31,26 @@ class ControlPanel extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) =>const WhoIsWe()));
-
+                            builder: (context) => const WhoIsWe()));
                   },
                   name: "لمحة عن كافور",
                   svgpath: "assets/images/about-svgrepo-com.svg"),
               LegalPageWidget(
-                  gotopage: () {  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>const PrivacyPolicy()));},
+                  gotopage: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const PrivacyPolicy()));
+                  },
                   name: "سياسة الخصوصية",
                   svgpath: "assets/images/shield-antivirus-svgrepo-com.svg"),
               LegalPageWidget(
-                  gotopage: () { Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>const ContactUs()));},
+                  gotopage: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ContactUs()));
+                  },
                   name: " تواصل معنا",
                   svgpath:
                       "assets/images/headphones-microphone-svgrepo-com.svg"),

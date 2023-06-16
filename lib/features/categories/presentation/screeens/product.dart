@@ -3,6 +3,7 @@ import 'package:caphore/features/categories/domain/entities/products.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/ImageSliderWithIndex.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/productbotoom.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/productcard.dart';
+import 'package:caphore/features/categories/presentation/screeens/widgets/productimageslider.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -20,6 +21,10 @@ class ProductScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("=======================");
+    print(product.id);
+    print(product.shortDescription);
+    print(product.categories[0].name);
     products.sort((a, b) {
       return a.name.hashCode.compareTo(b.name.hashCode);
     });
@@ -32,7 +37,7 @@ class ProductScreen extends StatelessWidget {
         iconTheme: const IconThemeData(color: AppColor.primaryColor),
         titleTextStyle: TextStyle(color: Colors.blue, fontSize: 22.sp),
         title: Text(
-          product.name,
+          "تفاصيل المنتج",
           style: const TextStyle(color: AppColor.accentColor),
         ),
       ),
@@ -46,14 +51,13 @@ class ProductScreen extends StatelessWidget {
           children: [
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 10.h),
-              child: (product.images.length == 1)
-                  ? Image.network(
-                      product.images[0].src,
-                      fit: BoxFit.fill,
-                      height: 250.h,
-                    )
-                  : ImageSliderWithIndex(
-                      imeges: product.images.map((e) => e.src).toList()),
+              child: SizedBox(
+                height: 340.h,
+                width: double.infinity,
+                child: Productimageslider(
+                  imeges: product.images.map((e) => e.src).toList(),
+                ),
+              ),
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
@@ -102,7 +106,7 @@ class ProductScreen extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
               child: SizedBox(
-                height: 280.h,
+                height: 285.h,
                 width: double.infinity.w,
                 child: Expanded(
                   child: ListView.builder(
@@ -142,3 +146,11 @@ class ProductScreen extends StatelessWidget {
     );
   }
 }
+//  (product.images.length == 1)
+//                   ? Image.network(
+//                       product.images[0].src,
+//                       fit: BoxFit.fill,
+//                       height: 300.h,
+//                     )
+//                   : ImageSliderWithIndex(
+//                       imeges: product.images.map((e) => e.src).toList()),

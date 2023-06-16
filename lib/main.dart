@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
           supportedLocales: context.supportedLocales,
           locale: context.locale,
           debugShowCheckedModeBanner: false,
-          home: MyPages(),
+          home: Splash(),
           routes: MyRoutes.routes,
           builder: EasyLoading.init(),
         );

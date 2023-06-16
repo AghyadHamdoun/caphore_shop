@@ -13,34 +13,41 @@ class CategoriesComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CategoriesBloc, CategoriesState>(
-      buildWhen: (previous, current) =>
-    previous.allCategoriesState != current.allCategoriesState,
+        buildWhen: (previous, current) =>
+            previous.allCategoriesState != current.allCategoriesState,
         builder: (context, state) {
-      return Container(
-        color: Colors.white12,
-        padding: EdgeInsets.symmetric(horizontal: 5.w),
-        height: 140.h,
-        width: double.infinity,
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: state.allCategories.length,
-          itemBuilder: (BuildContext context, int index) {
-            return InkWell(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => CategoryProducts(
-                              event:GetGategoryProductsEvent(pageNum:1, categoryId: state.allCategories[index].id,perPage: 100 ) ,
-                                categoryName: state.allCategories[index].name,
-                              )));
-                },
-                child: SalesAvatar(
-                    name: state.allCategories[index].name,
-                    image: state.allCategories[index].image.src));
-          },
-        ),
-      );
-    });
+          return Container(
+            color: Colors.white12,
+            padding: EdgeInsets.symmetric(horizontal: 5.w),
+            height: 140.h,
+            width: double.infinity,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: state.allCategories.length,
+              itemBuilder: (BuildContext context, int index) {
+                return InkWell(
+                    onTap: () {
+                      print("========================================");
+                      print(state.allCategories[index].id);
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => CategoryProducts(
+                                    event: GetGategoryProductsEvent(
+                                        pageNum: 1,
+                                        categoryId:
+                                            state.allCategories[index].id,
+                                        perPage: 100),
+                                    categoryName:
+                                        state.allCategories[index].name,
+                                  )));
+                    },
+                    child: SalesAvatar(
+                        name: state.allCategories[index].name,
+                        image: state.allCategories[index].image.src));
+              },
+            ),
+          );
+        });
   }
 }

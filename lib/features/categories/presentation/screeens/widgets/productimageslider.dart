@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ImageSliderWithIndex extends StatelessWidget {
+class Productimageslider extends StatelessWidget {
   final List<String> imeges;
-  const ImageSliderWithIndex({
+  const Productimageslider({
     super.key,
     required this.imeges,
   });
@@ -21,8 +21,7 @@ class ImageSliderWithIndex extends StatelessWidget {
                 (item) => Padding(
                   padding: EdgeInsets.only(bottom: 10.h),
                   child: Container(
-                    height: 180.h,
-                    width: double.infinity,
+                    height: 340.h,
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: NetworkImage(item),
@@ -35,14 +34,14 @@ class ImageSliderWithIndex extends StatelessWidget {
               )
               .toList(),
           options: CarouselOptions(
-              onPageChanged: (index, reason) {
-                current = index;
-              },
-              autoPlay: true,
-              enableInfiniteScroll: true,
-              aspectRatio: 1.9,
-              viewportFraction: 1,
-              enlargeCenterPage: true),
+            onPageChanged: (index, reason) {
+              current = index;
+            },
+            enableInfiniteScroll: true,
+            viewportFraction: 1,
+            autoPlay: true,
+            aspectRatio: 1,
+          ),
         ),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 160.w),
