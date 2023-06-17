@@ -60,9 +60,15 @@ class AttributesState extends Equatable {
   final RequestState sweetTermsState;
   final String sweetTermsMessage;
   //
-  final List<Term> coffeTerms;
-  final RequestState coffeTermsState;
-  final String coffeTermsMessage;
+  final List<Term> coffeeTerms;
+  final RequestState coffeeTermsState;
+  final String coffeeTermsMessage;
+
+  final List<Term> bannersTerms;
+  final RequestState bannersTermsState;
+  final String bannersTermsMessage;
+
+
   // 2
   const AttributesState({
     //attribute terms
@@ -123,9 +129,13 @@ class AttributesState extends Equatable {
     this.sweetTermsState = RequestState.loading,
     this.sweetTermsMessage = '',
     //
-    this.coffeTerms = const [],
-    this.coffeTermsState = RequestState.loading,
-    this.coffeTermsMessage = '',
+    this.coffeeTerms = const [],
+    this.coffeeTermsState = RequestState.loading,
+    this.coffeeTermsMessage = '',
+    //
+    this.bannersTerms = const [],
+    this.bannersTermsState = RequestState.loading,
+    this.bannersTermsMessage = '',
   });
 
   AttributesState copyWith({
@@ -187,9 +197,13 @@ class AttributesState extends Equatable {
     final RequestState? sweetTermsState,
     final String? sweetTermsMessage,
     //
-    final List<Term>? coffeTerms,
-    final RequestState? coffeTermsState,
-    final String? coffeTermsMessage,
+    final List<Term>? coffeeTerms,
+    final RequestState? coffeeTermsState,
+    final String? coffeeTermsMessage,
+
+    final List<Term>? bannersTerms,
+    final RequestState? bannersTermsState,
+    final String? bannersTermsMessage,
   }) {
     return AttributesState(
       //
@@ -259,9 +273,14 @@ class AttributesState extends Equatable {
       sweetTermsState: sweetTermsState ?? this.sweetTermsState,
       sweetTermsMessage: sweetTermsMessage ?? this.sweetTermsMessage,
       //
-      coffeTerms: coffeTerms ?? this.coffeTerms,
-      coffeTermsState: coffeTermsState ?? this.coffeTermsState,
-      coffeTermsMessage: coffeTermsMessage ?? this.coffeTermsMessage,
+      coffeeTerms: coffeeTerms ?? this.coffeeTerms,
+      coffeeTermsState: coffeeTermsState ?? this.coffeeTermsState,
+      coffeeTermsMessage: coffeeTermsMessage ?? this.coffeeTermsMessage,
+
+      //
+      bannersTerms: bannersTerms ?? this.bannersTerms,
+      bannersTermsState: bannersTermsState ?? this.bannersTermsState,
+      bannersTermsMessage: bannersTermsMessage ?? this.bannersTermsMessage,
     );
   }
 
@@ -326,8 +345,15 @@ class AttributesState extends Equatable {
     sweetTermsMessage,
     sweetTermsState,
     //
-    coffeTerms,
-    coffeTermsMessage,
-    coffeTermsState,
+    coffeeTerms,
+    coffeeTermsMessage,
+    coffeeTermsState,
+
+    //
+    bannersTerms,
+    bannersTermsMessage,
+    bannersTermsState,
+
+
   ];
 }

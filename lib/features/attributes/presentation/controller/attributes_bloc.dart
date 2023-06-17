@@ -7,9 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
   GetTermsUseCase getTermsUseCase;
 
-  AttributesBloc(
-      this.getTermsUseCase)
-      : super(const AttributesState()) {
+  AttributesBloc(this.getTermsUseCase) : super(const AttributesState()) {
     //------ Attribute Terms------
     //begin
     //event
@@ -17,12 +15,12 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
       final result = await getTermsUseCase(TermsParameters(
           id: event.attributeId, page: event.pageNum, perPage: event.perPage));
       result.fold(
-              (l) => emit(state.copyWith(
-            //state
+          (l) => emit(state.copyWith(
+              //state
               brandsTermsMessage: l.message,
               brandsTermsState: RequestState.error)),
-              (r) => emit(state.copyWith(
-            //state
+          (r) => emit(state.copyWith(
+              //state
               brandsTerms: r,
               brandsTermsState: RequestState.loaded)));
     });
@@ -32,12 +30,12 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
       final result = await getTermsUseCase(TermsParameters(
           id: event.attributeId, page: event.pageNum, perPage: event.perPage));
       result.fold(
-              (l) => emit(state.copyWith(
-            //state
+          (l) => emit(state.copyWith(
+              //state
               clothingTermsMessage: l.message,
               clothingTermsState: RequestState.error)),
-              (r) => emit(state.copyWith(
-            //state
+          (r) => emit(state.copyWith(
+              //state
               clothingTerms: r,
               clothingTermsState: RequestState.loaded)));
     });
@@ -45,12 +43,12 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
       final result = await getTermsUseCase(TermsParameters(
           id: event.attributeId, page: event.pageNum, perPage: event.perPage));
       result.fold(
-              (l) => emit(state.copyWith(
-            //state
+          (l) => emit(state.copyWith(
+              //state
               shoesandbagsTermsMessage: l.message,
               shoesandbagsTermsState: RequestState.error)),
-              (r) => emit(state.copyWith(
-            //state
+          (r) => emit(state.copyWith(
+              //state
               shoesandbagsTerms: r,
               shoesandbagsTermsState: RequestState.loaded)));
     });
@@ -59,12 +57,12 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
       final result = await getTermsUseCase(TermsParameters(
           id: event.attributeId, page: event.pageNum, perPage: event.perPage));
       result.fold(
-              (l) => emit(state.copyWith(
-            //state
+          (l) => emit(state.copyWith(
+              //state
               electronicequipmentTermsMessage: l.message,
               electronicequipmentTermsState: RequestState.error)),
-              (r) => emit(state.copyWith(
-            //state
+          (r) => emit(state.copyWith(
+              //state
               electronicequipmentTerms: r,
               electronicequipmentTermsState: RequestState.loaded)));
     });
@@ -73,12 +71,12 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
       final result = await getTermsUseCase(TermsParameters(
           id: event.attributeId, page: event.pageNum, perPage: event.perPage));
       result.fold(
-              (l) => emit(state.copyWith(
-            //state
+          (l) => emit(state.copyWith(
+              //state
               houseandkitchenTermsMessage: l.message,
               houseandkitchenTermsState: RequestState.error)),
-              (r) => emit(state.copyWith(
-            //state
+          (r) => emit(state.copyWith(
+              //state
               houseandkitchenTerms: r,
               houseandkitchenTermsState: RequestState.loaded)));
     });
@@ -86,12 +84,12 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
       final result = await getTermsUseCase(TermsParameters(
           id: event.attributeId, page: event.pageNum, perPage: event.perPage));
       result.fold(
-              (l) => emit(state.copyWith(
-            //state
+          (l) => emit(state.copyWith(
+              //state
               makeupTermsMessage: l.message,
               makeupTermsState: RequestState.error)),
-              (r) => emit(state.copyWith(
-            //state
+          (r) => emit(state.copyWith(
+              //state
               makeupTerms: r,
               makeupTermsState: RequestState.loaded)));
     });
@@ -99,12 +97,12 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
       final result = await getTermsUseCase(TermsParameters(
           id: event.attributeId, page: event.pageNum, perPage: event.perPage));
       result.fold(
-              (l) => emit(state.copyWith(
-            //state
+          (l) => emit(state.copyWith(
+              //state
               watchesandaccessoriesTermsMessage: l.message,
               watchesandaccessoriesTermsState: RequestState.error)),
-              (r) => emit(state.copyWith(
-            //state
+          (r) => emit(state.copyWith(
+              //state
               watchesandaccessoriesTerms: r,
               watchesandaccessoriesTermsState: RequestState.loaded)));
     });
@@ -112,12 +110,12 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
       final result = await getTermsUseCase(TermsParameters(
           id: event.attributeId, page: event.pageNum, perPage: event.perPage));
       result.fold(
-              (l) => emit(state.copyWith(
-            //state
+          (l) => emit(state.copyWith(
+              //state
               perfumesTermsMessage: l.message,
               perfumesTermsState: RequestState.error)),
-              (r) => emit(state.copyWith(
-            //state
+          (r) => emit(state.copyWith(
+              //state
               perfumesTerms: r,
               perfumesTermsState: RequestState.loaded)));
     });
@@ -125,12 +123,12 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
       final result = await getTermsUseCase(TermsParameters(
           id: event.attributeId, page: event.pageNum, perPage: event.perPage));
       result.fold(
-              (l) => emit(state.copyWith(
-            //state
+          (l) => emit(state.copyWith(
+              //state
               handmadeTermsMessage: l.message,
               handmadeTermsState: RequestState.error)),
-              (r) => emit(state.copyWith(
-            //state
+          (r) => emit(state.copyWith(
+              //state
               handmadeTerms: r,
               handmadeTermsState: RequestState.loaded)));
     });
@@ -138,12 +136,12 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
       final result = await getTermsUseCase(TermsParameters(
           id: event.attributeId, page: event.pageNum, perPage: event.perPage));
       result.fold(
-              (l) => emit(state.copyWith(
-            //state
+          (l) => emit(state.copyWith(
+              //state
               petsTermsMessage: l.message,
               petsTermsState: RequestState.error)),
-              (r) => emit(state.copyWith(
-            //state
+          (r) => emit(state.copyWith(
+              //state
               petsTerms: r,
               petsTermsState: RequestState.loaded)));
     });
@@ -151,12 +149,12 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
       final result = await getTermsUseCase(TermsParameters(
           id: event.attributeId, page: event.pageNum, perPage: event.perPage));
       result.fold(
-              (l) => emit(state.copyWith(
-            //state
+          (l) => emit(state.copyWith(
+              //state
               toysTermsMessage: l.message,
               toysTermsState: RequestState.error)),
-              (r) => emit(state.copyWith(
-            //state
+          (r) => emit(state.copyWith(
+              //state
               toysTerms: r,
               toysTermsState: RequestState.loaded)));
     });
@@ -164,12 +162,12 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
       final result = await getTermsUseCase(TermsParameters(
           id: event.attributeId, page: event.pageNum, perPage: event.perPage));
       result.fold(
-              (l) => emit(state.copyWith(
-            //state
+          (l) => emit(state.copyWith(
+              //state
               fastfoodTermsMessage: l.message,
               fastfoodTermsState: RequestState.error)),
-              (r) => emit(state.copyWith(
-            //state
+          (r) => emit(state.copyWith(
+              //state
               fastfoodTerms: r,
               fastfoodTermsState: RequestState.loaded)));
     });
@@ -177,12 +175,12 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
       final result = await getTermsUseCase(TermsParameters(
           id: event.attributeId, page: event.pageNum, perPage: event.perPage));
       result.fold(
-              (l) => emit(state.copyWith(
-            //state
+          (l) => emit(state.copyWith(
+              //state
               arabfoodTermsMessage: l.message,
               arabfoodTermsState: RequestState.error)),
-              (r) => emit(state.copyWith(
-            //state
+          (r) => emit(state.copyWith(
+              //state
               arabfoodTerms: r,
               arabfoodTermsState: RequestState.loaded)));
     });
@@ -190,28 +188,41 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
       final result = await getTermsUseCase(TermsParameters(
           id: event.attributeId, page: event.pageNum, perPage: event.perPage));
       result.fold(
-              (l) => emit(state.copyWith(
-            //state
+          (l) => emit(state.copyWith(
+              //state
               sweetTermsMessage: l.message,
               sweetTermsState: RequestState.error)),
-              (r) => emit(state.copyWith(
-            //state
+          (r) => emit(state.copyWith(
+              //state
               sweetTerms: r,
               sweetTermsState: RequestState.loaded)));
     });
-    on<GetCoffeTermsEvent>((event, emit) async {
+    on<GetCoffeeTermsEvent>((event, emit) async {
       final result = await getTermsUseCase(TermsParameters(
           id: event.attributeId, page: event.pageNum, perPage: event.perPage));
       result.fold(
-              (l) => emit(state.copyWith(
-            //state
-              coffeTermsMessage: l.message,
-              coffeTermsState: RequestState.error)),
-              (r) => emit(state.copyWith(
-            //state
-              coffeTerms: r,
-              coffeTermsState: RequestState.loaded)));
+          (l) => emit(state.copyWith(
+              //state
+              coffeeTermsMessage: l.message,
+              coffeeTermsState: RequestState.error)),
+          (r) => emit(state.copyWith(
+              //state
+              coffeeTerms: r,
+              coffeeTermsState: RequestState.loaded)));
+    });
+
+    on<GetBannersTermsEvent>((event, emit) async {
+      final result = await getTermsUseCase(TermsParameters(
+          id: event.attributeId, page: event.pageNum, perPage: event.perPage));
+      result.fold(
+          (l) => emit(state.copyWith(
+              //state
+              bannersTermsMessage: l.message,
+              bannersTermsState: RequestState.error)),
+          (r) => emit(state.copyWith(
+              //state
+              bannersTerms: r,
+              bannersTermsState: RequestState.loaded)));
     });
   }
-
 }
