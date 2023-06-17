@@ -10,8 +10,9 @@ class Product extends Equatable {
   final String salePrice;
   final List<Categories> categories;
   final List<Images> images;
+  final String nameAndNumber;
 
- const Product(
+  const Product(
       {required this.id,
       required this.name,
       required this.description,
@@ -20,7 +21,8 @@ class Product extends Equatable {
       required this.regularPrice,
       required this.salePrice,
       required this.categories,
-      required this.images});
+      required this.images,
+      required this.nameAndNumber});
 
   @override
   List<Object?> get props => [
@@ -32,7 +34,8 @@ class Product extends Equatable {
         regularPrice,
         salePrice,
         categories,
-        images
+        images,
+        nameAndNumber
       ];
 }
 
@@ -41,8 +44,7 @@ class Categories extends Equatable {
   final String name;
   final String slug;
 
- const Categories({required this.id, required this.name, required this.slug});
-
+  const Categories({required this.id, required this.name, required this.slug});
 
   @override
   // TODO: implement props
@@ -53,10 +55,12 @@ class Images extends Equatable {
   final int id;
   final String src;
   final String name;
- const Images(
-      {required this.id,
-      required this.src,
-      required this.name,});
+
+  const Images({
+    required this.id,
+    required this.src,
+    required this.name,
+  });
 
   @override
   // TODO: implement props

@@ -3,11 +3,9 @@ import 'package:caphore/core/error/failure.dart';
 import 'package:caphore/features/categories/data/datasource/categories_remote_data_source.dart';
 import 'package:caphore/features/categories/domain/entities/categories.dart';
 import 'package:caphore/features/categories/domain/entities/products.dart';
-import 'package:caphore/features/categories/domain/entities/terms.dart';
 import 'package:caphore/features/categories/domain/repository/base_categories_repository.dart';
 import 'package:caphore/features/categories/domain/usecases/get_gategory_products_usecase.dart';
 import 'package:caphore/features/categories/domain/usecases/get_product_details_usecase.dart';
-import 'package:caphore/features/categories/domain/usecases/get_terms_usecase.dart';
 import 'package:dartz/dartz.dart';
 
 class CategoriesRepository extends BaseCategoriesRepository{
@@ -48,16 +46,6 @@ class CategoriesRepository extends BaseCategoriesRepository{
   @override
   Future<Either<Failure, List<Product>>> getLastProducts(CategoryProductsParameters parameters) async {
     final result = await baseCategoriesRemoteDataSource.getLastProducts(parameters.page,parameters.perPage);
-    try {
-      return Right(result);
-    } on ServerException catch (failure) {
-      return Left(ServerFailure(failure.errorMessageModel.statusMessage));
-    }
-  }
-
-  @override
-  Future<Either<Failure, List<Term>>> getTerms(TermsParameters parameters) async {
-    final result = await baseCategoriesRemoteDataSource.getTerms(id: parameters.id, page: parameters.page, perPage: parameters.perPage);
     try {
       return Right(result);
     } on ServerException catch (failure) {

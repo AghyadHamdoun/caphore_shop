@@ -1,5 +1,7 @@
 import 'package:caphore/core/services/services_locator.dart';
 import 'package:caphore/core/utils/app_color.dart';
+import 'package:caphore/features/attributes/presentation/controller/attributes_bloc.dart';
+import 'package:caphore/features/attributes/presentation/controller/attributes_event.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_bloc.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_event.dart';
 import 'package:caphore/features/categories/presentation/screeens/pages/brands.dart';
@@ -32,32 +34,41 @@ class _MyPagesState extends State<MyPages> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => sl<CategoriesBloc>()
-        ..add(GetAllCategoriesEvent())
-        ..add(const GetLastProductsEvent(pageNum: 1, perPage: 20))
-        ..add(const GetMenClothingProductsEvent(
-            pageNum: 1, categoryId: 44, perPage: 10))
-        ..add(const GetWomenClothingProductsEvent(
-            pageNum: 1, categoryId: 42, perPage: 10))
-        ..add(const GetChildrenClothingProductsEvent(
-            pageNum: 1, categoryId: 61, perPage: 10))
-        ..add(const GetFoodProductsEvent(
-            pageNum: 1, categoryId: 195, perPage: 10))
-        ..add(const GetShoesAndBagsProductsEvent(
-            pageNum: 1, categoryId: 102, perPage: 10))
-        ..add(const GetWatchesAndAccessoriesProductsEvent(
-            pageNum: 1, categoryId: 118, perPage: 10))
-        ..add(const GetMobilesProductsEvent(
-            pageNum: 1, categoryId: 123, perPage: 10))
-        ..add(const GetPerfumesProductsEvent(
-            pageNum: 1, categoryId: 108, perPage: 10))
-        ..add(const GetMakeUpProductsEvent(
-            pageNum: 1, categoryId: 117, perPage: 10))
-        ..add(const GetPetsProductsEvent(
-            pageNum: 1, categoryId: 421, perPage: 10))
-        ..add(
-            const GetBrandTermsEvent(pageNum: 1, perPage: 100, attributeId: 7)),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) =>
+          sl<CategoriesBloc>()
+            ..add(GetAllCategoriesEvent())..add(
+              const GetLastProductsEvent(pageNum: 1, perPage: 20))..add(
+              const GetMenClothingProductsEvent(
+                  pageNum: 1, categoryId: 44, perPage: 10))..add(
+              const GetWomenClothingProductsEvent(
+                  pageNum: 1, categoryId: 42, perPage: 10))..add(
+              const GetChildrenClothingProductsEvent(
+                  pageNum: 1, categoryId: 61, perPage: 10))..add(
+              const GetFoodProductsEvent(
+                  pageNum: 1, categoryId: 195, perPage: 10))..add(
+              const GetShoesAndBagsProductsEvent(
+                  pageNum: 1, categoryId: 102, perPage: 10))..add(
+              const GetWatchesAndAccessoriesProductsEvent(
+                  pageNum: 1, categoryId: 118, perPage: 10))..add(
+              const GetMobilesProductsEvent(
+                  pageNum: 1, categoryId: 123, perPage: 10))..add(
+              const GetPerfumesProductsEvent(
+                  pageNum: 1, categoryId: 108, perPage: 10))..add(
+              const GetMakeUpProductsEvent(
+                  pageNum: 1, categoryId: 117, perPage: 10))..add(
+              const GetPetsProductsEvent(
+                  pageNum: 1, categoryId: 421, perPage: 10)),
+        ),
+        BlocProvider(
+          create: (context) => sl<AttributesBloc>()..add(
+              const GetBrandTermsEvent(
+                  pageNum: 1, perPage: 100, attributeId: 7))
+          ,
+        ),
+      ],
       child: Scaffold(
         body: PageView(
           controller: controller,
@@ -128,10 +139,10 @@ class _MyPagesState extends State<MyPages> {
           selectedItemColor: AppColor.accentColor,
           selectedFontSize: 16.sp,
           selectedIconTheme:
-              IconThemeData(size: 30.r, color: AppColor.accentColor),
+          IconThemeData(size: 30.r, color: AppColor.accentColor),
           showUnselectedLabels: true,
           unselectedIconTheme:
-              IconThemeData(size: 30.r, color: AppColor.accentColor),
+          IconThemeData(size: 30.r, color: AppColor.accentColor),
           unselectedItemColor: AppColor.accentColor,
           type: BottomNavigationBarType.fixed,
         ),

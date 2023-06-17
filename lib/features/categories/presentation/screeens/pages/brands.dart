@@ -1,12 +1,12 @@
 import 'package:caphore/features/categories/presentation/controller/categories_bloc.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_state.dart';
-import 'package:caphore/features/categories/presentation/screeens/component/attributes/brands_component.dart';
-import 'package:caphore/features/categories/presentation/screeens/widgets/CategoryCard.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/attrebutename.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/textformfild.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../../attributes/presentation/screens/components/attributes/brands_component.dart';
 
 class Brands extends StatelessWidget {
   const Brands({super.key});

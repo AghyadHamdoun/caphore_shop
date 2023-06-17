@@ -1,6 +1,6 @@
 
 
-import 'package:caphore/features/categories/domain/entities/terms.dart';
+import 'package:caphore/features/attributes/domain/entities/terms.dart';
 
 class TermModel extends Term {
   const TermModel(

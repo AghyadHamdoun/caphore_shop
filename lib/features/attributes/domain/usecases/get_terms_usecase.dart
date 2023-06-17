@@ -1,18 +1,19 @@
 import 'package:caphore/core/error/failure.dart';
 import 'package:caphore/core/usecase/base_usecase.dart';
-import 'package:caphore/features/categories/domain/entities/terms.dart';
-import 'package:caphore/features/categories/domain/repository/base_categories_repository.dart';
+import 'package:caphore/features/attributes/domain/entities/terms.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 
-class GetTermsUseCase extends BaseUseCase<List<Term>, TermsParameters> {
-  final BaseCategoriesRepository baseCategoriesRepository;
+import '../repository/base_attributes_repository.dart';
 
-  GetTermsUseCase(this.baseCategoriesRepository);
+class GetTermsUseCase extends BaseUseCase<List<Term>, TermsParameters> {
+  final BaseAttributesRepository baseAttributesRepository;
+
+  GetTermsUseCase(this.baseAttributesRepository);
 
   @override
   Future<Either<Failure, List<Term>>> call(TermsParameters parameters) async {
-    return await baseCategoriesRepository.getTerms(parameters);
+    return await baseAttributesRepository.getTerms(parameters);
   }
 }
 
