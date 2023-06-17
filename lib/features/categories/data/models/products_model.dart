@@ -10,7 +10,8 @@ class ProductModel extends Product {
       required super.regularPrice,
       required super.salePrice,
       required super.categories,
-      required super.images});
+      required super.images,
+      required super.nameAndNumber});
 
   factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
       id: json['id'] ?? 0,
@@ -23,7 +24,8 @@ class ProductModel extends Product {
       categories: List<CategoriesModel>.from(
           json["categories"].map((x) => CategoriesModel.fromJson(x))),
       images: List<ImagesModel>.from(
-          json["images"].map((x) => ImagesModel.fromJson(x))));
+          json["images"].map((x) => ImagesModel.fromJson(x))),
+      nameAndNumber: json['meta_data'][6]['value'] ?? '');
 }
 
 class CategoriesModel extends Categories {
@@ -35,13 +37,12 @@ class CategoriesModel extends Categories {
 }
 
 class ImagesModel extends Images {
-  ImagesModel(
-      {required super.id,
-      required super.src,
-      required super.name,});
+  ImagesModel({
+    required super.id,
+    required super.src,
+    required super.name,
+  });
 
-  factory ImagesModel.fromJson(Map<String, dynamic> json) => ImagesModel(
-      id: json['id'],
-      src: json['src'],
-      name: json['name']);
+  factory ImagesModel.fromJson(Map<String, dynamic> json) =>
+      ImagesModel(id: json['id'], src: json['src'], name: json['name']);
 }

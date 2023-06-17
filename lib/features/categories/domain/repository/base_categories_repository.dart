@@ -1,8 +1,6 @@
 import 'package:caphore/features/categories/domain/entities/categories.dart';
-import 'package:caphore/features/categories/domain/entities/terms.dart';
 import 'package:caphore/features/categories/domain/usecases/get_gategory_products_usecase.dart';
 import 'package:caphore/features/categories/domain/usecases/get_product_details_usecase.dart';
-import 'package:caphore/features/categories/domain/usecases/get_terms_usecase.dart';
 import 'package:dartz/dartz.dart';
 
 import 'package:caphore/core/error/failure.dart';
@@ -17,7 +15,5 @@ abstract class BaseCategoriesRepository {
   Future<Either<Failure, List<Category>>> getAllCategories();
 
   Future<Either<Failure, List<Product>>> getLastProducts(CategoryProductsParameters parameters);
-
-  Future<Either<Failure, List<Term>>> getTerms(TermsParameters parameters);
 
 }
