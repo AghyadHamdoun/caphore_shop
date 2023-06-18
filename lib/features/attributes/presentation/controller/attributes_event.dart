@@ -162,12 +162,23 @@ class GetSweetTermsEvent extends AttributesEvent {
         required this.perPage});
 }
 
-class GetCoffeTermsEvent extends AttributesEvent {
+class GetCoffeeTermsEvent extends AttributesEvent {
   final int pageNum;
   final int attributeId;
   final int perPage;
 
-  const GetCoffeTermsEvent(
+  const GetCoffeeTermsEvent(
+      {required this.pageNum,
+        required this.attributeId,
+        required this.perPage});
+}
+
+class GetBannersTermsEvent extends AttributesEvent {
+  final int pageNum;
+  final int attributeId;
+  final int perPage;
+
+  const GetBannersTermsEvent(
       {required this.pageNum,
         required this.attributeId,
         required this.perPage});
