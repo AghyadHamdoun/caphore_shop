@@ -40,10 +40,12 @@ class Home extends StatelessWidget {
           ),
           Expanded(
             child: ListView(
+              padding: EdgeInsets.only(top: 10.h),
+              shrinkWrap: true,
               physics: const BouncingScrollPhysics(),
               children: [
                 SizedBox(
-                    height: 220.h, child: ImageSliderWithIndex(imeges: imeges)),
+                    height: 210.h, child: ImageSliderWithIndex(imeges: imeges)),
                 const CategoriesComponent(),
                 CategoryNameAndShowAll(
                   name: 'عروض كافور',
