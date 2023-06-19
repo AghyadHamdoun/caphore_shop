@@ -7,13 +7,18 @@ import 'package:dio/dio.dart';
 import 'package:flutter_wp_woocommerce/woocommerce.dart';
 
 abstract class BaseCategoriesRemoteDataSource {
-  Future<List<ProductModel>> getAllCategoryProducts(int id, int page,int perPage);
+  Future<List<ProductModel>> getAllCategoryProducts(int id, int page,
+      int perPage);
 
-  Future<List<ProductModel>> getLastProducts(int pag,int perPage);
+  Future<List<ProductModel>> getLastProducts(int pag, int perPage);
 
   Future<List<CategoryModel>> getAllCategories();
 
   Future<ProductModel> getProductDetails(int id);
+
+  Future<List<ProductModel>> getSearchProducts(String string, int page,
+      int perPage);
+
 
 }
 
@@ -25,11 +30,11 @@ class CategoriesRemoteDateSource extends BaseCategoriesRemoteDataSource {
 
   @override
   Future<List<CategoryModel>> getAllCategories() async {
-    print('request----------');
+    print('\x1B[32m request---------- \x1B[0m');
     final response = await Dio().get(ApiConstance.allCategoriesPath);
     if (response.statusCode == 200) {
       return List<CategoryModel>.from((response.data).map(
-        (e) => CategoryModel.fromJson(e),
+            (e) => CategoryModel.fromJson(e),
       ));
     } else {
       throw ServerException(
@@ -38,13 +43,14 @@ class CategoriesRemoteDateSource extends BaseCategoriesRemoteDataSource {
   }
 
   @override
-  Future<List<ProductModel>> getAllCategoryProducts(int id, int page,int perPage) async {
+  Future<List<ProductModel>> getAllCategoryProducts(int id, int page,
+      int perPage) async {
     print('products----------------');
     final response =
-        await Dio().get(ApiConstance.allCategoryProductsPath(id, page,perPage));
+    await Dio().get(ApiConstance.allCategoryProductsPath(id, page, perPage));
     if (response.statusCode == 200) {
       return List<ProductModel>.from((response.data as List).map(
-        (e) => ProductModel.fromJson(e),
+            (e) => ProductModel.fromJson(e),
       ));
     } else {
       throw ServerException(
@@ -66,9 +72,9 @@ class CategoriesRemoteDateSource extends BaseCategoriesRemoteDataSource {
   }
 
   @override
-  Future<List<ProductModel>> getLastProducts(int page,int perPage) async {
+  Future<List<ProductModel>> getLastProducts(int page, int perPage) async {
     final response =
-        await Dio().get(ApiConstance.lastProductsPath(page,perPage));
+    await Dio().get(ApiConstance.lastProductsPath(page, perPage));
     if (response.statusCode == 200) {
       return List<ProductModel>.from((response.data as List).map(
             (e) => ProductModel.fromJson(e),
@@ -79,5 +85,23 @@ class CategoriesRemoteDateSource extends BaseCategoriesRemoteDataSource {
       );
     }
   }
+
+  @override
+  Future<List<ProductModel>> getSearchProducts(String search, int page,
+      int perPage) async {
+    print('\x1B[32m search---------- \x1B[0m');
+    final response =
+    await Dio().get(ApiConstance.searchProductsPath(search, page, perPage));
+    if (response.statusCode == 200) {
+      return List<ProductModel>.from((response.data as List).map(
+            (e) => ProductModel.fromJson(e),
+      ));
+    } else {
+      throw ServerException(
+        errorMessageModel: ErrorMessageModel.fromJson(response.data),
+      );
+    }
+  }
+
 
 }

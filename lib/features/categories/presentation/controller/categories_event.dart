@@ -150,5 +150,14 @@ class GetPetsProductsEvent extends CategoriesEvent {
       {required this.pageNum, required this.categoryId, required this.perPage});
 }
 
+class GetSearchProductsEvent extends CategoriesEvent {
+  final int pageNum;
+  final String search;
+  final int perPage;
+
+  const GetSearchProductsEvent(
+      {required this.pageNum, required this.search, required this.perPage});
+}
+
 
 

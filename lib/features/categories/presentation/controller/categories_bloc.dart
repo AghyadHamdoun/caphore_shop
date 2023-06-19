@@ -3,6 +3,7 @@ import 'package:caphore/features/categories/domain/usecases/get_all_categories_u
 import 'package:caphore/features/categories/domain/usecases/get_gategory_products_usecase.dart';
 import 'package:caphore/features/categories/domain/usecases/get_last_products_usecase.dart';
 import 'package:caphore/features/categories/domain/usecases/get_product_details_usecase.dart';
+import 'package:caphore/features/categories/domain/usecases/get_search_products_usecase.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_event.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,12 +14,15 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
   GetProductDetailsUseCase getProductDetailsUseCase;
   GetCategoryProductsUseCase getCategoryProductsUseCase;
   GetLastProductsUseCase getLastProductsUseCase;
+  GetSearchProductsUseCase getSearchProductsUseCase;
 
   CategoriesBloc(
       this.getAllCategoriesUseCase,
       this.getProductDetailsUseCase,
       this.getCategoryProductsUseCase,
-      this.getLastProductsUseCase)
+      this.getLastProductsUseCase,
+      this.getSearchProductsUseCase
+      )
       : super(const CategoriesState()) {
     //All Category Event
     on<GetAllCategoriesEvent>((event, emit) async {
@@ -194,10 +198,10 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
               perPage: event.perPage));
       result.fold(
           (l) => emit(state.copyWith(
-              mobilesProductsMessage: l.message,
-              mobilesProductsState: RequestState.error)),
+              perfumesProductsMessage: l.message,
+              perfumesProductsState: RequestState.error)),
           (r) => emit(state.copyWith(
-              mobilesProducts: r, mobilesProductsState: RequestState.loaded)));
+              perfumesProducts: r, perfumesProductsState: RequestState.loaded)));
     });
 
     //house and kitchen products event
@@ -261,9 +265,21 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
           (r) => emit(state.copyWith(
               petsProducts: r, petsProductsState: RequestState.loaded)));
     });
-  }
+    //search products event
+    on<GetSearchProductsEvent>((event, emit) async {
+      final result = await getSearchProductsUseCase(
+          SearchProductsParameters(
+              search: event.search,
+              page: event.pageNum,
+              perPage: event.perPage));
+      result.fold(
+              (l) => emit(state.copyWith(
+              searchProductsMessage: l.message,
+              searchProductsState: RequestState.error)),
+              (r) => emit(state.copyWith(
+              searchProducts: r, searchProductsState: RequestState.loaded)));
+    });
 
-  void getProductDetail(int productId, int categoryId) {
-    add(GetProductDetailsEvent(productId: productId, categoryId: categoryId));
+
   }
 }

@@ -30,50 +30,67 @@ class CategoriesState extends Equatable {
   final List<Product> menClothingProducts;
   final RequestState menClothingProductsState;
   final String menClothingProductsMessage;
+
   //
   final List<Product> childrenClothingProducts;
   final RequestState childrenClothingProductsState;
   final String childrenClothingProductsMessage;
+
   //
   final List<Product> foodProducts;
   final RequestState foodProductsState;
   final String foodProductsMessage;
+
   //
   final List<Product> shoesAndBagsProducts;
   final RequestState shoesAndBagsProductsState;
   final String shoesAndBagsProductsMessage;
+
   //
   final List<Product> watchesAndAccessoriesProducts;
   final RequestState watchesAndAccessoriesProductsState;
   final String watchesAndAccessoriesProductsMessage;
+
   //
   final List<Product> mobilesProducts;
   final RequestState mobilesProductsState;
   final String mobilesProductsMessage;
+
   //
   final List<Product> perfumesProducts;
   final RequestState perfumesProductsState;
   final String perfumesProductsMessage;
+
   //
   final List<Product> houseAndKitchenProducts;
   final RequestState houseAndKitchenProductsState;
   final String houseAndKitchenProductsMessage;
+
   //
   final List<Product> electronicEquipmentProducts;
   final RequestState electronicEquipmentProductsState;
   final String electronicEquipmentProductsMessage;
+
   //
   final List<Product> makeUpProducts;
   final RequestState makeUpProductsState;
   final String makeUpProductsMessage;
+
   //
   final List<Product> petsProducts;
   final RequestState petsProductsState;
   final String petsProductsMessage;
+
   //
   final List<Product> categoryProducts;
   final RequestState categoryProductsState;
   final String categoryProductsMessage;
+
+  //
+  final List<Product> searchProducts;
+  final RequestState searchProductsState;
+  final String searchProductsMessage;
+
   // 2
   const CategoriesState({
     this.categoryParents = const {},
@@ -90,7 +107,8 @@ class CategoriesState extends Equatable {
         regularPrice: '',
         categories: [],
         images: [],
-    nameAndNumber: ''),
+        nameAndNumber: '',
+        nameAndNumber2: ''),
     this.productState = RequestState.loading,
     this.productMessage = '',
     this.lastProducts = const [],
@@ -152,6 +170,10 @@ class CategoriesState extends Equatable {
     this.categoryProducts = const [],
     this.categoryProductsState = RequestState.loading,
     this.categoryProductsMessage = '',
+    //search
+    this.searchProducts = const [],
+    this.searchProductsState = RequestState.loading,
+    this.searchProductsMessage = '',
   });
 
   CategoriesState copyWith({
@@ -222,7 +244,9 @@ class CategoriesState extends Equatable {
     final List<Product>? categoryProducts,
     final RequestState? categoryProductsState,
     final String? categoryProductsMessage,
-
+    final List<Product>? searchProducts,
+    final RequestState? searchProductsState,
+    final String? searchProductsMessage,
   }) {
     return CategoriesState(
       // 4
@@ -319,6 +343,11 @@ class CategoriesState extends Equatable {
           categoryProductsState ?? this.categoryProductsState,
       categoryProductsMessage:
           categoryProductsMessage ?? this.categoryProductsMessage,
+      //
+      searchProducts: searchProducts ?? this.searchProducts,
+      searchProductsState: searchProductsState ?? this.searchProductsState,
+      searchProductsMessage:
+          searchProductsMessage ?? this.searchProductsMessage,
     );
   }
 
@@ -392,5 +421,10 @@ class CategoriesState extends Equatable {
         categoryProducts,
         categoryProductsMessage,
         categoryProductsState,
+
+        //
+        searchProducts,
+        searchProductsMessage,
+        searchProductsState,
       ];
 }
