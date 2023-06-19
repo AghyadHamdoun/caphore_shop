@@ -52,7 +52,7 @@ class ProductScreen extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 10.h),
               child: SizedBox(
-                height: 340.h,
+                height: 345.h,
                 width: double.infinity,
                 child: Productimageslider(
                   imeges: product.images.map((e) => e.src).toList(),

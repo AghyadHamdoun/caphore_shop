@@ -3,6 +3,8 @@ import 'package:caphore/features/categories/presentation/screeens/controlpanel/t
 import 'package:caphore/features/categories/presentation/screeens/controlpanel/who_is_we.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/LegalPageWidget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:lottie/lottie.dart';
 
 import '../controlpanel/contact_us.dart';
 
@@ -15,7 +17,7 @@ class ControlPanel extends StatelessWidget {
         body: Container(
           color: Colors.white,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               LegalPageWidget(
                   gotopage: () {
