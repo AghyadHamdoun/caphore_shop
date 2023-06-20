@@ -18,8 +18,7 @@ class subcategorys extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding:
-                  EdgeInsets.only(top: 30.h, left: 0, right: 0, bottom: 10.h),
+              padding: EdgeInsets.symmetric(vertical: 10.h),
               child: const maintextform(),
             ),
             Container(

@@ -23,7 +23,7 @@ class PerfumesComponent extends StatelessWidget {
         switch (state.perfumesProductsState) {
           case RequestState.loading:
             return SizedBox(
-              height: 285.h,
+              height: 310.h,
               child: Center(
                 child: Lottie.asset(
                   'assets/lottie/digishi.json',
@@ -39,7 +39,7 @@ class PerfumesComponent extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
                 child: SizedBox(
-                  height: 285.h,
+                  height: 310.h,
                   width: double.infinity.w,
                   child: Expanded(
                     child: ListView.builder(

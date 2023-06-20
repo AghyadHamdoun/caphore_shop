@@ -23,7 +23,7 @@ class MobilesComponent extends StatelessWidget {
         switch (state.mobilesProductsState) {
           case RequestState.loading:
             return SizedBox(
-              height: 285.h,
+              height: 310.h,
               child: Center(
                 child: Lottie.asset(
                   'assets/lottie/digishi.json',
@@ -39,8 +39,7 @@ class MobilesComponent extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
                 child: SizedBox(
-                  height: 288.h,
-                  width: double.infinity.w,
+                  height: 310.h,
                   child: Expanded(
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
@@ -58,18 +57,15 @@ class MobilesComponent extends StatelessWidget {
                                           products: state.mobilesProducts,
                                         )));
                           },
-                          child: SizedBox(
-                            width: 180.w,
-                            child: ProductCard(
-                              productname: state.mobilesProducts[index].name,
-                              price: state.mobilesProducts[index].price,
-                              orginalprice:
-                                  state.mobilesProducts[index].regularPrice,
-                              image: state
-                                      .mobilesProducts[index].images.isNotEmpty
-                                  ? state.mobilesProducts[index].images[0].src
-                                  : '',
-                            ),
+                          child: ProductCard(
+                            productname: state.mobilesProducts[index].name,
+                            price: state.mobilesProducts[index].price,
+                            orginalprice:
+                                state.mobilesProducts[index].regularPrice,
+                            image:
+                                state.mobilesProducts[index].images.isNotEmpty
+                                    ? state.mobilesProducts[index].images[0].src
+                                    : '',
                           ),
                         );
                       },

@@ -29,118 +29,126 @@ class ProductScreen extends StatelessWidget {
       return a.name.hashCode.compareTo(b.name.hashCode);
     });
 
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        elevation: 0,
+    return SafeArea(
+      child: Scaffold(
         backgroundColor: Colors.white,
-        iconTheme: const IconThemeData(color: AppColor.primaryColor),
-        titleTextStyle: TextStyle(color: Colors.blue, fontSize: 22.sp),
-        title: Text(
-          "تفاصيل المنتج",
-          style: const TextStyle(color: AppColor.accentColor),
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.white,
+          iconTheme: const IconThemeData(color: AppColor.primaryColor),
+          titleTextStyle: TextStyle(color: Colors.blue, fontSize: 22.sp),
+          title: Text(
+            "تفاصيل المنتج",
+            style: TextStyle(
+                color: AppColor.accentColor,
+                fontSize: 22.sp,
+                fontWeight: FontWeight.bold),
+          ),
         ),
-      ),
-      bottomNavigationBar: ProductBottom(
-        price: product.price,
-        orginalPrice: product.regularPrice,
-      ),
-      body: Container(
-        margin: EdgeInsets.symmetric(horizontal: 10.h),
-        child: ListView(
-          children: [
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 10.h),
-              child: SizedBox(
-                height: 345.h,
-                width: double.infinity,
-                child: Productimageslider(
-                  imeges: product.images.map((e) => e.src).toList(),
+        bottomNavigationBar: ProductBottom(
+          price: product.price,
+          orginalPrice: product.regularPrice,
+        ),
+        body: Container(
+          margin: EdgeInsets.symmetric(horizontal: 10.h),
+          child: ListView(
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 10.h),
+                child: SizedBox(
+                  height: 387.h,
+                  width: double.infinity,
+                  child: Productimageslider(
+                    imeges: product.images.map((e) => e.src).toList(),
+                  ),
                 ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
-              child: Text(
-                product.name,
-                style: TextStyle(fontSize: 20.sp, color: Colors.black),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
-              child: Divider(
-                color: const Color.fromARGB(255, 95, 95, 95),
-                thickness: 1.h,
-              ),
-            ),
-            (product.shortDescription.isEmpty)
-                ? Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
-                    child: Text(
-                      "لا يوجد وصف ",
-                      style: TextStyle(fontSize: 20.sp, color: Colors.grey),
-                    ),
-                  )
-                : Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
-                    child: Text(
-                      "الوصف:",
-                      style: TextStyle(fontSize: 20.sp, color: Colors.black),
-                    ),
-                  ),
-            Padding(
+              Padding(
                 padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
-                child: RichText(
-                  text: HTML.toTextSpan(context, product.shortDescription),
-                  //...
-                )),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
-              child: Text(
-                "قد يعجبك ايضا:",
-                style: TextStyle(fontSize: 20.sp, color: Colors.black),
+                child: Text(
+                  product.name,
+                  style: TextStyle(fontSize: 20.sp, color: Colors.black),
+                ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
-              child: SizedBox(
-                height: 285.h,
-                width: double.infinity.w,
-                child: Expanded(
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: products.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      if (product.id != products[index].id) {
-                        return InkWell(
-                            onTap: () {
-                              Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => ProductScreen(
-                                            product: products[index],
-                                            products: products,
-                                          )));
-                            },
-                            child: ProductCard(
-                              productname: products[index].name,
-                              price: products[index].price,
-                              orginalprice: products[index].regularPrice,
-                              image: products[index].images.isNotEmpty
-                                  ? products[index].images[0].src
-                                  : '',
-                            ));
-                      } else {
-                        return SizedBox();
-                      }
-                    },
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
+                child: Divider(
+                  color: const Color.fromARGB(255, 95, 95, 95),
+                  thickness: 1.h,
+                ),
+              ),
+              (product.shortDescription.isEmpty)
+                  ? Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
+                      child: Text(
+                        "لا يوجد وصف ",
+                        style: TextStyle(fontSize: 20.sp, color: Colors.grey),
+                      ),
+                    )
+                  : Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
+                      child: Text(
+                        "الوصف:",
+                        style: TextStyle(fontSize: 20.sp, color: Colors.black),
+                      ),
+                    ),
+              Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
+                  child: RichText(
+                    text: HTML.toTextSpan(context, product.shortDescription),
+                    //...
+                  )),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
+                child: Text(
+                  "قد يعجبك ايضا:",
+                  style: TextStyle(fontSize: 20.sp, color: Colors.black),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
+                child: SizedBox(
+                  height: 285.h,
+                  width: double.infinity.w,
+                  child: Expanded(
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: products.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        if (product.id != products[index].id) {
+                          return InkWell(
+                              onTap: () {
+                                Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => ProductScreen(
+                                              product: products[index],
+                                              products: products,
+                                            )));
+                              },
+                              child: SizedBox(
+                                height: 283.h,
+                                child: ProductCard(
+                                  productname: products[index].name,
+                                  price: products[index].price,
+                                  orginalprice: products[index].regularPrice,
+                                  image: products[index].images.isNotEmpty
+                                      ? products[index].images[0].src
+                                      : '',
+                                ),
+                              ));
+                        } else {
+                          return SizedBox();
+                        }
+                      },
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

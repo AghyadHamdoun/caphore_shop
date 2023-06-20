@@ -9,13 +9,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 
 class TermProductComponent extends StatelessWidget {
-  const  TermProductComponent({Key? key}) : super(key: key);
+  const TermProductComponent({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AttributesBloc, AttributesState>(
       buildWhen: (previous, current) =>
-      previous.termProductsState != current.termProductsState,
+          previous.termProductsState != current.termProductsState,
       builder: (context, state) {
         switch (state.termProductsState) {
           case RequestState.loading:
@@ -30,9 +30,9 @@ class TermProductComponent extends StatelessWidget {
             );
           case RequestState.loaded:
             return GridView.builder(
-              physics:const NeverScrollableScrollPhysics(),
-              gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, childAspectRatio: 0.65),
+              physics: const NeverScrollableScrollPhysics(),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2, childAspectRatio: 0.66.r),
               itemCount: state.termProducts.length,
               shrinkWrap: true,
               itemBuilder: (BuildContext context, int index) {
@@ -42,9 +42,9 @@ class TermProductComponent extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => ProductScreen(
-                              product: state.termProducts[index],
-                              products: state.termProducts,
-                            )));
+                                  product: state.termProducts[index],
+                                  products: state.termProducts,
+                                )));
                   },
                   child: ProductCard(
                     productname: state.termProducts[index].name,

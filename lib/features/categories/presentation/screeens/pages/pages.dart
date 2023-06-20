@@ -95,82 +95,84 @@ class _MyPagesState extends State<MyPages> {
           ,
         ),
       ],
-      child: Scaffold(
-        body: PageView(
-          controller: controller,
-          physics: const NeverScrollableScrollPhysics(),
-          children: const [
-            Brands(),
-            Home(),
-            Stores(),
-            Restaurants(),
-            ControlPanel(),
-          ],
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          items: [
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/images/diamond-svgrepo-com.svg',
-                color: AppColor.accentColor,
-                height: 25.h,
-                width: 20.w,
+      child: SafeArea(
+        child: Scaffold(
+          body: PageView(
+            controller: controller,
+            physics: const NeverScrollableScrollPhysics(),
+            children: const [
+              Brands(),
+              Home(),
+              Stores(),
+              Restaurants(),
+              ControlPanel(),
+            ],
+          ),
+          bottomNavigationBar: BottomNavigationBar(
+            items: [
+              BottomNavigationBarItem(
+                icon: SvgPicture.asset(
+                  'assets/images/diamond-svgrepo-com.svg',
+                  color: AppColor.accentColor,
+                  height: 25.h,
+                  width: 20.w,
+                ),
+                label: "الماركات",
               ),
-              label: "الماركات",
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/images/home_icon.svg',
-                color: AppColor.accentColor,
-                height: 25.h,
-                width: 20.w,
+              BottomNavigationBarItem(
+                icon: SvgPicture.asset(
+                  'assets/images/home_icon.svg',
+                  color: AppColor.accentColor,
+                  height: 25.h,
+                  width: 20.w,
+                ),
+                label: "الرئيسية",
               ),
-              label: "الرئيسية",
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                "assets/images/store-svgrepo-com.svg",
-                color: AppColor.accentColor,
-                height: 25.h,
-                width: 20.w,
+              BottomNavigationBarItem(
+                icon: SvgPicture.asset(
+                  "assets/images/store-svgrepo-com.svg",
+                  color: AppColor.accentColor,
+                  height: 25.h,
+                  width: 20.w,
+                ),
+                label: "المتاجر",
               ),
-              label: "المتاجر",
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                "assets/images/restaurant-plate-svgrepo-com.svg",
-                color: AppColor.accentColor,
-                height: 25.h,
-                width: 20.w,
+              BottomNavigationBarItem(
+                icon: SvgPicture.asset(
+                  "assets/images/restaurant-plate-svgrepo-com.svg",
+                  color: AppColor.accentColor,
+                  height: 25.h,
+                  width: 20.w,
+                ),
+                label: "المطاعم",
               ),
-              label: "المطاعم",
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/images/icons8-puzzle.svg',
-                color: AppColor.accentColor,
-                height: 25.h,
-                width: 20.w,
+              BottomNavigationBarItem(
+                icon: SvgPicture.asset(
+                  'assets/images/icons8-puzzle.svg',
+                  color: AppColor.accentColor,
+                  height: 25.h,
+                  width: 20.w,
+                ),
+                label: "لوحة التحكم",
               ),
-              label: "لوحة التحكم",
-            ),
-          ],
-          currentIndex: select,
-          onTap: (index) {
-            setState(() {
-              select = index;
-            });
-            controller.jumpToPage(select);
-          },
-          selectedItemColor: AppColor.accentColor,
-          selectedFontSize: 16.sp,
-          selectedIconTheme:
-              IconThemeData(size: 30.r, color: AppColor.accentColor),
-          showUnselectedLabels: true,
-          unselectedIconTheme:
-              IconThemeData(size: 30.r, color: AppColor.accentColor),
-          unselectedItemColor: AppColor.accentColor,
-          type: BottomNavigationBarType.fixed,
+            ],
+            currentIndex: select,
+            onTap: (index) {
+              setState(() {
+                select = index;
+              });
+              controller.jumpToPage(select);
+            },
+            selectedItemColor: AppColor.accentColor,
+            selectedFontSize: 16.sp,
+            selectedIconTheme:
+                IconThemeData(size: 30.r, color: AppColor.accentColor),
+            showUnselectedLabels: true,
+            unselectedIconTheme:
+                IconThemeData(size: 30.r, color: AppColor.accentColor),
+            unselectedItemColor: AppColor.accentColor,
+            type: BottomNavigationBarType.fixed,
+          ),
         ),
       ),
     );

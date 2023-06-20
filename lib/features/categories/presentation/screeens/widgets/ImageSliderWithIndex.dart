@@ -40,7 +40,7 @@ class ImageSliderWithIndex extends StatelessWidget {
               },
               autoPlay: true,
               enableInfiniteScroll: true,
-              aspectRatio: 1.9,
+              aspectRatio: 2.1.r,
               viewportFraction: 1,
               enlargeCenterPage: true),
         ),
