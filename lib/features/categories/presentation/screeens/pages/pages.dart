@@ -90,7 +90,9 @@ class _MyPagesState extends State<MyPages> {
             ..add(const GetSweetTermsEvent(
                 pageNum: 1, attributeId: 23, perPage: 100))
             ..add(const GetCoffeeTermsEvent(
-                pageNum: 1, attributeId: 24, perPage: 100)),
+                pageNum: 1, attributeId: 24, perPage: 100))
+          ..add(const GetBannersTermsEvent(pageNum: 1, attributeId: 34, perPage: 100))
+          ,
         ),
       ],
       child: Scaffold(
