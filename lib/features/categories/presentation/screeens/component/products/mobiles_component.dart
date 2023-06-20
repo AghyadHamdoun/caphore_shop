@@ -40,7 +40,6 @@ class MobilesComponent extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
                 child: SizedBox(
                   height: 310.h,
-                  width: double.infinity.w,
                   child: Expanded(
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,

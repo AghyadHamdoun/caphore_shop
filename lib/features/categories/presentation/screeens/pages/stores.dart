@@ -34,7 +34,7 @@ class _StoresState extends State<Stores> {
             children: [
               Padding(
                 padding: EdgeInsets.only(
-                    top: 30.h, left: 5.w, right: 5.w, bottom: 0),
+                    top: 10.h, left: 5.w, right: 5.w, bottom: 0),
                 child: const maintextform(),
               ),
               Expanded(

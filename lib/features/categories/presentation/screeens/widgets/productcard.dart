@@ -23,7 +23,7 @@ class ProductCard extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
       child: SizedBox(
-        width: 170.w,
+        width: 190.w,
         child: Container(
           decoration: BoxDecoration(boxShadow: [
             BoxShadow(
@@ -58,7 +58,7 @@ class ProductCard extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(top: 5.h),
                   child: SizedBox(
-                    height: 60.h,
+                    height: 65.h,
                     child: Flexible(
                       child: Text(
                         productname,
@@ -71,52 +71,37 @@ class ProductCard extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 42.h,
-                  width: 170.w,
-                  child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 5.w),
-                    child: SizedBox(
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          SizedBox(
-                            height: 42.h,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "$orginalprice ",
-                                  style: TextStyle(
-                                      decoration: TextDecoration.lineThrough,
-                                      fontSize: 10.sp,
-                                      color: Colors.grey),
-                                ),
-                                (price == "33")
-                                    ? Text(
-                                        " تواصل لمعرفةالسعر",
-                                        style: TextStyle(
-                                            color: AppColor.accentColor,
-                                            fontSize: 14.sp,
-                                            fontWeight: FontWeight.bold),
-                                      )
-                                    : Text(
-                                        "$price ل.س ",
-                                        style: TextStyle(
-                                            color: AppColor.accentColor,
-                                            fontSize: 16.sp,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                              ],
+                  height: 64.h,
+                  child: Padding(
+                    padding: EdgeInsets.only(bottom: 10.h),
+                    child: ListTile(
+                      title: (price == "33")
+                          ? Text(
+                              " تواصل لمعرفةالسعر",
+                              style: TextStyle(
+                                  color: AppColor.accentColor,
+                                  fontSize: 11.sp,
+                                  fontWeight: FontWeight.bold),
+                            )
+                          : Text(
+                              "$price ل.س ",
+                              style: TextStyle(
+                                  color: AppColor.accentColor,
+                                  fontSize: 15.sp,
+                                  fontWeight: FontWeight.bold),
                             ),
-                          ),
-                          SvgPicture.asset(
-                            'assets/images/buy.svg',
-                            color: AppColor.accentColor,
-                            height: 20.h,
-                            width: 25.w,
-                          )
-                        ],
+                      subtitle: Text(
+                        "$orginalprice+dsdsss ",
+                        style: TextStyle(
+                            decoration: TextDecoration.lineThrough,
+                            fontSize: 12.sp,
+                            color: Colors.grey),
+                      ),
+                      trailing: SvgPicture.asset(
+                        'assets/images/buy.svg',
+                        color: AppColor.accentColor,
+                        height: 20.h,
+                        width: 25.w,
                       ),
                     ),
                   ),
@@ -137,3 +122,55 @@ class ProductCard extends StatelessWidget {
              //      (BuildContext context, String url, dynamic error) =>
                //        Image.asset('assets/images/TT copy.png'),
               //),
+              //111111111111111111111111111111111111111111111111111111111111111
+                //  SizedBox(
+                //   height: 42.h,
+                //   width: 170.w,
+                //   child: Container(
+                //     padding: EdgeInsets.symmetric(horizontal: 5.w),
+                //     child: SizedBox(
+                //       child: Row(
+                //         crossAxisAlignment: CrossAxisAlignment.start,
+                //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //         children: [
+                //           SizedBox(
+                //             height: 42.h,
+                //             child: Column(
+                //               mainAxisAlignment: MainAxisAlignment.start,
+                //               children: [
+                //                 Text(
+                //                   "$orginalprice ",
+                //                   style: TextStyle(
+                //                       decoration: TextDecoration.lineThrough,
+                //                       fontSize: 10.sp,
+                //                       color: Colors.grey),
+                //                 ),
+                //                 (price == "33")
+                //                     ? Text(
+                //                         " تواصل لمعرفةالسعر",
+                //                         style: TextStyle(
+                //                             color: AppColor.accentColor,
+                //                             fontSize: 14.sp,
+                //                             fontWeight: FontWeight.bold),
+                //                       )
+                //                     : Text(
+                //                         "$price ل.س ",
+                //                         style: TextStyle(
+                //                             color: AppColor.accentColor,
+                //                             fontSize: 16.sp,
+                //                             fontWeight: FontWeight.bold),
+                //                       ),
+                //               ],
+                //             ),
+                //           ),
+                //           SvgPicture.asset(
+                //             'assets/images/buy.svg',
+                //             color: AppColor.accentColor,
+                //             height: 20.h,
+                //             width: 25.w,
+                //           )
+                //         ],
+                //       ),
+                //     ),
+                //   ),
+                // ),
