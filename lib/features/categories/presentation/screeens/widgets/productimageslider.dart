@@ -40,7 +40,7 @@ class Productimageslider extends StatelessWidget {
             enableInfiniteScroll: true,
             viewportFraction: 1,
             autoPlay: true,
-            aspectRatio: 1,
+            aspectRatio: 1.1.r,
           ),
         ),
         Padding(

@@ -35,7 +35,7 @@ class Home extends StatelessWidget {
         children: [
           Padding(
             padding:
-                EdgeInsets.only(top: 30.h, left: 5.w, right: 5.w, bottom: 0),
+                EdgeInsets.only(top: 10.h, left: 5.w, right: 5.w, bottom: 0),
             child: const maintextform(),
           ),
           Expanded(
@@ -45,7 +45,7 @@ class Home extends StatelessWidget {
               physics: const BouncingScrollPhysics(),
               children: [
                 SizedBox(
-                    height: 210.h, child: ImageSliderWithIndex(imeges: imeges)),
+                    height: 227.h, child: ImageSliderWithIndex(imeges: imeges)),
                 const CategoriesComponent(),
                 CategoryNameAndShowAll(
                   name: 'عروض كافور',

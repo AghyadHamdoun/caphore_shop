@@ -9,7 +9,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 
 class CategoryProductComponent extends StatelessWidget {
-  const  CategoryProductComponent({Key? key}) : super(key: key);
+  const CategoryProductComponent({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class CategoryProductComponent extends StatelessWidget {
           case RequestState.loaded:
             return GridView.builder(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, childAspectRatio: 0.53.h),
+                  crossAxisCount: 2, childAspectRatio: 0.63.r),
               itemCount: state.categoryProducts.length,
               shrinkWrap: true,
               itemBuilder: (BuildContext context, int index) {

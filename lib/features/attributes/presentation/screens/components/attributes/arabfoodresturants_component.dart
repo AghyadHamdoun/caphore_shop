@@ -27,22 +27,24 @@ class ArabFoodResturantsComponent extends StatelessWidget {
             return InkWell(
               onTap: () {
                 Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => StoreProducts(
-                              event: GetTermProductsEvent(
-                                  attribute: 'arab-food',
-                                  termId: state.arabfoodTerms[index].id,
-                                  perPage: 100,
-                                  pageNum: 1),
-                              storeName: state.arabfoodTerms[index].name,
-                              image: (state.arabfoodTerms[index].description
-                                          .split(';')[2])
-                                      .isEmpty
-                                  ? ''
-                                  : (state.arabfoodTerms[index].description
-                                      .split(';')[2]),
-                            )));
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => StoreProducts(
+                      event: GetTermProductsEvent(
+                          attribute: 'arab-food',
+                          termId: state.arabfoodTerms[index].id,
+                          perPage: 100,
+                          pageNum: 1),
+                      storeName: state.arabfoodTerms[index].name,
+                      image:
+                          (state.arabfoodTerms[index].description.split(';')[2])
+                                  .isEmpty
+                              ? ''
+                              : (state.arabfoodTerms[index].description
+                                  .split(';')[2]),
+                    ),
+                  ),
+                );
               },
               child: SizedBox(
                 height: 120.h,

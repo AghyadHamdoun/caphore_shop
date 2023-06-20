@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../controller/attributes_event.dart';
 import '../../../controller/attributes_state.dart';
+import '../../storeproducts.dart';
 
 class PetsStorsComponent extends StatelessWidget {
   const PetsStorsComponent({Key? key}) : super(key: key);
@@ -22,14 +24,35 @@ class PetsStorsComponent extends StatelessWidget {
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           itemBuilder: (BuildContext context, int index) {
-            return SizedBox(
-              height: 120.h,
-              child: CategoryCard(
-                name: state.petsTerms[index].name,
-                image:
-                    (state.petsTerms[index].description.split(';')[1]).isEmpty
-                        ? ''
-                        : (state.petsTerms[index].description.split(';')[1]),
+            return InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => StoreProducts(
+                      event: GetTermProductsEvent(
+                          attribute: 'pet care center',
+                          termId: state.petsTerms[index].id,
+                          perPage: 100,
+                          pageNum: 1),
+                      storeName: state.petsTerms[index].name,
+                      image: (state.petsTerms[index].description.split(';')[2])
+                              .isEmpty
+                          ? ''
+                          : (state.petsTerms[index].description.split(';')[2]),
+                    ),
+                  ),
+                );
+              },
+              child: SizedBox(
+                height: 120.h,
+                child: CategoryCard(
+                  name: state.petsTerms[index].name,
+                  image:
+                      (state.petsTerms[index].description.split(';')[1]).isEmpty
+                          ? ''
+                          : (state.petsTerms[index].description.split(';')[1]),
+                ),
               ),
             );
           },

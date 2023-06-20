@@ -16,7 +16,10 @@ class StoreProducts extends StatelessWidget {
   final String image;
 
   const StoreProducts(
-      {super.key, required this.event, required this.storeName,required this.image});
+      {super.key,
+      required this.event,
+      required this.storeName,
+      required this.image});
 
   @override
   Widget build(BuildContext context) {
@@ -25,12 +28,11 @@ class StoreProducts extends StatelessWidget {
         child: SafeArea(
           child: Scaffold(
             body: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.w,vertical: 10.h),
+              padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 10.h),
               child: Column(
                 children: [
                   Padding(
-                    padding: EdgeInsets.symmetric(
-                        vertical: 5.h),
+                    padding: EdgeInsets.symmetric(vertical: 0.h),
                     child: const maintextform(),
                   ),
                   Expanded(
@@ -38,18 +40,26 @@ class StoreProducts extends StatelessWidget {
                       child: SingleChildScrollView(
                         child: Column(
                           children: [
-                            Text(storeName,style: TextStyle(color: AppColor.accentColor,fontWeight: FontWeight.bold,fontSize: 20.sp),),
-
+                            Text(
+                              storeName,
+                              style: TextStyle(
+                                  color: AppColor.accentColor,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20.sp),
+                            ),
                             Container(
-                              padding: EdgeInsets.symmetric(horizontal: 10.w,vertical: 10.h),
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 10.w, vertical: 10.h),
                               width: double.infinity,
-                              child:    CachedNetworkImage(
-                              imageUrl: image,
-                              errorWidget: (context, url, error) =>
-                                  Image.network(image),
+                              child: CachedNetworkImage(
+                                imageUrl: image,
+                                errorWidget: (context, url, error) =>
+                                    Image.network(image),
+                              ),
                             ),
+                            const SizedBox(
+                              height: 10,
                             ),
-                           const SizedBox(height: 10,),
                             const TermProductComponent()
                           ],
                         ),

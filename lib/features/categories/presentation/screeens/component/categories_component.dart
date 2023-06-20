@@ -27,8 +27,6 @@ class CategoriesComponent extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 return InkWell(
                     onTap: () {
-                      print("========================================");
-                      print(state.allCategories[index].id);
                       Navigator.push(
                           context,
                           MaterialPageRoute(
