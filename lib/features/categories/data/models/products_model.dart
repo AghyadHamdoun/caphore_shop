@@ -27,8 +27,8 @@ class ProductModel extends Product {
           json["categories"].map((x) => CategoriesModel.fromJson(x))),
       images: List<ImagesModel>.from(
           json["images"].map((x) => ImagesModel.fromJson(x))),
-      nameAndNumber: json['meta_data'][6]['value'],
-      nameAndNumber2: json['meta_data'][7]['value']
+      nameAndNumber: (json['meta_data']as List).length>=7?json['meta_data'][6]['value']:'',
+      nameAndNumber2: (json['meta_data']as List).length>=8?json['meta_data'][7]['value']:''
   );
 }
 

@@ -6,8 +6,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../controller/attributes_state.dart';
 
-class CoffeResturantsComponent extends StatelessWidget {
-  const CoffeResturantsComponent({Key? key}) : super(key: key);
+class CoffeeResturantsComponent extends StatelessWidget {
+  const CoffeeResturantsComponent({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,18 +18,18 @@ class CoffeResturantsComponent extends StatelessWidget {
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
           ),
-          itemCount: state.coffeTerms.length,
+          itemCount: state.coffeeTerms.length,
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           itemBuilder: (BuildContext context, int index) {
             return SizedBox(
               height: 120.h,
               child: CategoryCard(
-                name: state.coffeTerms[index].name,
+                name: state.coffeeTerms[index].name,
                 image:
-                    (state.coffeTerms[index].description.split(';')[1]).isEmpty
+                    (state.coffeeTerms[index].description.split(';')[1]).isEmpty
                         ? ''
-                        : (state.coffeTerms[index].description.split(';')[1]),
+                        : (state.coffeeTerms[index].description.split(';')[1]),
               ),
             );
           },

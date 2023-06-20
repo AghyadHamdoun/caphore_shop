@@ -65,7 +65,7 @@ class Restaurants extends StatelessWidget {
                           name: "الضيافة والمكسرات والقهوة"),
                     ),
                     const Expanded(
-                      child: CoffeResturantsComponent(),
+                      child: CoffeeResturantsComponent(),
                     ),
                   ],
                 ),

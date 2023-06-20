@@ -1,5 +1,6 @@
 import 'package:caphore/features/attributes/data/datasource/attributes_remote_data_source.dart';
 import 'package:caphore/features/attributes/domain/repository/base_attributes_repository.dart';
+import 'package:caphore/features/attributes/domain/usecases/get_term_products_usecase.dart';
 import 'package:caphore/features/attributes/presentation/controller/attributes_bloc.dart';
 import 'package:caphore/features/categories/data/datasource/categories_remote_data_source.dart';
 import 'package:caphore/features/categories/data/repository/categories_repository.dart';
@@ -22,7 +23,7 @@ class ServicesLocator {
     /// Bloc
     sl.registerFactory(() => CategoriesBloc(sl(), sl(), sl(),sl(),sl()));
 
-    sl.registerFactory(() => AttributesBloc(sl()));
+    sl.registerFactory(() => AttributesBloc(sl(),sl()));
 
     /// Use Cases
     sl.registerLazySingleton(() => GetAllCategoriesUseCase(sl()));
@@ -31,6 +32,7 @@ class ServicesLocator {
     sl.registerLazySingleton(() => GetLastProductsUseCase(sl()));
     sl.registerLazySingleton(() => GetTermsUseCase(sl()));
     sl.registerLazySingleton(() => GetSearchProductsUseCase(sl()));
+    sl.registerLazySingleton(() => GetTermProductsUseCase(sl()));
 
 
     /// Repository

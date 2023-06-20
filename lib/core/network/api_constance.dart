@@ -8,8 +8,8 @@ class ApiConstance {
   static String allCategoryProductsPath(int id, int page,int perPage) =>
       "$baseUrl/products?category=$id&consumer_key=$consumer_key&consumer_secret=$consumer_secret&page=$page&per_page=$perPage";
 
-  static String allAttributeTermProductsPath(int id, int page,int perPage) =>
-      "$baseUrl/products?attribute_term=$id&consumer_key=$consumer_key&consumer_secret=$consumer_secret&page=$page&per_page=$perPage";
+  static String allAttributeTermProductsPath(String attribute,int termId, int page,int perPage) =>
+      "$baseUrl/products?attribute=pa_$attribute&attribute_term=$termId&consumer_key=$consumer_key&consumer_secret=$consumer_secret&page=$page&per_page=$perPage";
 
   static String searchProductsPath(String search, int page,int perPage) =>
       "$baseUrl/products?search=$search&consumer_key=$consumer_key&consumer_secret=$consumer_secret&page=$page&per_page=$perPage";

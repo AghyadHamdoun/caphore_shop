@@ -7,7 +7,6 @@ abstract class AttributesEvent extends Equatable {
   List<Object> get props => [];
 }
 
-
 class GetBrandTermsEvent extends AttributesEvent {
   final int pageNum;
   final int attributeId;
@@ -15,8 +14,8 @@ class GetBrandTermsEvent extends AttributesEvent {
 
   const GetBrandTermsEvent(
       {required this.pageNum,
-        required this.attributeId,
-        required this.perPage});
+      required this.attributeId,
+      required this.perPage});
 }
 
 class GetClothingTermsEvent extends AttributesEvent {
@@ -26,8 +25,8 @@ class GetClothingTermsEvent extends AttributesEvent {
 
   const GetClothingTermsEvent(
       {required this.pageNum,
-        required this.attributeId,
-        required this.perPage});
+      required this.attributeId,
+      required this.perPage});
 }
 
 class GetShoesAndBagsTermsEvent extends AttributesEvent {
@@ -37,8 +36,8 @@ class GetShoesAndBagsTermsEvent extends AttributesEvent {
 
   const GetShoesAndBagsTermsEvent(
       {required this.pageNum,
-        required this.attributeId,
-        required this.perPage});
+      required this.attributeId,
+      required this.perPage});
 }
 
 class GetElectronicEquipmentTermsEvent extends AttributesEvent {
@@ -48,8 +47,8 @@ class GetElectronicEquipmentTermsEvent extends AttributesEvent {
 
   const GetElectronicEquipmentTermsEvent(
       {required this.pageNum,
-        required this.attributeId,
-        required this.perPage});
+      required this.attributeId,
+      required this.perPage});
 }
 
 class GetHouseAndKitchenTermsEvent extends AttributesEvent {
@@ -59,8 +58,8 @@ class GetHouseAndKitchenTermsEvent extends AttributesEvent {
 
   const GetHouseAndKitchenTermsEvent(
       {required this.pageNum,
-        required this.attributeId,
-        required this.perPage});
+      required this.attributeId,
+      required this.perPage});
 }
 
 class GetMakeUpTermsEvent extends AttributesEvent {
@@ -70,8 +69,8 @@ class GetMakeUpTermsEvent extends AttributesEvent {
 
   const GetMakeUpTermsEvent(
       {required this.pageNum,
-        required this.attributeId,
-        required this.perPage});
+      required this.attributeId,
+      required this.perPage});
 }
 
 class GetWatchesAndAccessoriesTermsEvent extends AttributesEvent {
@@ -81,8 +80,8 @@ class GetWatchesAndAccessoriesTermsEvent extends AttributesEvent {
 
   const GetWatchesAndAccessoriesTermsEvent(
       {required this.pageNum,
-        required this.attributeId,
-        required this.perPage});
+      required this.attributeId,
+      required this.perPage});
 }
 
 class GetPerfumesTermsEvent extends AttributesEvent {
@@ -92,8 +91,8 @@ class GetPerfumesTermsEvent extends AttributesEvent {
 
   const GetPerfumesTermsEvent(
       {required this.pageNum,
-        required this.attributeId,
-        required this.perPage});
+      required this.attributeId,
+      required this.perPage});
 }
 
 class GetHandMadeTermsEvent extends AttributesEvent {
@@ -103,8 +102,8 @@ class GetHandMadeTermsEvent extends AttributesEvent {
 
   const GetHandMadeTermsEvent(
       {required this.pageNum,
-        required this.attributeId,
-        required this.perPage});
+      required this.attributeId,
+      required this.perPage});
 }
 
 class GetPetsTermsEvent extends AttributesEvent {
@@ -114,8 +113,8 @@ class GetPetsTermsEvent extends AttributesEvent {
 
   const GetPetsTermsEvent(
       {required this.pageNum,
-        required this.attributeId,
-        required this.perPage});
+      required this.attributeId,
+      required this.perPage});
 }
 
 class GetToysTermsEvent extends AttributesEvent {
@@ -125,8 +124,8 @@ class GetToysTermsEvent extends AttributesEvent {
 
   const GetToysTermsEvent(
       {required this.pageNum,
-        required this.attributeId,
-        required this.perPage});
+      required this.attributeId,
+      required this.perPage});
 }
 
 class GetFastFoodTermsEvent extends AttributesEvent {
@@ -136,8 +135,8 @@ class GetFastFoodTermsEvent extends AttributesEvent {
 
   const GetFastFoodTermsEvent(
       {required this.pageNum,
-        required this.attributeId,
-        required this.perPage});
+      required this.attributeId,
+      required this.perPage});
 }
 
 class GetArabFoodTermsEvent extends AttributesEvent {
@@ -147,8 +146,8 @@ class GetArabFoodTermsEvent extends AttributesEvent {
 
   const GetArabFoodTermsEvent(
       {required this.pageNum,
-        required this.attributeId,
-        required this.perPage});
+      required this.attributeId,
+      required this.perPage});
 }
 
 class GetSweetTermsEvent extends AttributesEvent {
@@ -158,8 +157,8 @@ class GetSweetTermsEvent extends AttributesEvent {
 
   const GetSweetTermsEvent(
       {required this.pageNum,
-        required this.attributeId,
-        required this.perPage});
+      required this.attributeId,
+      required this.perPage});
 }
 
 class GetCoffeeTermsEvent extends AttributesEvent {
@@ -169,8 +168,8 @@ class GetCoffeeTermsEvent extends AttributesEvent {
 
   const GetCoffeeTermsEvent(
       {required this.pageNum,
-        required this.attributeId,
-        required this.perPage});
+      required this.attributeId,
+      required this.perPage});
 }
 
 class GetBannersTermsEvent extends AttributesEvent {
@@ -180,6 +179,19 @@ class GetBannersTermsEvent extends AttributesEvent {
 
   const GetBannersTermsEvent(
       {required this.pageNum,
-        required this.attributeId,
-        required this.perPage});
+      required this.attributeId,
+      required this.perPage});
+}
+
+class GetTermProductsEvent extends AttributesEvent {
+  final String attribute;
+  final int termId;
+  final int pageNum;
+  final int perPage;
+
+  const GetTermProductsEvent(
+      {required this.attribute,
+      required this.termId,
+      required this.pageNum,
+      required this.perPage});
 }
