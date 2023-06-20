@@ -1,5 +1,6 @@
 import 'package:caphore/core/utils/enums.dart';
 import 'package:caphore/features/attributes/domain/entities/terms.dart';
+import 'package:caphore/features/categories/domain/entities/products.dart';
 import 'package:equatable/equatable.dart';
 
 class AttributesState extends Equatable {
@@ -68,6 +69,10 @@ class AttributesState extends Equatable {
   final RequestState bannersTermsState;
   final String bannersTermsMessage;
 
+  //
+  final List<Product> termProducts;
+  final RequestState termProductsState;
+  final String termProductsMessage;
 
   // 2
   const AttributesState({
@@ -136,6 +141,10 @@ class AttributesState extends Equatable {
     this.bannersTerms = const [],
     this.bannersTermsState = RequestState.loading,
     this.bannersTermsMessage = '',
+    //
+    this.termProducts = const [],
+    this.termProductsState = RequestState.loading,
+    this.termProductsMessage = '',
   });
 
   AttributesState copyWith({
@@ -204,6 +213,10 @@ class AttributesState extends Equatable {
     final List<Term>? bannersTerms,
     final RequestState? bannersTermsState,
     final String? bannersTermsMessage,
+
+    final List<Product>? termProducts,
+    final RequestState? termProductsState,
+    final String? termProductsMessage,
   }) {
     return AttributesState(
       //
@@ -281,6 +294,12 @@ class AttributesState extends Equatable {
       bannersTerms: bannersTerms ?? this.bannersTerms,
       bannersTermsState: bannersTermsState ?? this.bannersTermsState,
       bannersTermsMessage: bannersTermsMessage ?? this.bannersTermsMessage,
+
+      //
+      termProducts: termProducts ?? this.termProducts,
+      termProductsState: termProductsState ?? this.termProductsState,
+      termProductsMessage:
+      termProductsMessage ?? this.termProductsMessage,
     );
   }
 
@@ -353,6 +372,10 @@ class AttributesState extends Equatable {
     bannersTerms,
     bannersTermsMessage,
     bannersTermsState,
+    //
+    termProducts,
+    termProductsMessage,
+    termProductsState
 
 
   ];

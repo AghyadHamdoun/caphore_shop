@@ -7,6 +7,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
+import 'features/categories/presentation/screeens/pages/pages.dart';
+
 void main() async {
   ServicesLocator().init();
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,7 +36,7 @@ class MyApp extends StatelessWidget {
           supportedLocales: context.supportedLocales,
           locale: context.locale,
           debugShowCheckedModeBanner: false,
-          home: Splash(),
+          home:  MyPages(),
           routes: MyRoutes.routes,
           builder: EasyLoading.init(),
         );

@@ -1,6 +1,6 @@
 import 'package:caphore/core/utils/enums.dart';
-import 'package:caphore/features/categories/presentation/controller/categories_bloc.dart';
-import 'package:caphore/features/categories/presentation/controller/categories_state.dart';
+import 'package:caphore/features/attributes/presentation/controller/attributes_bloc.dart';
+import 'package:caphore/features/attributes/presentation/controller/attributes_state.dart';
 import 'package:caphore/features/categories/presentation/screeens/product.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/productcard.dart';
 import 'package:flutter/material.dart';
@@ -8,16 +8,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 
-class CategoryProductComponent extends StatelessWidget {
-  const  CategoryProductComponent({Key? key}) : super(key: key);
+class TermProductComponent extends StatelessWidget {
+  const  TermProductComponent({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CategoriesBloc, CategoriesState>(
+    return BlocBuilder<AttributesBloc, AttributesState>(
       buildWhen: (previous, current) =>
-          previous.categoryProductsState != current.categoryProductsState,
+      previous.termProductsState != current.termProductsState,
       builder: (context, state) {
-        switch (state.categoryProductsState) {
+        switch (state.termProductsState) {
           case RequestState.loading:
             return Container(
               alignment: Alignment.center,
@@ -32,7 +32,7 @@ class CategoryProductComponent extends StatelessWidget {
             return GridView.builder(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2, childAspectRatio: 0.53.h),
-              itemCount: state.categoryProducts.length,
+              itemCount: state.termProducts.length,
               shrinkWrap: true,
               itemBuilder: (BuildContext context, int index) {
                 return InkWell(
@@ -41,16 +41,16 @@ class CategoryProductComponent extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => ProductScreen(
-                                  product: state.categoryProducts[index],
-                                  products: state.categoryProducts,
-                                )));
+                              product: state.termProducts[index],
+                              products: state.termProducts,
+                            )));
                   },
                   child: ProductCard(
-                    productname: state.categoryProducts[index].name,
-                    price: state.categoryProducts[index].price,
-                    orginalprice: state.categoryProducts[index].regularPrice,
-                    image: state.categoryProducts[index].images.isNotEmpty
-                        ? state.categoryProducts[index].images[0].src
+                    productname: state.termProducts[index].name,
+                    price: state.termProducts[index].price,
+                    orginalprice: state.termProducts[index].regularPrice,
+                    image: state.termProducts[index].images.isNotEmpty
+                        ? state.termProducts[index].images[0].src
                         : '',
                   ),
                 );
@@ -60,7 +60,7 @@ class CategoryProductComponent extends StatelessWidget {
             return SizedBox(
               height: 280.h,
               child: Center(
-                child: Text(state.menClothingProductsMessage),
+                child: Text(state.termProductsMessage),
               ),
             );
         }

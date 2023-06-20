@@ -10,8 +10,8 @@ class Product extends Equatable {
   final String salePrice;
   final List<Categories> categories;
   final List<Images> images;
-  final String nameAndNumber;
-  final String nameAndNumber2;
+  final String? nameAndNumber;
+  final String? nameAndNumber2;
 
   const Product(
       {required this.id,

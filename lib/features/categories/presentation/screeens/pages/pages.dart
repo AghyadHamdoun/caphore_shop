@@ -89,7 +89,7 @@ class _MyPagesState extends State<MyPages> {
                 pageNum: 1, attributeId: 22, perPage: 100))
             ..add(const GetSweetTermsEvent(
                 pageNum: 1, attributeId: 23, perPage: 100))
-            ..add(const GetCoffeTermsEvent(
+            ..add(const GetCoffeeTermsEvent(
                 pageNum: 1, attributeId: 24, perPage: 100)),
         ),
       ],

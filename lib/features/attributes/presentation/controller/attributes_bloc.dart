@@ -4,10 +4,14 @@ import 'package:caphore/features/attributes/presentation/controller/attributes_s
 import 'package:caphore/features/attributes/domain/usecases/get_terms_usecase.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../domain/usecases/get_term_products_usecase.dart';
+
 class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
   GetTermsUseCase getTermsUseCase;
+  GetTermProductsUseCase getTermsProductsUseCase;
 
-  AttributesBloc(this.getTermsUseCase) : super(const AttributesState()) {
+  AttributesBloc(this.getTermsUseCase, this.getTermsProductsUseCase)
+      : super(const AttributesState()) {
     //------ Attribute Terms------
     //begin
     //event
@@ -223,6 +227,21 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
               //state
               bannersTerms: r,
               bannersTermsState: RequestState.loaded)));
+    });
+
+    //term products event
+    on<GetTermProductsEvent>((event, emit) async {
+      final result = await getTermsProductsUseCase(TermProductsParameters(
+          page: event.pageNum,
+          perPage: event.perPage,
+          attribute: event.attribute,
+          termId: event.termId));
+      result.fold(
+          (l) => emit(state.copyWith(
+              termProductsMessage: l.message,
+              termProductsState: RequestState.error)),
+          (r) => emit(state.copyWith(
+              termProducts: r, termProductsState: RequestState.loaded)));
     });
   }
 }
