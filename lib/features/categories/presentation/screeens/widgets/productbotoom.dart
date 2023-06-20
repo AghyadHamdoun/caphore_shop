@@ -18,7 +18,7 @@ class ProductBottom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 165.h,
+      height: 200.h,
       width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.white,

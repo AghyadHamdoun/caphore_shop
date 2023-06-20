@@ -22,87 +22,107 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
-      child: Container(
+      child: SizedBox(
         width: 170.w,
-        decoration: BoxDecoration(
-            image: DecorationImage(
-              alignment: Alignment.topCenter,
-              image: NetworkImage(
-                image,
-              ),
-            ),
-            boxShadow: [
-              BoxShadow(
-                  blurRadius: 5.r,
-                  blurStyle: BlurStyle.outer,
-                  spreadRadius: 5.r,
-                  color: Colors.grey),
-            ],
-            borderRadius: BorderRadius.circular(20.r)),
-        child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 3.h),
-          child: Column(
-            children: [
-              SizedBox(
-                height: 145.h,
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 10.h),
-                child: SizedBox(
-                  child: Flexible(
-                    child: Text(
-                      productname,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(fontSize: 16.sp),
-                      textAlign: TextAlign.center,
+        child: Container(
+          decoration: BoxDecoration(boxShadow: [
+            BoxShadow(
+                blurRadius: 5.r,
+                blurStyle: BlurStyle.outer,
+                spreadRadius: 5.r,
+                color: Colors.grey),
+          ], borderRadius: BorderRadius.circular(20.r)),
+          child: Padding(
+            padding: EdgeInsets.symmetric(vertical: 3.h),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                  height: 150.h,
+                  width: 160.w,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        alignment: Alignment.topCenter,
+                        image: NetworkImage(
+                          image,
+                        ),
+                      ),
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20.r),
+                        topRight: Radius.circular(20.r),
+                      ),
                     ),
                   ),
                 ),
-              ),
-              const Spacer(),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 5.w),
-                child: SizedBox(
-                  child: Row(
-                    children: [
-                      Column(
-                        children: [
-                          Text(
-                            "$orginalprice ",
-                            style: TextStyle(
-                                decoration: TextDecoration.lineThrough,
-                                fontSize: 10.sp,
-                                color: Colors.grey),
-                          ),
-                          (price == "33")
-                              ? Text(
-                                  " تواصل لمعرفةالسعر",
-                                  style: TextStyle(
-                                      color: AppColor.accentColor,
-                                      fontSize: 16.sp,
-                                      fontWeight: FontWeight.bold),
-                                )
-                              : Text(
-                                  "$price ل.س ",
-                                  style: TextStyle(
-                                      color: AppColor.accentColor,
-                                      fontSize: 16.sp,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                        ],
+                Padding(
+                  padding: EdgeInsets.only(top: 5.h),
+                  child: SizedBox(
+                    height: 60.h,
+                    child: Flexible(
+                      child: Text(
+                        productname,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(fontSize: 16.sp),
+                        textAlign: TextAlign.center,
                       ),
-                      const Spacer(),
-                      SvgPicture.asset(
-                        'assets/images/buy.svg',
-                        color: AppColor.accentColor,
-                        height: 20.h,
-                      )
-                    ],
+                    ),
                   ),
                 ),
-              ),
-            ],
+                SizedBox(
+                  height: 42.h,
+                  width: 170.w,
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 5.w),
+                    child: SizedBox(
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SizedBox(
+                            height: 42.h,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "$orginalprice ",
+                                  style: TextStyle(
+                                      decoration: TextDecoration.lineThrough,
+                                      fontSize: 10.sp,
+                                      color: Colors.grey),
+                                ),
+                                (price == "33")
+                                    ? Text(
+                                        " تواصل لمعرفةالسعر",
+                                        style: TextStyle(
+                                            color: AppColor.accentColor,
+                                            fontSize: 14.sp,
+                                            fontWeight: FontWeight.bold),
+                                      )
+                                    : Text(
+                                        "$price ل.س ",
+                                        style: TextStyle(
+                                            color: AppColor.accentColor,
+                                            fontSize: 16.sp,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                              ],
+                            ),
+                          ),
+                          SvgPicture.asset(
+                            'assets/images/buy.svg',
+                            color: AppColor.accentColor,
+                            height: 20.h,
+                            width: 25.w,
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
