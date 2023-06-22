@@ -56,7 +56,6 @@ class ProductScreen extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 10.h),
                 child: SizedBox(
-                  height: 387.h,
                   width: double.infinity,
                   child: Productimageslider(
                     imeges: product.images.map((e) => e.src).toList(),
@@ -110,7 +109,7 @@ class ProductScreen extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
                 child: SizedBox(
-                  height: 285.h,
+                  height: 310.h,
                   width: double.infinity.w,
                   child: Expanded(
                     child: ListView.builder(
@@ -129,7 +128,6 @@ class ProductScreen extends StatelessWidget {
                                             )));
                               },
                               child: SizedBox(
-                                height: 283.h,
                                 child: ProductCard(
                                   productname: products[index].name,
                                   price: products[index].price,
