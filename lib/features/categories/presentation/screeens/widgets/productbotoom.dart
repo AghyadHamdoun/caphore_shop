@@ -9,10 +9,12 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 class ProductBottom extends StatelessWidget {
   final String price;
   final String orginalPrice;
+  final String storename;
   const ProductBottom({
     super.key,
     required this.price,
     required this.orginalPrice,
+    required this.storename,
   });
 
   @override
@@ -63,10 +65,10 @@ class ProductBottom extends StatelessWidget {
                 style: TextStyle(fontSize: 20.sp),
               ),
               Text(
-                "  name",
+                storename,
                 style: TextStyle(
                     color: Colors.black,
-                    fontSize: 25.sp,
+                    fontSize: 20.sp,
                     fontWeight: FontWeight.bold),
               ),
             ],

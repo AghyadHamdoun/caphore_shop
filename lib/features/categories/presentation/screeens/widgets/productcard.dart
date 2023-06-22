@@ -91,7 +91,7 @@ class ProductCard extends StatelessWidget {
                                   fontWeight: FontWeight.bold),
                             ),
                       subtitle: Text(
-                        "$orginalprice+dsdsss ",
+                        "$orginalprice ",
                         style: TextStyle(
                             decoration: TextDecoration.lineThrough,
                             fontSize: 12.sp,
