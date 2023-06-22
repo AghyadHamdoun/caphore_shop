@@ -1,7 +1,7 @@
 import 'package:caphore/features/categories/presentation/screeens/pages/stores.dart';
 import 'package:caphore/features/categories/presentation/screeens/sub_categories.dart';
 import 'package:caphore/features/categories/presentation/screeens/pages/pages.dart';
-import 'package:caphore/features/categories/presentation/screeens/search.dart';
+import 'package:caphore/features/categories/presentation/screeens/search/search.dart';
 import 'package:caphore/features/welcome/presentation/OnBoarding/OBPage.dart';
 import 'package:flutter/material.dart';
 

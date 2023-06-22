@@ -1,5 +1,8 @@
 import 'dart:async';
 
+import 'package:caphore/core/utils/prefrences.dart';
+import 'package:caphore/features/categories/presentation/screeens/pages/pages.dart';
+import 'package:caphore/features/welcome/presentation/OnBoarding/OBPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -19,7 +22,20 @@ class _SplashState extends State<Splash> {
 
    _timer =  Timer.periodic(const Duration(seconds: 1), (timer) {
      if (_remainingTime==0) {
-       Navigator.of(context).pushReplacementNamed("/OBPage");
+       bool? isFirst=Preferences.getIsFirstTime();
+       if(isFirst == true)
+       {
+         Navigator.pushReplacement(
+           context,
+           MaterialPageRoute(builder: (context) =>  OBPage()),
+         );
+       }
+       else{
+         Navigator.pushReplacement(
+           context,
+           MaterialPageRoute(builder: (context) => const MyPages()),
+         );
+       }
      }
      else {
        _remainingTime--;

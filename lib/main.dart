@@ -1,4 +1,5 @@
 import 'package:caphore/core/services/services_locator.dart';
+import 'package:caphore/core/utils/prefrences.dart';
 import 'package:caphore/core/utils/routes.dart';
 import 'package:caphore/features/welcome/presentation/OnBoarding/Splash.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -13,6 +14,7 @@ void main() async {
   ServicesLocator().init();
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+  await Preferences.init();
   runApp(EasyLocalization(
       supportedLocales: const [Locale('ar', 'SA')],
       path: 'assets/translations',
@@ -36,7 +38,7 @@ class MyApp extends StatelessWidget {
           supportedLocales: context.supportedLocales,
           locale: context.locale,
           debugShowCheckedModeBanner: false,
-          home: MyPages(),
+          home: Splash(),
           routes: MyRoutes.routes,
           builder: EasyLoading.init(),
         );

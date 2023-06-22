@@ -231,6 +231,7 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
 
     //term products event
     on<GetTermProductsEvent>((event, emit) async {
+      print("${event.termId}${event.attribute}");
       final result = await getTermsProductsUseCase(TermProductsParameters(
           page: event.pageNum,
           perPage: event.perPage,

@@ -9,13 +9,13 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 class ProductBottom extends StatelessWidget {
   final String price;
   final String orginalPrice;
-  final String storename;
-  const ProductBottom({
-    super.key,
-    required this.price,
-    required this.orginalPrice,
-    required this.storename,
-  });
+  final String number;
+
+  const ProductBottom(
+      {super.key,
+      required this.price,
+      required this.orginalPrice,
+      required this.number});
 
   @override
   Widget build(BuildContext context) {
@@ -65,10 +65,10 @@ class ProductBottom extends StatelessWidget {
                 style: TextStyle(fontSize: 20.sp),
               ),
               Text(
-                storename,
+                "  name",
                 style: TextStyle(
                     color: Colors.black,
-                    fontSize: 20.sp,
+                    fontSize: 25.sp,
                     fontWeight: FontWeight.bold),
               ),
             ],
@@ -80,7 +80,7 @@ class ProductBottom extends StatelessWidget {
             style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.green, fixedSize: Size(250.w, 40.h)),
             onPressed: () {
-              whatsapp();
+              whatsapp(number);
             },
             icon: SvgPicture.asset(
               'assets/images/icons8-whatsapp.svg',
@@ -101,8 +101,8 @@ class ProductBottom extends StatelessWidget {
   }
 }
 
-whatsapp() async {
-  var contact = "+963988265177";
+whatsapp(String number) async {
+  var contact = "+$number";
   var androidUrl = "whatsapp://send?phone=$contact&text=Hi, I need some help";
   var iosUrl =
       "https://wa.me/$contact?text=${Uri.parse('Hi, I need some help')}";

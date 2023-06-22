@@ -1,3 +1,6 @@
+import 'package:caphore/core/services/services_locator.dart';
+import 'package:caphore/features/attributes/presentation/controller/attributes_bloc.dart';
+import 'package:caphore/features/attributes/presentation/controller/attributes_event.dart';
 import 'package:caphore/features/attributes/presentation/screens/components/attributes/arabfoodresturants_component.dart';
 import 'package:caphore/features/attributes/presentation/screens/components/attributes/cofferesturants_component.dart';
 import 'package:caphore/features/attributes/presentation/screens/components/attributes/fastfoodresturants_component.dart';
@@ -17,63 +20,74 @@ class Restaurants extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CategoriesBloc, CategoriesState>(
-      builder: (context, state) {
-        return Scaffold(
-          body: Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.only(
-                    top: 10.h, left: 5.w, right: 5.w, bottom: 0),
-                child: const maintextform(),
-              ),
-              Expanded(
-                child: ListView(
-                  physics: const BouncingScrollPhysics(),
-                  padding: const EdgeInsets.all(0),
-                  shrinkWrap: true,
-                  scrollDirection: Axis.vertical,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(
-                          top: 10.h, left: 10.w, right: 10.w, bottom: 0),
-                      child: const AttributeName(name: "الوجبات السريعة"),
-                    ),
-                    const Expanded(
-                      child: FastFoodResturantsComponent(),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                          top: 10.h, left: 10.w, right: 10.w, bottom: 0),
-                      child: const AttributeName(name: "المطبخ العربي"),
-                    ),
-                    const Expanded(
-                      child: ArabFoodResturantsComponent(),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                          top: 10.h, left: 10.w, right: 10.w, bottom: 0),
-                      child: const AttributeName(name: "الحلويات"),
-                    ),
-                    const Expanded(
-                      child: SweetsResturantsComponent(),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                          top: 10.h, left: 10.w, right: 10.w, bottom: 0),
-                      child: const AttributeName(
-                          name: "الضيافة والمكسرات والقهوة"),
-                    ),
-                    const Expanded(
-                      child: CoffeeResturantsComponent(),
-                    ),
-                  ],
+    return BlocProvider(
+      create: (context) => sl<AttributesBloc>()
+        ..add(const GetFastFoodTermsEvent(
+            pageNum: 1, attributeId: 21, perPage: 100))
+        ..add(const GetArabFoodTermsEvent(
+            pageNum: 1, attributeId: 22, perPage: 100))
+        ..add(
+            const GetSweetTermsEvent(pageNum: 1, attributeId: 23, perPage: 100))
+        ..add(const GetCoffeeTermsEvent(
+            pageNum: 1, attributeId: 24, perPage: 100)),
+      child: BlocBuilder<CategoriesBloc, CategoriesState>(
+        builder: (context, state) {
+          return Scaffold(
+            body: Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(
+                      top: 10.h, left: 5.w, right: 5.w, bottom: 0),
+                  child: const maintextform(),
                 ),
-              ),
-            ],
-          ),
-        );
-      },
+                Expanded(
+                  child: ListView(
+                    physics: const BouncingScrollPhysics(),
+                    padding: const EdgeInsets.all(0),
+                    shrinkWrap: true,
+                    scrollDirection: Axis.vertical,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(
+                            top: 10.h, left: 10.w, right: 10.w, bottom: 0),
+                        child: const AttributeName(name: "الوجبات السريعة"),
+                      ),
+                      const Expanded(
+                        child: FastFoodResturantsComponent(),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(
+                            top: 10.h, left: 10.w, right: 10.w, bottom: 0),
+                        child: const AttributeName(name: "المطبخ العربي"),
+                      ),
+                      const Expanded(
+                        child: ArabFoodResturantsComponent(),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(
+                            top: 10.h, left: 10.w, right: 10.w, bottom: 0),
+                        child: const AttributeName(name: "الحلويات"),
+                      ),
+                      const Expanded(
+                        child: SweetsResturantsComponent(),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(
+                            top: 10.h, left: 10.w, right: 10.w, bottom: 0),
+                        child: const AttributeName(
+                            name: "الضيافة والمكسرات والقهوة"),
+                      ),
+                      const Expanded(
+                        child: CoffeeResturantsComponent(),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 }

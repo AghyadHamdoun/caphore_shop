@@ -1,11 +1,12 @@
-import 'package:caphore/features/categories/presentation/controller/categories_bloc.dart';
-import 'package:caphore/features/categories/presentation/controller/categories_state.dart';
+import 'package:caphore/core/services/services_locator.dart';
+import 'package:caphore/features/attributes/presentation/controller/attributes_bloc.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/attrebutename.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/textformfild.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../attributes/presentation/controller/attributes_event.dart';
 import '../../../../attributes/presentation/screens/components/attributes/brands_component.dart';
 
 class Brands extends StatelessWidget {
@@ -13,9 +14,11 @@ class Brands extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CategoriesBloc, CategoriesState>(
-      builder: (context, state) {
-        return Scaffold(
+    return BlocProvider(
+        create: (context) => sl<AttributesBloc>()
+          ..add(const GetBrandTermsEvent(
+              pageNum: 1, perPage: 100, attributeId: 7)),
+        child: Scaffold(
           body: Column(
             children: [
               Padding(
@@ -33,8 +36,6 @@ class Brands extends StatelessWidget {
               ),
             ],
           ),
-        );
-      },
-    );
+        ));
   }
 }
