@@ -21,7 +21,6 @@ class Productimageslider extends StatelessWidget {
                 (item) => Padding(
                   padding: EdgeInsets.only(bottom: 10.h),
                   child: Container(
-                    height: 340.h,
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: NetworkImage(item),

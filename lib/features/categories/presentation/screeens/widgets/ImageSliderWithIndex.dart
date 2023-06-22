@@ -21,7 +21,6 @@ class ImageSliderWithIndex extends StatelessWidget {
                 (item) => Padding(
                   padding: EdgeInsets.only(bottom: 10.h),
                   child: Container(
-                    height: 180.h,
                     width: double.infinity,
                     decoration: BoxDecoration(
                       image: DecorationImage(

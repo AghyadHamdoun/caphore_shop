@@ -32,7 +32,7 @@ class TermProductComponent extends StatelessWidget {
             return GridView.builder(
               physics: const NeverScrollableScrollPhysics(),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, childAspectRatio: 0.66.r),
+                  crossAxisCount: 2, childAspectRatio: 0.55.r),
               itemCount: state.termProducts.length,
               shrinkWrap: true,
               itemBuilder: (BuildContext context, int index) {
