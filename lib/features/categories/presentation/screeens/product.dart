@@ -46,9 +46,8 @@ class ProductScreen extends StatelessWidget {
           ),
         ),
         bottomNavigationBar: ProductBottom(
-          storename: product.categories[0].name,
           price: product.price,
-          orginalPrice: product.regularPrice,
+          orginalPrice: '',
           number: product.nameAndNumber!.split(';')[1],
         ),
         body: Container(

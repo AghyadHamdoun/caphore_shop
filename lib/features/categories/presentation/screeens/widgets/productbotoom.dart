@@ -10,12 +10,12 @@ class ProductBottom extends StatelessWidget {
   final String price;
   final String orginalPrice;
   final String number;
-
-  const ProductBottom(
-      {super.key,
-      required this.price,
-      required this.orginalPrice,
-      required this.number});
+  const ProductBottom({
+    super.key,
+    required this.price,
+    required this.orginalPrice,
+    required this.number
+  });
 
   @override
   Widget build(BuildContext context) {
