@@ -8,8 +8,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:caphore/core/utils/app_color.dart';
 import 'package:lottie/lottie.dart';
 
-import '../../../../core/utils/enums.dart';
-import '../controller/categories_bloc.dart';
+import '../../../../../core/utils/enums.dart';
+import '../../controller/categories_bloc.dart';
 
 class Search extends StatelessWidget {
   const Search({super.key});
@@ -40,10 +40,15 @@ class Search extends StatelessWidget {
                         hintStyle: TextStyle(color: AppColor.accentColor),
                         filled: true,
                         fillColor: AppColor.primaryColor,
-                        suffixIcon: Icon(
-                          Icons.search,
-                          size: 28.sp,
-                          color: AppColor.accentColor,
+                        suffixIcon: InkWell(
+                          onTap: (){
+                            bloc.add(GetSearchProductsEvent(pageNum: 1, search:controller.text , perPage: 100));
+                          },
+                          child: Icon(
+                            Icons.search,
+                            size: 28.sp,
+                            color: AppColor.accentColor,
+                          ),
                         ),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20),
@@ -62,16 +67,17 @@ class Search extends StatelessWidget {
                         alignment: Alignment.center,
                         child: Center(
                           child: Lottie.asset(
-                            'assets/lottie/digishi.json',
+                            'assets/lottie/search-icon.json',
                             fit: BoxFit.cover,
+                            height: 200.h,
                           ),
                         ),
                       );
                     case RequestState.loaded:
                     return  Expanded(
                         child: GridView.builder(
-                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2, childAspectRatio: 0.7.h),
+                          gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2, childAspectRatio: 0.7),
                           itemCount: state.searchProducts.length,
                           itemBuilder: (BuildContext context, int index) {
                             return Padding(

@@ -1,3 +1,4 @@
+import 'package:caphore/core/utils/prefrences.dart';
 import 'package:caphore/features/welcome/presentation/OnBoarding/on_boarding_one.dart';
 import 'package:caphore/features/welcome/presentation/OnBoarding/on_boarding_three.dart';
 import 'package:caphore/features/welcome/presentation/OnBoarding/on_boarding_two.dart';
@@ -70,13 +71,15 @@ class OBPage extends StatelessWidget {
     currentpage = activePageIndex;
   }
 
-  void page1a2a3(BuildContext context) {
+  void page1a2a3(BuildContext context)  {
     if (controller.currentPage != 2) {
       int nextpage = controller.currentPage + 1;
       controller.animateToPage(
         page: nextpage,
       );
     } else {
+       Preferences.saveIsFirstTime(false);
+       print('done---------------${Preferences.getIsFirstTime()}');
       Navigator.of(context).pushReplacementNamed("/pages");
     }
   }

@@ -22,7 +22,7 @@ class MyPages extends StatefulWidget {
   State<MyPages> createState() => _MyPagesState();
 }
 
-class _MyPagesState extends State<MyPages> {
+class _MyPagesState extends State<MyPages> with AutomaticKeepAliveClientMixin {
   late int select = 1;
   late PageController controller;
 
@@ -34,6 +34,7 @@ class _MyPagesState extends State<MyPages> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return MultiBlocProvider(
       providers: [
         BlocProvider(
@@ -63,36 +64,8 @@ class _MyPagesState extends State<MyPages> {
         ),
         BlocProvider(
           create: (context) => sl<AttributesBloc>()
-            ..add(const GetBrandTermsEvent(
-                pageNum: 1, perPage: 100, attributeId: 7))
-            ..add(const GetClothingTermsEvent(
-                pageNum: 1, attributeId: 11, perPage: 100))
-            ..add(const GetShoesAndBagsTermsEvent(
-                pageNum: 1, attributeId: 13, perPage: 100))
-            ..add(const GetElectronicEquipmentTermsEvent(
-                pageNum: 1, attributeId: 12, perPage: 100))
-            ..add(const GetHouseAndKitchenTermsEvent(
-                pageNum: 1, attributeId: 14, perPage: 100))
-            ..add(const GetWatchesAndAccessoriesTermsEvent(
-                pageNum: 1, attributeId: 16, perPage: 100))
-            ..add(const GetPerfumesTermsEvent(
-                pageNum: 1, attributeId: 17, perPage: 100))
-            ..add(const GetHandMadeTermsEvent(
-                pageNum: 1, attributeId: 18, perPage: 100))
-            ..add(const GetPetsTermsEvent(
-                pageNum: 1, attributeId: 19, perPage: 100))
-            ..add(const GetToysTermsEvent(
-                pageNum: 1, attributeId: 20, perPage: 100))
-            ..add(const GetFastFoodTermsEvent(
-                pageNum: 1, attributeId: 21, perPage: 100))
-            ..add(const GetArabFoodTermsEvent(
-                pageNum: 1, attributeId: 22, perPage: 100))
-            ..add(const GetSweetTermsEvent(
-                pageNum: 1, attributeId: 23, perPage: 100))
-            ..add(const GetCoffeeTermsEvent(
-                pageNum: 1, attributeId: 24, perPage: 100))
-          ..add(const GetBannersTermsEvent(pageNum: 1, attributeId: 34, perPage: 100))
-          ,
+            ..add(const GetBannersTermsEvent(
+                pageNum: 1, attributeId: 34, perPage: 100)),
         ),
       ],
       child: SafeArea(
@@ -177,4 +150,7 @@ class _MyPagesState extends State<MyPages> {
       ),
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }
