@@ -1,3 +1,4 @@
+import 'package:caphore/core/services/services_locator.dart';
 import 'package:caphore/features/attributes/presentation/controller/attributes_bloc.dart';
 import 'package:caphore/features/attributes/presentation/controller/attributes_event.dart';
 import 'package:caphore/features/attributes/presentation/controller/attributes_state.dart';
@@ -12,11 +13,13 @@ class ImageSliderWithIndex extends StatelessWidget {
   const ImageSliderWithIndex({
     super.key,
   });
-
   @override
   Widget build(BuildContext context) {
-    int current = 0;
-    return BlocBuilder<AttributesBloc, AttributesState>(
+    var bloc =sl<AttributesBloc>();
+    return BlocProvider(
+  create: (context) => bloc..add(const GetBannersTermsEvent(
+      pageNum: 1, attributeId: 34, perPage: 100)),
+  child: BlocBuilder<AttributesBloc, AttributesState>(
       builder: (context, state) {
         List<String> images = [];
         List<String> attributeName = [];
@@ -72,7 +75,7 @@ class ImageSliderWithIndex extends StatelessWidget {
               ).toList(),
               options: CarouselOptions(
                   onPageChanged: (index, reason) {
-                    current = index;
+                    bloc.add(CurrentSliderEvent(currentSlider: index));
                   },
                   autoPlay: true,
                   enableInfiniteScroll: true,
@@ -93,7 +96,7 @@ class ImageSliderWithIndex extends StatelessWidget {
                     margin: EdgeInsets.symmetric(horizontal: 5.h),
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: current == index ? Colors.orange : Colors.grey,
+                      color: index == state.currentSlider? Colors.orange : Colors.grey,
                     ),
                   );
                 },
@@ -102,6 +105,7 @@ class ImageSliderWithIndex extends StatelessWidget {
           ],
         );
       },
-    );
+    ),
+);
   }
 }

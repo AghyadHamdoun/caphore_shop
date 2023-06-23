@@ -37,9 +37,8 @@ class Home extends StatelessWidget {
               shrinkWrap: true,
               physics: const BouncingScrollPhysics(),
               children: [
-                SizedBox(
-                    height: 210.h,
-                    child:const ImageSliderWithIndex()),
+               const SizedBox(
+                    child: ImageSliderWithIndex()),
                 const CategoriesComponent(),
                 CategoryNameAndShowAll(
                   name: 'عروض كافور',

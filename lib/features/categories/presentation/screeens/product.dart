@@ -21,10 +21,6 @@ class ProductScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("=======================");
-    print(product.id);
-    print(product.shortDescription);
-    print(product.categories[0].name);
     products.sort((a, b) {
       return a.name.hashCode.compareTo(b.name.hashCode);
     });

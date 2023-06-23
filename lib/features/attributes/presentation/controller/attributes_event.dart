@@ -195,3 +195,11 @@ class GetTermProductsEvent extends AttributesEvent {
       required this.pageNum,
       required this.perPage});
 }
+
+class CurrentSliderEvent extends AttributesEvent{
+  final int currentSlider;
+
+  const CurrentSliderEvent({required this.currentSlider});
+
+
+}
