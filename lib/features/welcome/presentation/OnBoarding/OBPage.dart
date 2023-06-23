@@ -79,7 +79,6 @@ class OBPage extends StatelessWidget {
       );
     } else {
        Preferences.saveIsFirstTime(false);
-       print('done---------------${Preferences.getIsFirstTime()}');
       Navigator.of(context).pushReplacementNamed("/pages");
     }
   }

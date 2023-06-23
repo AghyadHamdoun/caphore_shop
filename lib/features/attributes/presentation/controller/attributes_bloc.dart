@@ -231,7 +231,6 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
 
     //term products event
     on<GetTermProductsEvent>((event, emit) async {
-      print("${event.termId}${event.attribute}");
       final result = await getTermsProductsUseCase(TermProductsParameters(
           page: event.pageNum,
           perPage: event.perPage,
@@ -244,5 +243,13 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
           (r) => emit(state.copyWith(
               termProducts: r, termProductsState: RequestState.loaded)));
     });
+
+    on<CurrentSliderEvent>((event, emit)  {
+     emit(state.copyWith(
+       currentSlider: event.currentSlider
+     ));
+    });
+
+
   }
 }

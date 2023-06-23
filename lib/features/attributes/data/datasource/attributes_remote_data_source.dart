@@ -20,7 +20,6 @@ class AttributesRemoteDateSource extends BaseAttributesRemoteDataSource {
   @override
   Future<List<TermModel>> getTerms(
       {required int id, required int page, required int perPage}) async {
-    print('terms----------------');
     final response =
         await Dio().get(ApiConstance.attributeTermsPath(id, page, perPage));
     if (response.statusCode == 200) {
@@ -37,7 +36,6 @@ class AttributesRemoteDateSource extends BaseAttributesRemoteDataSource {
   @override
   Future<List<ProductModel>> getTermProducts({
      required String attribute,required int termId,required int page,required int perPage}) async {
-    print('\x1B[32m TermProducts---------- \x1B[0m');
     final response = await Dio().get(ApiConstance.allAttributeTermProductsPath(
         attribute, termId, page, perPage));
     if (response.statusCode == 200) {

@@ -74,6 +74,8 @@ class AttributesState extends Equatable {
   final RequestState termProductsState;
   final String termProductsMessage;
 
+  final int currentSlider;
+
   // 2
   const AttributesState({
     //attribute terms
@@ -145,6 +147,8 @@ class AttributesState extends Equatable {
     this.termProducts = const [],
     this.termProductsState = RequestState.loading,
     this.termProductsMessage = '',
+    //
+    this.currentSlider = 0
   });
 
   AttributesState copyWith({
@@ -217,6 +221,8 @@ class AttributesState extends Equatable {
     final List<Product>? termProducts,
     final RequestState? termProductsState,
     final String? termProductsMessage,
+    //
+    final int? currentSlider
   }) {
     return AttributesState(
       //
@@ -300,6 +306,8 @@ class AttributesState extends Equatable {
       termProductsState: termProductsState ?? this.termProductsState,
       termProductsMessage:
       termProductsMessage ?? this.termProductsMessage,
+
+      currentSlider: currentSlider ?? this.currentSlider
     );
   }
 
@@ -375,7 +383,9 @@ class AttributesState extends Equatable {
     //
     termProducts,
     termProductsMessage,
-    termProductsState
+    termProductsState,
+
+    currentSlider
 
 
   ];
