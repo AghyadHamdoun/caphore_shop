@@ -31,6 +31,8 @@ class ImageSliderWithIndex extends StatelessWidget {
           }
         }
         return Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CarouselSlider(
               items: images.mapIndexed(
@@ -55,7 +57,6 @@ class ImageSliderWithIndex extends StatelessWidget {
                     child: Padding(
                       padding: EdgeInsets.only(bottom: 10.h),
                       child: Container(
-                        height: 180.h,
                         width: double.infinity,
                         decoration: BoxDecoration(
                           image: DecorationImage(
@@ -79,27 +80,23 @@ class ImageSliderWithIndex extends StatelessWidget {
                   viewportFraction: 1,
                   enlargeCenterPage: true),
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 160.w),
-              child: SizedBox(
-                height: 10.h,
-                child: Expanded(
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: images.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return Container(
-                        height: 10.h,
-                        width: 10.w,
-                        margin: EdgeInsets.symmetric(horizontal: 5.h),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: current == index ? Colors.orange : Colors.grey,
-                        ),
-                      );
-                    },
-                  ),
-                ),
+            SizedBox(
+              height: 10.h,
+              child: ListView.builder(
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                itemCount: images.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return Container(
+                    height: 10.h,
+                    width: 10.w,
+                    margin: EdgeInsets.symmetric(horizontal: 5.h),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: current == index ? Colors.orange : Colors.grey,
+                    ),
+                  );
+                },
               ),
             ),
           ],

@@ -14,6 +14,8 @@ class Productimageslider extends StatelessWidget {
   Widget build(BuildContext context) {
     int current = 0;
     return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         CarouselSlider(
           items: imeges
@@ -36,33 +38,29 @@ class Productimageslider extends StatelessWidget {
             onPageChanged: (index, reason) {
               current = index;
             },
-            enableInfiniteScroll: true,
+            enableInfiniteScroll: false,
             viewportFraction: 1,
             autoPlay: true,
             aspectRatio: 1.1.r,
           ),
         ),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 160.w),
-          child: SizedBox(
-            height: 10.h,
-            child: Expanded(
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: imeges.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                    height: 10.h,
-                    width: 10.w,
-                    margin: EdgeInsets.symmetric(horizontal: 5.h),
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: current == index ? Colors.orange : Colors.grey,
-                    ),
-                  );
-                },
-              ),
-            ),
+        SizedBox(
+          height: 10.h,
+          child: ListView.builder(
+            shrinkWrap: true,
+            scrollDirection: Axis.horizontal,
+            itemCount: imeges.length,
+            itemBuilder: (BuildContext context, int index) {
+              return Container(
+                height: 10.h,
+                width: 10.w,
+                margin: EdgeInsets.symmetric(horizontal: 5.h),
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: current == index ? Colors.orange : Colors.grey,
+                ),
+              );
+            },
           ),
         ),
       ],

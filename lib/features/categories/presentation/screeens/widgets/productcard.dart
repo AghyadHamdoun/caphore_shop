@@ -39,10 +39,10 @@ class ProductCard extends StatelessWidget {
               children: [
                 SizedBox(
                   height: 150.h,
-                  width: 160.w,
                   child: Container(
                     decoration: BoxDecoration(
                       image: DecorationImage(
+                        fit: BoxFit.cover,
                         alignment: Alignment.topCenter,
                         image: NetworkImage(
                           image,
@@ -76,26 +76,35 @@ class ProductCard extends StatelessWidget {
                     padding: EdgeInsets.only(bottom: 10.h),
                     child: ListTile(
                       title: (price == "33")
-                          ? Text(
-                              " تواصل لمعرفةالسعر",
-                              style: TextStyle(
-                                  color: AppColor.accentColor,
-                                  fontSize: 11.sp,
-                                  fontWeight: FontWeight.bold),
+                          ? FittedBox(
+                              fit: BoxFit.scaleDown,
+                              child: Text(
+                                " تواصل لمعرفةالسعر",
+                                style: TextStyle(
+                                    color: AppColor.accentColor,
+                                    fontSize: 16.sp,
+                                    fontWeight: FontWeight.bold),
+                              ),
                             )
-                          : Text(
-                              "$price ل.س ",
-                              style: TextStyle(
-                                  color: AppColor.accentColor,
-                                  fontSize: 15.sp,
-                                  fontWeight: FontWeight.bold),
+                          : FittedBox(
+                              fit: BoxFit.scaleDown,
+                              child: Text(
+                                "$price ل.س ",
+                                style: TextStyle(
+                                    color: AppColor.accentColor,
+                                    fontSize: 18.sp,
+                                    fontWeight: FontWeight.bold),
+                              ),
                             ),
-                      subtitle: Text(
-                        "$orginalprice ",
-                        style: TextStyle(
-                            decoration: TextDecoration.lineThrough,
-                            fontSize: 12.sp,
-                            color: Colors.grey),
+                      subtitle: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          "$orginalprice ",
+                          style: TextStyle(
+                              decoration: TextDecoration.lineThrough,
+                              fontSize: 14.sp,
+                              color: Colors.grey),
+                        ),
                       ),
                       trailing: SvgPicture.asset(
                         'assets/images/buy.svg',
