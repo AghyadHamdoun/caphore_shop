@@ -23,7 +23,7 @@ class ProductCard extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
       child: SizedBox(
-        width: 190.w,
+        width: 180.w,
         child: Container(
           decoration: BoxDecoration(boxShadow: [
             BoxShadow(
@@ -42,6 +42,7 @@ class ProductCard extends StatelessWidget {
                   child: Container(
                     decoration: BoxDecoration(
                       image: DecorationImage(
+                        scale: 1,
                         fit: BoxFit.cover,
                         alignment: Alignment.topCenter,
                         image: NetworkImage(
@@ -58,7 +59,6 @@ class ProductCard extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(top: 5.h),
                   child: SizedBox(
-                    height: 65.h,
                     child: Flexible(
                       child: Text(
                         productname,
@@ -71,7 +71,6 @@ class ProductCard extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 64.h,
                   child: Padding(
                     padding: EdgeInsets.only(bottom: 10.h),
                     child: ListTile(

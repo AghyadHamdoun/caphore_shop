@@ -10,12 +10,13 @@ class ProductBottom extends StatelessWidget {
   final String price;
   final String orginalPrice;
   final String number;
-  const ProductBottom({
-    super.key,
-    required this.price,
-    required this.orginalPrice,
-    required this.number
-  });
+  final String storename;
+  const ProductBottom(
+      {super.key,
+      required this.price,
+      required this.orginalPrice,
+      required this.number,
+      required this.storename});
 
   @override
   Widget build(BuildContext context) {
@@ -65,10 +66,10 @@ class ProductBottom extends StatelessWidget {
                 style: TextStyle(fontSize: 20.sp),
               ),
               Text(
-                "  name",
+                storename,
                 style: TextStyle(
                     color: Colors.black,
-                    fontSize: 25.sp,
+                    fontSize: 22.sp,
                     fontWeight: FontWeight.bold),
               ),
             ],

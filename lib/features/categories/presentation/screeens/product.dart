@@ -34,7 +34,7 @@ class ProductScreen extends StatelessWidget {
           iconTheme: const IconThemeData(color: AppColor.primaryColor),
           titleTextStyle: TextStyle(color: Colors.blue, fontSize: 22.sp),
           title: Text(
-            product.nameAndNumber!.split(';')[0],
+            "تفاصيل المنتج",
             style: TextStyle(
                 color: AppColor.accentColor,
                 fontSize: 22.sp,
@@ -42,6 +42,7 @@ class ProductScreen extends StatelessWidget {
           ),
         ),
         bottomNavigationBar: ProductBottom(
+          storename: product.nameAndNumber!.split(';')[0],
           price: product.price,
           orginalPrice: '',
           number: product.nameAndNumber!.split(';')[1],
