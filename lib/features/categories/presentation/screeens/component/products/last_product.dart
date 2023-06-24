@@ -41,33 +41,30 @@ class LastProductComponent extends StatelessWidget {
                 child: SizedBox(
                   height: 310.h,
                   width: double.infinity.w,
-                  child: Expanded(
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: state.lastProducts.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return InkWell(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => ProductScreen(
-                                          product: state.lastProducts[index],
-                                          products: state.lastProducts,
-                                        )));
-                          },
-                          child: ProductCard(
-                            productname: state.lastProducts[index].name,
-                            price: state.lastProducts[index].price,
-                            orginalprice:
-                                state.lastProducts[index].regularPrice,
-                            image: state.lastProducts[index].images.isNotEmpty
-                                ? state.lastProducts[index].images[0].src
-                                : '',
-                          ),
-                        );
-                      },
-                    ),
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: state.lastProducts.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ProductScreen(
+                                        product: state.lastProducts[index],
+                                        products: state.lastProducts,
+                                      )));
+                        },
+                        child: ProductCard(
+                          productname: state.lastProducts[index].name,
+                          price: state.lastProducts[index].price,
+                          orginalprice: state.lastProducts[index].regularPrice,
+                          image: state.lastProducts[index].images.isNotEmpty
+                              ? state.lastProducts[index].images[0].src
+                              : '',
+                        ),
+                      );
+                    },
                   ),
                 ),
               ),

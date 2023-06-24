@@ -34,31 +34,36 @@ class OBPage extends StatelessWidget {
     ];
 
     return Scaffold(
-      body: Stack(
+      backgroundColor: Colors.white,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          LiquidSwipe(
-            initialPage: 0,
-            enableLoop: false,
-            liquidController: controller,
-            onPageChangeCallback: onPageChangeCallback,
-            pages: pages,
-            enableSideReveal: false,
+          Expanded(
+            child: LiquidSwipe(
+              initialPage: 0,
+              enableLoop: false,
+              liquidController: controller,
+              onPageChangeCallback: onPageChangeCallback,
+              pages: pages,
+              enableSideReveal: false,
+            ),
           ),
-          Positioned(
-            bottom: 60.h,
-            left: 130.w,
+          Padding(
+            padding: EdgeInsets.only(bottom: 10.h),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColor.primaryColor.withOpacity(1),
                 shape: const StadiumBorder(),
-                fixedSize: Size(130.w, 45.h),
               ),
               onPressed: () {
                 page1a2a3(context);
               },
-              child: Text(
-                "   التالي   ",
-                style: TextStyle(fontSize: 18.sp),
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 5.h),
+                child: Text(
+                  "   التالي   ",
+                  style: TextStyle(fontSize: 20.sp),
+                ),
               ),
             ),
           ),
@@ -71,14 +76,14 @@ class OBPage extends StatelessWidget {
     currentpage = activePageIndex;
   }
 
-  void page1a2a3(BuildContext context)  {
+  void page1a2a3(BuildContext context) {
     if (controller.currentPage != 2) {
       int nextpage = controller.currentPage + 1;
       controller.animateToPage(
         page: nextpage,
       );
     } else {
-       Preferences.saveIsFirstTime(false);
+      Preferences.saveIsFirstTime(false);
       Navigator.of(context).pushReplacementNamed("/pages");
     }
   }

@@ -17,9 +17,9 @@ class Search extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextEditingController controller = TextEditingController();
-    var bloc= sl<CategoriesBloc>();
+    var bloc = sl<CategoriesBloc>();
     return BlocProvider(
-      create: (context) =>bloc ,
+      create: (context) => bloc,
       child: BlocBuilder<CategoriesBloc, CategoriesState>(
         builder: (context, state) {
           return Scaffold(
@@ -29,8 +29,9 @@ class Search extends StatelessWidget {
                 children: [
                   Form(
                     child: TextFormField(
-                      onChanged: (string){
-                        bloc.add(GetSearchProductsEvent(pageNum: 1, search: string, perPage: 100));
+                      onChanged: (string) {
+                        bloc.add(GetSearchProductsEvent(
+                            pageNum: 1, search: string, perPage: 100));
                       },
                       controller: controller,
                       enabled: true,
@@ -41,8 +42,11 @@ class Search extends StatelessWidget {
                         filled: true,
                         fillColor: AppColor.primaryColor,
                         suffixIcon: InkWell(
-                          onTap: (){
-                            bloc.add(GetSearchProductsEvent(pageNum: 1, search:controller.text , perPage: 100));
+                          onTap: () {
+                            bloc.add(GetSearchProductsEvent(
+                                pageNum: 1,
+                                search: controller.text,
+                                perPage: 100));
                           },
                           child: Icon(
                             Icons.search,
@@ -57,55 +61,63 @@ class Search extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    child: Text(" ${state.searchProducts.length} :نتائج البحث",style: TextStyle(fontSize: 20.sp),),
+                    child: Text(
+                      " ${state.searchProducts.length} :نتائج البحث",
+                      style: TextStyle(fontSize: 20.sp),
+                    ),
                   ),
-                  const  SizedBox(height: 10,),
-                Builder(builder:(context){
-                  switch (state.searchProductsState) {
-                    case RequestState.loading:
-                      return Container(
-                        alignment: Alignment.center,
-                        child: Center(
-                          child: Lottie.asset(
-                            'assets/lottie/search-icon.json',
-                            fit: BoxFit.cover,
-                            height: 200.h,
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Builder(builder: (context) {
+                    switch (state.searchProductsState) {
+                      case RequestState.loading:
+                        return Container(
+                          alignment: Alignment.center,
+                          child: Center(
+                            child: Lottie.asset(
+                              'assets/lottie/search-icon.json',
+                              fit: BoxFit.cover,
+                              height: 200.h,
+                            ),
                           ),
-                        ),
-                      );
-                    case RequestState.loaded:
-                    return  Expanded(
-                        child: GridView.builder(
-                          gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2, childAspectRatio: 0.7),
-                          itemCount: state.searchProducts.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            return Padding(
-                              padding:
-                              EdgeInsets.symmetric(horizontal: 3.w, vertical: 3.h),
-                              child:  ProductCard(
-                                productname: state.searchProducts[index].name,
-                                price: state.searchProducts[index].price,
-                                orginalprice: state.searchProducts[index].regularPrice,
-                                image:  state.searchProducts[index].images.isNotEmpty
-                                    ? state.searchProducts[index].images[0].src
-                                    : '',
-                              ),
-                            );
-                          },
-                        ),
-                      );
-                    case RequestState.error:
-                      return SizedBox(
-                        height: 280.h,
-                        child: Center(
-                          child: Text(state.searchProductsMessage),
-                        ),
-                      );
-                  }
-                } ),
-
-
+                        );
+                      case RequestState.loaded:
+                        return Expanded(
+                          child: GridView.builder(
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 2,
+                                    childAspectRatio: 0.55.r),
+                            itemCount: state.searchProducts.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return Padding(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 3.w, vertical: 3.h),
+                                child: ProductCard(
+                                  productname: state.searchProducts[index].name,
+                                  price: state.searchProducts[index].price,
+                                  orginalprice:
+                                      state.searchProducts[index].regularPrice,
+                                  image: state.searchProducts[index].images
+                                          .isNotEmpty
+                                      ? state
+                                          .searchProducts[index].images[0].src
+                                      : '',
+                                ),
+                              );
+                            },
+                          ),
+                        );
+                      case RequestState.error:
+                        return SizedBox(
+                          height: 280.h,
+                          child: Center(
+                            child: Text(state.searchProductsMessage),
+                          ),
+                        );
+                    }
+                  }),
                 ],
               ),
             ),

@@ -17,70 +17,56 @@ class OnBoardingTwo extends StatelessWidget {
       child: Scaffold(
         body: Container(
           color: Colors.white,
-          child: Stack(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              Image.asset(
+                image,
+                fit: BoxFit.fill,
+              ),
+              Text(
+                text1,
+                style: TextStyle(fontSize: 22.sp, fontWeight: FontWeight.bold),
+              ),
+              Text(
+                text2,
+                style: TextStyle(fontSize: 18.sp),
+              ),
+              SizedBox(
+                height: 10.h,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset(
-                    image,
-                    height: 500.h,
-                    fit: BoxFit.fill,
-                  ),
-                  Text(
-                    text1,
-                    style:
-                        TextStyle(fontSize: 22.sp, fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    text2,
-                    style: TextStyle(fontSize: 18.sp),
+                  Container(
+                    height: 10.h,
+                    width: 10.w,
+                    decoration: const BoxDecoration(
+                      color: Color.fromARGB(255, 106, 117, 141),
+                      shape: BoxShape.circle,
+                    ),
                   ),
                   SizedBox(
-                    height: 10.h,
+                    width: 20.w,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        height: 10.h,
-                        width: 10.w,
-                        decoration: const BoxDecoration(
-                          color: Color.fromARGB(255, 106, 117, 141),
-                          shape: BoxShape.circle,
-                        ),
-                      ),
-                      SizedBox(
-                        width: 20.w,
-                      ),
-                      Container(
-                        height: 10.h,
-                        width: 10.w,
-                        decoration: const BoxDecoration(
-                          color: AppColor.primaryColor,
-                          shape: BoxShape.circle,
-                        ),
-                      ),
-                      SizedBox(
-                        width: 20.w,
-                      ),
-                      Container(
-                        height: 10.h,
-                        width: 10.w,
-                        decoration: const BoxDecoration(
-                          color: Color.fromARGB(255, 106, 117, 141),
-                          shape: BoxShape.circle,
-                        ),
-                      ),
-                    ],
+                  Container(
+                    height: 10.h,
+                    width: 10.w,
+                    decoration: const BoxDecoration(
+                      color: AppColor.primaryColor,
+                      shape: BoxShape.circle,
+                    ),
                   ),
                   SizedBox(
-                    height: 10.h,
+                    width: 20.w,
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 20.h),
-                    child: Container(
-                      height: 80.h,
+                  Container(
+                    height: 10.h,
+                    width: 10.w,
+                    decoration: const BoxDecoration(
+                      color: Color.fromARGB(255, 106, 117, 141),
+                      shape: BoxShape.circle,
                     ),
                   ),
                 ],
