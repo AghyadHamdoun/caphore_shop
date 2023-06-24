@@ -107,6 +107,7 @@ class CategoriesState extends Equatable {
         regularPrice: '',
         categories: [],
         images: [],
+        meta_data: [],
         nameAndNumber: '',
         nameAndNumber2: ''),
     this.productState = RequestState.loading,

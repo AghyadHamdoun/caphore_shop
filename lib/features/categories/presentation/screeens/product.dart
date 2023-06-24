@@ -1,6 +1,5 @@
 import 'package:caphore/core/utils/app_color.dart';
 import 'package:caphore/features/categories/domain/entities/products.dart';
-import 'package:caphore/features/categories/presentation/screeens/widgets/ImageSliderWithIndex.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/productbotoom.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/productcard.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/productimageslider.dart';
@@ -24,7 +23,21 @@ class ProductScreen extends StatelessWidget {
     products.sort((a, b) {
       return a.name.hashCode.compareTo(b.name.hashCode);
     });
+ var nameAndNumber=[];
+ int j=0;
+while(nameAndNumber.length < 2 && j<= (product.meta_data.length)-1){
+  print(j);
+  if (product.meta_data[j].value is String) {
+    nameAndNumber=product.meta_data[j].value.split(';');
+  }
+  print('value====${product.meta_data[j].value}');
+  j++;
+}
+if (nameAndNumber.length<2) {
+  nameAndNumber=['caphore','963955942519'];
+}
 
+ print (nameAndNumber);
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
@@ -42,10 +55,10 @@ class ProductScreen extends StatelessWidget {
           ),
         ),
         bottomNavigationBar: ProductBottom(
-          storename: product.nameAndNumber!.split(';')[0],
+          storename: nameAndNumber[0],
           price: product.price,
           orginalPrice: '',
-          number: product.nameAndNumber!.split(';')[1],
+          number: nameAndNumber[1],
         ),
         body: Container(
           margin: EdgeInsets.symmetric(horizontal: 10.h),
