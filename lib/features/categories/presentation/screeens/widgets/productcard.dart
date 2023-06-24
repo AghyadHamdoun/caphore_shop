@@ -67,46 +67,45 @@ class ProductCard extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  child: Padding(
-                    padding: EdgeInsets.only(bottom: 10.h),
-                    child: ListTile(
-                      title: (price == "33")
-                          ? FittedBox(
-                              fit: BoxFit.scaleDown,
-                              child: Text(
-                                " تواصل لمعرفةالسعر",
-                                style: TextStyle(
-                                    color: AppColor.accentColor,
-                                    fontSize: 16.sp,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            )
-                          : FittedBox(
-                              fit: BoxFit.scaleDown,
-                              child: Text(
-                                "$price ل.س ",
-                                style: TextStyle(
-                                    color: AppColor.accentColor,
-                                    fontSize: 18.sp,
-                                    fontWeight: FontWeight.bold),
-                              ),
+                  child: ListTile(
+                    title: (price == "33")
+                        ? FittedBox(
+                            fit: BoxFit.scaleDown,
+                            child: Text(
+                              " تواصل لمعرفةالسعر",
+                              style: TextStyle(
+                                  color: AppColor.accentColor,
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.bold),
                             ),
-                      subtitle: FittedBox(
-                        fit: BoxFit.scaleDown,
-                        child: Text(
-                          "$orginalprice ",
-                          style: TextStyle(
-                              decoration: TextDecoration.lineThrough,
-                              fontSize: 14.sp,
-                              color: Colors.grey),
-                        ),
-                      ),
-                      trailing: SvgPicture.asset(
-                        'assets/images/buy.svg',
-                        color: AppColor.accentColor,
-                        height: 20.h,
-                        width: 25.w,
-                      ),
+                          )
+                        : FittedBox(
+                            fit: BoxFit.scaleDown,
+                            child: Text(
+                              "$price ل.س ",
+                              style: TextStyle(
+                                  color: AppColor.accentColor,
+                                  fontSize: 18.sp,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                    subtitle: (orginalprice.isNotEmpty)
+                        ? FittedBox(
+                            fit: BoxFit.scaleDown,
+                            child: Text(
+                              "$orginalprice ",
+                              style: TextStyle(
+                                  decoration: TextDecoration.lineThrough,
+                                  fontSize: 14.sp,
+                                  color: Colors.grey),
+                            ),
+                          )
+                        : null,
+                    trailing: SvgPicture.asset(
+                      'assets/images/buy.svg',
+                      color: AppColor.accentColor,
+                      height: 20.h,
+                      width: 25.w,
                     ),
                   ),
                 ),
