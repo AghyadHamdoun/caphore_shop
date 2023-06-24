@@ -10,6 +10,7 @@ class Product extends Equatable {
   final String salePrice;
   final List<Categories> categories;
   final List<Images> images;
+  final List<Meta> meta_data;
   final String? nameAndNumber;
   final String? nameAndNumber2;
 
@@ -23,9 +24,9 @@ class Product extends Equatable {
       required this.salePrice,
       required this.categories,
       required this.images,
+      required this.meta_data,
       required this.nameAndNumber,
-      required this.nameAndNumber2
-      });
+      required this.nameAndNumber2});
 
   @override
   List<Object?> get props => [
@@ -72,5 +73,19 @@ class Images extends Equatable {
         id,
         src,
         name,
+      ];
+}
+
+class Meta extends Equatable {
+  final dynamic value;
+
+  const Meta({
+    required this.value,
+  });
+
+  @override
+  // TODO: implement props
+  List<Object?> get props => [
+        value,
       ];
 }

@@ -1,4 +1,5 @@
 import 'package:caphore/features/categories/domain/entities/products.dart';
+import 'package:caphore/features/categories/presentation/screeens/sub_categories.dart';
 
 class ProductModel extends Product {
   const ProductModel(
@@ -12,8 +13,8 @@ class ProductModel extends Product {
       required super.categories,
       required super.images,
       required super.nameAndNumber,
-      required super.nameAndNumber2
-      });
+      required super.nameAndNumber2,
+      required super.meta_data});
 
   factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
       id: json['id'] ?? 0,
@@ -27,9 +28,14 @@ class ProductModel extends Product {
           json["categories"].map((x) => CategoriesModel.fromJson(x))),
       images: List<ImagesModel>.from(
           json["images"].map((x) => ImagesModel.fromJson(x))),
-      nameAndNumber: (json['meta_data']as List).length>=7?json['meta_data'][6]['value']:'',
-      nameAndNumber2: (json['meta_data']as List).length>=8?json['meta_data'][7]['value']:''
-  );
+      nameAndNumber: (json['meta_data'] as List).length >= 7
+          ? json['meta_data'][6]['value']
+          : '',
+      nameAndNumber2: (json['meta_data'] as List).length >= 8
+          ? json['meta_data'][7]['value']
+          : '',
+      meta_data: List<MetaModel>.from(
+          json["meta_data"].map((x) => MetaModel.fromJson(x))));
 }
 
 class CategoriesModel extends Categories {
@@ -49,4 +55,13 @@ class ImagesModel extends Images {
 
   factory ImagesModel.fromJson(Map<String, dynamic> json) =>
       ImagesModel(id: json['id'], src: json['src'], name: json['name']);
+}
+
+class MetaModel extends Meta {
+  MetaModel({
+    required super.value,
+  });
+
+  factory MetaModel.fromJson(Map<String, dynamic> json) =>
+      MetaModel(value: json['value']);
 }
