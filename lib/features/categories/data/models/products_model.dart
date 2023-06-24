@@ -20,7 +20,7 @@ class ProductModel extends Product {
       id: json['id'] ?? 0,
       name: json['name'] ?? '',
       description: json['description'] ?? '',
-      shortDescription: json['shortDescription'] ?? '',
+      shortDescription: json['short_description']??'',
       price: json['price'] ?? '',
       regularPrice: json['regularPrice'] ?? '',
       salePrice: json['salePrice'] ?? '',

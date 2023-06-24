@@ -31,7 +31,7 @@ class CoffeeResturantsComponent extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context) => StoreProducts(
                       event: GetTermProductsEvent(
-                          attribute: 'guest patronage',
+                          attribute: 'guest-patronage',
                           termId: state.coffeeTerms[index].id,
                           perPage: 100,
                           pageNum: 1),
