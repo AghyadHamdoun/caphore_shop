@@ -41,35 +41,33 @@ class MakeupComponent extends StatelessWidget {
                 child: SizedBox(
                   height: 310.h,
                   width: double.infinity.w,
-                  child: Expanded(
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: state.makeUpProducts.length < 10
-                          ? state.makeUpProducts.length
-                          : 10,
-                      itemBuilder: (BuildContext context, int index) {
-                        return InkWell(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => ProductScreen(
-                                          product: state.makeUpProducts[index],
-                                          products: state.makeUpProducts,
-                                        )));
-                          },
-                          child: ProductCard(
-                            productname: state.makeUpProducts[index].name,
-                            price: state.makeUpProducts[index].price,
-                            orginalprice:
-                                state.makeUpProducts[index].regularPrice,
-                            image: state.makeUpProducts[index].images.isNotEmpty
-                                ? state.makeUpProducts[index].images[0].src
-                                : '',
-                          ),
-                        );
-                      },
-                    ),
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: state.makeUpProducts.length < 10
+                        ? state.makeUpProducts.length
+                        : 10,
+                    itemBuilder: (BuildContext context, int index) {
+                      return InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ProductScreen(
+                                        product: state.makeUpProducts[index],
+                                        products: state.makeUpProducts,
+                                      )));
+                        },
+                        child: ProductCard(
+                          productname: state.makeUpProducts[index].name,
+                          price: state.makeUpProducts[index].price,
+                          orginalprice:
+                              state.makeUpProducts[index].regularPrice,
+                          image: state.makeUpProducts[index].images.isNotEmpty
+                              ? state.makeUpProducts[index].images[0].src
+                              : '',
+                        ),
+                      );
+                    },
                   ),
                 ),
               ),

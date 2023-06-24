@@ -40,36 +40,33 @@ class MobilesComponent extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
                 child: SizedBox(
                   height: 310.h,
-                  child: Expanded(
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: state.mobilesProducts.length < 10
-                          ? state.mobilesProducts.length
-                          : 10,
-                      itemBuilder: (BuildContext context, int index) {
-                        return InkWell(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => ProductScreen(
-                                          product: state.mobilesProducts[index],
-                                          products: state.mobilesProducts,
-                                        )));
-                          },
-                          child: ProductCard(
-                            productname: state.mobilesProducts[index].name,
-                            price: state.mobilesProducts[index].price,
-                            orginalprice:
-                                state.mobilesProducts[index].regularPrice,
-                            image:
-                                state.mobilesProducts[index].images.isNotEmpty
-                                    ? state.mobilesProducts[index].images[0].src
-                                    : '',
-                          ),
-                        );
-                      },
-                    ),
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: state.mobilesProducts.length < 10
+                        ? state.mobilesProducts.length
+                        : 10,
+                    itemBuilder: (BuildContext context, int index) {
+                      return InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ProductScreen(
+                                        product: state.mobilesProducts[index],
+                                        products: state.mobilesProducts,
+                                      )));
+                        },
+                        child: ProductCard(
+                          productname: state.mobilesProducts[index].name,
+                          price: state.mobilesProducts[index].price,
+                          orginalprice:
+                              state.mobilesProducts[index].regularPrice,
+                          image: state.mobilesProducts[index].images.isNotEmpty
+                              ? state.mobilesProducts[index].images[0].src
+                              : '',
+                        ),
+                      );
+                    },
                   ),
                 ),
               ),

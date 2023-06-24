@@ -41,35 +41,32 @@ class FoodComponent extends StatelessWidget {
                 child: SizedBox(
                   height: 310.h,
                   width: double.infinity.w,
-                  child: Expanded(
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: state.foodProducts.length < 10
-                          ? state.foodProducts.length
-                          : 10,
-                      itemBuilder: (BuildContext context, int index) {
-                        return InkWell(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => ProductScreen(
-                                          product: state.foodProducts[index],
-                                          products: state.foodProducts,
-                                        )));
-                          },
-                          child: ProductCard(
-                            productname: state.foodProducts[index].name,
-                            price: state.foodProducts[index].price,
-                            orginalprice:
-                                state.foodProducts[index].regularPrice,
-                            image: state.foodProducts[index].images.isNotEmpty
-                                ? state.foodProducts[index].images[0].src
-                                : '',
-                          ),
-                        );
-                      },
-                    ),
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: state.foodProducts.length < 10
+                        ? state.foodProducts.length
+                        : 10,
+                    itemBuilder: (BuildContext context, int index) {
+                      return InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ProductScreen(
+                                        product: state.foodProducts[index],
+                                        products: state.foodProducts,
+                                      )));
+                        },
+                        child: ProductCard(
+                          productname: state.foodProducts[index].name,
+                          price: state.foodProducts[index].price,
+                          orginalprice: state.foodProducts[index].regularPrice,
+                          image: state.foodProducts[index].images.isNotEmpty
+                              ? state.foodProducts[index].images[0].src
+                              : '',
+                        ),
+                      );
+                    },
                   ),
                 ),
               ),

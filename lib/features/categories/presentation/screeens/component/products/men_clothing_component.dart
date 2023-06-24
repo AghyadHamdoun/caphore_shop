@@ -41,37 +41,35 @@ class MenClothingComponent extends StatelessWidget {
                 child: SizedBox(
                   height: 310.h,
                   width: double.infinity.w,
-                  child: Expanded(
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: state.menClothingProducts.length < 10
-                          ? state.menClothingProducts.length
-                          : 10,
-                      itemBuilder: (BuildContext context, int index) {
-                        return InkWell(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => ProductScreen(
-                                          product:
-                                              state.menClothingProducts[index],
-                                          products: state.menClothingProducts,
-                                        )));
-                          },
-                          child: ProductCard(
-                            productname: state.menClothingProducts[index].name,
-                            price: state.menClothingProducts[index].price,
-                            orginalprice:
-                                state.menClothingProducts[index].regularPrice,
-                            image: state.menClothingProducts[index].images
-                                    .isNotEmpty
-                                ? state.menClothingProducts[index].images[0].src
-                                : '',
-                          ),
-                        );
-                      },
-                    ),
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: state.menClothingProducts.length < 10
+                        ? state.menClothingProducts.length
+                        : 10,
+                    itemBuilder: (BuildContext context, int index) {
+                      return InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ProductScreen(
+                                        product:
+                                            state.menClothingProducts[index],
+                                        products: state.menClothingProducts,
+                                      )));
+                        },
+                        child: ProductCard(
+                          productname: state.menClothingProducts[index].name,
+                          price: state.menClothingProducts[index].price,
+                          orginalprice:
+                              state.menClothingProducts[index].regularPrice,
+                          image: state
+                                  .menClothingProducts[index].images.isNotEmpty
+                              ? state.menClothingProducts[index].images[0].src
+                              : '',
+                        ),
+                      );
+                    },
                   ),
                 ),
               ),

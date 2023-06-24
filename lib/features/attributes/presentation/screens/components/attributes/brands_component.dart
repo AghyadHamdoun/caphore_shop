@@ -22,11 +22,8 @@ class BrandsComponent extends StatelessWidget {
             return Container(
               alignment: Alignment.center,
               child: Center(
-                child: Lottie.asset(
-                  'assets/lottie/waiting.json',
-                  fit: BoxFit.cover,
-                  height: 250.h
-                ),
+                child: Lottie.asset('assets/lottie/waiting.json',
+                    fit: BoxFit.cover, height: 250.h),
               ),
             );
           case RequestState.loaded:
@@ -50,12 +47,12 @@ class BrandsComponent extends StatelessWidget {
                               perPage: 100,
                               pageNum: 1),
                           storeName: state.brandsTerms[index].name,
-                          image:
-                          (state.brandsTerms[index].description.split(';')[2])
-                              .isEmpty
+                          image: (state.brandsTerms[index].description
+                                      .split(';')[2])
+                                  .isEmpty
                               ? ''
                               : (state.brandsTerms[index].description
-                              .split(';')[2]),
+                                  .split(';')[2]),
                         ),
                       ),
                     );
@@ -64,10 +61,12 @@ class BrandsComponent extends StatelessWidget {
                     height: 120.h,
                     child: CategoryCard(
                       name: state.brandsTerms[index].name,
-                      image: (state.brandsTerms[index].description.split(';')[1])
-                          .isEmpty
-                          ? ''
-                          : (state.brandsTerms[index].description.split(';')[1]),
+                      image:
+                          (state.brandsTerms[index].description.split(';')[1])
+                                  .isEmpty
+                              ? ''
+                              : (state.brandsTerms[index].description
+                                  .split(';')[1]),
                     ),
                   ),
                 );

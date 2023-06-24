@@ -24,6 +24,7 @@ class ProductCard extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
       child: SizedBox(
         width: 180.w,
+        height: 310.h,
         child: Container(
           decoration: BoxDecoration(boxShadow: [
             BoxShadow(
@@ -56,18 +57,13 @@ class ProductCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.only(top: 5.h),
-                  child: SizedBox(
-                    child: Flexible(
-                      child: Text(
-                        productname,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(fontSize: 16.sp),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
+                SizedBox(
+                  child: Text(
+                    productname,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(fontSize: 16.sp),
+                    textAlign: TextAlign.center,
                   ),
                 ),
                 SizedBox(

@@ -41,35 +41,32 @@ class PetsComponent extends StatelessWidget {
                 child: SizedBox(
                   height: 310.h,
                   width: double.infinity.w,
-                  child: Expanded(
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: state.petsProducts.length < 10
-                          ? state.petsProducts.length
-                          : 10,
-                      itemBuilder: (BuildContext context, int index) {
-                        return InkWell(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => ProductScreen(
-                                          product: state.petsProducts[index],
-                                          products: state.petsProducts,
-                                        )));
-                          },
-                          child: ProductCard(
-                            productname: state.petsProducts[index].name,
-                            price: state.petsProducts[index].price,
-                            orginalprice:
-                                state.petsProducts[index].regularPrice,
-                            image: state.petsProducts[index].images.isNotEmpty
-                                ? state.petsProducts[index].images[0].src
-                                : '',
-                          ),
-                        );
-                      },
-                    ),
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: state.petsProducts.length < 10
+                        ? state.petsProducts.length
+                        : 10,
+                    itemBuilder: (BuildContext context, int index) {
+                      return InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ProductScreen(
+                                        product: state.petsProducts[index],
+                                        products: state.petsProducts,
+                                      )));
+                        },
+                        child: ProductCard(
+                          productname: state.petsProducts[index].name,
+                          price: state.petsProducts[index].price,
+                          orginalprice: state.petsProducts[index].regularPrice,
+                          image: state.petsProducts[index].images.isNotEmpty
+                              ? state.petsProducts[index].images[0].src
+                              : '',
+                        ),
+                      );
+                    },
                   ),
                 ),
               ),
