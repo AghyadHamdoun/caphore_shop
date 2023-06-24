@@ -87,7 +87,7 @@ if (nameAndNumber.length<2) {
                   thickness: 1.h,
                 ),
               ),
-              (product.shortDescription.isEmpty)
+              (product.shortDescription == '')
                   ? Padding(
                       padding:
                           EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),

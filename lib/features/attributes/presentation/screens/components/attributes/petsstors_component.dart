@@ -31,7 +31,7 @@ class PetsStorsComponent extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context) => StoreProducts(
                       event: GetTermProductsEvent(
-                          attribute: 'pet care center',
+                          attribute: 'pet-care-center',
                           termId: state.petsTerms[index].id,
                           perPage: 100,
                           pageNum: 1),

@@ -31,7 +31,7 @@ class HouseAndKitchenStorsComponent extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context) => StoreProducts(
                       event: GetTermProductsEvent(
-                          attribute: 'House supplies',
+                          attribute: 'house-supplies',
                           termId: state.houseandkitchenTerms[index].id,
                           perPage: 100,
                           pageNum: 1),
