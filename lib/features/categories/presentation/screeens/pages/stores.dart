@@ -72,74 +72,56 @@ class _StoresState extends State<Stores> {
                             top: 10.h, left: 10.w, right: 10.w, bottom: 0),
                         child: const AttributeName(name: "الالبسة"),
                       ),
-                      const Expanded(
-                        child: ClothingStorsComponent(),
-                      ),
+                      const ClothingStorsComponent(),
                       Padding(
                         padding: EdgeInsets.only(
                             top: 10.h, left: 10.w, right: 10.w, bottom: 0),
                         child: const AttributeName(name: "الاحذية والحقائب"),
                       ),
-                      const Expanded(
-                        child: ShoesAndBagsStorsComponent(),
-                      ),
+                      const ShoesAndBagsStorsComponent(),
                       Padding(
                         padding: EdgeInsets.only(
                             top: 10.h, left: 10.w, right: 10.w, bottom: 0),
                         child: const AttributeName(
                             name: " الكترونيات و كهربائيات"),
                       ),
-                      const Expanded(
-                        child: ElectronicEquipmentStorsComponent(),
-                      ),
+                      const ElectronicEquipmentStorsComponent(),
                       Padding(
                         padding: EdgeInsets.only(
                             top: 10.h, left: 10.w, right: 10.w, bottom: 0),
                         child: const AttributeName(name: "مستلزمات المنزل"),
                       ),
-                      const Expanded(
-                        child: HouseAndKitchenStorsComponent(),
-                      ),
+                      const HouseAndKitchenStorsComponent(),
                       Padding(
                         padding: EdgeInsets.only(
                             top: 10.h, left: 10.w, right: 10.w, bottom: 0),
                         child: const AttributeName(name: " الساعات والنظارات"),
                       ),
-                      const Expanded(
-                        child: WatchesAndAccessoriesStorsComponent(),
-                      ),
+                      const WatchesAndAccessoriesStorsComponent(),
                       Padding(
                         padding: EdgeInsets.only(
                             top: 10.h, left: 10.w, right: 10.w, bottom: 0),
                         child: const AttributeName(name: "هدايا وعطورات"),
                       ),
-                      const Expanded(
-                        child: PerfumesStorsComponent(),
-                      ),
+                      const PerfumesStorsComponent(),
                       Padding(
                         padding: EdgeInsets.only(
                             top: 10.h, left: 10.w, right: 10.w, bottom: 0),
                         child: const AttributeName(name: "الصناعات اليدوية"),
                       ),
-                      const Expanded(
-                        child: HandMadeStorsComponent(),
-                      ),
+                      const HandMadeStorsComponent(),
                       Padding(
                         padding: EdgeInsets.only(
                             top: 10.h, left: 10.w, right: 10.w, bottom: 0),
                         child: const AttributeName(name: "رعاية الحيوانات"),
                       ),
-                      const Expanded(
-                        child: PetsStorsComponent(),
-                      ),
+                      const PetsStorsComponent(),
                       Padding(
                         padding: EdgeInsets.only(
                             top: 10.h, left: 10.w, right: 10.w, bottom: 0),
                         child: const AttributeName(name: "ألعاب الأطفال"),
                       ),
-                      const Expanded(
-                        child: ToysStorsComponent(),
-                      ),
+                      const ToysStorsComponent(),
                     ],
                   ),
                 ),
