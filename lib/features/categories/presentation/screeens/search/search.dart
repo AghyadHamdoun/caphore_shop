@@ -10,6 +10,7 @@ import 'package:lottie/lottie.dart';
 
 import '../../../../../core/utils/enums.dart';
 import '../../controller/categories_bloc.dart';
+import '../product.dart';
 
 class Search extends StatelessWidget {
   const Search({super.key});
@@ -94,16 +95,30 @@ class Search extends StatelessWidget {
                               return Padding(
                                 padding: EdgeInsets.symmetric(
                                     horizontal: 3.w, vertical: 3.h),
-                                child: ProductCard(
-                                  productname: state.searchProducts[index].name,
-                                  price: state.searchProducts[index].price,
-                                  orginalprice:
-                                      state.searchProducts[index].regularPrice,
-                                  image: state.searchProducts[index].images
-                                          .isNotEmpty
-                                      ? state
-                                          .searchProducts[index].images[0].src
-                                      : '',
+                                child: InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => ProductScreen(
+                                                  product: state
+                                                      .searchProducts[index],
+                                                  products:
+                                                      state.searchProducts,
+                                                )));
+                                  },
+                                  child: ProductCard(
+                                    productname:
+                                        state.searchProducts[index].name,
+                                    price: state.searchProducts[index].price,
+                                    orginalprice: state
+                                        .searchProducts[index].regularPrice,
+                                    image: state.searchProducts[index].images
+                                            .isNotEmpty
+                                        ? state
+                                            .searchProducts[index].images[0].src
+                                        : '',
+                                  ),
                                 ),
                               );
                             },

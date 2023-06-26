@@ -42,40 +42,38 @@ class ChildrenClothingComponent extends StatelessWidget {
                 child: SizedBox(
                   height: 310.h,
                   width: double.infinity.w,
-                  child: Expanded(
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: state.childrenClothingProducts.length < 10
-                          ? state.childrenClothingProducts.length
-                          : 10,
-                      itemBuilder: (BuildContext context, int index) {
-                        return InkWell(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => ProductScreen(
-                                          product: state
-                                              .childrenClothingProducts[index],
-                                          products:
-                                              state.childrenClothingProducts,
-                                        )));
-                          },
-                          child: ProductCard(
-                            productname:
-                                state.childrenClothingProducts[index].name,
-                            price: state.childrenClothingProducts[index].price,
-                            orginalprice: state
-                                .childrenClothingProducts[index].regularPrice,
-                            image: state.childrenClothingProducts[index].images
-                                    .isNotEmpty
-                                ? state.childrenClothingProducts[index]
-                                    .images[0].src
-                                : '',
-                          ),
-                        );
-                      },
-                    ),
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: state.childrenClothingProducts.length < 10
+                        ? state.childrenClothingProducts.length
+                        : 10,
+                    itemBuilder: (BuildContext context, int index) {
+                      return InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ProductScreen(
+                                        product: state
+                                            .childrenClothingProducts[index],
+                                        products:
+                                            state.childrenClothingProducts,
+                                      )));
+                        },
+                        child: ProductCard(
+                          productname:
+                              state.childrenClothingProducts[index].name,
+                          price: state.childrenClothingProducts[index].price,
+                          orginalprice: state
+                              .childrenClothingProducts[index].regularPrice,
+                          image: state.childrenClothingProducts[index].images
+                                  .isNotEmpty
+                              ? state
+                                  .childrenClothingProducts[index].images[0].src
+                              : '',
+                        ),
+                      );
+                    },
                   ),
                 ),
               ),

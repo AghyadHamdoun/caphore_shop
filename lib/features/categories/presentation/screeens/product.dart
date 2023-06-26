@@ -23,21 +23,21 @@ class ProductScreen extends StatelessWidget {
     products.sort((a, b) {
       return a.name.hashCode.compareTo(b.name.hashCode);
     });
- var nameAndNumber=[];
- int j=0;
-while(nameAndNumber.length < 2 && j<= (product.meta_data.length)-1){
-  print(j);
-  if (product.meta_data[j].value is String) {
-    nameAndNumber=product.meta_data[j].value.split(';');
-  }
-  print('value====${product.meta_data[j].value}');
-  j++;
-}
-if (nameAndNumber.length<2) {
-  nameAndNumber=['caphore','963955942519'];
-}
+    var nameAndNumber = [];
+    int j = 0;
+    while (nameAndNumber.length < 2 && j <= (product.meta_data.length) - 1) {
+      print(j);
+      if (product.meta_data[j].value is String) {
+        nameAndNumber = product.meta_data[j].value.split(';');
+      }
+      print('value====${product.meta_data[j].value}');
+      j++;
+    }
+    if (nameAndNumber.length < 2) {
+      nameAndNumber = ['caphore', '963955942519'];
+    }
 
- print (nameAndNumber);
+    print(nameAndNumber);
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
@@ -122,37 +122,35 @@ if (nameAndNumber.length<2) {
                 child: SizedBox(
                   height: 310.h,
                   width: double.infinity.w,
-                  child: Expanded(
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: products.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        if (product.id != products[index].id) {
-                          return InkWell(
-                              onTap: () {
-                                Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => ProductScreen(
-                                              product: products[index],
-                                              products: products,
-                                            )));
-                              },
-                              child: SizedBox(
-                                child: ProductCard(
-                                  productname: products[index].name,
-                                  price: products[index].price,
-                                  orginalprice: products[index].regularPrice,
-                                  image: products[index].images.isNotEmpty
-                                      ? products[index].images[0].src
-                                      : '',
-                                ),
-                              ));
-                        } else {
-                          return SizedBox();
-                        }
-                      },
-                    ),
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: products.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      if (product.id != products[index].id) {
+                        return InkWell(
+                            onTap: () {
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ProductScreen(
+                                            product: products[index],
+                                            products: products,
+                                          )));
+                            },
+                            child: SizedBox(
+                              child: ProductCard(
+                                productname: products[index].name,
+                                price: products[index].price,
+                                orginalprice: products[index].regularPrice,
+                                image: products[index].images.isNotEmpty
+                                    ? products[index].images[0].src
+                                    : '',
+                              ),
+                            ));
+                      } else {
+                        return SizedBox();
+                      }
+                    },
                   ),
                 ),
               ),

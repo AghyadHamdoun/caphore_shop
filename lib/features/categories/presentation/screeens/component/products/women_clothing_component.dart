@@ -42,37 +42,33 @@ class WomenClothingComponent extends StatelessWidget {
                 child: SizedBox(
                   height: 310.h,
                   width: double.infinity.w,
-                  child: Expanded(
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: state.womenClothingProducts.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return InkWell(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => ProductScreen(
-                                          product: state
-                                              .womenClothingProducts[index],
-                                          products: state.womenClothingProducts,
-                                        )));
-                          },
-                          child: ProductCard(
-                            productname:
-                                state.womenClothingProducts[index].name,
-                            price: state.womenClothingProducts[index].price,
-                            orginalprice:
-                                state.womenClothingProducts[index].regularPrice,
-                            image: state.womenClothingProducts[index].images
-                                    .isNotEmpty
-                                ? state
-                                    .womenClothingProducts[index].images[0].src
-                                : '',
-                          ),
-                        );
-                      },
-                    ),
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: state.womenClothingProducts.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ProductScreen(
+                                        product:
+                                            state.womenClothingProducts[index],
+                                        products: state.womenClothingProducts,
+                                      )));
+                        },
+                        child: ProductCard(
+                          productname: state.womenClothingProducts[index].name,
+                          price: state.womenClothingProducts[index].price,
+                          orginalprice:
+                              state.womenClothingProducts[index].regularPrice,
+                          image: state.womenClothingProducts[index].images
+                                  .isNotEmpty
+                              ? state.womenClothingProducts[index].images[0].src
+                              : '',
+                        ),
+                      );
+                    },
                   ),
                 ),
               ),

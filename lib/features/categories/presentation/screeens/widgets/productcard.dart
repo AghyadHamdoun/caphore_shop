@@ -24,6 +24,7 @@ class ProductCard extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
       child: SizedBox(
         width: 180.w,
+        height: 310.h,
         child: Container(
           decoration: BoxDecoration(boxShadow: [
             BoxShadow(
@@ -56,61 +57,55 @@ class ProductCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.only(top: 5.h),
-                  child: SizedBox(
-                    child: Flexible(
-                      child: Text(
-                        productname,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(fontSize: 16.sp),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
+                SizedBox(
+                  child: Text(
+                    productname,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(fontSize: 16.sp),
+                    textAlign: TextAlign.center,
                   ),
                 ),
                 SizedBox(
-                  child: Padding(
-                    padding: EdgeInsets.only(bottom: 10.h),
-                    child: ListTile(
-                      title: (price == "33")
-                          ? FittedBox(
-                              fit: BoxFit.scaleDown,
-                              child: Text(
-                                " تواصل لمعرفةالسعر",
-                                style: TextStyle(
-                                    color: AppColor.accentColor,
-                                    fontSize: 16.sp,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            )
-                          : FittedBox(
-                              fit: BoxFit.scaleDown,
-                              child: Text(
-                                "$price ل.س ",
-                                style: TextStyle(
-                                    color: AppColor.accentColor,
-                                    fontSize: 18.sp,
-                                    fontWeight: FontWeight.bold),
-                              ),
+                  child: ListTile(
+                    title: (price == "33")
+                        ? FittedBox(
+                            fit: BoxFit.scaleDown,
+                            child: Text(
+                              " تواصل لمعرفةالسعر",
+                              style: TextStyle(
+                                  color: AppColor.accentColor,
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.bold),
                             ),
-                      subtitle: FittedBox(
-                        fit: BoxFit.scaleDown,
-                        child: Text(
-                          "$orginalprice ",
-                          style: TextStyle(
-                              decoration: TextDecoration.lineThrough,
-                              fontSize: 14.sp,
-                              color: Colors.grey),
-                        ),
-                      ),
-                      trailing: SvgPicture.asset(
-                        'assets/images/buy.svg',
-                        color: AppColor.accentColor,
-                        height: 20.h,
-                        width: 25.w,
-                      ),
+                          )
+                        : FittedBox(
+                            fit: BoxFit.scaleDown,
+                            child: Text(
+                              "$price ل.س ",
+                              style: TextStyle(
+                                  color: AppColor.accentColor,
+                                  fontSize: 18.sp,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                    subtitle: (orginalprice.isNotEmpty)
+                        ? FittedBox(
+                            fit: BoxFit.scaleDown,
+                            child: Text(
+                              "$orginalprice ",
+                              style: TextStyle(
+                                  decoration: TextDecoration.lineThrough,
+                                  fontSize: 14.sp,
+                                  color: Colors.grey),
+                            ),
+                          )
+                        : null,
+                    trailing: SvgPicture.asset(
+                      'assets/images/buy.svg',
+                      color: AppColor.accentColor,
+                      height: 20.h,
+                      width: 25.w,
                     ),
                   ),
                 ),

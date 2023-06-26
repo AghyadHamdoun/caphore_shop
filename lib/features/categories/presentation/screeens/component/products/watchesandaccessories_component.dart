@@ -42,43 +42,41 @@ class WatchesandaccessoriesComponent extends StatelessWidget {
                 child: SizedBox(
                   height: 310.h,
                   width: double.infinity.w,
-                  child: Expanded(
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: state.watchesAndAccessoriesProducts.length < 10
-                          ? state.watchesAndAccessoriesProducts.length
-                          : 10,
-                      itemBuilder: (BuildContext context, int index) {
-                        return InkWell(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => ProductScreen(
-                                          product: state
-                                                  .watchesAndAccessoriesProducts[
-                                              index],
-                                          products: state
-                                              .watchesAndAccessoriesProducts,
-                                        )));
-                          },
-                          child: ProductCard(
-                            productname:
-                                state.watchesAndAccessoriesProducts[index].name,
-                            price: state
-                                .watchesAndAccessoriesProducts[index].price,
-                            orginalprice: state
-                                .watchesAndAccessoriesProducts[index]
-                                .regularPrice,
-                            image: state.watchesAndAccessoriesProducts[index]
-                                    .images.isNotEmpty
-                                ? state.watchesAndAccessoriesProducts[index]
-                                    .images[0].src
-                                : '',
-                          ),
-                        );
-                      },
-                    ),
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: state.watchesAndAccessoriesProducts.length < 10
+                        ? state.watchesAndAccessoriesProducts.length
+                        : 10,
+                    itemBuilder: (BuildContext context, int index) {
+                      return InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ProductScreen(
+                                        product:
+                                            state.watchesAndAccessoriesProducts[
+                                                index],
+                                        products:
+                                            state.watchesAndAccessoriesProducts,
+                                      )));
+                        },
+                        child: ProductCard(
+                          productname:
+                              state.watchesAndAccessoriesProducts[index].name,
+                          price:
+                              state.watchesAndAccessoriesProducts[index].price,
+                          orginalprice: state
+                              .watchesAndAccessoriesProducts[index]
+                              .regularPrice,
+                          image: state.watchesAndAccessoriesProducts[index]
+                                  .images.isNotEmpty
+                              ? state.watchesAndAccessoriesProducts[index]
+                                  .images[0].src
+                              : '',
+                        ),
+                      );
+                    },
                   ),
                 ),
               ),

@@ -52,34 +52,26 @@ class Restaurants extends StatelessWidget {
                             top: 10.h, left: 10.w, right: 10.w, bottom: 0),
                         child: const AttributeName(name: "الوجبات السريعة"),
                       ),
-                      const Expanded(
-                        child: FastFoodResturantsComponent(),
-                      ),
+                      const FastFoodResturantsComponent(),
                       Padding(
                         padding: EdgeInsets.only(
                             top: 10.h, left: 10.w, right: 10.w, bottom: 0),
                         child: const AttributeName(name: "المطبخ العربي"),
                       ),
-                      const Expanded(
-                        child: ArabFoodResturantsComponent(),
-                      ),
+                      const ArabFoodResturantsComponent(),
                       Padding(
                         padding: EdgeInsets.only(
                             top: 10.h, left: 10.w, right: 10.w, bottom: 0),
                         child: const AttributeName(name: "الحلويات"),
                       ),
-                      const Expanded(
-                        child: SweetsResturantsComponent(),
-                      ),
+                      const SweetsResturantsComponent(),
                       Padding(
                         padding: EdgeInsets.only(
                             top: 10.h, left: 10.w, right: 10.w, bottom: 0),
                         child: const AttributeName(
                             name: "الضيافة والمكسرات والقهوة"),
                       ),
-                      const Expanded(
-                        child: CoffeeResturantsComponent(),
-                      ),
+                      const CoffeeResturantsComponent(),
                     ],
                   ),
                 ),

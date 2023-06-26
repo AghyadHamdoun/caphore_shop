@@ -41,37 +41,33 @@ class PerfumesComponent extends StatelessWidget {
                 child: SizedBox(
                   height: 310.h,
                   width: double.infinity.w,
-                  child: Expanded(
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: state.perfumesProducts.length < 10
-                          ? state.perfumesProducts.length
-                          : 10,
-                      itemBuilder: (BuildContext context, int index) {
-                        return InkWell(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => ProductScreen(
-                                          product:
-                                              state.perfumesProducts[index],
-                                          products: state.perfumesProducts,
-                                        )));
-                          },
-                          child: ProductCard(
-                            productname: state.perfumesProducts[index].name,
-                            price: state.perfumesProducts[index].price,
-                            orginalprice:
-                                state.perfumesProducts[index].regularPrice,
-                            image: state
-                                    .perfumesProducts[index].images.isNotEmpty
-                                ? state.perfumesProducts[index].images[0].src
-                                : '',
-                          ),
-                        );
-                      },
-                    ),
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: state.perfumesProducts.length < 10
+                        ? state.perfumesProducts.length
+                        : 10,
+                    itemBuilder: (BuildContext context, int index) {
+                      return InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ProductScreen(
+                                        product: state.perfumesProducts[index],
+                                        products: state.perfumesProducts,
+                                      )));
+                        },
+                        child: ProductCard(
+                          productname: state.perfumesProducts[index].name,
+                          price: state.perfumesProducts[index].price,
+                          orginalprice:
+                              state.perfumesProducts[index].regularPrice,
+                          image: state.perfumesProducts[index].images.isNotEmpty
+                              ? state.perfumesProducts[index].images[0].src
+                              : '',
+                        ),
+                      );
+                    },
                   ),
                 ),
               ),
