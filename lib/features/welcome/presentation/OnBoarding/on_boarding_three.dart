@@ -17,63 +17,67 @@ class OnBoardingTree extends StatelessWidget {
       child: Scaffold(
         body: Container(
           color: Colors.white,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              SizedBox(
-                child: Image.asset(
-                  image,
-                  fit: BoxFit.fill,
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SizedBox(
+                  child: Image.asset(
+                    image,
+                    fit: BoxFit.fill,
+                  ),
                 ),
-              ),
-              Text(
-                text1,
-                style: TextStyle(fontSize: 22.sp, fontWeight: FontWeight.bold),
-              ),
-              Text(
-                text2,
-                style: TextStyle(fontSize: 18.sp),
-              ),
-              SizedBox(
-                height: 10.h,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    height: 10.h,
-                    width: 10.w,
-                    decoration: const BoxDecoration(
-                      color: AppColor.primaryColor,
-                      shape: BoxShape.circle,
+                Text(
+                  text1,
+                  style:
+                      TextStyle(fontSize: 22.sp, fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  text2,
+                  style: TextStyle(fontSize: 18.sp),
+                ),
+                SizedBox(
+                  height: 10.h,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      height: 10.h,
+                      width: 10.w,
+                      decoration: const BoxDecoration(
+                        color: AppColor.primaryColor,
+                        shape: BoxShape.circle,
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    width: 20.w,
-                  ),
-                  Container(
-                    height: 10.h,
-                    width: 10.w,
-                    decoration: const BoxDecoration(
-                      color: Color.fromARGB(255, 106, 117, 141),
-                      shape: BoxShape.circle,
+                    SizedBox(
+                      width: 20.w,
                     ),
-                  ),
-                  SizedBox(
-                    width: 20.w,
-                  ),
-                  Container(
-                    height: 10.h,
-                    width: 10.w,
-                    decoration: const BoxDecoration(
-                      color: Color.fromARGB(255, 106, 117, 141),
-                      shape: BoxShape.circle,
+                    Container(
+                      height: 10.h,
+                      width: 10.w,
+                      decoration: const BoxDecoration(
+                        color: Color.fromARGB(255, 106, 117, 141),
+                        shape: BoxShape.circle,
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            ],
+                    SizedBox(
+                      width: 20.w,
+                    ),
+                    Container(
+                      height: 10.h,
+                      width: 10.w,
+                      decoration: const BoxDecoration(
+                        color: Color.fromARGB(255, 106, 117, 141),
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
