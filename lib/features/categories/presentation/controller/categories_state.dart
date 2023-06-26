@@ -91,6 +91,9 @@ class CategoriesState extends Equatable {
   final RequestState searchProductsState;
   final String searchProductsMessage;
 
+  //
+  final int currentSlider;
+
   // 2
   const CategoriesState({
     this.categoryParents = const {},
@@ -175,6 +178,10 @@ class CategoriesState extends Equatable {
     this.searchProducts = const [],
     this.searchProductsState = RequestState.loading,
     this.searchProductsMessage = '',
+
+    //
+
+    this.currentSlider = 0
   });
 
   CategoriesState copyWith({
@@ -248,6 +255,10 @@ class CategoriesState extends Equatable {
     final List<Product>? searchProducts,
     final RequestState? searchProductsState,
     final String? searchProductsMessage,
+
+    //
+    final int? currentSlider
+
   }) {
     return CategoriesState(
       // 4
@@ -349,6 +360,10 @@ class CategoriesState extends Equatable {
       searchProductsState: searchProductsState ?? this.searchProductsState,
       searchProductsMessage:
           searchProductsMessage ?? this.searchProductsMessage,
+
+      //
+
+        currentSlider: currentSlider ?? this.currentSlider
     );
   }
 
@@ -427,5 +442,9 @@ class CategoriesState extends Equatable {
         searchProducts,
         searchProductsMessage,
         searchProductsState,
+
+        //
+
+        currentSlider
       ];
 }

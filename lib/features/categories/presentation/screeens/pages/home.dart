@@ -54,7 +54,6 @@ class Home extends StatelessWidget {
                   },
                 ),
                 const LastProductComponent(),
-
                 CategoryNameAndShowAll(
                   name: 'الالبسة الرجالية',
                   showAllCallBack: () {

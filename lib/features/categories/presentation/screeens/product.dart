@@ -20,24 +20,18 @@ class ProductScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    products.sort((a, b) {
-      return a.name.hashCode.compareTo(b.name.hashCode);
-    });
     var nameAndNumber = [];
     int j = 0;
     while (nameAndNumber.length < 2 && j <= (product.meta_data.length) - 1) {
-      print(j);
       if (product.meta_data[j].value is String) {
         nameAndNumber = product.meta_data[j].value.split(';');
       }
-      print('value====${product.meta_data[j].value}');
       j++;
     }
     if (nameAndNumber.length < 2) {
       nameAndNumber = ['caphore', '963955942519'];
     }
 
-    print(nameAndNumber);
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
@@ -126,6 +120,10 @@ class ProductScreen extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     itemCount: products.length,
                     itemBuilder: (BuildContext context, int index) {
+                      List<Product> _products2= products;
+                      _products2.sort((a, b) {
+                        return a.name.hashCode.compareTo(b.name.hashCode);
+                      });
                       if (product.id != products[index].id) {
                         return InkWell(
                             onTap: () {
@@ -134,7 +132,7 @@ class ProductScreen extends StatelessWidget {
                                   MaterialPageRoute(
                                       builder: (context) => ProductScreen(
                                             product: products[index],
-                                            products: products,
+                                            products: _products2,
                                           )));
                             },
                             child: SizedBox(

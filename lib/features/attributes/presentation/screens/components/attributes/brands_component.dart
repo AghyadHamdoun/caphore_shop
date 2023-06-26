@@ -42,7 +42,7 @@ class BrandsComponent extends StatelessWidget {
                       MaterialPageRoute(
                         builder: (context) => StoreProducts(
                           event: GetTermProductsEvent(
-                              attribute: 'الماركة',
+                              attribute: 'brand',
                               termId: state.brandsTerms[index].id,
                               perPage: 100,
                               pageNum: 1),
