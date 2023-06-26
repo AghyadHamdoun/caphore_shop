@@ -280,5 +280,13 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
           (r) => emit(state.copyWith(
               searchProducts: r, searchProductsState: RequestState.loaded)));
     });
+
+    //
+    on<CurrentSliderEvent>((event, emit)  {
+      emit(state.copyWith(
+          currentSlider: event.currentSlider
+      ));
+    });
+
   }
 }
