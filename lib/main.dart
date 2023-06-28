@@ -8,8 +8,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
-
-
 void main() async {
   ServicesLocator().init();
   WidgetsFlutterBinding.ensureInitialized();

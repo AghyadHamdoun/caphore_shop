@@ -159,13 +159,17 @@ class GetSearchProductsEvent extends CategoriesEvent {
       {required this.pageNum, required this.search, required this.perPage});
 }
 
-class CurrentSliderEvent extends CategoriesEvent{
+class CurrentSliderEvent extends CategoriesEvent {
   final int currentSlider;
 
   const CurrentSliderEvent({required this.currentSlider});
-
-
 }
 
+class GetOffersProductsEvent extends CategoriesEvent {
+  final int pageNum;
+  final int categoryId;
+  final int perPage;
 
-
+  const GetOffersProductsEvent(
+      {required this.pageNum, required this.categoryId, required this.perPage});
+}

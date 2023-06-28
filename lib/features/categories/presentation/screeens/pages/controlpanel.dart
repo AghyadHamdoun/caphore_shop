@@ -18,6 +18,8 @@ class ControlPanel extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            Lottie.asset('assets/lottie/controlpanel.json',
+                fit: BoxFit.cover, height: 350.h),
             LegalPageWidget(
                 gotopage: () {
                   Navigator.push(

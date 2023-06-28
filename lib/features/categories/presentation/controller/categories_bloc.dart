@@ -33,10 +33,11 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
               allCategoriesMessage: l.message,
               allCategoriesState: RequestState.error)), (r) {
         List<Category> a = [];
-        for(var e in r ){
-          if (e.parent ==0 && e.image.src != '') {
+        for (var e in r) {
+          if (e.parent == 0 && e.image.src != '') {
             a.add(e);
-          }}
+          }
+        }
 
         emit(state.copyWith(
             allCategories: a,
@@ -82,6 +83,22 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
                   r.skipWhile((value) => value.name == 'AUTO-DRAFT').toList(),
               categoryProductsState: RequestState.loaded)));
     });
+
+    //offers products event
+    on<GetOffersProductsEvent>((event, emit) async {
+      final result = await getCategoryProductsUseCase(
+          CategoryProductsParameters(
+              categoryId: event.categoryId,
+              page: event.pageNum,
+              perPage: event.perPage));
+      result.fold(
+          (l) => emit(state.copyWith(
+              offersProductsMessage: l.message,
+              offersProductsState: RequestState.error)),
+          (r) => emit(state.copyWith(
+              offersProducts: r, offersProductsState: RequestState.loaded)));
+    });
+
     //men clothing event
     on<GetMenClothingProductsEvent>((event, emit) async {
       final result = await getCategoryProductsUseCase(
@@ -282,11 +299,8 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     });
 
     //
-    on<CurrentSliderEvent>((event, emit)  {
-      emit(state.copyWith(
-          currentSlider: event.currentSlider
-      ));
+    on<CurrentSliderEvent>((event, emit) {
+      emit(state.copyWith(currentSlider: event.currentSlider));
     });
-
   }
 }

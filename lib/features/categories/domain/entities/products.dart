@@ -3,6 +3,7 @@ import 'package:equatable/equatable.dart';
 class Product extends Equatable {
   final int id;
   final String name;
+  final String permalink;
   final String description;
   final dynamic shortDescription;
   final String price;
@@ -17,6 +18,7 @@ class Product extends Equatable {
   const Product(
       {required this.id,
       required this.name,
+      required this.permalink,
       required this.description,
       required this.shortDescription,
       required this.price,
@@ -32,6 +34,7 @@ class Product extends Equatable {
   List<Object?> get props => [
         id,
         name,
+        permalink,
         description,
         shortDescription,
         price,

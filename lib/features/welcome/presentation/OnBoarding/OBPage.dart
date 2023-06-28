@@ -8,10 +8,16 @@ import 'package:liquid_swipe/liquid_swipe.dart';
 
 import '../../../../../core/utils/app_color.dart';
 
-class OBPage extends StatelessWidget {
+class OBPage extends StatefulWidget {
   OBPage({Key? key}) : super(key: key);
 
+  @override
+  State<OBPage> createState() => _OBPageState();
+}
+
+class _OBPageState extends State<OBPage> {
   final controller = LiquidController();
+
   int currentpage = 0;
 
   @override
@@ -34,7 +40,9 @@ class OBPage extends StatelessWidget {
     ];
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: (controller.currentPage == 1)
+          ? Color.fromARGB(225, 213, 227, 254)
+          : Colors.white,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -74,6 +82,7 @@ class OBPage extends StatelessWidget {
 
   void onPageChangeCallback(int activePageIndex) {
     currentpage = activePageIndex;
+    setState(() {});
   }
 
   void page1a2a3(BuildContext context) {

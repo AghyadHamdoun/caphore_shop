@@ -5,6 +5,7 @@ class ProductModel extends Product {
   const ProductModel(
       {required super.id,
       required super.name,
+      required super.permalink,
       required super.description,
       required super.shortDescription,
       required super.price,
@@ -19,8 +20,9 @@ class ProductModel extends Product {
   factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
       id: json['id'] ?? 0,
       name: json['name'] ?? '',
+      permalink: json['permalink'] ?? '',
       description: json['description'] ?? '',
-      shortDescription: json['short_description']??'',
+      shortDescription: json['short_description'] ?? '',
       price: json['price'] ?? '',
       regularPrice: json['regularPrice'] ?? '',
       salePrice: json['salePrice'] ?? '',

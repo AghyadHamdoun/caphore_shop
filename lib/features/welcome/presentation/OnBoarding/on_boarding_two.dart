@@ -16,7 +16,8 @@ class OnBoardingTwo extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Container(
-          color: Colors.white,
+          height: double.infinity,
+          color: Color.fromARGB(225, 213, 227, 254),
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Column(
