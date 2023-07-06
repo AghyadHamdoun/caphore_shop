@@ -2,7 +2,6 @@ import 'package:caphore/features/categories/presentation/controller/categories_e
 import 'package:caphore/features/categories/presentation/screeens/categoryproducts.dart';
 import 'package:caphore/features/categories/presentation/screeens/component/products/children_clothing_component.dart';
 import 'package:caphore/features/categories/presentation/screeens/component/products/food_component.dart';
-import 'package:caphore/features/categories/presentation/screeens/component/products/last_product.dart';
 import 'package:caphore/features/categories/presentation/screeens/component/categories_component.dart';
 import 'package:caphore/features/categories/presentation/screeens/component/products/makeup_component.dart';
 import 'package:caphore/features/categories/presentation/screeens/component/products/men_clothing_component.dart';
@@ -35,7 +34,7 @@ class Home extends StatelessWidget {
           Expanded(
             child: ListView(
               padding: EdgeInsets.only(top: 10.h),
-              shrinkWrap: true,
+              shrinkWrap: false,
               physics: const BouncingScrollPhysics(),
               children: [
                 const SizedBox(child: ImageSliderWithIndex()),

@@ -24,7 +24,7 @@ class ProductModel extends Product {
       description: json['description'] ?? '',
       shortDescription: json['short_description'] ?? '',
       price: json['price'] ?? '',
-      regularPrice: json['regularPrice'] ?? '',
+      regularPrice: json['regular_price'] ?? '',
       salePrice: json['salePrice'] ?? '',
       categories: List<CategoriesModel>.from(
           json["categories"].map((x) => CategoriesModel.fromJson(x))),
