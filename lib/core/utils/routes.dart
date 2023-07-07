@@ -12,10 +12,6 @@ class MyRoutes {
     "/Home": (context) => const Home(),
     "/Search": (context) => const Search(),
     "/Stores": (context) => const Stores(),
-    "/subcategories": (context) => const subcategorys(
-          name: '',
-          image: '',
-        ),
     "/OBPage": (context) => OBPage(),
     "/pages": (context) => const MyPages()
   };

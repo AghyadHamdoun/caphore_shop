@@ -7,6 +7,8 @@ import 'dart:io' show Platform;
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 class ProductBottom extends StatelessWidget {
+  final String name;
+  final String link;
   final String price;
   final String orginalPrice;
   final String number;
@@ -16,7 +18,9 @@ class ProductBottom extends StatelessWidget {
       required this.price,
       required this.orginalPrice,
       required this.number,
-      required this.storename});
+      required this.storename,
+      required this.name,
+      required this.link});
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +85,7 @@ class ProductBottom extends StatelessWidget {
             style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.green, fixedSize: Size(250.w, 40.h)),
             onPressed: () {
-              whatsapp(number);
+              whatsapp(number, name, link);
             },
             icon: SvgPicture.asset(
               'assets/images/icons8-whatsapp.svg',
@@ -102,11 +106,12 @@ class ProductBottom extends StatelessWidget {
   }
 }
 
-whatsapp(String number) async {
+whatsapp(String number, String name, String link) async {
   var contact = "+$number";
-  var androidUrl = "whatsapp://send?phone=$contact&text=Hi, I need some help";
+  var androidUrl =
+      "whatsapp://send?phone=$contact&text=مرحبا اريد الطلب\n $name الرابط:   $link\n شكرا لك!";
   var iosUrl =
-      "https://wa.me/$contact?text=${Uri.parse('Hi, I need some help')}";
+      "https://wa.me/$contact?text= =مرحبا اريد الطلب\n $name الرابط:   $link\n شكرا لك!${Uri.parse('')}";
 
   try {
     if (Platform.isIOS) {

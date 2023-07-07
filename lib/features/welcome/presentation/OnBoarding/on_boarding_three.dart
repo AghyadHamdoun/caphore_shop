@@ -16,6 +16,7 @@ class OnBoardingTree extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Container(
+          height: double.infinity,
           color: Colors.white,
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,

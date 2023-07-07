@@ -49,6 +49,8 @@ class ProductScreen extends StatelessWidget {
           ),
         ),
         bottomNavigationBar: ProductBottom(
+          name: product.name,
+          link: product.permalink,
           storename: nameAndNumber[0],
           price: product.price,
           orginalPrice: '',
@@ -120,7 +122,7 @@ class ProductScreen extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     itemCount: products.length,
                     itemBuilder: (BuildContext context, int index) {
-                      List<Product> _products2= products;
+                      List<Product> _products2 = products;
                       _products2.sort((a, b) {
                         return a.name.hashCode.compareTo(b.name.hashCode);
                       });
