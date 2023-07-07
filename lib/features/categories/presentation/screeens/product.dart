@@ -122,10 +122,7 @@ class ProductScreen extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     itemCount: products.length,
                     itemBuilder: (BuildContext context, int index) {
-                      List<Product> _products2 = products;
-                      _products2.sort((a, b) {
-                        return a.name.hashCode.compareTo(b.name.hashCode);
-                      });
+
                       if (product.id != products[index].id) {
                         return InkWell(
                             onTap: () {
@@ -134,7 +131,7 @@ class ProductScreen extends StatelessWidget {
                                   MaterialPageRoute(
                                       builder: (context) => ProductScreen(
                                             product: products[index],
-                                            products: _products2,
+                                            products: products,
                                           )));
                             },
                             child: SizedBox(
