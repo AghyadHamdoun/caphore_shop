@@ -1,6 +1,5 @@
 import 'package:caphore/core/services/services_locator.dart';
 import 'package:caphore/core/utils/app_color.dart';
-import 'package:caphore/features/categories/domain/entities/products.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_bloc.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_event.dart';
 import 'package:caphore/features/categories/presentation/screeens/component/category_product_component.dart';
@@ -38,7 +37,11 @@ final String categoryName;
                       child: const maintextform(),
                     ),
                     Text(categoryName,style: TextStyle(color: AppColor.accentColor,fontWeight: FontWeight.bold,fontSize: 20.sp),),
-                 const Expanded(child: CategoryProductComponent())
+                  Expanded(child: ListView(
+                   children: [
+                     CategoryProductComponent(),
+                   ],
+                 ))
                   ],
                 ),
               ),

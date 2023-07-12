@@ -1,7 +1,7 @@
 import 'package:caphore/features/categories/presentation/controller/categories_bloc.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_event.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_state.dart';
-import 'package:caphore/features/categories/presentation/screeens/categoryproducts.dart';
+import 'package:caphore/features/categories/presentation/screeens/sub_categories.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/salesavatar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,14 +30,15 @@ class CategoriesComponent extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => CategoryProducts(
+                              builder: (context) => SubCategoryProducts(
                                     event: GetGategoryProductsEvent(
                                         pageNum: 1,
                                         categoryId:
                                             state.allCategories[index].id,
                                         perPage: 100),
+
                                     categoryName:
-                                        state.allCategories[index].name,
+                                        state.allCategories[index].name, subEvent:GetCategoriesByParentEvent(parent:state.allCategories[index].id ) ,
                                   )));
                     },
                     child: SalesAvatar(
