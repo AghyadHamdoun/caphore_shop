@@ -15,8 +15,20 @@ class CategoriesRepository extends BaseCategoriesRepository {
   CategoriesRepository(this.baseCategoriesRemoteDataSource);
 
   @override
-  Future<Either<Failure, List<Category>>> getAllCategories() async {
-    final result = await baseCategoriesRemoteDataSource.getAllCategories();
+  Future<Either<Failure, List<Category>>> getAllCategories(int page) async {
+    final result = await baseCategoriesRemoteDataSource.getAllCategories(page);
+    try {
+      return Right(result);
+    } on ServerException catch (failure) {
+      return Left(ServerFailure(failure.errorMessageModel.statusMessage));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<Category>>> getCategoriesByParent(
+      int parent) async {
+    final result =
+        await baseCategoriesRemoteDataSource.getCategoriesByParent(parent);
     try {
       return Right(result);
     } on ServerException catch (failure) {
@@ -61,9 +73,10 @@ class CategoriesRepository extends BaseCategoriesRepository {
   }
 
   @override
-  Future<Either<Failure, List<Product>>> getSearchProducts(SearchProductsParameters parameters)async {
-    final result = await baseCategoriesRemoteDataSource.getSearchProducts(parameters.search,
-        parameters.page, parameters.perPage);
+  Future<Either<Failure, List<Product>>> getSearchProducts(
+      SearchProductsParameters parameters) async {
+    final result = await baseCategoriesRemoteDataSource.getSearchProducts(
+        parameters.search, parameters.page, parameters.perPage);
     try {
       return Right(result);
     } on ServerException catch (failure) {

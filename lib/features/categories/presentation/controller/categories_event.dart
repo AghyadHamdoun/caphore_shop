@@ -7,7 +7,17 @@ abstract class CategoriesEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class GetAllCategoriesEvent extends CategoriesEvent {}
+class GetAllCategoriesEvent extends CategoriesEvent {
+  final int page;
+
+ const GetAllCategoriesEvent({required this.page});
+}
+
+class GetCategoriesByParentEvent extends CategoriesEvent {
+  final int parent;
+
+  const GetCategoriesByParentEvent({required this.parent});
+}
 
 class GetProductDetailsEvent extends CategoriesEvent {
   final int productId;

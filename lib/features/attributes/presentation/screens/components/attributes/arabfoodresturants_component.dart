@@ -31,7 +31,7 @@ class ArabFoodResturantsComponent extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context) => StoreProducts(
                       event: GetTermProductsEvent(
-                          attribute: 'arab-food',
+                          attribute: 'arabic-kitchen',
                           termId: state.arabfoodTerms[index].id,
                           perPage: 100,
                           pageNum: 1),
