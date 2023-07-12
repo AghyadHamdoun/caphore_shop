@@ -6,24 +6,24 @@ import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 
 
-class GetAllCategoriesUseCase
-    extends BaseUseCase<List<Category>, AllCategoriesParameters> {
+class GetCategoriesByParentUseCase
+    extends BaseUseCase<List<Category>, CategoriesByParentParameters> {
   final BaseCategoriesRepository baseCategoriesRepository;
 
-  GetAllCategoriesUseCase(this.baseCategoriesRepository);
+  GetCategoriesByParentUseCase(this.baseCategoriesRepository);
 
   @override
   Future<Either<Failure, List<Category>>> call(
-      AllCategoriesParameters parameters) async {
-    return await baseCategoriesRepository.getAllCategories(parameters.page);
+      CategoriesByParentParameters parameters) async {
+    return await baseCategoriesRepository.getCategoriesByParent(parameters.parent);
   }
 }
 
-class AllCategoriesParameters extends Equatable {
-final int page;
+class CategoriesByParentParameters extends Equatable {
+  final int parent;
 
-  const AllCategoriesParameters({required this.page});
+  const CategoriesByParentParameters({required this.parent});
 
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [parent];
 }

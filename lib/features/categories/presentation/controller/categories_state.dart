@@ -5,13 +5,24 @@ import 'package:equatable/equatable.dart';
 
 class CategoriesState extends Equatable {
   // 1
+
+  //
   final Map<Object, List<Category>> categoryParents;
   final List<Category> allCategories;
   final RequestState allCategoriesState;
   final String allCategoriesMessage;
+
+  //
+  final List<Category> categoriesByParent;
+  final RequestState categoriesByParentState;
+  final String categoriesByParentMessage;
+
+  //
   final Product product;
   final RequestState productState;
   final String productMessage;
+
+  //
   final List<Product> lastProducts;
   final RequestState lastProductsState;
   final String lastProductsMessage;
@@ -100,6 +111,12 @@ class CategoriesState extends Equatable {
       this.allCategories = const [],
       this.allCategoriesState = RequestState.loading,
       this.allCategoriesMessage = '',
+      //
+      this.categoriesByParent = const [],
+      this.categoriesByParentState = RequestState.loading,
+      this.categoriesByParentMessage = '',
+
+      //
       this.product = const Product(
           id: 0,
           name: '',
@@ -116,6 +133,7 @@ class CategoriesState extends Equatable {
           nameAndNumber2: ''),
       this.productState = RequestState.loading,
       this.productMessage = '',
+      //
       this.lastProducts = const [],
       this.lastProductsState = RequestState.loading,
       this.lastProductsMessage = '',
@@ -191,9 +209,18 @@ class CategoriesState extends Equatable {
       final List<Category>? allCategories,
       final RequestState? allCategoriesState,
       final String? allCategoriesMessage,
+
+      //
+      final List<Category>? categoriesByParent,
+      final RequestState? categoriesByParentState,
+      final String? categoriesByParentMessage,
+
+      //
       final Product? product,
       final RequestState? productState,
       final String? productMessage,
+
+      //
       final List<Product>? lastProducts,
       final RequestState? lastProductsState,
       final String? lastProductsMessage,
@@ -265,9 +292,18 @@ class CategoriesState extends Equatable {
         allCategories: allCategories ?? this.allCategories,
         allCategoriesState: allCategoriesState ?? this.allCategoriesState,
         allCategoriesMessage: allCategoriesMessage ?? this.allCategoriesMessage,
+
+        //
+        categoriesByParent: categoriesByParent ?? this.categoriesByParent,
+        categoriesByParentState: categoriesByParentState ?? this.categoriesByParentState,
+        categoriesByParentMessage: categoriesByParentMessage ?? this.categoriesByParentMessage,
+
+        //
         product: product ?? this.product,
         productState: productState ?? this.productState,
         productMessage: productMessage ?? this.productMessage,
+
+        //
         lastProducts: lastProducts ?? this.lastProducts,
         lastProductsState: lastProductsState ?? this.lastProductsState,
         lastProductsMessage: lastProductsMessage ?? this.lastProductsMessage,
@@ -375,9 +411,18 @@ class CategoriesState extends Equatable {
         allCategories,
         allCategoriesMessage,
         allCategoriesState,
+
+        //
+        categoriesByParent,
+        categoriesByParentState,
+        categoriesByParentMessage,
+
+        //
         product,
         productMessage,
         productState,
+
+        //
         lastProductsState,
         lastProductsMessage,
         lastProducts,
@@ -446,5 +491,8 @@ class CategoriesState extends Equatable {
         //
 
         currentSlider
+
+
+
       ];
 }

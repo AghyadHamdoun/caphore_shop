@@ -39,7 +39,7 @@ class _MyPagesState extends State<MyPages> with AutomaticKeepAliveClientMixin {
       providers: [
         BlocProvider(
           create: (context) => sl<CategoriesBloc>()
-            ..add(GetAllCategoriesEvent())
+            ..add(const GetAllCategoriesEvent(page: 1))
             ..add(const GetMenClothingProductsEvent(
                 pageNum: 1, categoryId: 44, perPage: 10))
             ..add(const GetWomenClothingProductsEvent(

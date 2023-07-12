@@ -4,7 +4,7 @@ import 'package:caphore/features/categories/data/models/categories_model.dart';
 import 'package:caphore/features/categories/data/models/products_model.dart';
 import 'package:caphore/core/network/api_constance.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter_wp_woocommerce/woocommerce.dart';
+// import 'package:flutter_wp_woocommerce/woocommerce.dart';
 
 abstract class BaseCategoriesRemoteDataSource {
   Future<List<ProductModel>> getAllCategoryProducts(int id, int page,
@@ -12,7 +12,9 @@ abstract class BaseCategoriesRemoteDataSource {
 
   Future<List<ProductModel>> getLastProducts(int pag, int perPage);
 
-  Future<List<CategoryModel>> getAllCategories();
+  Future<List<CategoryModel>> getAllCategories(int page);
+
+  Future<List<CategoryModel>> getCategoriesByParent(int parent);
 
   Future<ProductModel> getProductDetails(int id);
 
@@ -23,14 +25,14 @@ abstract class BaseCategoriesRemoteDataSource {
 }
 
 class CategoriesRemoteDateSource extends BaseCategoriesRemoteDataSource {
-  WooCommerce woocommerce = WooCommerce(
-      baseUrl: 'https://caphore.sy',
-      consumerKey: 'ck_91cf0556bc93906395a13037c2a179392cb49b58',
-      consumerSecret: 'cs_3fe564c516e38ed51dcd7caef07c95baadc4f294');
+  // WooCommerce woocommerce = WooCommerce(
+  //     baseUrl: 'https://caphore.sy',
+  //     consumerKey: 'ck_91cf0556bc93906395a13037c2a179392cb49b58',
+  //     consumerSecret: 'cs_3fe564c516e38ed51dcd7caef07c95baadc4f294');
 
   @override
-  Future<List<CategoryModel>> getAllCategories() async {
-    final response = await Dio().get(ApiConstance.allCategoriesPath);
+  Future<List<CategoryModel>> getAllCategories(int page) async {
+    final response = await Dio().get(ApiConstance.allCategoriesPath(page));
     if (response.statusCode == 200) {
       return List<CategoryModel>.from((response.data).map(
             (e) => CategoryModel.fromJson(e),
@@ -40,6 +42,20 @@ class CategoriesRemoteDateSource extends BaseCategoriesRemoteDataSource {
           errorMessageModel: ErrorMessageModel.fromJson(response.data));
     }
   }
+
+  @override
+  Future<List<CategoryModel>> getCategoriesByParent(int parent) async {
+    final response = await Dio().get(ApiConstance.categoriesByParentPath(parent));
+    if (response.statusCode == 200) {
+      return List<CategoryModel>.from((response.data).map(
+            (e) => CategoryModel.fromJson(e),
+      ));
+    } else {
+      throw ServerException(
+          errorMessageModel: ErrorMessageModel.fromJson(response.data));
+    }
+  }
+
 
   @override
   Future<List<ProductModel>> getAllCategoryProducts(int id, int page,

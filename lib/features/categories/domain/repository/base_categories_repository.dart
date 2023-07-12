@@ -13,7 +13,9 @@ abstract class BaseCategoriesRepository {
 
   Future<Either<Failure, Product>> getProductDetails(ProductDetailsParameters parameters);
 
-  Future<Either<Failure, List<Category>>> getAllCategories();
+  Future<Either<Failure, List<Category>>> getAllCategories(int page);
+  
+  Future<Either<Failure, List<Category>>> getCategoriesByParent(int parent);
 
   Future<Either<Failure, List<Product>>> getLastProducts(CategoryProductsParameters parameters);
 

@@ -14,7 +14,8 @@ class SubCategoriesComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CategoriesBloc, CategoriesState>(
         buildWhen: (previous, current) =>
-            previous.allCategoriesState != current.allCategoriesState,
+        (previous.categoriesByParentState != current.categoriesByParentState)
+        ,
         builder: (context, state) {
           return Container(
             color: Colors.white12,
@@ -23,7 +24,7 @@ class SubCategoriesComponent extends StatelessWidget {
             width: double.infinity,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: state.allCategories.length,
+              itemCount: state.categoriesByParent.length,
               itemBuilder: (BuildContext context, int index) {
                 return InkWell(
                     onTap: () {
@@ -34,15 +35,15 @@ class SubCategoriesComponent extends StatelessWidget {
                                     event: GetGategoryProductsEvent(
                                         pageNum: 1,
                                         categoryId:
-                                            state.allCategories[index].id,
+                                            state.categoriesByParent[index].id,
                                         perPage: 100),
                                     categoryName:
-                                        state.allCategories[index].name,
+                                        state.categoriesByParent[index].name,
                                   )));
                     },
                     child: SalesAvatar(
-                        name: state.allCategories[index].name,
-                        image: state.allCategories[index].image.src));
+                        name: state.categoriesByParent[index].name,
+                        image: state.categoriesByParent[index].image.src));
               },
             ),
           );
