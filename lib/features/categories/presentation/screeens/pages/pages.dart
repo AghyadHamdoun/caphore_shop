@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:caphore/core/services/services_locator.dart';
 import 'package:caphore/core/utils/app_color.dart';
 import 'package:caphore/features/attributes/presentation/controller/attributes_bloc.dart';
@@ -10,6 +12,7 @@ import 'package:caphore/features/categories/presentation/screeens/pages/stores.d
 import 'package:caphore/features/categories/presentation/screeens/pages/controlpanel.dart';
 import 'package:caphore/features/categories/presentation/screeens/pages/home.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -65,82 +68,95 @@ class _MyPagesState extends State<MyPages> with AutomaticKeepAliveClientMixin {
         ),
       ],
       child: SafeArea(
-        child: Scaffold(
-          body: PageView(
-            controller: controller,
-            physics: const NeverScrollableScrollPhysics(),
-            children: const [
-              Brands(),
-              Home(),
-              Stores(),
-              Restaurants(),
-              ControlPanel(),
-            ],
-          ),
-          bottomNavigationBar: BottomNavigationBar(
-            items: [
-              BottomNavigationBarItem(
-                icon: SvgPicture.asset(
-                  'assets/images/diamond-svgrepo-com.svg',
-                  color: AppColor.accentColor,
-                  height: 25.h,
-                  width: 20.w,
-                ),
-                label: "الماركات",
-              ),
-              BottomNavigationBarItem(
-                icon: SvgPicture.asset(
-                  'assets/images/home_icon.svg',
-                  color: AppColor.accentColor,
-                  height: 25.h,
-                  width: 20.w,
-                ),
-                label: "الرئيسية",
-              ),
-              BottomNavigationBarItem(
-                icon: SvgPicture.asset(
-                  "assets/images/store-svgrepo-com.svg",
-                  color: AppColor.accentColor,
-                  height: 25.h,
-                  width: 20.w,
-                ),
-                label: "المتاجر",
-              ),
-              BottomNavigationBarItem(
-                icon: SvgPicture.asset(
-                  "assets/images/restaurant-plate-svgrepo-com.svg",
-                  color: AppColor.accentColor,
-                  height: 25.h,
-                  width: 20.w,
-                ),
-                label: "المطاعم",
-              ),
-              BottomNavigationBarItem(
-                icon: SvgPicture.asset(
-                  'assets/images/icons8-puzzle.svg',
-                  color: AppColor.accentColor,
-                  height: 25.h,
-                  width: 20.w,
-                ),
-                label: "لوحة التحكم",
-              ),
-            ],
-            currentIndex: select,
-            onTap: (index) {
+        child: WillPopScope(
+          onWillPop: () async {
+            if (select != 1) {
+              controller.jumpToPage(1);
               setState(() {
-                select = index;
+                select = 1;
               });
-              controller.jumpToPage(select);
-            },
-            selectedItemColor: AppColor.accentColor,
-            selectedFontSize: 16.sp,
-            selectedIconTheme:
-                IconThemeData(size: 30.r, color: AppColor.accentColor),
-            showUnselectedLabels: true,
-            unselectedIconTheme:
-                IconThemeData(size: 30.r, color: AppColor.accentColor),
-            unselectedItemColor: AppColor.accentColor,
-            type: BottomNavigationBarType.fixed,
+              return false;
+            } else {
+              SystemNavigator.pop();
+              return true;
+            }
+          },
+          child: Scaffold(
+            body: PageView(
+              controller: controller,
+              physics: const NeverScrollableScrollPhysics(),
+              children: const [
+                Brands(),
+                Home(),
+                Stores(),
+                Restaurants(),
+                ControlPanel(),
+              ],
+            ),
+            bottomNavigationBar: BottomNavigationBar(
+              items: [
+                BottomNavigationBarItem(
+                  icon: SvgPicture.asset(
+                    'assets/images/diamond-svgrepo-com.svg',
+                    color: AppColor.accentColor,
+                    height: 25.h,
+                    width: 20.w,
+                  ),
+                  label: "الماركات",
+                ),
+                BottomNavigationBarItem(
+                  icon: SvgPicture.asset(
+                    'assets/images/home_icon.svg',
+                    color: AppColor.accentColor,
+                    height: 25.h,
+                    width: 20.w,
+                  ),
+                  label: "الرئيسية",
+                ),
+                BottomNavigationBarItem(
+                  icon: SvgPicture.asset(
+                    "assets/images/store-svgrepo-com.svg",
+                    color: AppColor.accentColor,
+                    height: 25.h,
+                    width: 20.w,
+                  ),
+                  label: "المتاجر",
+                ),
+                BottomNavigationBarItem(
+                  icon: SvgPicture.asset(
+                    "assets/images/restaurant-plate-svgrepo-com.svg",
+                    color: AppColor.accentColor,
+                    height: 25.h,
+                    width: 20.w,
+                  ),
+                  label: "المطاعم",
+                ),
+                BottomNavigationBarItem(
+                  icon: Image.asset(
+                    'assets/images/information-button.png',
+                    height: 30.h,
+                    width: 25.w,
+                  ),
+                  label: "معلوماتنا",
+                ),
+              ],
+              currentIndex: select,
+              onTap: (index) {
+                setState(() {
+                  select = index;
+                });
+                controller.jumpToPage(select);
+              },
+              selectedItemColor: AppColor.accentColor,
+              selectedFontSize: 16.sp,
+              selectedIconTheme:
+                  IconThemeData(size: 30.r, color: AppColor.accentColor),
+              showUnselectedLabels: true,
+              unselectedIconTheme:
+                  IconThemeData(size: 30.r, color: AppColor.accentColor),
+              unselectedItemColor: AppColor.accentColor,
+              type: BottomNavigationBarType.fixed,
+            ),
           ),
         ),
       ),
