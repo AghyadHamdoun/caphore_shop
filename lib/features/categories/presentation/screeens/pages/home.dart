@@ -66,6 +66,7 @@ class Home extends StatelessWidget {
                                 )));
                   },
                 ),
+
                 const MenClothingComponent(),
                 CategoryNameAndShowAll(
                   name: 'الالبسة النسائية',

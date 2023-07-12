@@ -2,6 +2,7 @@ import 'package:caphore/core/utils/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lottie/lottie.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'dart:io' show Platform;
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -25,7 +26,7 @@ class ProductBottom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200.h,
+      height: 175.h,
       width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.white,
@@ -44,38 +45,23 @@ class ProductBottom extends StatelessWidget {
             children: [
               Text(
                 "  السعر:   ",
-                style: TextStyle(fontSize: 20.sp),
+                style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
               ),
               (price == "33")
                   ? Text(
                       " تواصل لمعرفةالسعر",
                       style: TextStyle(
                           color: AppColor.accentColor,
-                          fontSize: 20.sp,
+                          fontSize: 24.sp,
                           fontWeight: FontWeight.bold),
                     )
                   : Text(
                       "$price ل.س ",
                       style: TextStyle(
                           color: AppColor.accentColor,
-                          fontSize: 20.sp,
+                          fontSize: 24.sp,
                           fontWeight: FontWeight.bold),
                     ),
-            ],
-          ),
-          Row(
-            children: [
-              Text(
-                "  المتجر:  ",
-                style: TextStyle(fontSize: 20.sp),
-              ),
-              Text(
-                storename,
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 22.sp,
-                    fontWeight: FontWeight.bold),
-              ),
             ],
           ),
           SizedBox(
@@ -87,10 +73,10 @@ class ProductBottom extends StatelessWidget {
             onPressed: () {
               whatsapp(number, name, link);
             },
-            icon: SvgPicture.asset(
-              'assets/images/icons8-whatsapp.svg',
-              height: 25.h,
-              width: 20.w,
+            icon: LottieBuilder.asset(
+              "assets/lottie/animation_ljzsiq8i.json",
+              height: 35.h,
+              width: 35.w,
             ),
             label: Text(
               "اشتري الان",

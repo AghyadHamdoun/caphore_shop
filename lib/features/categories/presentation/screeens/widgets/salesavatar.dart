@@ -11,7 +11,7 @@ class SalesAvatar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white12,
-      height: 120.h,
+      height: 152.h,
       padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
       child: Column(
         children: [
@@ -25,9 +25,15 @@ class SalesAvatar extends StatelessWidget {
           SizedBox(
             height: 10.h,
           ),
-          Text(
-            name,
-            style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
+          SizedBox(
+            width: 90.w,
+            child: Text(
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.center,
+              name,
+              style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
+            ),
           ),
         ],
       ),
