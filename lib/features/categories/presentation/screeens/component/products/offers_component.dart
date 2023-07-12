@@ -45,10 +45,6 @@ class OffersProductsComponent extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     itemCount: state.offersProducts.length,
                     itemBuilder: (BuildContext context, int index) {
-                      print(state.offersProducts[index].id);
-                      print("ssssssssssssssssssssss");
-                      print(state.offersProducts[index].regularPrice);
-                      print("ssssssssssssssssssssss");
                       return InkWell(
                         onTap: () {
                           Navigator.push(

@@ -6,6 +6,7 @@ import 'package:caphore/features/categories/data/datasource/categories_remote_da
 import 'package:caphore/features/categories/data/repository/categories_repository.dart';
 import 'package:caphore/features/categories/domain/repository/base_categories_repository.dart';
 import 'package:caphore/features/categories/domain/usecases/get_all_categories_usecase.dart';
+import 'package:caphore/features/categories/domain/usecases/get_categories_by_parent_usecase.dart';
 import 'package:caphore/features/categories/domain/usecases/get_gategory_products_usecase.dart';
 import 'package:caphore/features/categories/domain/usecases/get_last_products_usecase.dart';
 import 'package:caphore/features/categories/domain/usecases/get_product_details_usecase.dart';
@@ -21,12 +22,13 @@ final sl = GetIt.instance;
 class ServicesLocator {
   void init() {
     /// Bloc
-    sl.registerFactory(() => CategoriesBloc(sl(), sl(), sl(),sl(),sl()));
+    sl.registerFactory(() => CategoriesBloc(sl(), sl(), sl(),sl(),sl(),sl()));
 
     sl.registerFactory(() => AttributesBloc(sl(),sl()));
 
     /// Use Cases
     sl.registerLazySingleton(() => GetAllCategoriesUseCase(sl()));
+    sl.registerLazySingleton(() => GetCategoriesByParentUseCase(sl()));
     sl.registerLazySingleton(() => GetCategoryProductsUseCase(sl()));
     sl.registerLazySingleton(() => GetProductDetailsUseCase(sl()));
     sl.registerLazySingleton(() => GetLastProductsUseCase(sl()));
