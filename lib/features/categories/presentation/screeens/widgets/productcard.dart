@@ -24,7 +24,6 @@ class ProductCard extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
       child: SizedBox(
         width: 180.w,
-        height: 310.h,
         child: Container(
           decoration: BoxDecoration(boxShadow: [
             BoxShadow(
@@ -36,6 +35,7 @@ class ProductCard extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: 3.h),
             child: Column(
+              mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
@@ -89,11 +89,11 @@ class ProductCard extends StatelessWidget {
                                   fontWeight: FontWeight.bold),
                             ),
                           ),
-                    subtitle: (orginalprice.isNotEmpty)
+                    subtitle: (orginalprice.isNotEmpty && orginalprice != price)
                         ? FittedBox(
                             fit: BoxFit.scaleDown,
                             child: Text(
-                              "$orginalprice ",
+                              "$orginalprice ل.س",
                               style: TextStyle(
                                   decoration: TextDecoration.lineThrough,
                                   fontSize: 14.sp,

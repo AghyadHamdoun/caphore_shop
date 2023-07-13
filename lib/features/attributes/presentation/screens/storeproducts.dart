@@ -40,13 +40,6 @@ class StoreProducts extends StatelessWidget {
                       child: SingleChildScrollView(
                         child: Column(
                           children: [
-                            Text(
-                              storeName,
-                              style: TextStyle(
-                                  color: AppColor.accentColor,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20.sp),
-                            ),
                             Container(
                               padding: EdgeInsets.symmetric(
                                   horizontal: 10.w, vertical: 10.h),

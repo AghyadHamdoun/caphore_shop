@@ -13,14 +13,13 @@ class SubCategoriesComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CategoriesBloc, CategoriesState>(
-        buildWhen: (previous, current) =>
-        (previous.categoriesByParentState != current.categoriesByParentState)
-        ,
+        buildWhen: (previous, current) => (previous.categoriesByParentState !=
+            current.categoriesByParentState),
         builder: (context, state) {
           return Container(
             color: Colors.white12,
             padding: EdgeInsets.symmetric(horizontal: 5.w),
-            height: 140.h,
+            height: 152.h,
             width: double.infinity,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
