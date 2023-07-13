@@ -1,3 +1,4 @@
+import 'package:caphore/features/attributes/presentation/screens/components/banners_two_component.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_event.dart';
 import 'package:caphore/features/categories/presentation/screeens/categoryproducts.dart';
 import 'package:caphore/features/categories/presentation/screeens/component/products/children_clothing_component.dart';
@@ -68,6 +69,8 @@ class Home extends StatelessWidget {
                 ),
 
                 const MenClothingComponent(),
+                const ImageSliderTwoWithIndex(),
+
                 CategoryNameAndShowAll(
                   name: 'الالبسة النسائية',
                   showAllCallBack: () {

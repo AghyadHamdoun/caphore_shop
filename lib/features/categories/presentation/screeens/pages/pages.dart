@@ -66,6 +66,10 @@ class _MyPagesState extends State<MyPages> with AutomaticKeepAliveClientMixin {
             ..add(const GetOffersProductsEvent(
                 pageNum: 1, categoryId: 644, perPage: 10)),
         ),
+        BlocProvider(
+            create: (context) => sl<AttributesBloc>()
+              ..add(const GetBannersTermsEvent(
+                  pageNum: 1, attributeId: 34, perPage: 100)))
       ],
       child: SafeArea(
         child: WillPopScope(
