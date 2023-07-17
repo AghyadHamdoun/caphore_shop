@@ -17,7 +17,7 @@ class OnBoardingTwo extends StatelessWidget {
       child: Scaffold(
         body: Container(
           height: double.infinity,
-          color: Color.fromARGB(225, 213, 227, 254),
+          color: const Color.fromARGB(225, 213, 227, 254),
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Column(
@@ -25,8 +25,9 @@ class OnBoardingTwo extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Image.asset(
+                  height: 550.h,
                   image,
-                  fit: BoxFit.fill,
+                  fit: BoxFit.cover,
                 ),
                 Text(
                   text1,

@@ -38,8 +38,13 @@ class Search extends StatelessWidget {
                       enabled: true,
                       style: TextStyle(color: Colors.white, fontSize: 18.sp),
                       decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: AppColor.accentColor, width: 2.w),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
                         hintText: 'اضغط هنا للبحث ..',
-                        hintStyle: TextStyle(color: AppColor.accentColor),
+                        hintStyle: const TextStyle(color: AppColor.accentColor),
                         filled: true,
                         fillColor: AppColor.primaryColor,
                         suffixIcon: InkWell(
@@ -51,11 +56,12 @@ class Search extends StatelessWidget {
                           },
                           child: Icon(
                             Icons.search,
-                            size: 28.sp,
+                            size: 33.sp,
                             color: AppColor.accentColor,
                           ),
                         ),
                         border: OutlineInputBorder(
+                          borderSide: BorderSide(color: AppColor.accentColor),
                           borderRadius: BorderRadius.circular(20),
                         ),
                       ),
@@ -73,13 +79,15 @@ class Search extends StatelessWidget {
                   Builder(builder: (context) {
                     switch (state.searchProductsState) {
                       case RequestState.loading:
-                        return Container(
-                          alignment: Alignment.center,
-                          child: Center(
-                            child: Lottie.asset(
-                              'assets/lottie/search-icon.json',
-                              fit: BoxFit.cover,
-                              height: 200.h,
+                        return Center(
+                          child: Container(
+                            alignment: Alignment.center,
+                            child: Center(
+                              child: Lottie.asset(
+                                'assets/lottie/laith search.json',
+                                fit: BoxFit.cover,
+                                height: 250.h,
+                              ),
                             ),
                           ),
                         );
