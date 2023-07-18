@@ -3,6 +3,7 @@ import 'package:caphore/features/attributes/presentation/screens/components/attr
 import 'package:caphore/features/attributes/presentation/screens/components/attributes/electronicequipmentstors_component.dart';
 import 'package:caphore/features/attributes/presentation/screens/components/attributes/handmade_component.dart';
 import 'package:caphore/features/attributes/presentation/screens/components/attributes/houseandkitchenstors_component.dart';
+import 'package:caphore/features/attributes/presentation/screens/components/attributes/makeup_component.dart';
 import 'package:caphore/features/attributes/presentation/screens/components/attributes/perfumesstors_component.dart';
 import 'package:caphore/features/attributes/presentation/screens/components/attributes/petsstors_component.dart';
 import 'package:caphore/features/attributes/presentation/screens/components/attributes/shoesandbagsstors_component.dart';
@@ -33,6 +34,8 @@ class _StoresState extends State<Stores> {
       create: (context) => sl<AttributesBloc>()
         ..add(const GetClothingTermsEvent(
             pageNum: 1, attributeId: 11, perPage: 100))
+        ..add(const GetMakeUpTermsEvent(
+            pageNum: 1, attributeId: 15, perPage: 100))
         ..add(const GetShoesAndBagsTermsEvent(
             pageNum: 1, attributeId: 13, perPage: 100))
         ..add(const GetElectronicEquipmentTermsEvent(
@@ -67,18 +70,23 @@ class _StoresState extends State<Stores> {
                     shrinkWrap: true,
                     scrollDirection: Axis.vertical,
                     children: [
+                      //
                       Padding(
                         padding: EdgeInsets.only(
                             top: 10.h, left: 10.w, right: 10.w, bottom: 0),
                         child: const AttributeName(name: "الالبسة"),
                       ),
                       const ClothingStorsComponent(),
+
+                      //
                       Padding(
                         padding: EdgeInsets.only(
                             top: 10.h, left: 10.w, right: 10.w, bottom: 0),
                         child: const AttributeName(name: "الاحذية والحقائب"),
                       ),
                       const ShoesAndBagsStorsComponent(),
+
+                      //
                       Padding(
                         padding: EdgeInsets.only(
                             top: 10.h, left: 10.w, right: 10.w, bottom: 0),
@@ -86,36 +94,57 @@ class _StoresState extends State<Stores> {
                             name: " الكترونيات و كهربائيات"),
                       ),
                       const ElectronicEquipmentStorsComponent(),
+
+                      //
                       Padding(
                         padding: EdgeInsets.only(
                             top: 10.h, left: 10.w, right: 10.w, bottom: 0),
                         child: const AttributeName(name: "مستلزمات المنزل"),
                       ),
                       const HouseAndKitchenStorsComponent(),
+
+                      //
+                      Padding(
+                        padding: EdgeInsets.only(
+                            top: 10.h, left: 10.w, right: 10.w, bottom: 0),
+                        child: const AttributeName(
+                            name: "المكياج والعناية بالبشرة"),
+                      ),
+                      const MakeUpComponent(),
+
+                      //
                       Padding(
                         padding: EdgeInsets.only(
                             top: 10.h, left: 10.w, right: 10.w, bottom: 0),
                         child: const AttributeName(name: " الساعات والنظارات"),
                       ),
                       const WatchesAndAccessoriesStorsComponent(),
+
+                      //
                       Padding(
                         padding: EdgeInsets.only(
                             top: 10.h, left: 10.w, right: 10.w, bottom: 0),
                         child: const AttributeName(name: "هدايا وعطورات"),
                       ),
                       const PerfumesStorsComponent(),
+
+                      //
                       Padding(
                         padding: EdgeInsets.only(
                             top: 10.h, left: 10.w, right: 10.w, bottom: 0),
                         child: const AttributeName(name: "الصناعات اليدوية"),
                       ),
                       const HandMadeStorsComponent(),
+
+                      //
                       Padding(
                         padding: EdgeInsets.only(
                             top: 10.h, left: 10.w, right: 10.w, bottom: 0),
                         child: const AttributeName(name: "رعاية الحيوانات"),
                       ),
                       const PetsStorsComponent(),
+
+                      //
                       Padding(
                         padding: EdgeInsets.only(
                             top: 10.h, left: 10.w, right: 10.w, bottom: 0),
