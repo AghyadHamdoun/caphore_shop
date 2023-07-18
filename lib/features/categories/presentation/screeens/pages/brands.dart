@@ -22,8 +22,8 @@ class Brands extends StatelessWidget {
           body: Column(
             children: [
               Padding(
-                padding: EdgeInsets.only(
-                    top: 10.h, left: 5.w, right: 5.w, bottom: 0),
+                padding:
+                    EdgeInsets.only(top: 3.h, left: 5.w, right: 5.w, bottom: 0),
                 child: const maintextform(),
               ),
               Padding(

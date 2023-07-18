@@ -25,8 +25,9 @@ class OnBoardingOne extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Image.asset(
+                  height: 550.h,
                   image,
-                  fit: BoxFit.fill,
+                  fit: BoxFit.cover,
                 ),
                 Text(
                   text1,

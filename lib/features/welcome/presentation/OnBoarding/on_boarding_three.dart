@@ -26,8 +26,9 @@ class OnBoardingTree extends StatelessWidget {
               children: [
                 SizedBox(
                   child: Image.asset(
+                    height: 550.h,
                     image,
-                    fit: BoxFit.fill,
+                    fit: BoxFit.cover,
                   ),
                 ),
                 Text(
