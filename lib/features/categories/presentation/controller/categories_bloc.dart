@@ -51,6 +51,8 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
          }
          return  null;
        });
+        a.sort((a,b)=>a.description.compareTo(b.description));
+
 
         emit(state.copyWith(
             allCategories: a,
