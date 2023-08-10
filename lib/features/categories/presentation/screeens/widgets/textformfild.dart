@@ -22,7 +22,7 @@ class maintextform extends StatelessWidget {
           children: [
             GestureDetector(
               onTap: () {
-                Navigator.of(context).pushNamed("/pages");
+                Navigator.of(context).pushReplacementNamed("/pages");
               },
               child: SizedBox(
                 height: 50.h,

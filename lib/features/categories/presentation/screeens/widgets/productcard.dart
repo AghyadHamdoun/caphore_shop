@@ -20,10 +20,11 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
       child: SizedBox(
-        width: 180.w,
+        width: 160.w,
         child: Container(
           decoration: BoxDecoration(boxShadow: [
             BoxShadow(
@@ -39,7 +40,7 @@ class ProductCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  height: 150.h,
+                  height: size.height / 5.5,
                   child: Container(
                     decoration: BoxDecoration(
                       image: DecorationImage(
@@ -72,7 +73,7 @@ class ProductCard extends StatelessWidget {
                         ? FittedBox(
                             fit: BoxFit.scaleDown,
                             child: Text(
-                              " تواصل لمعرفةالسعر",
+                              " تواصل لمعرفة السعر",
                               style: TextStyle(
                                   color: AppColor.accentColor,
                                   fontSize: 16.sp,

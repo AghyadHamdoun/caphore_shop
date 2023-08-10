@@ -16,6 +16,7 @@ class MobilesComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return BlocBuilder<CategoriesBloc, CategoriesState>(
       buildWhen: (previous, current) =>
           previous.mobilesProductsState != current.mobilesProductsState,
@@ -39,7 +40,7 @@ class MobilesComponent extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
                 child: SizedBox(
-                  height: 310.h,
+                  height: size.height / 2.8,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: state.mobilesProducts.length < 10
