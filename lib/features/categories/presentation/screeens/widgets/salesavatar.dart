@@ -11,9 +11,9 @@ class SalesAvatar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white12,
-      height: 152.h,
       padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           CachedNetworkImage(
             height: 80.h,
@@ -21,9 +21,6 @@ class SalesAvatar extends StatelessWidget {
             imageUrl: image,
             errorWidget: (BuildContext context, a, b) =>
                 Image.asset('assets/images/TT copy.png'),
-          ),
-          SizedBox(
-            height: 10.h,
           ),
           SizedBox(
             width: 90.w,

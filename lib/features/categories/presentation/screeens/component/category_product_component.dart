@@ -31,8 +31,8 @@ class CategoryProductComponent extends StatelessWidget {
           case RequestState.loaded:
             return GridView.builder(
               physics: const NeverScrollableScrollPhysics(),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, childAspectRatio: 0.55.r),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2, childAspectRatio: 0.62),
               itemCount: state.categoryProducts.length,
               shrinkWrap: true,
               itemBuilder: (BuildContext context, int index) {

@@ -16,6 +16,7 @@ class PerfumesComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return BlocBuilder<CategoriesBloc, CategoriesState>(
       buildWhen: (previous, current) =>
           previous.perfumesProductsState != current.perfumesProductsState,
@@ -23,12 +24,12 @@ class PerfumesComponent extends StatelessWidget {
         switch (state.perfumesProductsState) {
           case RequestState.loading:
             return SizedBox(
-              height: 310.h,
+              height: size.height / 2.5,
               child: Center(
                 child: Lottie.asset(
                   'assets/lottie/digishi.json',
                   width: 250.w,
-                  height: 280.h,
+                  height: size.height / 2.5,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -39,7 +40,7 @@ class PerfumesComponent extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
                 child: SizedBox(
-                  height: 310.h,
+                  height: size.height / 2.45,
                   width: double.infinity.w,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,

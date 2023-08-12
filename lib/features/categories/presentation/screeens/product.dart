@@ -22,6 +22,7 @@ class ProductScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var nameAndNumber = [];
     int j = 0;
+    Size size = MediaQuery.of(context).size;
     while (nameAndNumber.length < 2 && j <= (product.meta_data.length) - 1) {
       if (product.meta_data[j].value is String) {
         nameAndNumber = product.meta_data[j].value.split(';');
@@ -116,13 +117,12 @@ class ProductScreen extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
                 child: SizedBox(
-                  height: 310.h,
+                  height: size.height / 2.45,
                   width: double.infinity.w,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: products.length,
                     itemBuilder: (BuildContext context, int index) {
-
                       if (product.id != products[index].id) {
                         return InkWell(
                             onTap: () {
