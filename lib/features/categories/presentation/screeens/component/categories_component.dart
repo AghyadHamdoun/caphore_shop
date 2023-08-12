@@ -11,14 +11,15 @@ class CategoriesComponent extends StatelessWidget {
   const CategoriesComponent({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return BlocBuilder<CategoriesBloc, CategoriesState>(
         buildWhen: (previous, current) =>
             previous.allCategoriesState != current.allCategoriesState,
         builder: (context, state) {
           return Container(
             color: Colors.white12,
+            height: size.height / 4.5,
             padding: EdgeInsets.symmetric(horizontal: 5.w),
-            height: 152.h,
             width: double.infinity,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
@@ -35,9 +36,10 @@ class CategoriesComponent extends StatelessWidget {
                                         categoryId:
                                             state.allCategories[index].id,
                                         perPage: 100),
-
                                     categoryName:
-                                        state.allCategories[index].name, subEvent:GetCategoriesByParentEvent(parent:state.allCategories[index].id ) ,
+                                        state.allCategories[index].name,
+                                    subEvent: GetCategoriesByParentEvent(
+                                        parent: state.allCategories[index].id),
                                   )));
                     },
                     child: SalesAvatar(

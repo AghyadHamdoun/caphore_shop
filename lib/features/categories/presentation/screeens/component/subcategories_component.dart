@@ -12,6 +12,7 @@ class SubCategoriesComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return BlocBuilder<CategoriesBloc, CategoriesState>(
         buildWhen: (previous, current) => (previous.categoriesByParentState !=
             current.categoriesByParentState),
@@ -19,7 +20,7 @@ class SubCategoriesComponent extends StatelessWidget {
           return Container(
             color: Colors.white12,
             padding: EdgeInsets.symmetric(horizontal: 5.w),
-            height: 152.h,
+            height: size.height / 4.5,
             width: double.infinity,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,

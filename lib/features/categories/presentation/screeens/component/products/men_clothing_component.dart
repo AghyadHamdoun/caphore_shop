@@ -28,7 +28,7 @@ class MenClothingComponent extends StatelessWidget {
                 child: Lottie.asset(
                   'assets/lottie/digishi.json',
                   width: 250.w,
-                  height: 280.h,
+                  height: size.height / 2.5,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -39,7 +39,7 @@ class MenClothingComponent extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
                 child: SizedBox(
-                  height: size.height / 2.8,
+                  height: size.height / 2.45,
                   child: ListView.builder(
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,

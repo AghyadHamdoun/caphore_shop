@@ -15,39 +15,46 @@ class SubCategoryProducts extends StatelessWidget {
   final String categoryName;
 
   const SubCategoryProducts(
-      {super.key, required this.event, required this.categoryName, required this.subEvent});
+      {super.key,
+      required this.event,
+      required this.categoryName,
+      required this.subEvent});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (context) => sl<CategoriesBloc>()..add(event)..add(subEvent),
-        child: Scaffold(
-          body: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10.w),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(
-                      top: 30.h, left: 0, right: 0, bottom: 10.h),
-                  child: const maintextform(),
-                ),
-                Text(
-                  categoryName,
-                  style: TextStyle(
-                      color: AppColor.accentColor,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20.sp),
-                ),
-               Expanded(
-                 child: ListView(
-                   children:const [
-                       SubCategoriesComponent(),
-                       CategoryProductComponent(),
-                   ],
-                 ),
-               )
-              ],
+        create: (context) => sl<CategoriesBloc>()
+          ..add(event)
+          ..add(subEvent),
+        child: SafeArea(
+          child: Scaffold(
+            body: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10.w),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(
+                        top: 3.h, left: 5.w, right: 5.w, bottom: 0),
+                    child: const maintextform(),
+                  ),
+                  Text(
+                    categoryName,
+                    style: TextStyle(
+                        color: AppColor.accentColor,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20.sp),
+                  ),
+                  Expanded(
+                    child: ListView(
+                      children: const [
+                        SubCategoriesComponent(),
+                        CategoryProductComponent(),
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ));
