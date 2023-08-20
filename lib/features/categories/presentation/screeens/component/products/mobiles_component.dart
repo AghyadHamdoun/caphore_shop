@@ -40,7 +40,7 @@ class MobilesComponent extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
                 child: SizedBox(
-                  height: size.height / 2.45,
+                  height: size.height / 2.6,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: state.mobilesProducts.length < 10

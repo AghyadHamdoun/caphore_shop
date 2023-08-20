@@ -18,7 +18,7 @@ class CategoriesComponent extends StatelessWidget {
         builder: (context, state) {
           return Container(
             color: Colors.white12,
-            height: size.height / 5.3,
+            height: size.height / 5,
             padding: EdgeInsets.symmetric(horizontal: 5.w),
             width: double.infinity,
             child: ListView.builder(

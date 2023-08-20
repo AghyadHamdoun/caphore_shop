@@ -18,13 +18,14 @@ class SalesAvatar extends StatelessWidget {
         children: [
           CachedNetworkImage(
             height:size.height/10,
-            width: 75.w,
+            width: size.width/5,
             imageUrl: image,
             errorWidget: (BuildContext context, a, b) =>
                 Image.asset('assets/images/TT copy.png'),
           ),
           SizedBox(
-            width: 90.w,
+            width: size.width/5,
+            height: size.height/12,
             child: Text(
               maxLines: 2,
               overflow: TextOverflow.ellipsis,

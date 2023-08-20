@@ -1,4 +1,4 @@
-package com.example.caphore
+package sy.caphore
 
 import io.flutter.embedding.android.FlutterActivity
 
