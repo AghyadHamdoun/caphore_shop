@@ -24,7 +24,7 @@ class CategoryProductComponent extends StatelessWidget {
               child: Center(
                 child: Lottie.asset(
                   'assets/lottie/digishi.json',
-                  fit: BoxFit.cover,
+                  fit: BoxFit.fill,
                 ),
               ),
             );

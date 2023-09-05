@@ -60,7 +60,7 @@ class _MyPagesState extends State<MyPages> with AutomaticKeepAliveClientMixin {
             ..add(const GetPerfumesProductsEvent(
                 pageNum: 1, categoryId: 108, perPage: 10))
             ..add(const GetMakeUpProductsEvent(
-                pageNum: 1, categoryId: 117, perPage: 10))
+                pageNum: 1, categoryId: 112, perPage: 10))
             ..add(const GetPetsProductsEvent(
                 pageNum: 1, categoryId: 421, perPage: 10))
             ..add(const GetOffersProductsEvent(

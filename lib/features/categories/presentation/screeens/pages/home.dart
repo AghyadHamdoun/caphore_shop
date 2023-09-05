@@ -47,8 +47,10 @@ class Home extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => const CategoryProducts(
-                                  event: GetOffersProductsEvent(
-                                      pageNum: 1, perPage: 10, categoryId: 644),
+                                  event: GetGategoryProductsEvent(
+                                      categoryId: 644,
+                                      pageNum: 1,
+                                      perPage: 100),
                                   categoryName: 'عروض كافور',
                                 )));
                   },
@@ -188,7 +190,7 @@ class Home extends StatelessWidget {
                         MaterialPageRoute(
                             builder: (context) => const CategoryProducts(
                                   event: GetGategoryProductsEvent(
-                                      categoryId: 117,
+                                      categoryId: 112,
                                       pageNum: 1,
                                       perPage: 100),
                                   categoryName: '  المكياج ',

@@ -30,7 +30,7 @@ class OffersProductsComponent extends StatelessWidget {
                   'assets/lottie/digishi.json',
                   width: 250.w,
                   height: size.height / 2.3,
-                  fit: BoxFit.cover,
+                  fit: BoxFit.fill,
                 ),
               ),
             );

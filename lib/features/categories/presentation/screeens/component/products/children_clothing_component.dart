@@ -31,7 +31,7 @@ class ChildrenClothingComponent extends StatelessWidget {
                   'assets/lottie/digishi.json',
                   width: 250.w,
                   height: size.height / 2.5,
-                  fit: BoxFit.cover,
+                  fit: BoxFit.fill,
                 ),
               ),
             );
