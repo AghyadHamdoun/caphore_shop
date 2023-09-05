@@ -28,7 +28,7 @@ class StoreProducts extends StatelessWidget {
         child: SafeArea(
           child: Scaffold(
             body: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 10.h),
+              padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 3.h),
               child: Column(
                 children: [
                   Padding(

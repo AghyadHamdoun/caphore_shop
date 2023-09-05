@@ -24,7 +24,7 @@ class ProductCard extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
       child: SizedBox(
-        width: 160.w,
+        width: size.width/2.2,
         child: Container(
           decoration: BoxDecoration(boxShadow: [
             BoxShadow(
@@ -33,85 +33,83 @@ class ProductCard extends StatelessWidget {
                 spreadRadius: 5.r,
                 color: Colors.grey),
           ], borderRadius: BorderRadius.circular(20.r)),
-          child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 3.h),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                SizedBox(
-                  height: size.height / 5.5,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        scale: 1,
-                        fit: BoxFit.cover,
-                        alignment: Alignment.topCenter,
-                        image: NetworkImage(
-                          image,
-                        ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SizedBox(
+                height: size.height / 5.5,
+                child: Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      scale: 1,
+                      fit: BoxFit.cover,
+                      alignment: Alignment.topCenter,
+                      image: NetworkImage(
+                        image,
                       ),
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(20.r),
-                        topRight: Radius.circular(20.r),
-                      ),
+                    ),
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20.r),
+                      topRight: Radius.circular(20.r),
                     ),
                   ),
                 ),
-                SizedBox(
-                  child: Text(
-                    productname,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(fontSize: 16.sp),
-                    textAlign: TextAlign.center,
-                  ),
+              ),
+              SizedBox(
+                child: Text(
+                  productname,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(fontSize: 16.sp),
+                  textAlign: TextAlign.center,
                 ),
-                SizedBox(
-                  child: ListTile(
-                    title: (price == "33")
-                        ? FittedBox(
-                            fit: BoxFit.scaleDown,
-                            child: Text(
-                              " تواصل لمعرفة السعر",
-                              style: TextStyle(
-                                  color: AppColor.accentColor,
-                                  fontSize: 16.sp,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          )
-                        : FittedBox(
-                            fit: BoxFit.scaleDown,
-                            child: Text(
-                              "$price ل.س ",
-                              style: TextStyle(
-                                  color: AppColor.accentColor,
-                                  fontSize: 18.sp,
-                                  fontWeight: FontWeight.bold),
-                            ),
+              ),
+              SizedBox(
+                height: (orginalprice.isNotEmpty && orginalprice != price)?size.height/10:size.height/13,
+                child: ListTile(
+                  title: (price == "33")
+                      ? FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: Text(
+                            " تواصل لمعرفة السعر",
+                            style: TextStyle(
+                                color: AppColor.accentColor,
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.bold),
                           ),
-                    subtitle: (orginalprice.isNotEmpty && orginalprice != price)
-                        ? FittedBox(
-                            fit: BoxFit.scaleDown,
-                            child: Text(
-                              "$orginalprice ل.س",
-                              style: TextStyle(
-                                  decoration: TextDecoration.lineThrough,
-                                  fontSize: 14.sp,
-                                  color: Colors.grey),
-                            ),
-                          )
-                        : null,
-                    trailing: SvgPicture.asset(
-                      'assets/images/buy.svg',
-                      color: AppColor.accentColor,
-                      height: 20.h,
-                      width: 25.w,
-                    ),
+                        )
+                      : FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: Text(
+                            "$price ل.س ",
+                            style: TextStyle(
+                                color: AppColor.accentColor,
+                                fontSize: 18.sp,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                  subtitle: (orginalprice.isNotEmpty && orginalprice != price)
+                      ? FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: Text(
+                            "$orginalprice ل.س",
+                            style: TextStyle(
+                                decoration: TextDecoration.lineThrough,
+                                fontSize: 14.sp,
+                                color: Colors.grey),
+                          ),
+                        )
+                      : null,
+                  trailing: SvgPicture.asset(
+                    'assets/images/buy.svg',
+                    color: AppColor.accentColor,
+                    height: 20.h,
+                    width: 25.w,
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

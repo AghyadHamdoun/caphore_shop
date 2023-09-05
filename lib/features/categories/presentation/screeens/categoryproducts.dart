@@ -21,31 +21,28 @@ class CategoryProducts extends StatelessWidget {
         create: (context) => sl<CategoriesBloc>()..add(event),
         child: SafeArea(
           child: Scaffold(
-            body: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.w),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(
-                        top: 3.h, left: 5.w, right: 5.w, bottom: 0),
-                    child: const maintextform(),
-                  ),
-                  Text(
-                    categoryName,
-                    style: TextStyle(
-                        color: AppColor.accentColor,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.sp),
-                  ),
-                  Expanded(
-                      child: ListView(
-                    children: const [
-                      CategoryProductComponent(),
-                    ],
-                  ))
-                ],
-              ),
+            body: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(
+                      top: 3.h, left: 2.w, right: 2.w, bottom: 0),
+                  child: const maintextform(),
+                ),
+                Text(
+                  categoryName,
+                  style: TextStyle(
+                      color: AppColor.accentColor,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20.sp),
+                ),
+                Expanded(
+                    child: ListView(
+                  children: const [
+                    CategoryProductComponent(),
+                  ],
+                ))
+              ],
             ),
           ),
         ));

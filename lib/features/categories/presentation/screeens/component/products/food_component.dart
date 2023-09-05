@@ -24,7 +24,7 @@ class FoodComponent extends StatelessWidget {
         switch (state.foodProductsState) {
           case RequestState.loading:
             return SizedBox(
-              height: size.height / 2.5,
+              height: size.height / 2.6,
               child: Center(
                 child: Lottie.asset(
                   'assets/lottie/digishi.json',
@@ -40,7 +40,7 @@ class FoodComponent extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
                 child: SizedBox(
-                  height: size.height / 2.45,
+                  height: size.height / 2.6,
                   width: double.infinity.w,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,

@@ -13,6 +13,7 @@ class OnBoardingOne extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size=MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
         body: Container(
@@ -25,7 +26,7 @@ class OnBoardingOne extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Image.asset(
-                  height: 550.h,
+                  height:size.height/1.5,
                   image,
                   fit: BoxFit.cover,
                 ),

@@ -13,6 +13,7 @@ class OnBoardingTree extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size=MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
         body: Container(
@@ -26,7 +27,7 @@ class OnBoardingTree extends StatelessWidget {
               children: [
                 SizedBox(
                   child: Image.asset(
-                    height: 550.h,
+                    height:size.height/1.5,
                     image,
                     fit: BoxFit.cover,
                   ),

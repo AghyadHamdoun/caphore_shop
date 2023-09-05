@@ -9,6 +9,7 @@ class SalesAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size=MediaQuery.of(context).size;
     return Container(
       color: Colors.white12,
       padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
@@ -16,14 +17,15 @@ class SalesAvatar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           CachedNetworkImage(
-            height: 80.h,
-            width: 75.w,
+            height:size.height/10,
+            width: size.width/5,
             imageUrl: image,
             errorWidget: (BuildContext context, a, b) =>
                 Image.asset('assets/images/TT copy.png'),
           ),
           SizedBox(
-            width: 90.w,
+            width: size.width/5,
+            height: size.height/12,
             child: Text(
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
