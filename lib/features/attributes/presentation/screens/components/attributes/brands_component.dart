@@ -23,7 +23,7 @@ class BrandsComponent extends StatelessWidget {
               alignment: Alignment.center,
               child: Center(
                 child: Lottie.asset('assets/lottie/waiting.json',
-                    fit: BoxFit.cover, height: 250.h),
+                    fit: BoxFit.fill, height: 250.h),
               ),
             );
           case RequestState.loaded:
