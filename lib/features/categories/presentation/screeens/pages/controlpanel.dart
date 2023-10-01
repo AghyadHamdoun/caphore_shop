@@ -15,46 +15,49 @@ class ControlPanel extends StatelessWidget {
     return Scaffold(
       body: Container(
         color: Colors.white,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Lottie.asset('assets/lottie/controlpanel.json',
-                fit: BoxFit.cover, height: 350.h),
-            LegalPageWidget(
-                gotopage: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const TermsAndConditions()));
-                },
-                name: "الشروط والأحكام",
-                svgpath: "assets/images/justice-law-svgrepo-com.svg"),
-            LegalPageWidget(
-                gotopage: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const WhoIsWe()));
-                },
-                name: "لمحة عن كافور",
-                svgpath: "assets/images/about-svgrepo-com.svg"),
-            LegalPageWidget(
-                gotopage: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const PrivacyPolicy()));
-                },
-                name: "سياسة الخصوصية",
-                svgpath: "assets/images/shield-antivirus-svgrepo-com.svg"),
-            LegalPageWidget(
-                gotopage: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const ContactUs()));
-                },
-                name: " تواصل معنا",
-                svgpath: "assets/images/headphones-microphone-svgrepo-com.svg"),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Lottie.asset('assets/lottie/controlpanel.json',
+                  fit: BoxFit.cover, height: 250.h),
+              SizedBox(height: 10.h,),
+              LegalPageWidget(
+                  gotopage: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const TermsAndConditions()));
+                  },
+                  name: "الشروط والأحكام",
+                  svgpath: "assets/images/justice-law-svgrepo-com.svg"),
+              LegalPageWidget(
+                  gotopage: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => const WhoIsWe()));
+                  },
+                  name: "لمحة عن كافور",
+                  svgpath: "assets/images/about-svgrepo-com.svg"),
+              LegalPageWidget(
+                  gotopage: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const PrivacyPolicy()));
+                  },
+                  name: "سياسة الخصوصية",
+                  svgpath: "assets/images/shield-antivirus-svgrepo-com.svg"),
+              LegalPageWidget(
+                  gotopage: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ContactUs()));
+                  },
+                  name: " تواصل معنا",
+                  svgpath: "assets/images/headphones-microphone-svgrepo-com.svg"),
+            ],
+          ),
         ),
       ),
     );

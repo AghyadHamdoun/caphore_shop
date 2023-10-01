@@ -53,11 +53,11 @@ class _SplashState extends State<Splash> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SizedBox(
-        width: double.infinity,
+         width: double.infinity,
         height: double.infinity,
         child: Image.asset(
           "assets/images/15.png",
-          fit: BoxFit.cover,
+          fit: BoxFit.fill,
         ),
       ),
     );
