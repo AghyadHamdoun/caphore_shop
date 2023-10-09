@@ -13,12 +13,15 @@ class SubCategoryProducts extends StatelessWidget {
   final CategoriesEvent event;
   final CategoriesEvent subEvent;
   final String categoryName;
+  final int categoryId;
 
   const SubCategoryProducts(
       {super.key,
       required this.event,
       required this.categoryName,
-      required this.subEvent});
+      required this.subEvent,
+      required this.categoryId
+      });
 
   @override
   Widget build(BuildContext context) {
@@ -47,9 +50,9 @@ class SubCategoryProducts extends StatelessWidget {
                   ),
                   Expanded(
                     child: ListView(
-                      children: const [
-                        SubCategoriesComponent(),
-                        CategoryProductComponent(),
+                      children:  [
+                       const SubCategoriesComponent(),
+                        CategoryProductComponent(event: event,categoryId: categoryId,),
                       ],
                     ),
                   )

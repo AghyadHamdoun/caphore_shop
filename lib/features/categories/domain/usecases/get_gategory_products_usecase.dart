@@ -1,18 +1,19 @@
 import 'package:caphore/core/error/failure.dart';
 import 'package:caphore/core/usecase/base_usecase.dart';
-import 'package:caphore/features/categories/domain/entities/products.dart';
 import 'package:caphore/features/categories/domain/repository/base_categories_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 
+import '../../data/models/products_model.dart';
+
 class GetCategoryProductsUseCase
-    extends BaseUseCase<List<Product>, CategoryProductsParameters> {
+    extends BaseUseCase<List<ProductModel>, CategoryProductsParameters> {
   final BaseCategoriesRepository baseCategoriesRepository;
 
   GetCategoryProductsUseCase(this.baseCategoriesRepository);
 
   @override
-  Future<Either<Failure, List<Product>>> call(
+  Future<Either<Failure, List<ProductModel>>> call(
       CategoryProductsParameters parameters) async {
     return await baseCategoriesRepository.getCategoryProducts(parameters);
   }

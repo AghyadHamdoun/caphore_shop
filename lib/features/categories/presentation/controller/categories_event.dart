@@ -1,3 +1,4 @@
+import 'package:caphore/features/categories/domain/entities/products.dart';
 import 'package:equatable/equatable.dart';
 
 abstract class CategoriesEvent extends Equatable {
@@ -27,13 +28,14 @@ class GetProductDetailsEvent extends CategoriesEvent {
       {required this.productId, required this.categoryId});
 }
 
-class GetGategoryProductsEvent extends CategoriesEvent {
+class GetCategoryProductsEvent extends CategoriesEvent {
   final int pageNum;
   final int categoryId;
   final int perPage;
+  final List<Product> lastProducts;
 
-  const GetGategoryProductsEvent(
-      {required this.pageNum, required this.categoryId, required this.perPage});
+  const GetCategoryProductsEvent(
+      {required this.pageNum, required this.categoryId, required this.perPage,required this.lastProducts,});
 }
 
 class GetLastProductsEvent extends CategoriesEvent {
