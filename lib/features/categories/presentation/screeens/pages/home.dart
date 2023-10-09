@@ -47,11 +47,13 @@ class Home extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => const CategoryProducts(
-                                  event: GetGategoryProductsEvent(
+                                  event: GetCategoryProductsEvent(
                                       categoryId: 644,
                                       pageNum: 1,
-                                      perPage: 100),
+                                      perPage: 10,
+                                      lastProducts: []),
                                   categoryName: 'عروض كافور',
+                                  categoryId: 644,
                                 )));
                   },
                 ),
@@ -63,9 +65,13 @@ class Home extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => const CategoryProducts(
-                                  event: GetGategoryProductsEvent(
-                                      categoryId: 44, pageNum: 1, perPage: 100),
+                                  event: GetCategoryProductsEvent(
+                                      categoryId: 44,
+                                      pageNum: 1,
+                                      perPage: 10,
+                                      lastProducts: []),
                                   categoryName: 'الالبسة الرجالية',
+                                  categoryId: 44,
                                 )));
                   },
                 ),
@@ -80,9 +86,13 @@ class Home extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => const CategoryProducts(
-                                  event: GetGategoryProductsEvent(
-                                      categoryId: 42, pageNum: 1, perPage: 100),
+                                  event: GetCategoryProductsEvent(
+                                      categoryId: 42,
+                                      pageNum: 1,
+                                      perPage: 10,
+                                      lastProducts: []),
                                   categoryName: 'الالبسة النسائية',
+                                  categoryId: 42,
                                 )));
                   },
                 ),
@@ -95,9 +105,13 @@ class Home extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => const CategoryProducts(
-                                  event: GetGategoryProductsEvent(
-                                      categoryId: 61, pageNum: 1, perPage: 100),
+                                  event: GetCategoryProductsEvent(
+                                      categoryId: 61,
+                                      pageNum: 1,
+                                      perPage: 10,
+                                      lastProducts: []),
                                   categoryName: 'الألبسة الولادية ',
+                                  categoryId: 61,
                                 )));
                   },
                 ),
@@ -109,11 +123,13 @@ class Home extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => const CategoryProducts(
-                                  event: GetGategoryProductsEvent(
+                                  event: GetCategoryProductsEvent(
                                       categoryId: 195,
                                       pageNum: 1,
-                                      perPage: 100),
+                                      perPage: 10,
+                                      lastProducts: []),
                                   categoryName: 'المأكولات ',
+                                  categoryId: 195,
                                 )));
                   },
                 ),
@@ -125,11 +141,13 @@ class Home extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => const CategoryProducts(
-                                  event: GetGategoryProductsEvent(
+                                  event: GetCategoryProductsEvent(
                                       categoryId: 102,
                                       pageNum: 1,
-                                      perPage: 100),
+                                      perPage: 10,
+                                      lastProducts: []),
                                   categoryName: 'الأحذية والحقائب ',
+                                  categoryId: 102,
                                 )));
                   },
                 ),
@@ -141,11 +159,13 @@ class Home extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => const CategoryProducts(
-                                  event: GetGategoryProductsEvent(
+                                  event: GetCategoryProductsEvent(
                                       categoryId: 118,
                                       pageNum: 1,
-                                      perPage: 100),
+                                      perPage: 10,
+                                      lastProducts: []),
                                   categoryName: ' الساعات والاكسسوارات ',
+                                  categoryId: 118,
                                 )));
                   },
                 ),
@@ -157,11 +177,13 @@ class Home extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => const CategoryProducts(
-                                  event: GetGategoryProductsEvent(
+                                  event: GetCategoryProductsEvent(
                                       categoryId: 123,
                                       pageNum: 1,
-                                      perPage: 100),
+                                      perPage: 10,
+                                      lastProducts: []),
                                   categoryName: '  الالكترونيات ',
+                                  categoryId: 123,
                                 )));
                   },
                 ),
@@ -173,11 +195,13 @@ class Home extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => const CategoryProducts(
-                                  event: GetGategoryProductsEvent(
+                                  event: GetCategoryProductsEvent(
                                       categoryId: 108,
                                       pageNum: 1,
-                                      perPage: 100),
+                                      perPage: 10,
+                                      lastProducts: []),
                                   categoryName: '  العطور ',
+                                  categoryId: 108,
                                 )));
                   },
                 ),
@@ -189,11 +213,13 @@ class Home extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => const CategoryProducts(
-                                  event: GetGategoryProductsEvent(
+                                  event: GetCategoryProductsEvent(
                                       categoryId: 112,
                                       pageNum: 1,
-                                      perPage: 100),
+                                      perPage: 10,
+                                      lastProducts: []),
                                   categoryName: '  المكياج ',
+                                  categoryId: 112,
                                 )));
                   },
                 ),
@@ -205,11 +231,13 @@ class Home extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => const CategoryProducts(
-                                  event: GetGategoryProductsEvent(
+                                  event: GetCategoryProductsEvent(
                                       categoryId: 421,
                                       pageNum: 1,
-                                      perPage: 100),
+                                      perPage: 10,
+                                      lastProducts: []),
                                   categoryName: '  الحيونات الأليفة ',
+                                  categoryId: 421,
                                 )));
                   },
                 ),

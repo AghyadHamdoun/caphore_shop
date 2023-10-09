@@ -1,3 +1,4 @@
+import 'package:caphore/features/categories/data/models/products_model.dart';
 import 'package:caphore/features/categories/domain/entities/categories.dart';
 import 'package:caphore/features/categories/domain/usecases/get_gategory_products_usecase.dart';
 import 'package:caphore/features/categories/domain/usecases/get_product_details_usecase.dart';
@@ -9,7 +10,7 @@ import 'package:caphore/features/categories/domain/entities/products.dart';
 
 
 abstract class BaseCategoriesRepository {
-  Future<Either<Failure, List<Product>>> getCategoryProducts(CategoryProductsParameters parameters);
+  Future<Either<Failure, List<ProductModel>>> getCategoryProducts(CategoryProductsParameters parameters);
 
   Future<Either<Failure, Product>> getProductDetails(ProductDetailsParameters parameters);
 

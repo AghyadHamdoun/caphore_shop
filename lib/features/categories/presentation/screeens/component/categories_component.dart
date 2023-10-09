@@ -31,15 +31,18 @@ class CategoriesComponent extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                               builder: (context) => SubCategoryProducts(
-                                    event: GetGategoryProductsEvent(
+                                    event: GetCategoryProductsEvent(
                                         pageNum: 1,
                                         categoryId:
                                             state.allCategories[index].id,
-                                        perPage: 100),
+                                        perPage: 100,
+                                        lastProducts: []),
                                     categoryName:
                                         state.allCategories[index].name,
                                     subEvent: GetCategoriesByParentEvent(
                                         parent: state.allCategories[index].id),
+                                categoryId:
+                                  state.allCategories[index].id,
                                   )));
                     },
                     child: SalesAvatar(

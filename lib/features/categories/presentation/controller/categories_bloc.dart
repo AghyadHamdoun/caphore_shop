@@ -1,5 +1,6 @@
 import 'package:caphore/core/utils/enums.dart';
 import 'package:caphore/features/categories/domain/entities/categories.dart';
+import 'package:caphore/features/categories/domain/entities/products.dart';
 import 'package:caphore/features/categories/domain/usecases/get_all_categories_usecase.dart';
 import 'package:caphore/features/categories/domain/usecases/get_categories_by_parent_usecase.dart';
 import 'package:caphore/features/categories/domain/usecases/get_gategory_products_usecase.dart';
@@ -81,7 +82,9 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     on<GetProductDetailsEvent>((event, emit) async {});
 
     //category Products event
-    on<GetGategoryProductsEvent>((event, emit) async {
+    on<GetCategoryProductsEvent>((event, emit) async {
+      emit(state.copyWith(loadMore: RequestState.loading));
+      print('category product event --------');
       final result = await getCategoryProductsUseCase(
           CategoryProductsParameters(
               categoryId: event.categoryId,
@@ -91,9 +94,24 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
           (l) => emit(state.copyWith(
               categoryProductsMessage: l.message,
               categoryProductsState: RequestState.error)),
-          (r) => emit(state.copyWith(
-              categoryProducts: r,
-              categoryProductsState: RequestState.loaded)));
+          (r) {
+            List<Product> products = event.lastProducts + r;
+            if (r.isEmpty) {
+              emit(state.copyWith(
+                loadMore: RequestState.error,
+                categoryProducts: products,
+                categoryProductsState: RequestState.loaded,
+              ));
+            }
+            else {
+              print(products.length);
+              emit(state.copyWith(
+                  categoryProducts: products,
+                  categoryProductsState: RequestState.loaded,
+                  loadMore: RequestState.loaded
+              ));
+            }
+             });
     });
 
     //last Products Event

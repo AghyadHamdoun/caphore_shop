@@ -9,6 +9,8 @@ import 'package:caphore/features/categories/domain/usecases/get_product_details_
 import 'package:caphore/features/categories/domain/usecases/get_search_products_usecase.dart';
 import 'package:dartz/dartz.dart';
 
+import '../models/products_model.dart';
+
 class CategoriesRepository extends BaseCategoriesRepository {
   final BaseCategoriesRemoteDataSource baseCategoriesRemoteDataSource;
 
@@ -37,7 +39,7 @@ class CategoriesRepository extends BaseCategoriesRepository {
   }
 
   @override
-  Future<Either<Failure, List<Product>>> getCategoryProducts(
+  Future<Either<Failure, List<ProductModel>>> getCategoryProducts(
       CategoryProductsParameters parameters) async {
     final result = await baseCategoriesRemoteDataSource.getAllCategoryProducts(
         parameters.categoryId, parameters.page, parameters.perPage);
