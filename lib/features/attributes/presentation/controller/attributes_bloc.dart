@@ -1,4 +1,9 @@
+import 'dart:convert';
+
 import 'package:caphore/core/utils/enums.dart';
+import 'package:caphore/core/utils/prefrences.dart';
+import 'package:caphore/features/attributes/data/models/terms_model.dart';
+import 'package:caphore/features/attributes/domain/entities/terms.dart';
 import 'package:caphore/features/attributes/presentation/controller/attributes_event.dart';
 import 'package:caphore/features/attributes/presentation/controller/attributes_state.dart';
 import 'package:caphore/features/attributes/domain/usecases/get_terms_usecase.dart';
@@ -31,17 +36,37 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
     //end
     //
     on<GetClothingTermsEvent>((event, emit) async {
-      final result = await getTermsUseCase(TermsParameters(
-          id: event.attributeId, page: event.pageNum, perPage: event.perPage));
-      result.fold(
-          (l) => emit(state.copyWith(
+      String? terms = Preferences.getUserName();
+      if (terms != '' && terms != null){
+        var Terms = await jsonDecode(terms);
+        Terms = List<TermModel>.from((Terms).map(
+              (e) => TermModel.fromJson(e),
+        ));
+        print(Terms);
+        emit(state.copyWith(
+          //state
+            clothingTerms: Terms,
+            clothingTermsState: RequestState.loaded));
+      }
+      else  {
+        final result = await getTermsUseCase(TermsParameters(
+            id: event.attributeId, page: event.pageNum, perPage: event.perPage));
+        result.fold(
+                (l) => emit(state.copyWith(
               //state
-              clothingTermsMessage: l.message,
-              clothingTermsState: RequestState.error)),
-          (r) => emit(state.copyWith(
-              //state
-              clothingTerms: r,
-              clothingTermsState: RequestState.loaded)));
+                clothingTermsMessage: l.message,
+                clothingTermsState: RequestState.error)),
+                (r)  {
+      String terms =jsonEncode(r);
+      Preferences.saveUserName(terms);
+      emit(state.copyWith(
+      //state
+      clothingTerms: r,
+      clothingTermsState: RequestState.loaded));
+      });
+
+      }
+
     });
     on<GetShoesAndBagsTermsEvent>((event, emit) async {
       final result = await getTermsUseCase(TermsParameters(
