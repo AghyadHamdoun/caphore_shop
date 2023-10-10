@@ -1,8 +1,12 @@
+import 'dart:convert';
+
 import 'package:caphore/core/utils/enums.dart';
+import 'package:caphore/features/attributes/domain/entities/terms.dart';
 import 'package:caphore/features/attributes/presentation/controller/attributes_event.dart';
 import 'package:caphore/features/attributes/presentation/controller/attributes_state.dart';
 import 'package:caphore/features/attributes/domain/usecases/get_terms_usecase.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../domain/usecases/get_term_products_usecase.dart';
 
@@ -16,8 +20,22 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
     //begin
     //event
     on<GetBrandTermsEvent>((event, emit) async {
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+
       final result = await getTermsUseCase(TermsParameters(
           id: event.attributeId, page: event.pageNum, perPage: event.perPage));
+      print(result);
+      print("///////////////////////////////");
+      List<Term>? d;
+      result.fold((l) => null, (r) => d = r);
+      print(d!);
+      var api = d.toString();
+      await prefs.setString("BrandTerms", api);
+      print("///////////////////////////////");
+      var cache = await prefs.getString("BrandTerms");
+      var data = jsonDecode(cache!);
+      print("cache");
+      print(data);
       result.fold(
           (l) => emit(state.copyWith(
               //state
@@ -244,12 +262,8 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
               termProducts: r, termProductsState: RequestState.loaded)));
     });
 
-    on<CurrentSliderEvent>((event, emit)  {
-     emit(state.copyWith(
-       currentSlider: event.currentSlider
-     ));
+    on<CurrentSliderEvent>((event, emit) {
+      emit(state.copyWith(currentSlider: event.currentSlider));
     });
-
-
   }
 }
