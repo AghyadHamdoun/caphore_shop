@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:caphore/core/services/services_locator.dart';
 import 'package:caphore/core/utils/app_color.dart';
 import 'package:caphore/features/attributes/presentation/controller/attributes_bloc.dart';
@@ -89,12 +87,12 @@ class _MyPagesState extends State<MyPages> with AutomaticKeepAliveClientMixin {
             body: PageView(
               controller: controller,
               physics: const NeverScrollableScrollPhysics(),
-              children: const [
+              children:  [
                 Brands(),
-                Home(),
+              const  Home(),
                 Stores(),
                 Restaurants(),
-                ControlPanel(),
+               const ControlPanel(),
               ],
             ),
             bottomNavigationBar: BottomNavigationBar(
