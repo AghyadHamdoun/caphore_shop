@@ -197,7 +197,7 @@ class CategoriesState extends Equatable {
       this.categoryProductsMessage = '',
       //search
       this.searchProducts = const [],
-      this.searchProductsState = RequestState.loading,
+      this.searchProductsState = RequestState.loaded,
       this.searchProductsMessage = '',
 
       //
