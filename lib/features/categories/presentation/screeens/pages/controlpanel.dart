@@ -1,3 +1,4 @@
+import 'package:caphore/core/utils/app_color.dart';
 import 'package:caphore/features/categories/presentation/screeens/controlpanel/privacy_policy.dart';
 import 'package:caphore/features/categories/presentation/screeens/controlpanel/terms_and_conditions.dart';
 import 'package:caphore/features/categories/presentation/screeens/controlpanel/who_is_we.dart';
@@ -10,6 +11,7 @@ import '../controlpanel/contact_us.dart';
 
 class ControlPanel extends StatelessWidget {
   const ControlPanel({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,9 +21,18 @@ class ControlPanel extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Lottie.asset('assets/lottie/controlpanel.json',
-                  fit: BoxFit.cover, height: 250.h),
-              SizedBox(height: 10.h,),
+              // Lottie.asset('assets/lottie/controlpanel.json',
+              //     fit: BoxFit.cover, height: 250.h),
+              Container(
+                  height: 200,
+                  width: double.infinity,
+                  decoration: BoxDecoration(color: AppColor.primaryColor),
+                  child: Image.asset(
+                    'assets/images/TT copy.png',fit: BoxFit.cover,
+                  )),
+              SizedBox(
+                height: 10.h,
+              ),
               LegalPageWidget(
                   gotopage: () {
                     Navigator.push(
@@ -33,8 +44,10 @@ class ControlPanel extends StatelessWidget {
                   svgpath: "assets/images/justice-law-svgrepo-com.svg"),
               LegalPageWidget(
                   gotopage: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => const WhoIsWe()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const WhoIsWe()));
                   },
                   name: "لمحة عن كافور",
                   svgpath: "assets/images/about-svgrepo-com.svg"),
@@ -55,7 +68,8 @@ class ControlPanel extends StatelessWidget {
                             builder: (context) => const ContactUs()));
                   },
                   name: " تواصل معنا",
-                  svgpath: "assets/images/headphones-microphone-svgrepo-com.svg"),
+                  svgpath:
+                      "assets/images/headphones-microphone-svgrepo-com.svg"),
             ],
           ),
         ),
