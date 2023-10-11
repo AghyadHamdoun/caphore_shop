@@ -84,7 +84,6 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     //category Products event
     on<GetCategoryProductsEvent>((event, emit) async {
       emit(state.copyWith(loadMore: RequestState.loading));
-      print('category product event --------');
       final result = await getCategoryProductsUseCase(
           CategoryProductsParameters(
               categoryId: event.categoryId,
@@ -104,7 +103,6 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
               ));
             }
             else {
-              print(products.length);
               emit(state.copyWith(
                   categoryProducts: products,
                   categoryProductsState: RequestState.loaded,

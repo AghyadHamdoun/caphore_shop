@@ -74,7 +74,6 @@ class CategoryProductComponent extends StatelessWidget {
                   if (state.loadMore == RequestState.loaded)
                     InkWell(
                       onTap: () {
-                        print(++pageNumber);
                         bloc.add(GetCategoryProductsEvent(
                             pageNum: ++pageNumber,
                             categoryId: categoryId,
