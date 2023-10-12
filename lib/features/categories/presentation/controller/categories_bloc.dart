@@ -132,7 +132,13 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     });
 
     //offers products event
+    //عميل كل ال products متل هي
     on<GetOffersProductsEvent>((event, emit) async {
+      //ضيف هي التعليمة
+      //
+      emit(state.copyWith(offersProductsState: RequestState.loading));
+      //
+
       final result = await getCategoryProductsUseCase(
           CategoryProductsParameters(
               categoryId: event.categoryId,
@@ -358,5 +364,30 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     on<CurrentSliderEvent>((event, emit) {
       emit(state.copyWith(currentSlider: event.currentSlider));
     });
+  }
+  void addAllProducts(){
+    add(const GetAllCategoriesEvent(page: 1));
+    add(const GetMenClothingProductsEvent(
+    pageNum: 1, categoryId: 44, perPage: 10));
+    add(const GetWomenClothingProductsEvent(
+    pageNum: 1, categoryId: 42, perPage: 10));
+    add(const GetChildrenClothingProductsEvent(
+    pageNum: 1, categoryId: 61, perPage: 10));
+    add(const GetFoodProductsEvent(
+    pageNum: 1, categoryId: 195, perPage: 10));
+    add(const GetShoesAndBagsProductsEvent(
+    pageNum: 1, categoryId: 102, perPage: 10));
+    add(const GetWatchesAndAccessoriesProductsEvent(
+    pageNum: 1, categoryId: 118, perPage: 10));
+    add(const GetMobilesProductsEvent(
+    pageNum: 1, categoryId: 123, perPage: 10));
+    add(const GetPerfumesProductsEvent(
+    pageNum: 1, categoryId: 108, perPage: 10));
+    add(const GetMakeUpProductsEvent(
+    pageNum: 1, categoryId: 112, perPage: 10));
+    add(const GetPetsProductsEvent(
+    pageNum: 1, categoryId: 421, perPage: 10));
+    add(const GetOffersProductsEvent(
+    pageNum: 1, categoryId: 644, perPage: 10));
   }
 }

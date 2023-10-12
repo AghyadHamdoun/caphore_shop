@@ -29,11 +29,13 @@ class _MyPagesState extends State<MyPages> with AutomaticKeepAliveClientMixin {
   late int select = 1;
   late PageController controller;
   bool hasnet = true;
+  var categoryBloc = sl<CategoriesBloc>();
+  var attributesBloc = sl<AttributesBloc>();
 
   @override
   void initState() {
     super.initState();
-    connectivity();
+connectivity();
     controller = PageController(initialPage: select);
   }
 
@@ -46,57 +48,31 @@ class _MyPagesState extends State<MyPages> with AutomaticKeepAliveClientMixin {
     } else {
       hasnet = false;
       print(net);
-      //جرب هيك طفي النت وشغلو قبل ما تشيسل التعليق
-      //    setState(() {
-      //   AwesomeDialog(
-      //     context: context,
-      //     dialogType: DialogType.error,
-      //     animType: AnimType.topSlide,
-      //     headerAnimationLoop: false,
-      //     title: 'خطأ',
-      //     desc: "يرجى الاتصال بالانترنت",
-      //     btnOkOnPress: () {},
-      //     btnOkIcon: Icons.cancel,
-      //     btnOkColor: Colors.red,
-      //   ).show();
-      // });
+        // AwesomeDialog(
+        //   context: context,
+        //   dialogType: DialogType.warning,
+        //   animType: AnimType.topSlide,
+        //   headerAnimationLoop: false,
+        //   title: 'خطأ',
+        //   desc: "يرجى الاتصال بالانترنت",
+        //   btnCancelOnPress: (){},
+        //   btnOkIcon: Icons.cancel,
+        //   btnOkColor: AppColor.primaryColor,
+        // ).show();
+
     }
   }
 
   @override
   Widget build(BuildContext context) {
     super.build(context);
-
     return MultiBlocProvider(
         providers: [
           BlocProvider(
-            create: (context) => sl<CategoriesBloc>()
-              ..add(const GetAllCategoriesEvent(page: 1))
-              ..add(const GetMenClothingProductsEvent(
-                  pageNum: 1, categoryId: 44, perPage: 10))
-              ..add(const GetWomenClothingProductsEvent(
-                  pageNum: 1, categoryId: 42, perPage: 10))
-              ..add(const GetChildrenClothingProductsEvent(
-                  pageNum: 1, categoryId: 61, perPage: 10))
-              ..add(const GetFoodProductsEvent(
-                  pageNum: 1, categoryId: 195, perPage: 10))
-              ..add(const GetShoesAndBagsProductsEvent(
-                  pageNum: 1, categoryId: 102, perPage: 10))
-              ..add(const GetWatchesAndAccessoriesProductsEvent(
-                  pageNum: 1, categoryId: 118, perPage: 10))
-              ..add(const GetMobilesProductsEvent(
-                  pageNum: 1, categoryId: 123, perPage: 10))
-              ..add(const GetPerfumesProductsEvent(
-                  pageNum: 1, categoryId: 108, perPage: 10))
-              ..add(const GetMakeUpProductsEvent(
-                  pageNum: 1, categoryId: 112, perPage: 10))
-              ..add(const GetPetsProductsEvent(
-                  pageNum: 1, categoryId: 421, perPage: 10))
-              ..add(const GetOffersProductsEvent(
-                  pageNum: 1, categoryId: 644, perPage: 10)),
-          ),
+            create: (context) => categoryBloc..addAllProducts()
+            ),
           BlocProvider(
-              create: (context) => sl<AttributesBloc>()
+              create: (context) => attributesBloc
                 ..add(const GetBannersTermsEvent(
                     pageNum: 1, attributeId: 34, perPage: 100)))
         ],
@@ -120,7 +96,7 @@ class _MyPagesState extends State<MyPages> with AutomaticKeepAliveClientMixin {
                 physics: const NeverScrollableScrollPhysics(),
                 children: [
                   Brands(),
-                  const Home(),
+                   Home(),
                   Stores(),
                   Restaurants(),
                   const ControlPanel(),
