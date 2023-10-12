@@ -98,7 +98,7 @@ whatsapp(String number, String name, String link) async {
       "whatsapp://send?phone=$contact&text=مرحبا اريد الطلب\n $name الرابط:   $link\n شكرا لك!";
   var iosUrl =
       "https://wa.me/$contact?text= =مرحبا اريد الطلب\n $name الرابط:   $link\n شكرا لك!${Uri.parse('')}";
-
+  final Uri url = Uri(scheme: 'tel', path: contact);
   try {
     if (Platform.isIOS) {
       await launchUrl(Uri.parse(iosUrl));
@@ -107,5 +107,6 @@ whatsapp(String number, String name, String link) async {
     }
   } on Exception {
     EasyLoading.showError('WhatsApp is not installed.');
+    await launchUrl(url);
   }
 }

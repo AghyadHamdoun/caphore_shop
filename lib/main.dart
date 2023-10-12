@@ -1,19 +1,23 @@
+import 'package:caphore/core/network/injection.dart';
 import 'package:caphore/core/services/services_locator.dart';
 import 'package:caphore/core/utils/prefrences.dart';
 import 'package:caphore/core/utils/routes.dart';
 import 'package:caphore/features/welcome/presentation/OnBoarding/Splash.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 
 void main() async {
   ServicesLocator().init();
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   await Preferences.init();
+  injection.init();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
@@ -34,7 +38,7 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (BuildContext context, Widget? child) {
-        return MaterialApp(
+        return GetMaterialApp(
           theme: ThemeData(textTheme: GoogleFonts.notoNaskhArabicTextTheme()),
           localizationsDelegates: context.localizationDelegates,
           supportedLocales: context.supportedLocales,
