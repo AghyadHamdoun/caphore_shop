@@ -69,7 +69,7 @@ connectivity();
     return MultiBlocProvider(
         providers: [
           BlocProvider(
-            create: (context) => categoryBloc..addAllProducts()
+            create: (context) => categoryBloc.. add(const GetAllCategoriesEvent(page: 1))..addAllProducts()
             ),
           BlocProvider(
               create: (context) => attributesBloc
@@ -96,7 +96,7 @@ connectivity();
                 physics: const NeverScrollableScrollPhysics(),
                 children: [
                   Brands(),
-                   Home(),
+                   Home( ),
                   Stores(),
                   Restaurants(),
                   const ControlPanel(),

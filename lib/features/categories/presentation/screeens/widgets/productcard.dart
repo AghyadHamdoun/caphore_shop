@@ -68,7 +68,7 @@ class ProductCard extends StatelessWidget {
               SizedBox(
                 height: (orginalprice.isNotEmpty && orginalprice != price)?size.height/10:size.height/13,
                 child: ListTile(
-                  title: (price == "33")
+                  title: (price == "33"||price=='')
                       ? FittedBox(
                           fit: BoxFit.scaleDown,
                           child: Text(
@@ -82,7 +82,7 @@ class ProductCard extends StatelessWidget {
                       : FittedBox(
                           fit: BoxFit.scaleDown,
                           child: Text(
-                            "$price ل.س ",
+                          "$price ل.س ",
                             style: TextStyle(
                                 color: AppColor.accentColor,
                                 fontSize: 18.sp,
@@ -93,7 +93,7 @@ class ProductCard extends StatelessWidget {
                       ? FittedBox(
                           fit: BoxFit.scaleDown,
                           child: Text(
-                            "$orginalprice ل.س",
+                            orginalprice!=''?  "$orginalprice ل.س ":'',
                             style: TextStyle(
                                 decoration: TextDecoration.lineThrough,
                                 fontSize: 14.sp,
