@@ -68,7 +68,7 @@ class Search extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(
+                     SizedBox(
                       child: Text(
                         " ${state.searchProducts.length} :نتائج البحث",
                         style: TextStyle(fontSize: 20.sp),
@@ -85,7 +85,7 @@ class Search extends StatelessWidget {
                               alignment: Alignment.center,
                               child: Center(
                                 child: Lottie.asset(
-                                  'assets/lottie/laith search.json',
+                                  'assets/lottie/shoping.json',
                                   fit: BoxFit.cover,
                                   height: 250.h,
                                 ),

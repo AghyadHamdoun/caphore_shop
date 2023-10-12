@@ -335,14 +335,23 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     });
     //search products event
     on<GetSearchProductsEvent>((event, emit) async {
-      final result = await getSearchProductsUseCase(SearchProductsParameters(
-          search: event.search, page: event.pageNum, perPage: event.perPage));
-      result.fold(
-          (l) => emit(state.copyWith(
-              searchProductsMessage: l.message,
-              searchProductsState: RequestState.error)),
-          (r) => emit(state.copyWith(
-              searchProducts: r, searchProductsState: RequestState.loaded)));
+      if(event.search != ''){
+        emit(state.copyWith(searchProductsState: RequestState.loading));
+        final result = await getSearchProductsUseCase(SearchProductsParameters(
+            search: event.search, page: event.pageNum, perPage: event.perPage));
+        result.fold(
+                (l) => emit(state.copyWith(
+                searchProductsMessage: l.message,
+                searchProductsState: RequestState.error)),
+                (r) => emit(state.copyWith(
+                searchProducts: r, searchProductsState: RequestState.loaded)));
+      }else{
+        emit(state.copyWith(
+          searchProducts: [],
+          searchProductsState: RequestState.loaded
+        ));
+      }
+
     });
 
     //
