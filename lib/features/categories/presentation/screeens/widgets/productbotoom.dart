@@ -47,7 +47,7 @@ class ProductBottom extends StatelessWidget {
                 "  السعر:   ",
                 style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
               ),
-              (price == "33")
+              (price == "33" || price == "")
                   ? Text(
                       " تواصل لمعرفةالسعر",
                       style: TextStyle(
@@ -56,7 +56,7 @@ class ProductBottom extends StatelessWidget {
                           fontWeight: FontWeight.bold),
                     )
                   : Text(
-                      "$price ل.س ",
+                  "$price ل.س ",
                       style: TextStyle(
                           color: AppColor.accentColor,
                           fontSize: 24.sp,

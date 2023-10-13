@@ -8,7 +8,7 @@ import '../../features/categories/presentation/screeens/pages/home.dart';
 
 class MyRoutes {
   static Map<String, WidgetBuilder> routes = {
-    "/Home": (context) => const Home(),
+    "/Home": (context) =>  Home(),
     "/Search": (context) => const Search(),
     "/Stores": (context) =>  Stores(),
     "/OBPage": (context) => OBPage(),
