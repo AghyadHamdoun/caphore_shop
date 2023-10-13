@@ -30,6 +30,8 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
             body: RefreshIndicator(
+              color: AppColor.accentColor,
+              backgroundColor: AppColor.primaryColor,
               onRefresh: ()async {   Navigator.push(context, MaterialPageRoute(builder: (context)=>const MyPages())); },
               child: Column(
                 children: [
