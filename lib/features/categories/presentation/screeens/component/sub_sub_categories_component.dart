@@ -2,23 +2,22 @@ import 'package:caphore/features/categories/presentation/controller/categories_b
 import 'package:caphore/features/categories/presentation/controller/categories_event.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_state.dart';
 import 'package:caphore/features/categories/presentation/screeens/categoryproducts.dart';
-import 'package:caphore/features/categories/presentation/screeens/sub_categories.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/salesavatar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class Sub_Sub_CategoriesComponent extends StatelessWidget {
-  const Sub_Sub_CategoriesComponent({Key? key}) : super(key: key);
+class SubSubCategoriesComponent extends StatelessWidget {
+  const SubSubCategoriesComponent({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return BlocBuilder<CategoriesBloc, CategoriesState>(
-        buildWhen: (previous, current) => (previous.categoriesByParentState !=
-            current.categoriesByParentState),
+        buildWhen: (previous, current) => (previous.categoriesByChildState !=
+            current.categoriesByChildState),
         builder: (context, state) {
-          return (state.categoriesByParent.isEmpty)
+          return (state.categoriesByChild.isEmpty)
               ? const SizedBox(
                   height: 0,
                   width: 0,
@@ -30,7 +29,7 @@ class Sub_Sub_CategoriesComponent extends StatelessWidget {
                   width: double.infinity,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: state.categoriesByParent.length,
+                    itemCount: state.categoriesByChild.length,
                     itemBuilder: (BuildContext context, int index) {
                       return InkWell(
                           onTap: () {
@@ -41,19 +40,19 @@ class Sub_Sub_CategoriesComponent extends StatelessWidget {
                                           event: GetCategoryProductsEvent(
                                               pageNum: 1,
                                               categoryId:
-                                                  state.allCategories[index].id,
+                                                  state.categoriesByChild[index].id,
                                               perPage: 100,
                                               lastProducts: []),
                                           categoryName: state
-                                              .categoriesByParent[index].name,
+                                              .categoriesByChild[index].name,
                                           categoryId: state
-                                              .categoriesByParent[index].id,
+                                              .categoriesByChild[index].id,
                                         )));
                           },
                           child: SalesAvatar(
-                              name: state.categoriesByParent[index].name,
+                              name: state.categoriesByChild[index].name,
                               image:
-                                  state.categoriesByParent[index].image.src));
+                                  state.categoriesByChild[index].image.src));
                     },
                   ),
                 );

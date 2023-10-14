@@ -1,8 +1,6 @@
 import 'package:caphore/features/categories/presentation/controller/categories_bloc.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_event.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_state.dart';
-import 'package:caphore/features/categories/presentation/screeens/categoryproducts.dart';
-import 'package:caphore/features/categories/presentation/screeens/sub_categories.dart';
 import 'package:caphore/features/categories/presentation/screeens/sub_sub_categories.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/salesavatar.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +36,7 @@ class SubCategoriesComponent extends StatelessWidget {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => sub_sub_categories(
+                                    builder: (context) => SubSubCategories(
                                           event: GetCategoryProductsEvent(
                                               pageNum: 1,
                                               categoryId: state
@@ -49,9 +47,9 @@ class SubCategoriesComponent extends StatelessWidget {
                                               .categoriesByParent[index].name,
                                           categoryId: state
                                               .categoriesByParent[index].id,
-                                          subEvent: GetCategoriesByParentEvent(
+                                          subEvent: GetCategoriesByChildEvent(
                                               parent: state
-                                                  .allCategories[index].id),
+                                                  .categoriesByParent[index].id),
                                         )));
                           },
                           child: SalesAvatar(

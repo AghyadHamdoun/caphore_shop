@@ -18,6 +18,7 @@ class CategoryProductComponent extends StatelessWidget {
   CategoryProductComponent(
       {Key? key, required this.event, required this.categoryId})
       : super(key: key);
+
   int pageNumber = 1;
 
   @override

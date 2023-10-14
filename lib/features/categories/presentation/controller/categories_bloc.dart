@@ -76,6 +76,20 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
       });
     });
 
+    //get categories by child
+    on<GetCategoriesByChildEvent>((event, emit) async {
+      final result =
+      await getCategoriesByParentUseCase( CategoriesByParentParameters(parent: event.parent));
+      result.fold(
+              (l) => emit(state.copyWith(
+              categoriesByChildMessage: l.message,
+              categoriesByChildState: RequestState.error)), (r) {
+        emit(state.copyWith(
+            categoriesByChildState: RequestState.loaded,
+            categoriesByChild: r));
+      });
+    });
+
 
 
     //Product Details Event
