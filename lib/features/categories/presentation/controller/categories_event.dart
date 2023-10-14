@@ -20,6 +20,12 @@ class GetCategoriesByParentEvent extends CategoriesEvent {
   const GetCategoriesByParentEvent({required this.parent});
 }
 
+class GetCategoriesByChildEvent extends CategoriesEvent {
+  final int parent;
+
+  const GetCategoriesByChildEvent({required this.parent});
+}
+
 class GetProductDetailsEvent extends CategoriesEvent {
   final int productId;
   final int categoryId;

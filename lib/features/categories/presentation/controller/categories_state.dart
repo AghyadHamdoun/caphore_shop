@@ -17,6 +17,10 @@ class CategoriesState extends Equatable {
   final RequestState categoriesByParentState;
   final String categoriesByParentMessage;
 
+  final List<Category> categoriesByChild;
+  final RequestState categoriesByChildState;
+  final String categoriesByChildMessage;
+
   //
   final Product product;
   final RequestState productState;
@@ -116,6 +120,11 @@ class CategoriesState extends Equatable {
       this.categoriesByParent = const [],
       this.categoriesByParentState = RequestState.loading,
       this.categoriesByParentMessage = '',
+
+        //
+        this.categoriesByChild = const [],
+        this.categoriesByChildState = RequestState.loading,
+        this.categoriesByChildMessage = '',
 
       //
       this.product = const Product(
@@ -217,6 +226,11 @@ class CategoriesState extends Equatable {
       final RequestState? categoriesByParentState,
       final String? categoriesByParentMessage,
 
+        //
+        final List<Category>? categoriesByChild,
+        final RequestState? categoriesByChildState,
+        final String? categoriesByChildMessage,
+
       //
       final Product? product,
       final RequestState? productState,
@@ -302,6 +316,11 @@ class CategoriesState extends Equatable {
         categoriesByParent: categoriesByParent ?? this.categoriesByParent,
         categoriesByParentState: categoriesByParentState ?? this.categoriesByParentState,
         categoriesByParentMessage: categoriesByParentMessage ?? this.categoriesByParentMessage,
+
+        //
+        categoriesByChild: categoriesByChild ?? this.categoriesByChild,
+        categoriesByChildState: categoriesByChildState ?? this.categoriesByChildState,
+        categoriesByChildMessage: categoriesByChildMessage ?? this.categoriesByChildMessage,
 
         //
         product: product ?? this.product,
@@ -422,6 +441,11 @@ class CategoriesState extends Equatable {
         categoriesByParent,
         categoriesByParentState,
         categoriesByParentMessage,
+
+        //
+        categoriesByChild,
+        categoriesByChildState,
+        categoriesByChildMessage,
 
         //
         product,
