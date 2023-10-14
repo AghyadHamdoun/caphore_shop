@@ -3,14 +3,13 @@ import 'package:caphore/features/categories/presentation/controller/categories_e
 import 'package:caphore/features/categories/presentation/controller/categories_state.dart';
 import 'package:caphore/features/categories/presentation/screeens/categoryproducts.dart';
 import 'package:caphore/features/categories/presentation/screeens/sub_categories.dart';
-import 'package:caphore/features/categories/presentation/screeens/sub_sub_categories.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/salesavatar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class SubCategoriesComponent extends StatelessWidget {
-  const SubCategoriesComponent({Key? key}) : super(key: key);
+class Sub_Sub_CategoriesComponent extends StatelessWidget {
+  const Sub_Sub_CategoriesComponent({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -38,20 +37,17 @@ class SubCategoriesComponent extends StatelessWidget {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => sub_sub_categories(
+                                    builder: (context) => CategoryProducts(
                                           event: GetCategoryProductsEvent(
                                               pageNum: 1,
-                                              categoryId: state
-                                                  .categoriesByParent[index].id,
+                                              categoryId:
+                                                  state.allCategories[index].id,
                                               perPage: 100,
                                               lastProducts: []),
                                           categoryName: state
                                               .categoriesByParent[index].name,
                                           categoryId: state
                                               .categoriesByParent[index].id,
-                                          subEvent: GetCategoriesByParentEvent(
-                                              parent: state
-                                                  .allCategories[index].id),
                                         )));
                           },
                           child: SalesAvatar(

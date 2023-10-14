@@ -3,23 +3,23 @@ import 'package:caphore/core/utils/app_color.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_bloc.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_event.dart';
 import 'package:caphore/features/categories/presentation/screeens/component/category_product_component.dart';
+import 'package:caphore/features/categories/presentation/screeens/component/sub_sub_categories_component.dart';
 import 'package:caphore/features/categories/presentation/screeens/component/subcategories_component.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/textformfild.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class SubCategoryProducts extends StatelessWidget {
+class sub_sub_categories extends StatelessWidget {
   final CategoriesEvent event;
   final CategoriesEvent subEvent;
   final String categoryName;
   final int categoryId;
-
-  const SubCategoryProducts(
+  const sub_sub_categories(
       {super.key,
       required this.event,
-      required this.categoryName,
       required this.subEvent,
+      required this.categoryName,
       required this.categoryId});
 
   @override
@@ -50,7 +50,7 @@ class SubCategoryProducts extends StatelessWidget {
                   Expanded(
                     child: ListView(
                       children: [
-                        const SubCategoriesComponent(),
+                        const Sub_Sub_CategoriesComponent(),
                         CategoryProductComponent(
                           event: event,
                           categoryId: categoryId,

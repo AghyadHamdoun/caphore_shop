@@ -11,7 +11,10 @@ class CategoryProducts extends StatelessWidget {
   final int categoryId;
 
   const CategoryProducts(
-      {super.key, required this.event, required this.categoryName, required this.categoryId});
+      {super.key,
+      required this.event,
+      required this.categoryName,
+      required this.categoryId});
 
   @override
   Widget build(BuildContext context) {
@@ -21,16 +24,15 @@ class CategoryProducts extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.only(
-                  top: 3.h, left: 2.w, right: 2.w, bottom: 0),
+              padding:
+                  EdgeInsets.only(top: 3.h, left: 2.w, right: 2.w, bottom: 0),
               child: const maintextform(),
             ),
-
             Expanded(
                 child: ListView(
-              children:  [
+              children: [
                 Padding(
-                  padding:  EdgeInsets.symmetric(horizontal: 10.w),
+                  padding: EdgeInsets.symmetric(horizontal: 10.w),
                   child: Text(
                     categoryName,
                     style: TextStyle(
@@ -39,7 +41,10 @@ class CategoryProducts extends StatelessWidget {
                         fontSize: 20.sp),
                   ),
                 ),
-                CategoryProductComponent(event: event,categoryId: categoryId,),
+                CategoryProductComponent(
+                  event: event,
+                  categoryId: categoryId,
+                ),
               ],
             )),
           ],
