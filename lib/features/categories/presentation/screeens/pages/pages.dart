@@ -35,32 +35,8 @@ class _MyPagesState extends State<MyPages> with AutomaticKeepAliveClientMixin {
   @override
   void initState() {
     super.initState();
-connectivity();
+
     controller = PageController(initialPage: select);
-  }
-
-  void connectivity() async {
-    var net = await Connectivity().checkConnectivity();
-    //هاد فحص النت كلو تمام بس عروض الديالوغ  بس حطو بمحلو نسيت شلون
-    if (net == ConnectivityResult.mobile || net == ConnectivityResult.wifi) {
-      hasnet = true;
-      print(net); //go
-    } else {
-      hasnet = false;
-      print(net);
-        // AwesomeDialog(
-        //   context: context,
-        //   dialogType: DialogType.warning,
-        //   animType: AnimType.topSlide,
-        //   headerAnimationLoop: false,
-        //   title: 'خطأ',
-        //   desc: "يرجى الاتصال بالانترنت",
-        //   btnCancelOnPress: (){},
-        //   btnOkIcon: Icons.cancel,
-        //   btnOkColor: AppColor.primaryColor,
-        // ).show();
-
-    }
   }
 
   @override
@@ -69,8 +45,9 @@ connectivity();
     return MultiBlocProvider(
         providers: [
           BlocProvider(
-            create: (context) => categoryBloc.. add(const GetAllCategoriesEvent(page: 1))..addAllProducts()
-            ),
+              create: (context) => categoryBloc
+                ..add(const GetAllCategoriesEvent(page: 1))
+                ..addAllProducts()),
           BlocProvider(
               create: (context) => attributesBloc
                 ..add(const GetBannersTermsEvent(
@@ -96,7 +73,7 @@ connectivity();
                 physics: const NeverScrollableScrollPhysics(),
                 children: [
                   Brands(),
-                   Home( ),
+                  Home(),
                   Stores(),
                   Restaurants(),
                   const ControlPanel(),

@@ -56,7 +56,7 @@ class ProductBottom extends StatelessWidget {
                           fontWeight: FontWeight.bold),
                     )
                   : Text(
-                  "$price ل.س ",
+                      "$price ل.س ",
                       style: TextStyle(
                           color: AppColor.accentColor,
                           fontSize: 24.sp,
@@ -67,22 +67,28 @@ class ProductBottom extends StatelessWidget {
           SizedBox(
             height: 25.h,
           ),
-          ElevatedButton.icon(
-            style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green, fixedSize: Size(250.w, 40.h)),
-            onPressed: () {
-              whatsapp(number, name, link);
-            },
-            icon: LottieBuilder.asset(
-              "assets/lottie/animation_ljzsiq8i.json",
-              height: 35.h,
-              width: 35.w,
-            ),
-            label: Text(
-              "اشتري الان",
-              style: TextStyle(fontSize: 18.sp),
-            ),
-          ),
+          (number.isEmpty)
+              ? const SizedBox(
+                  height: 0,
+                  width: 0,
+                )
+              : ElevatedButton.icon(
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.green,
+                      fixedSize: Size(250.w, 40.h)),
+                  onPressed: () {
+                    whatsapp(number, name, link);
+                  },
+                  icon: LottieBuilder.asset(
+                    "assets/lottie/animation_ljzsiq8i.json",
+                    height: 35.h,
+                    width: 35.w,
+                  ),
+                  label: Text(
+                    "اشتري الان",
+                    style: TextStyle(fontSize: 18.sp),
+                  ),
+                ),
           SizedBox(
             height: 10.h,
           )
@@ -107,6 +113,10 @@ whatsapp(String number, String name, String link) async {
     }
   } on Exception {
     EasyLoading.showError('WhatsApp is not installed.');
-    await launchUrl(url);
+    try {
+      await launchUrl(url);
+    } on Exception {
+      EasyLoading.showError("can't launch ");
+    }
   }
 }

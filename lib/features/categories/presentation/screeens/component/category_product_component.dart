@@ -45,7 +45,7 @@ class CategoryProductComponent extends StatelessWidget {
                     physics: const NeverScrollableScrollPhysics(),
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2, childAspectRatio: 0.62),
+                            crossAxisCount: 2, childAspectRatio: 0.6),
                     itemCount: state.categoryProducts.length,
                     shrinkWrap: true,
                     itemBuilder: (BuildContext context, int index) {
