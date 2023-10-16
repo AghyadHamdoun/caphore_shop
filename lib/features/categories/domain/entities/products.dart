@@ -81,9 +81,11 @@ class Images extends Equatable {
 
 class Meta extends Equatable {
   final dynamic value;
+  final dynamic key;
 
   const Meta({
     required this.value,
+    required this.key,
   });
 
   @override

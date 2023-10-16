@@ -21,15 +21,15 @@ class ControlPanel extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              // Lottie.asset('assets/lottie/controlpanel.json',
-              //     fit: BoxFit.cover, height: 250.h),
-              Container(
-                  height: 200,
-                  width: double.infinity,
-                  decoration: BoxDecoration(color: AppColor.primaryColor),
-                  child: Image.asset(
-                    'assets/images/TT copy.png',fit: BoxFit.cover,
-                  )),
+              Lottie.asset('assets/lottie/controlpanel.json',
+                  fit: BoxFit.cover, height: 250.h),
+              // Container(
+              //     height: 200,
+              //     width: double.infinity,
+              //     decoration: BoxDecoration(color: AppColor.primaryColor),
+              //     child: Image.asset(
+              //       'assets/images/TT copy.png',fit: BoxFit.cover,
+              //     )),
               SizedBox(
                 height: 10.h,
               ),
