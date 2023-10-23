@@ -14,6 +14,7 @@ class ProductBottom extends StatelessWidget {
   final String orginalPrice;
   final String number;
   final String storename;
+  final String hide_wa_button;
   const ProductBottom(
       {super.key,
       required this.price,
@@ -21,7 +22,8 @@ class ProductBottom extends StatelessWidget {
       required this.number,
       required this.storename,
       required this.name,
-      required this.link});
+      required this.link,
+      required this.hide_wa_button});
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +69,7 @@ class ProductBottom extends StatelessWidget {
           SizedBox(
             height: 25.h,
           ),
-          (number.isEmpty)
+          (hide_wa_button == "yes")
               ? const SizedBox(
                   height: 0,
                   width: 0,

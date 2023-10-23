@@ -14,6 +14,7 @@ class networkcontrol extends GetxController {
   void onConnectivityupdate(ConnectivityResult connectivityResult) {
     if (connectivityResult == ConnectivityResult.none) {
       Get.rawSnackbar(
+        snackPosition: SnackPosition.TOP,
         messageText: const Text(
           "الرجاء الاتصال بالانترنت",
           style: TextStyle(
@@ -34,6 +35,7 @@ class networkcontrol extends GetxController {
         if (connectivityResult == ConnectivityResult.mobile ||
             connectivityResult == ConnectivityResult.wifi) {
           Get.rawSnackbar(
+            snackPosition: SnackPosition.TOP,
             messageText: const Text(
               "تم استعادة الاتصال بالانترنت",
               style: TextStyle(

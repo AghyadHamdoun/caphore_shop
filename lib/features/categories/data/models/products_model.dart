@@ -62,8 +62,9 @@ class ImagesModel extends Images {
 class MetaModel extends Meta {
   MetaModel({
     required super.value,
+    required super.key,
   });
 
   factory MetaModel.fromJson(Map<String, dynamic> json) =>
-      MetaModel(value: json['value']);
+      MetaModel(value: json['value'], key: json['key']);
 }

@@ -34,23 +34,25 @@ class SubCategoriesComponent extends StatelessWidget {
                       return InkWell(
                           onTap: () {
                             Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => SubSubCategories(
-                                          event: GetCategoryProductsEvent(
-                                              pageNum: 1,
-                                              categoryId: state
-                                                  .categoriesByParent[index].id,
-                                              perPage: 100,
-                                              lastProducts: []),
-                                          categoryName: state
-                                              .categoriesByParent[index].name,
-                                          categoryId: state
-                                              .categoriesByParent[index].id,
-                                          subEvent: GetCategoriesByChildEvent(
-                                              parent: state
-                                                  .categoriesByParent[index].id),
-                                        )));
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SubSubCategories(
+                                  event: GetCategoryProductsEvent(
+                                      pageNum: 1,
+                                      categoryId:
+                                          state.categoriesByParent[index].id,
+                                      perPage: 100,
+                                      lastProducts: []),
+                                  categoryName:
+                                      state.categoriesByParent[index].name,
+                                  categoryId:
+                                      state.categoriesByParent[index].id,
+                                  subEvent: GetCategoriesByChildEvent(
+                                      parent:
+                                          state.categoriesByParent[index].id),
+                                ),
+                              ),
+                            );
                           },
                           child: SalesAvatar(
                               name: state.categoriesByParent[index].name,

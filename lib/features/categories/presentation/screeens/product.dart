@@ -21,10 +21,14 @@ class ProductScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var nameAndNumber = [];
+    String hide_wa_button = "no";
     int j = 0;
     Size size = MediaQuery.of(context).size;
-    while (nameAndNumber.length < 2 && j <= (product.meta_data.length) - 1) {
-      if (product.meta_data[j].value is String) {
+    while (j <= (product.meta_data.length) - 1) {
+      if (product.meta_data[j].key == "_hide_wa_button") {
+        hide_wa_button = product.meta_data[j].value;
+      }
+      if (product.meta_data[j].key =="_wa_order_phone_number") {
         nameAndNumber = product.meta_data[j].value.split(';');
       }
       j++;
@@ -32,7 +36,7 @@ class ProductScreen extends StatelessWidget {
     if (nameAndNumber.length < 2) {
       nameAndNumber = ['caphore', '963955942519'];
     }
-
+print(nameAndNumber);
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
@@ -50,6 +54,7 @@ class ProductScreen extends StatelessWidget {
           ),
         ),
         bottomNavigationBar: ProductBottom(
+          hide_wa_button: hide_wa_button,
           name: product.name,
           link: product.permalink,
           storename: nameAndNumber[0],
@@ -96,9 +101,22 @@ class ProductScreen extends StatelessWidget {
                   : Padding(
                       padding:
                           EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
-                      child: Text(
-                        "الوصف:",
-                        style: TextStyle(fontSize: 20.sp, color: Colors.black),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "الوصف:",
+                            style:
+                                TextStyle(fontSize: 20.sp, color: Colors.black),
+                          ),
+                          Text(
+                            nameAndNumber[0],
+                            style: TextStyle(
+                                color: AppColor.accentColor,
+                                fontSize: 20.sp,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
                       ),
                     ),
               Padding(

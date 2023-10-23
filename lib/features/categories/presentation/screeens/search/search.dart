@@ -45,7 +45,8 @@ class Search extends StatelessWidget {
                             borderRadius: BorderRadius.circular(20),
                           ),
                           hintText: 'اضغط هنا للبحث ..',
-                          hintStyle: const TextStyle(color: AppColor.accentColor),
+                          hintStyle:
+                              const TextStyle(color: AppColor.accentColor),
                           filled: true,
                           fillColor: AppColor.primaryColor,
                           suffixIcon: InkWell(
@@ -62,13 +63,14 @@ class Search extends StatelessWidget {
                             ),
                           ),
                           border: OutlineInputBorder(
-                            borderSide: BorderSide(color: AppColor.accentColor),
+                            borderSide:
+                                const BorderSide(color: AppColor.accentColor),
                             borderRadius: BorderRadius.circular(20),
                           ),
                         ),
                       ),
                     ),
-                     SizedBox(
+                    SizedBox(
                       child: Text(
                         " ${state.searchProducts.length} :نتائج البحث",
                         style: TextStyle(fontSize: 20.sp),
@@ -77,71 +79,86 @@ class Search extends StatelessWidget {
                     const SizedBox(
                       height: 10,
                     ),
-                    Builder(builder: (context) {
-                      switch (state.searchProductsState) {
-                        case RequestState.loading:
-                          return Center(
-                            child: Container(
-                              alignment: Alignment.center,
-                              child: Center(
-                                child: Lottie.asset(
-                                  'assets/lottie/shoping.json',
-                                  fit: BoxFit.cover,
-                                  height: 250.h,
-                                ),
+                    (controller.value.text.isEmpty)
+                        ? Container(
+                            child: Center(
+                              child: Lottie.asset(
+                                'assets/lottie/laith search.json',
+                                fit: BoxFit.cover,
+                                height: 250.h,
                               ),
                             ),
-                          );
-                        case RequestState.loaded:
-                          return Expanded(
-                            child: GridView.builder(
-                              gridDelegate:
-                                  SliverGridDelegateWithFixedCrossAxisCount(
-                                      crossAxisCount: 2,
-                                      childAspectRatio: 0.62),
-                              itemCount: state.searchProducts.length,
-                              itemBuilder: (BuildContext context, int index) {
-                                return Padding(
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: 3.w, vertical: 3.h),
-                                  child: InkWell(
-                                    onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) => ProductScreen(
-                                                    product: state
-                                                        .searchProducts[index],
-                                                    products:
-                                                        state.searchProducts,
-                                                  )));
-                                    },
-                                    child: ProductCard(
-                                      productname:
-                                          state.searchProducts[index].name,
-                                      price: state.searchProducts[index].price,
-                                      orginalprice: state
-                                          .searchProducts[index].regularPrice,
-                                      image: state.searchProducts[index].images
-                                              .isNotEmpty
-                                          ? state
-                                              .searchProducts[index].images[0].src
-                                          : '',
+                          )
+                        : Builder(builder: (context) {
+                            switch (state.searchProductsState) {
+                              case RequestState.loading:
+                                return Center(
+                                  child: Container(
+                                    alignment: Alignment.center,
+                                    child: Center(
+                                      child: Lottie.asset(
+                                        'assets/lottie/shoping.json',
+                                        fit: BoxFit.cover,
+                                        height: 250.h,
+                                      ),
                                     ),
                                   ),
                                 );
-                              },
-                            ),
-                          );
-                        case RequestState.error:
-                          return SizedBox(
-                            height: 280.h,
-                            child: Center(
-                              child: Text(state.searchProductsMessage),
-                            ),
-                          );
-                      }
-                    }),
+                              case RequestState.loaded:
+                                return Expanded(
+                                  child: GridView.builder(
+                                    gridDelegate:
+                                        SliverGridDelegateWithFixedCrossAxisCount(
+                                            crossAxisCount: 2,
+                                            childAspectRatio: 0.62),
+                                    itemCount: state.searchProducts.length,
+                                    itemBuilder:
+                                        (BuildContext context, int index) {
+                                      return Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 3.w, vertical: 3.h),
+                                        child: InkWell(
+                                          onTap: () {
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        ProductScreen(
+                                                          product: state
+                                                                  .searchProducts[
+                                                              index],
+                                                          products: state
+                                                              .searchProducts,
+                                                        )));
+                                          },
+                                          child: ProductCard(
+                                            productname: state
+                                                .searchProducts[index].name,
+                                            price: state
+                                                .searchProducts[index].price,
+                                            orginalprice: state
+                                                .searchProducts[index]
+                                                .regularPrice,
+                                            image: state.searchProducts[index]
+                                                    .images.isNotEmpty
+                                                ? state.searchProducts[index]
+                                                    .images[0].src
+                                                : '',
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                );
+                              case RequestState.error:
+                                return SizedBox(
+                                  height: 280.h,
+                                  child: Center(
+                                    child: Text(state.searchProductsMessage),
+                                  ),
+                                );
+                            }
+                          }),
                   ],
                 ),
               ),
