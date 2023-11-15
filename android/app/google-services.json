@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "489622145041",
+    "project_id": "caphore-mall",
+    "storage_bucket": "caphore-mall.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:489622145041:android:6463aa6212910012de49b0",
+        "android_client_info": {
+          "package_name": "sy.caphore"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAt7B_v14mUApR68sbQlErl2ah7evh0DE8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

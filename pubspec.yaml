@@ -45,7 +45,7 @@ dependencies:
   animate_do: ^2.1.0
   cached_network_image: ^3.2.1
   carousel_slider: ^4.1.1
-  google_fonts: ^5.1.0
+  google_fonts: any
   shimmer: ^2.0.0
   flutter_screenutil: ^5.7.0
 #  flutter_wp_woocommerce: ^1.0.0
@@ -61,8 +61,13 @@ dependencies:
   connectivity_plus: ^5.0.0
   get: ^4.6.6
   internet_connection_checker: ^1.0.0+1
-  awesome_dialog: ^3.0.2
+  firebase_core: ^2.22.0
+  firebase_messaging: ^14.7.4
 
+#  signalr_core: ^1.1.1
+  awesome_notifications_core: any
+  awesome_notifications: ^0.8.2
+#  background_fetch: ^1.2.1
 
 
 dev_dependencies:
