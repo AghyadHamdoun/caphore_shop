@@ -13,6 +13,9 @@ class FirebaseApi {
     final fCMToken = await _firebaseMessaging.getToken();
     print('Token: $fCMToken');
     FirebaseMessaging.onBackgroundMessage(handleBackgroundMessage);
+    FirebaseMessaging messaging = FirebaseMessaging.instance;
+    await messaging.subscribeToTopic('All');
+    print('Subscribed to channel_1');
     FirebaseMessaging.onMessage.listen((event) {
       final notification = event.notification;
       if (notification == null) {
