@@ -36,7 +36,7 @@ class ProductScreen extends StatelessWidget {
     if (nameAndNumber.length < 2) {
       nameAndNumber = ['caphore', '963955942519'];
     }
-print(nameAndNumber);
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
