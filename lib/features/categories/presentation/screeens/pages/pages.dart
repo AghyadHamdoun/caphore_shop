@@ -1,4 +1,3 @@
-import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:caphore/core/services/services_locator.dart';
 import 'package:caphore/core/utils/app_color.dart';
 import 'package:caphore/features/attributes/presentation/controller/attributes_bloc.dart';
@@ -13,11 +12,9 @@ import 'package:caphore/features/categories/presentation/screeens/pages/controlp
 import 'package:caphore/features/categories/presentation/screeens/pages/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 
 class MyPages extends StatefulWidget {
   const MyPages({Key? key}) : super(key: key);
