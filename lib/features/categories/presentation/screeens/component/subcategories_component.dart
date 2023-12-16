@@ -33,6 +33,7 @@ class SubCategoriesComponent extends StatelessWidget {
                     itemBuilder: (BuildContext context, int index) {
                       return InkWell(
                           onTap: () {
+                            print(state.categoriesByParent[index].id);
                             Navigator.push(
                               context,
                               MaterialPageRoute(

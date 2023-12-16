@@ -1,9 +1,11 @@
 class ApiConstance {
   static const String baseUrl = "https://caphore.sy/wp-json/wc/v3";
   static const String consumer_key =
-      "ck_14730c91a9b1e42586366bf93d1e6aa265ded79c";
+      //"ck_91cf0556bc93906395a13037c2a179392cb49b58";
+  "ck_14730c91a9b1e42586366bf93d1e6aa265ded79c";
   static const String consumer_secret =
-      "cs_278bea89d03a21587e5d5587c935af28ff24680d";
+      //"cs_3fe564c516e38ed51dcd7caef07c95baadc4f294";
+  "cs_278bea89d03a21587e5d5587c935af28ff24680d";
 
   static String allCategoryProductsPath(int id, int page, int perPage) =>
       "$baseUrl/products?category=$id&consumer_key=$consumer_key&consumer_secret=$consumer_secret&page=$page&per_page=$perPage";
