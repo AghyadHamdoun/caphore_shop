@@ -27,6 +27,8 @@ class CategoriesComponent extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 return InkWell(
                     onTap: () {
+                      print(state.allCategories[index].id);
+                      print(state.allCategories[index].name);
                       Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -41,8 +43,7 @@ class CategoriesComponent extends StatelessWidget {
                                         state.allCategories[index].name,
                                     subEvent: GetCategoriesByParentEvent(
                                         parent: state.allCategories[index].id),
-                                categoryId:
-                                  state.allCategories[index].id,
+                                    categoryId: state.allCategories[index].id,
                                   )));
                     },
                     child: SalesAvatar(

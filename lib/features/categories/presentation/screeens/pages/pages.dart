@@ -1,3 +1,4 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:caphore/core/services/services_locator.dart';
 import 'package:caphore/core/utils/app_color.dart';
 import 'package:caphore/features/attributes/presentation/controller/attributes_bloc.dart';
@@ -5,15 +6,18 @@ import 'package:caphore/features/attributes/presentation/controller/attributes_e
 import 'package:caphore/features/categories/presentation/controller/categories_bloc.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_event.dart';
 import 'package:caphore/features/categories/presentation/screeens/pages/brands.dart';
+import 'package:caphore/features/categories/presentation/screeens/pages/goldenmall.dart';
 import 'package:caphore/features/categories/presentation/screeens/pages/restaurants.dart';
 import 'package:caphore/features/categories/presentation/screeens/pages/stores.dart';
 import 'package:caphore/features/categories/presentation/screeens/pages/controlpanel.dart';
 import 'package:caphore/features/categories/presentation/screeens/pages/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 
 class MyPages extends StatefulWidget {
   const MyPages({Key? key}) : super(key: key);
@@ -23,7 +27,7 @@ class MyPages extends StatefulWidget {
 }
 
 class _MyPagesState extends State<MyPages> with AutomaticKeepAliveClientMixin {
-  late int select = 1;
+  late int select = 2;
   late PageController controller;
   bool hasnet = true;
   var categoryBloc = sl<CategoriesBloc>();
@@ -31,8 +35,9 @@ class _MyPagesState extends State<MyPages> with AutomaticKeepAliveClientMixin {
 
   @override
   void initState() {
-    controller = PageController(initialPage: select);
     super.initState();
+
+    controller = PageController(initialPage: select);
   }
 
   @override
@@ -52,10 +57,10 @@ class _MyPagesState extends State<MyPages> with AutomaticKeepAliveClientMixin {
         child: SafeArea(
           child: WillPopScope(
             onWillPop: () async {
-                if (select != 1) {
+              if (select != 2) {
                 controller.jumpToPage(1);
                 setState(() {
-                  select = 1;
+                  select = 2;
                 });
                 return false;
               } else {
@@ -68,6 +73,7 @@ class _MyPagesState extends State<MyPages> with AutomaticKeepAliveClientMixin {
                 controller: controller,
                 physics: const NeverScrollableScrollPhysics(),
                 children: [
+                  Goldenmall(),
                   Brands(),
                   Home(),
                   Stores(),
@@ -77,6 +83,14 @@ class _MyPagesState extends State<MyPages> with AutomaticKeepAliveClientMixin {
               ),
               bottomNavigationBar: BottomNavigationBar(
                 items: [
+                  BottomNavigationBarItem(
+                    icon: Image.asset(
+                      'assets/images/logo1.png',
+                      height: 30.h,
+                      width: 25.w,
+                    ),
+                    label: "غولدن مول",
+                  ),
                   BottomNavigationBarItem(
                     icon: SvgPicture.asset(
                       'assets/images/diamond-svgrepo-com.svg',

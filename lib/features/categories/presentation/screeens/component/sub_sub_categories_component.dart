@@ -14,8 +14,8 @@ class SubSubCategoriesComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return BlocBuilder<CategoriesBloc, CategoriesState>(
-        buildWhen: (previous, current) => (previous.categoriesByChildState !=
-            current.categoriesByChildState),
+        buildWhen: (previous, current) =>
+            (previous.categoriesByChildState != current.categoriesByChildState),
         builder: (context, state) {
           return (state.categoriesByChild.isEmpty)
               ? const SizedBox(
@@ -33,26 +33,26 @@ class SubSubCategoriesComponent extends StatelessWidget {
                     itemBuilder: (BuildContext context, int index) {
                       return InkWell(
                           onTap: () {
+                            print(state.categoriesByChild[index].id);
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => CategoryProducts(
                                           event: GetCategoryProductsEvent(
                                               pageNum: 1,
-                                              categoryId:
-                                                  state.categoriesByChild[index].id,
+                                              categoryId: state
+                                                  .categoriesByChild[index].id,
                                               perPage: 100,
                                               lastProducts: []),
                                           categoryName: state
                                               .categoriesByChild[index].name,
-                                          categoryId: state
-                                              .categoriesByChild[index].id,
+                                          categoryId:
+                                              state.categoriesByChild[index].id,
                                         )));
                           },
                           child: SalesAvatar(
                               name: state.categoriesByChild[index].name,
-                              image:
-                                  state.categoriesByChild[index].image.src));
+                              image: state.categoriesByChild[index].image.src));
                     },
                   ),
                 );
