@@ -50,32 +50,23 @@ class Brands extends StatelessWidget {
                 );
               case RequestState.loaded:
                 return Scaffold(
-                    body: RefreshIndicator(
-                  color: AppColor.accentColor,
-                  backgroundColor: AppColor.primaryColor,
-                  key: _refreshIndicatorKey,
-                  onRefresh: () async {
-                    bloc.add(const GetBrandTermsEvent(
-                        pageNum: 1, perPage: 100, attributeId: 7, isRefresh: true));
-                  },
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(
-                            top: 3.h, left: 5.w, right: 5.w, bottom: 0),
-                        child: const maintextform(),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                            top: 10.h, left: 10.w, right: 10.w, bottom: 0),
-                        child: const AttributeName(name: "الماركات"),
-                      ),
-                      const Expanded(
-                        child: BrandsComponent(),
-                      ),
-                    ],
-                  ),
-                ));
+                    body: Column(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(
+                              top: 3.h, left: 5.w, right: 5.w, bottom: 0),
+                          child: const maintextform(),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(
+                              top: 10.h, left: 10.w, right: 10.w, bottom: 0),
+                          child: const AttributeName(name: "الماركات"),
+                        ),
+                        const Expanded(
+                          child: BrandsComponent(),
+                        ),
+                      ],
+                    ));
               case RequestState.error:
                 return SizedBox(
                   height: 280.h,

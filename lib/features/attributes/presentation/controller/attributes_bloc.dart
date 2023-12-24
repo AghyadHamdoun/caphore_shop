@@ -32,7 +32,7 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
           //state
             brandsTerms: myTerms,
             brandsTermsState: RequestState.loaded));
-      } else {
+      }
         final result = await getTermsUseCase(TermsParameters(
             id: event.attributeId,
             page: event.pageNum,
@@ -49,7 +49,7 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
               brandsTerms: r,
               brandsTermsState: RequestState.loaded));
         });
-      }
+
     });
     //end
     //

@@ -19,7 +19,7 @@ class CategoryProductComponent extends StatelessWidget {
       {Key? key, required this.event, required this.categoryId})
       : super(key: key);
 
-  int pageNumber = 1;
+  int pageNumber = 2;
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +78,7 @@ class CategoryProductComponent extends StatelessWidget {
                         bloc.add(GetCategoryProductsEvent(
                             pageNum: ++pageNumber,
                             categoryId: categoryId,
-                            perPage: 10,
+                            perPage: 26,
                             lastProducts: state.categoryProducts));
                       },
                       child: Container(
