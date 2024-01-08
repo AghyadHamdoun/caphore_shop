@@ -61,8 +61,8 @@ dependencies:
   connectivity_plus: ^5.0.0
   get: ^4.6.6
   internet_connection_checker: ^1.0.0+1
-  firebase_core: ^2.22.0
-  firebase_messaging: ^14.7.4
+  firebase_core: ^2.24.2
+  firebase_messaging: ^14.7.9
 
 #  signalr_core: ^1.1.1
   awesome_notifications_core: any
