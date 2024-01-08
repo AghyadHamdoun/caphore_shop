@@ -15,14 +15,20 @@ import 'package:lottie/lottie.dart';
 
 import '../widgets/attrebutename.dart';
 
-class Restaurants extends StatelessWidget {
-  final GlobalKey<RefreshIndicatorState> _refreshIndicatorKey =
-      GlobalKey<RefreshIndicatorState>();
+class Restaurants extends StatefulWidget  {
 
-  Restaurants({super.key});
+ const Restaurants({super.key});
+
+  @override
+  State<Restaurants> createState() => _RestaurantsState();
+}
+
+class _RestaurantsState extends State<Restaurants> with AutomaticKeepAliveClientMixin {
+
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     var bloc = sl<AttributesBloc>();
     return BlocProvider(
       create: (context) => bloc..addAllRestaurants(isRefresh: false),
@@ -106,4 +112,8 @@ class Restaurants extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 }

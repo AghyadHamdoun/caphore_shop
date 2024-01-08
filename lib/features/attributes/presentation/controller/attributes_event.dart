@@ -17,8 +17,7 @@ class GetBrandTermsEvent extends AttributesEvent {
       {required this.pageNum,
       required this.attributeId,
       required this.perPage,
-        required this.isRefresh
-      });
+      required this.isRefresh});
 }
 
 class GetClothingTermsEvent extends AttributesEvent {
@@ -151,6 +150,32 @@ class GetToysTermsEvent extends AttributesEvent {
       required this.isRefresh});
 }
 
+class GetlibraryTermsEvent extends AttributesEvent {
+  final int pageNum;
+  final int attributeId;
+  final int perPage;
+  final bool isRefresh;
+
+  const GetlibraryTermsEvent(
+      {required this.pageNum,
+      required this.attributeId,
+      required this.perPage,
+      required this.isRefresh});
+}
+
+class GetmassTermsEvent extends AttributesEvent {
+  final int pageNum;
+  final int attributeId;
+  final int perPage;
+  final bool isRefresh;
+
+  const GetmassTermsEvent(
+      {required this.pageNum,
+      required this.attributeId,
+      required this.perPage,
+      required this.isRefresh});
+}
+
 class GetFastFoodTermsEvent extends AttributesEvent {
   final int pageNum;
   final int attributeId;
@@ -208,12 +233,11 @@ class GetBannersTermsEvent extends AttributesEvent {
   final int attributeId;
   final int perPage;
 
-
-  const GetBannersTermsEvent(
-      {required this.pageNum,
-      required this.attributeId,
-      required this.perPage,
-      });
+  const GetBannersTermsEvent({
+    required this.pageNum,
+    required this.attributeId,
+    required this.perPage,
+  });
 }
 
 class GetTermProductsEvent extends AttributesEvent {
@@ -222,13 +246,12 @@ class GetTermProductsEvent extends AttributesEvent {
   final int pageNum;
   final int perPage;
 
-
-  const GetTermProductsEvent(
-      {required this.attribute,
-      required this.termId,
-      required this.pageNum,
-      required this.perPage,
-     });
+  const GetTermProductsEvent({
+    required this.attribute,
+    required this.termId,
+    required this.pageNum,
+    required this.perPage,
+  });
 }
 
 class CurrentSliderEvent extends AttributesEvent {

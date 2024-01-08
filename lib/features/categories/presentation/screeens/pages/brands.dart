@@ -13,14 +13,20 @@ import 'package:lottie/lottie.dart';
 import '../../../../attributes/presentation/controller/attributes_event.dart';
 import '../../../../attributes/presentation/screens/components/attributes/brands_component.dart';
 
-class Brands extends StatelessWidget {
-  Brands({super.key});
+class Brands extends StatefulWidget  {
+ const Brands({super.key});
 
+  @override
+  State<Brands> createState() => _BrandsState();
+}
+
+class _BrandsState extends State<Brands> with AutomaticKeepAliveClientMixin {
   final GlobalKey<RefreshIndicatorState> _refreshIndicatorKey =
       GlobalKey<RefreshIndicatorState>();
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     var bloc = sl<AttributesBloc>();
     return BlocProvider(
         create: (context) => bloc
@@ -78,4 +84,8 @@ class Brands extends StatelessWidget {
           },
         ));
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 }

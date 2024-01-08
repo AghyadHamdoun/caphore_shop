@@ -6,6 +6,7 @@ import 'package:caphore/features/attributes/presentation/screens/components/attr
 import 'package:caphore/features/attributes/presentation/screens/components/attributes/handmade_component.dart';
 import 'package:caphore/features/attributes/presentation/screens/components/attributes/houseandkitchenstors_component.dart';
 import 'package:caphore/features/attributes/presentation/screens/components/attributes/makeup_component.dart';
+import 'package:caphore/features/attributes/presentation/screens/components/attributes/mass_component.dart';
 import 'package:caphore/features/attributes/presentation/screens/components/attributes/perfumesstors_component.dart';
 import 'package:caphore/features/attributes/presentation/screens/components/attributes/petsstors_component.dart';
 import 'package:caphore/features/attributes/presentation/screens/components/attributes/shoesandbagsstors_component.dart';
@@ -21,14 +22,19 @@ import '../../../../../core/services/services_locator.dart';
 import '../../../../attributes/presentation/controller/attributes_bloc.dart';
 import '../widgets/attrebutename.dart';
 
-class Stores extends StatelessWidget {
+class Stores extends StatefulWidget {
   Stores({super.key});
 
-  final GlobalKey<RefreshIndicatorState> _refreshIndicatorKey =
-      GlobalKey<RefreshIndicatorState>();
+  @override
+  State<Stores> createState() => _StoresState();
+}
+
+class _StoresState extends State<Stores> with AutomaticKeepAliveClientMixin {
+
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     var bloc = sl<AttributesBloc>();
     return BlocProvider(
       create: (context) => bloc..addAllStores(isRefresh: false),
@@ -74,33 +80,24 @@ class Stores extends StatelessWidget {
                           //
                           Padding(
                             padding: EdgeInsets.only(
-                                top: 10.h,
-                                left: 10.w,
-                                right: 10.w,
-                                bottom: 0),
-                            child: const AttributeName(name: "الالبسة"),
+                                top: 10.h, left: 10.w, right: 10.w, bottom: 0),
+                            child: const AttributeName(name: "الألبسة"),
                           ),
                           const ClothingStorsComponent(),
 
                           //
                           Padding(
                             padding: EdgeInsets.only(
-                                top: 10.h,
-                                left: 10.w,
-                                right: 10.w,
-                                bottom: 0),
+                                top: 10.h, left: 10.w, right: 10.w, bottom: 0),
                             child:
-                                const AttributeName(name: "الاحذية والحقائب"),
+                                const AttributeName(name: "الأحذية والحقائب"),
                           ),
                           const ShoesAndBagsStorsComponent(),
 
                           //
                           Padding(
                             padding: EdgeInsets.only(
-                                top: 10.h,
-                                left: 10.w,
-                                right: 10.w,
-                                bottom: 0),
+                                top: 10.h, left: 10.w, right: 10.w, bottom: 0),
                             child: const AttributeName(
                                 name: " الكترونيات و كهربائيات"),
                           ),
@@ -109,10 +106,7 @@ class Stores extends StatelessWidget {
                           //
                           Padding(
                             padding: EdgeInsets.only(
-                                top: 10.h,
-                                left: 10.w,
-                                right: 10.w,
-                                bottom: 0),
+                                top: 10.h, left: 10.w, right: 10.w, bottom: 0),
                             child: const AttributeName(
                                 name: "الخردوات و مستلزمات المنزل"),
                           ),
@@ -121,10 +115,7 @@ class Stores extends StatelessWidget {
                           //
                           Padding(
                             padding: EdgeInsets.only(
-                                top: 10.h,
-                                left: 10.w,
-                                right: 10.w,
-                                bottom: 0),
+                                top: 10.h, left: 10.w, right: 10.w, bottom: 0),
                             child: const AttributeName(
                                 name: "المكياج والعناية بالبشرة"),
                           ),
@@ -133,22 +124,16 @@ class Stores extends StatelessWidget {
                           //
                           Padding(
                             padding: EdgeInsets.only(
-                                top: 10.h,
-                                left: 10.w,
-                                right: 10.w,
-                                bottom: 0),
-                            child: const AttributeName(
-                                name: " الساعات والنظارات"),
+                                top: 10.h, left: 10.w, right: 10.w, bottom: 0),
+                            child:
+                                const AttributeName(name: " الساعات والنظارات"),
                           ),
                           const WatchesAndAccessoriesStorsComponent(),
 
                           //
                           Padding(
                             padding: EdgeInsets.only(
-                                top: 10.h,
-                                left: 10.w,
-                                right: 10.w,
-                                bottom: 0),
+                                top: 10.h, left: 10.w, right: 10.w, bottom: 0),
                             child: const AttributeName(name: "هدايا وعطورات"),
                           ),
                           const PerfumesStorsComponent(),
@@ -156,10 +141,7 @@ class Stores extends StatelessWidget {
                           //
                           Padding(
                             padding: EdgeInsets.only(
-                                top: 10.h,
-                                left: 10.w,
-                                right: 10.w,
-                                bottom: 0),
+                                top: 10.h, left: 10.w, right: 10.w, bottom: 0),
                             child:
                                 const AttributeName(name: "الصناعات اليدوية"),
                           ),
@@ -168,25 +150,25 @@ class Stores extends StatelessWidget {
                           //
                           Padding(
                             padding: EdgeInsets.only(
-                                top: 10.h,
-                                left: 10.w,
-                                right: 10.w,
-                                bottom: 0),
-                            child:
-                                const AttributeName(name: "رعاية الحيوانات"),
+                                top: 10.h, left: 10.w, right: 10.w, bottom: 0),
+                            child: const AttributeName(name: "رعاية الحيوانات"),
                           ),
                           const PetsStorsComponent(),
 
                           //
                           Padding(
                             padding: EdgeInsets.only(
-                                top: 10.h,
-                                left: 10.w,
-                                right: 10.w,
-                                bottom: 0),
-                            child: const AttributeName(name: "ألعاب الأطفال"),
+                                top: 10.h, left: 10.w, right: 10.w, bottom: 0),
+                            child: const AttributeName(
+                                name: "القرطاسية وألعاب الأطفال"),
                           ),
                           const ToysStorsComponent(),
+                          Padding(
+                            padding: EdgeInsets.only(
+                                top: 10.h, left: 10.w, right: 10.w, bottom: 0),
+                            child: const AttributeName(name: "الجملة"),
+                          ),
+                          const MassComponent()
                         ],
                       ),
                     ),
@@ -205,4 +187,8 @@ class Stores extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 }

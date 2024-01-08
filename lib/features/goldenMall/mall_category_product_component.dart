@@ -6,16 +6,17 @@ import 'package:caphore/features/categories/presentation/controller/categories_e
 import 'package:caphore/features/categories/presentation/controller/categories_state.dart';
 import 'package:caphore/features/categories/presentation/screeens/product.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/productcard.dart';
+import 'package:caphore/features/goldenMall/mallproductcard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 
-class CategoryProductComponent extends StatelessWidget {
+class mallCategoryProductComponent extends StatelessWidget {
   final CategoriesEvent event;
   final int categoryId;
 
-  CategoryProductComponent(
+  mallCategoryProductComponent(
       {Key? key, required this.event, required this.categoryId})
       : super(key: key);
 
@@ -60,14 +61,8 @@ class CategoryProductComponent extends StatelessWidget {
                                         products: state.categoryProducts,
                                       )));
                         },
-                        child: ProductCard(
-                          productname: state.categoryProducts[index].name,
-                          price: state.categoryProducts[index].price,
-                          orginalprice:
-                              state.categoryProducts[index].regularPrice,
-                          image: state.categoryProducts[index].images.isNotEmpty
-                              ? state.categoryProducts[index].images[0].src
-                              : '',
+                        child: MallProductCard(
+                          product: state.categoryProducts[index],
                         ),
                       );
                     },

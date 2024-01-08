@@ -83,7 +83,7 @@ class Search extends StatelessWidget {
                         ? Container(
                             child: Center(
                               child: Lottie.asset(
-                                'assets/lottie/laith search.json',
+                                'assets/lottie/searching.json',
                                 fit: BoxFit.cover,
                                 height: 250.h,
                               ),
@@ -97,7 +97,7 @@ class Search extends StatelessWidget {
                                     alignment: Alignment.center,
                                     child: Center(
                                       child: Lottie.asset(
-                                        'assets/lottie/shoping.json',
+                                        'assets/lottie/searching.json',
                                         fit: BoxFit.cover,
                                         height: 250.h,
                                       ),

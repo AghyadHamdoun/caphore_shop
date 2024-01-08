@@ -140,7 +140,10 @@ class CategoriesState extends Equatable {
           images: [],
           meta_data: [],
           nameAndNumber: '',
-          nameAndNumber2: ''),
+          nameAndNumber2: '',
+        amount: 1,
+        total: 0
+      ),
       this.productState = RequestState.loading,
       this.productMessage = '',
       //

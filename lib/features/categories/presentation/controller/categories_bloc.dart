@@ -70,6 +70,10 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
               (l) => emit(state.copyWith(
               categoriesByParentMessage: l.message,
               categoriesByParentState: RequestState.error)), (r) {
+                for(var a in r){
+                  print(a.description + a.name);
+                }
+                r.sort((a, b) =>a.description.compareTo(b.description));
         emit(state.copyWith(
             categoriesByParentState: RequestState.loaded,
             categoriesByParent: r));
@@ -409,28 +413,27 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     });
   }
   void addAllProducts(){
-
     add(const GetMenClothingProductsEvent(
-    pageNum: 1, categoryId: 44, perPage: 10));
+    pageNum: 1, categoryId: 44, perPage: 20));
     add(const GetWomenClothingProductsEvent(
-    pageNum: 1, categoryId: 42, perPage: 10));
+    pageNum: 1, categoryId: 42, perPage: 20));
     add(const GetChildrenClothingProductsEvent(
-    pageNum: 1, categoryId: 61, perPage: 10));
+    pageNum: 1, categoryId: 61, perPage: 20));
     add(const GetFoodProductsEvent(
-    pageNum: 1, categoryId: 195, perPage: 10));
+    pageNum: 1, categoryId: 195, perPage: 20));
     add(const GetShoesAndBagsProductsEvent(
-    pageNum: 1, categoryId: 102, perPage: 10));
+    pageNum: 1, categoryId: 102, perPage: 20));
     add(const GetWatchesAndAccessoriesProductsEvent(
-    pageNum: 1, categoryId: 118, perPage: 10));
+    pageNum: 1, categoryId: 118, perPage: 20));
     add(const GetMobilesProductsEvent(
-    pageNum: 1, categoryId: 123, perPage: 10));
+    pageNum: 1, categoryId: 123, perPage: 20));
     add(const GetPerfumesProductsEvent(
-    pageNum: 1, categoryId: 108, perPage: 10));
+    pageNum: 1, categoryId: 108, perPage: 20));
     add(const GetMakeUpProductsEvent(
-    pageNum: 1, categoryId: 112, perPage: 10));
+    pageNum: 1, categoryId: 112, perPage: 20));
     add(const GetPetsProductsEvent(
-    pageNum: 1, categoryId: 421, perPage: 10));
+    pageNum: 1, categoryId: 421, perPage: 20));
     add(const GetOffersProductsEvent(
-    pageNum: 1, categoryId: 644, perPage: 10));
+    pageNum: 1, categoryId: 644, perPage: 20));
   }
 }

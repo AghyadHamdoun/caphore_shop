@@ -16,6 +16,7 @@ import 'package:caphore/features/categories/presentation/controller/categories_b
 import 'package:get_it/get_it.dart';
 
 import '../../features/attributes/data/repository/attributes_repository.dart';
+import '../../features/goldenMall/bloc/golden_bloc.dart';
 
 final sl = GetIt.instance;
 
@@ -25,6 +26,8 @@ class ServicesLocator {
     sl.registerFactory(() => CategoriesBloc(sl(), sl(), sl(),sl(),sl(),sl()));
 
     sl.registerFactory(() => AttributesBloc(sl(),sl()));
+
+    sl.registerLazySingleton(() => GoldenBloc());
 
     /// Use Cases
     sl.registerLazySingleton(() => GetAllCategoriesUseCase(sl()));

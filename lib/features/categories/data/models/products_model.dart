@@ -15,7 +15,10 @@ class ProductModel extends Product {
       required super.images,
       required super.nameAndNumber,
       required super.nameAndNumber2,
-      required super.meta_data});
+      required super.meta_data,
+      required super.amount,
+      required super.total
+      });
 
   factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
       id: json['id'] ?? 0,
@@ -36,6 +39,8 @@ class ProductModel extends Product {
       nameAndNumber2: (json['meta_data'] as List).length >= 8
           ? json['meta_data'][7]['value']
           : '',
+      amount: 0,
+      total: 0,
       meta_data: List<MetaModel>.from(
           json["meta_data"].map((x) => MetaModel.fromJson(x))));
 }
