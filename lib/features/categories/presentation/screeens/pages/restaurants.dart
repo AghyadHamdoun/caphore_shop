@@ -15,14 +15,20 @@ import 'package:lottie/lottie.dart';
 
 import '../widgets/attrebutename.dart';
 
-class Restaurants extends StatelessWidget {
-  final GlobalKey<RefreshIndicatorState> _refreshIndicatorKey =
-      GlobalKey<RefreshIndicatorState>();
+class Restaurants extends StatefulWidget  {
 
-  Restaurants({super.key});
+ const Restaurants({super.key});
+
+  @override
+  State<Restaurants> createState() => _RestaurantsState();
+}
+
+class _RestaurantsState extends State<Restaurants> with AutomaticKeepAliveClientMixin {
+
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     var bloc = sl<AttributesBloc>();
     return BlocProvider(
       create: (context) => bloc..addAllRestaurants(isRefresh: false),
@@ -50,58 +56,50 @@ class Restaurants extends StatelessWidget {
               );
             case RequestState.loaded:
               return Scaffold(
-                  body: RefreshIndicator(
-                color: AppColor.accentColor,
-                backgroundColor: AppColor.primaryColor,
-                key: _refreshIndicatorKey,
-                onRefresh: () async {
-                  bloc.addAllRestaurants(isRefresh: true);
-                },
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(
-                          top: 3.h, left: 5.w, right: 5.w, bottom: 0),
-                      child: const maintextform(),
-                    ),
-                    Expanded(
-                      child: ListView(
-                        physics: const BouncingScrollPhysics(),
-                        padding: const EdgeInsets.all(0),
-                        shrinkWrap: true,
-                        scrollDirection: Axis.vertical,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(
-                                top: 10.h, left: 10.w, right: 10.w, bottom: 0),
-                            child: const AttributeName(name: "الوجبات السريعة"),
-                          ),
-                          const FastFoodResturantsComponent(),
-                          Padding(
-                            padding: EdgeInsets.only(
-                                top: 10.h, left: 10.w, right: 10.w, bottom: 0),
-                            child: const AttributeName(name: "المطبخ العربي"),
-                          ),
-                          const ArabFoodResturantsComponent(),
-                          Padding(
-                            padding: EdgeInsets.only(
-                                top: 10.h, left: 10.w, right: 10.w, bottom: 0),
-                            child: const AttributeName(name: "الحلويات"),
-                          ),
-                          const SweetsResturantsComponent(),
-                          Padding(
-                            padding: EdgeInsets.only(
-                                top: 10.h, left: 10.w, right: 10.w, bottom: 0),
-                            child: const AttributeName(
-                                name: "الضيافة والمكسرات والقهوة"),
-                          ),
-                          const CoffeeResturantsComponent(),
-                        ],
+                  body: Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(
+                            top: 3.h, left: 5.w, right: 5.w, bottom: 0),
+                        child: const maintextform(),
                       ),
-                    ),
-                  ],
-                ),
-              ));
+                      Expanded(
+                        child: ListView(
+                          physics: const BouncingScrollPhysics(),
+                          padding: const EdgeInsets.all(0),
+                          shrinkWrap: true,
+                          scrollDirection: Axis.vertical,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  top: 10.h, left: 10.w, right: 10.w, bottom: 0),
+                              child: const AttributeName(name: "الوجبات السريعة"),
+                            ),
+                            const FastFoodResturantsComponent(),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  top: 10.h, left: 10.w, right: 10.w, bottom: 0),
+                              child: const AttributeName(name: "المطبخ العربي"),
+                            ),
+                            const ArabFoodResturantsComponent(),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  top: 10.h, left: 10.w, right: 10.w, bottom: 0),
+                              child: const AttributeName(name: "الحلويات"),
+                            ),
+                            const SweetsResturantsComponent(),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  top: 10.h, left: 10.w, right: 10.w, bottom: 0),
+                              child: const AttributeName(
+                                  name: "الضيافة والمكسرات والقهوة"),
+                            ),
+                            const CoffeeResturantsComponent(),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ));
             case RequestState.error:
               return SizedBox(
                 height: 280.h,
@@ -114,4 +112,8 @@ class Restaurants extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 }

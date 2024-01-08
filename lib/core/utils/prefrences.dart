@@ -1,4 +1,5 @@
 import 'package:shared_preferences/shared_preferences.dart';
+
 class Preferences {
   static SharedPreferences? preferences;
 
@@ -14,11 +15,12 @@ class Preferences {
   static const String KEY_HandMade = 'key_HandMade';
   static const String KEY_Pets = 'key_Pets';
   static const String KEY_Toys = 'key_Toys';
+  static const String KEY_Library = 'key_Library';
+  static const String KEY_Mass = 'key_Mass';
   static const String KEY_FastFood = 'key_FastFood';
   static const String KEY_ArabFood = 'key_ArabFood';
   static const String KEY_Sweet = 'key_Sweet';
   static const String KEY_Coffee = 'key_Coffee';
-
 
   static init() async {
     preferences = await SharedPreferences.getInstance();
@@ -26,16 +28,13 @@ class Preferences {
 
   static void saveIsFirstTime(bool isFirstTime) async {
     preferences?.setBool(KEY_IS_First_Time, isFirstTime);
-
   }
 
   static bool? getIsFirstTime() {
     bool? first = preferences!.getBool(KEY_IS_First_Time);
-    if(first==null)
-    {
+    if (first == null) {
       return true;
-    }
-    else
+    } else
       return first;
   }
 
@@ -47,8 +46,7 @@ class Preferences {
     String? userName = preferences!.getString(KEY_Brands);
     if (userName == null) {
       return '';
-    }
-    else {
+    } else {
       return userName;
     }
   }
@@ -61,8 +59,7 @@ class Preferences {
     String? userName = preferences!.getString(KEY_Clothing);
     if (userName == null) {
       return '';
-    }
-    else {
+    } else {
       return userName;
     }
   }
@@ -75,8 +72,7 @@ class Preferences {
     String? userName = preferences!.getString(KEY_ShoesAndBags);
     if (userName == null) {
       return '';
-    }
-    else {
+    } else {
       return userName;
     }
   }
@@ -89,8 +85,7 @@ class Preferences {
     String? userName = preferences!.getString(KEY_ElectronicEquipment);
     if (userName == null) {
       return '';
-    }
-    else {
+    } else {
       return userName;
     }
   }
@@ -103,8 +98,7 @@ class Preferences {
     String? userName = preferences!.getString(KEY_HouseAndKitchen);
     if (userName == null) {
       return '';
-    }
-    else {
+    } else {
       return userName;
     }
   }
@@ -117,8 +111,7 @@ class Preferences {
     String? userName = preferences!.getString(KEY_MakeUp);
     if (userName == null) {
       return '';
-    }
-    else {
+    } else {
       return userName;
     }
   }
@@ -131,22 +124,20 @@ class Preferences {
     String? userName = preferences!.getString(KEY_WatchesAndAccessories);
     if (userName == null) {
       return '';
-    }
-    else {
+    } else {
       return userName;
     }
   }
 
-  static void savePerfumes (String userName) async {
-    preferences!.setString(KEY_Perfumes , userName);
+  static void savePerfumes(String userName) async {
+    preferences!.setString(KEY_Perfumes, userName);
   }
 
-  static String? getPerfumes () {
-    String? userName = preferences!.getString(KEY_Perfumes );
+  static String? getPerfumes() {
+    String? userName = preferences!.getString(KEY_Perfumes);
     if (userName == null) {
       return '';
-    }
-    else {
+    } else {
       return userName;
     }
   }
@@ -159,8 +150,7 @@ class Preferences {
     String? userName = preferences!.getString(KEY_HandMade);
     if (userName == null) {
       return '';
-    }
-    else {
+    } else {
       return userName;
     }
   }
@@ -173,8 +163,7 @@ class Preferences {
     String? userName = preferences!.getString(KEY_Pets);
     if (userName == null) {
       return '';
-    }
-    else {
+    } else {
       return userName;
     }
   }
@@ -187,8 +176,33 @@ class Preferences {
     String? userName = preferences!.getString(KEY_Toys);
     if (userName == null) {
       return '';
+    } else {
+      return userName;
     }
-    else {
+  }
+
+  static void saveLibrary(String userName) async {
+    preferences!.setString(KEY_Library, userName);
+  }
+
+  static String? getLibrary() {
+    String? userName = preferences!.getString(KEY_Library);
+    if (userName == null) {
+      return '';
+    } else {
+      return userName;
+    }
+  }
+
+  static void saveMass(String userName) async {
+    preferences!.setString(KEY_Mass, userName);
+  }
+
+  static String? getMass() {
+    String? userName = preferences!.getString(KEY_Mass);
+    if (userName == null) {
+      return '';
+    } else {
       return userName;
     }
   }
@@ -201,8 +215,7 @@ class Preferences {
     String? userName = preferences!.getString(KEY_FastFood);
     if (userName == null) {
       return '';
-    }
-    else {
+    } else {
       return userName;
     }
   }
@@ -215,8 +228,7 @@ class Preferences {
     String? userName = preferences!.getString(KEY_ArabFood);
     if (userName == null) {
       return '';
-    }
-    else {
+    } else {
       return userName;
     }
   }
@@ -229,8 +241,7 @@ class Preferences {
     String? userName = preferences!.getString(KEY_Sweet);
     if (userName == null) {
       return '';
-    }
-    else {
+    } else {
       return userName;
     }
   }
@@ -243,8 +254,7 @@ class Preferences {
     String? userName = preferences!.getString(KEY_Coffee);
     if (userName == null) {
       return '';
-    }
-    else {
+    } else {
       return userName;
     }
   }

@@ -28,7 +28,7 @@ class ProductScreen extends StatelessWidget {
       if (product.meta_data[j].key == "_hide_wa_button") {
         hide_wa_button = product.meta_data[j].value;
       }
-      if (product.meta_data[j].key =="_wa_order_phone_number") {
+      if (product.meta_data[j].key == "_wa_order_phone_number") {
         nameAndNumber = product.meta_data[j].value.split(';');
       }
       j++;
@@ -36,7 +36,6 @@ class ProductScreen extends StatelessWidget {
     if (nameAndNumber.length < 2) {
       nameAndNumber = ['caphore', '963955942519'];
     }
-
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
@@ -61,6 +60,7 @@ class ProductScreen extends StatelessWidget {
           price: product.price,
           orginalPrice: '',
           number: nameAndNumber[1],
+          product: product,
         ),
         body: Container(
           margin: EdgeInsets.symmetric(horizontal: 10.h),
@@ -108,13 +108,6 @@ class ProductScreen extends StatelessWidget {
                             "الوصف:",
                             style:
                                 TextStyle(fontSize: 20.sp, color: Colors.black),
-                          ),
-                          Text(
-                            nameAndNumber[0],
-                            style: TextStyle(
-                                color: AppColor.accentColor,
-                                fontSize: 20.sp,
-                                fontWeight: FontWeight.bold),
                           ),
                         ],
                       ),

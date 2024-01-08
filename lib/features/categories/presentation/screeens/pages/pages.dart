@@ -1,4 +1,3 @@
-import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:caphore/core/services/services_locator.dart';
 import 'package:caphore/core/utils/app_color.dart';
 import 'package:caphore/features/attributes/presentation/controller/attributes_bloc.dart';
@@ -6,18 +5,16 @@ import 'package:caphore/features/attributes/presentation/controller/attributes_e
 import 'package:caphore/features/categories/presentation/controller/categories_bloc.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_event.dart';
 import 'package:caphore/features/categories/presentation/screeens/pages/brands.dart';
-import 'package:caphore/features/categories/presentation/screeens/pages/goldenmall.dart';
+import 'package:caphore/features/goldenMall/goldenmall.dart';
 import 'package:caphore/features/categories/presentation/screeens/pages/restaurants.dart';
 import 'package:caphore/features/categories/presentation/screeens/pages/stores.dart';
 import 'package:caphore/features/categories/presentation/screeens/pages/controlpanel.dart';
 import 'package:caphore/features/categories/presentation/screeens/pages/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 
 class MyPages extends StatefulWidget {
   const MyPages({Key? key}) : super(key: key);
@@ -26,7 +23,7 @@ class MyPages extends StatefulWidget {
   State<MyPages> createState() => _MyPagesState();
 }
 
-class _MyPagesState extends State<MyPages> with AutomaticKeepAliveClientMixin {
+class _MyPagesState extends State<MyPages> {
   late int select = 2;
   late PageController controller;
   bool hasnet = true;
@@ -37,18 +34,16 @@ class _MyPagesState extends State<MyPages> with AutomaticKeepAliveClientMixin {
   void initState() {
     super.initState();
 
-    controller = PageController(initialPage: select);
+    controller = PageController(initialPage: select, keepPage: true);
   }
 
   @override
   Widget build(BuildContext context) {
-    super.build(context);
     return MultiBlocProvider(
         providers: [
           BlocProvider(
-              create: (context) => categoryBloc
-                ..add(const GetAllCategoriesEvent(page: 1))
-                ..addAllProducts()),
+              create: (context) =>
+                  categoryBloc..add(const GetAllCategoriesEvent(page: 1))),
           BlocProvider(
               create: (context) => attributesBloc
                 ..add(const GetBannersTermsEvent(
@@ -58,7 +53,7 @@ class _MyPagesState extends State<MyPages> with AutomaticKeepAliveClientMixin {
           child: WillPopScope(
             onWillPop: () async {
               if (select != 2) {
-                controller.jumpToPage(1);
+                controller.jumpToPage(2);
                 setState(() {
                   select = 2;
                 });
@@ -73,24 +68,15 @@ class _MyPagesState extends State<MyPages> with AutomaticKeepAliveClientMixin {
                 controller: controller,
                 physics: const NeverScrollableScrollPhysics(),
                 children: [
-                  Goldenmall(),
-                  Brands(),
-                  Home(),
+                const  Brands(),
                   Stores(),
-                  Restaurants(),
+              const    Home(),
+                 const Restaurants(),
                   const ControlPanel(),
                 ],
               ),
               bottomNavigationBar: BottomNavigationBar(
                 items: [
-                  BottomNavigationBarItem(
-                    icon: Image.asset(
-                      'assets/images/logo1.png',
-                      height: 30.h,
-                      width: 25.w,
-                    ),
-                    label: "غولدن مول",
-                  ),
                   BottomNavigationBarItem(
                     icon: SvgPicture.asset(
                       'assets/images/diamond-svgrepo-com.svg',
@@ -102,21 +88,21 @@ class _MyPagesState extends State<MyPages> with AutomaticKeepAliveClientMixin {
                   ),
                   BottomNavigationBarItem(
                     icon: SvgPicture.asset(
-                      'assets/images/home_icon.svg',
-                      color: AppColor.accentColor,
-                      height: 25.h,
-                      width: 20.w,
-                    ),
-                    label: "الرئيسية",
-                  ),
-                  BottomNavigationBarItem(
-                    icon: SvgPicture.asset(
                       "assets/images/store-svgrepo-com.svg",
                       color: AppColor.accentColor,
                       height: 25.h,
                       width: 20.w,
                     ),
                     label: "المتاجر",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: SvgPicture.asset(
+                      'assets/images/home_icon.svg',
+                      color: AppColor.accentColor,
+                      height: 25.h,
+                      width: 20.w,
+                    ),
+                    label: "الرئيسية",
                   ),
                   BottomNavigationBarItem(
                     icon: SvgPicture.asset(

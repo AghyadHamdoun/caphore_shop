@@ -14,21 +14,26 @@ class Product extends Equatable {
   final List<Meta> meta_data;
   final String? nameAndNumber;
   final String? nameAndNumber2;
+  final int total;
+  final int? amount;
 
-  const Product(
-      {required this.id,
-      required this.name,
-      required this.permalink,
-      required this.description,
-      required this.shortDescription,
-      required this.price,
-      required this.regularPrice,
-      required this.salePrice,
-      required this.categories,
-      required this.images,
-      required this.meta_data,
-      required this.nameAndNumber,
-      required this.nameAndNumber2});
+  const Product({
+    required this.id,
+    required this.name,
+    required this.permalink,
+    required this.description,
+    required this.shortDescription,
+    required this.price,
+    required this.regularPrice,
+    required this.salePrice,
+    required this.categories,
+    required this.images,
+    required this.meta_data,
+    required this.nameAndNumber,
+    required this.nameAndNumber2,
+    required this.amount,
+    required this.total,
+  });
 
   @override
   List<Object?> get props => [
@@ -43,7 +48,9 @@ class Product extends Equatable {
         categories,
         images,
         nameAndNumber,
-        nameAndNumber2
+        nameAndNumber2,
+        amount,
+        total
       ];
 }
 
