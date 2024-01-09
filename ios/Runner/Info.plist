@@ -13,7 +13,12 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>caphore</string>
+	<string>كافور مول</string>
+	<key>LSApplicationQueriesSchemes</key>
+    <array>
+       <string>sms</string>
+       <string>tel</string>
+    </array>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>

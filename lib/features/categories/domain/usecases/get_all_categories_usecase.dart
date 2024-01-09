@@ -15,14 +15,14 @@ class GetAllCategoriesUseCase
   @override
   Future<Either<Failure, List<Category>>> call(
       AllCategoriesParameters parameters) async {
-    return await baseCategoriesRepository.getAllCategories();
+    return await baseCategoriesRepository.getAllCategories(parameters.page);
   }
 }
 
 class AllCategoriesParameters extends Equatable {
+final int page;
 
-
-  const AllCategoriesParameters();
+  const AllCategoriesParameters({required this.page});
 
   @override
   List<Object?> get props => [];
