@@ -4,10 +4,13 @@ import 'package:caphore/features/categories/presentation/controller/categories_e
 import 'package:caphore/features/categories/presentation/controller/categories_state.dart';
 import 'package:caphore/features/categories/presentation/screeens/categoryproducts.dart';
 import 'package:caphore/features/categories/presentation/screeens/component/products/H_CategoryProductsComponent.dart';
+import 'package:caphore/features/categories/presentation/screeens/component/subcategories_component.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/CategoryNameAndShowAll.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/textformfild.dart';
 import 'package:caphore/features/goldenMall/mall_HcategoriesProductComponent.dart';
+import 'package:caphore/features/goldenMall/mall_sub_sub_sub_category.dart';
 import 'package:caphore/features/goldenMall/mallcategoryproducts.dart';
+import 'package:caphore/features/goldenMall/mallshowallsubsubcategories.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -58,6 +61,12 @@ class mallshowall extends StatelessWidget {
                               itemBuilder: (BuildContext context, int index) {
                                 return Column(
                                   children: [
+                                    (index == 0)
+                                        ? Mallshowall_sub_sub_sub_category()
+                                        : const SizedBox(
+                                            height: 0,
+                                            width: 0,
+                                          ),
                                     CategoryNameAndShowAll(
                                       name:
                                           state.categoriesByParent[index].name,
@@ -72,7 +81,7 @@ class mallshowall extends StatelessWidget {
                                                       .categoriesByParent[index]
                                                       .id,
                                                   pageNum: 1,
-                                                  perPage: 10,
+                                                  perPage: 100,
                                                   lastProducts: []),
                                               categoryName: state
                                                   .categoriesByParent[index]

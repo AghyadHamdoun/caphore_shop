@@ -1,4 +1,3 @@
-import 'package:caphore/core/utils/app_color.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_bloc.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_state.dart';
 import 'package:flutter/material.dart';
@@ -31,8 +30,7 @@ class Productimageslider extends StatelessWidget {
               CarouselSlider(
                 items: imeges
                     .map(
-                      (item) =>
-                      Padding(
+                      (item) => Padding(
                         padding: EdgeInsets.only(bottom: 10.h),
                         child: Container(
                           decoration: BoxDecoration(
@@ -44,7 +42,7 @@ class Productimageslider extends StatelessWidget {
                           ),
                         ),
                       ),
-                )
+                    )
                     .toList(),
                 options: CarouselOptions(
                   onPageChanged: (index, reason) {
@@ -69,7 +67,9 @@ class Productimageslider extends StatelessWidget {
                       margin: EdgeInsets.symmetric(horizontal: 5.h),
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: state.currentSlider == index ? Colors.orange : Colors.grey,
+                        color: state.currentSlider == index
+                            ? Colors.orange
+                            : Colors.grey,
                       ),
                     );
                   },

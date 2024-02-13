@@ -1,5 +1,6 @@
 import 'package:caphore/core/utils/app_color.dart';
 import 'package:caphore/features/categories/domain/entities/products.dart';
+import 'package:caphore/features/categories/presentation/screeens/fullproductimage.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/productbotoom.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/productcard.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/productimageslider.dart';
@@ -70,8 +71,20 @@ class ProductScreen extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 10.h),
                 child: SizedBox(
                   width: double.infinity,
-                  child: Productimageslider(
-                    imeges: product.images.map((e) => e.src).toList(),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Fullproductimage(
+                            imeges: product.images.map((e) => e.src).toList(),
+                          ),
+                        ),
+                      );
+                    },
+                    child: Productimageslider(
+                      imeges: product.images.map((e) => e.src).toList(),
+                    ),
                   ),
                 ),
               ),

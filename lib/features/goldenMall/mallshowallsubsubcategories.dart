@@ -3,21 +3,22 @@ import 'package:caphore/features/categories/presentation/controller/categories_e
 import 'package:caphore/features/categories/presentation/controller/categories_state.dart';
 import 'package:caphore/features/categories/presentation/screeens/categoryproducts.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/salesavatar.dart';
+import 'package:caphore/features/goldenMall/mallcategoryproducts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class SubSubCategoriesComponent extends StatelessWidget {
-  const SubSubCategoriesComponent({Key? key}) : super(key: key);
+class Mallshowall_sub_sub_sub_category extends StatelessWidget {
+  const Mallshowall_sub_sub_sub_category({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return BlocBuilder<CategoriesBloc, CategoriesState>(
       buildWhen: (previous, current) =>
-          (previous.categoriesByChildState != current.categoriesByChildState),
+          (previous.categoriesByParentState != current.categoriesByParentState),
       builder: (context, state) {
-        return (state.categoriesByChild.isEmpty)
+        return (state.categoriesByParent.isEmpty)
             ? const SizedBox(
                 height: 0,
                 width: 0,
@@ -29,30 +30,30 @@ class SubSubCategoriesComponent extends StatelessWidget {
                 width: double.infinity,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: state.categoriesByChild.length,
+                  itemCount: state.categoriesByParent.length,
                   itemBuilder: (BuildContext context, int index) {
                     return InkWell(
                         onTap: () {
-                          print(state.categoriesByChild[index].id);
+                          print(state.categoriesByParent[index].id);
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => CategoryProducts(
+                                  builder: (context) => mallCategoryProducts(
                                         event: GetCategoryProductsEvent(
                                             pageNum: 1,
                                             categoryId: state
-                                                .categoriesByChild[index].id,
+                                                .categoriesByParent[index].id,
                                             perPage: 100,
                                             lastProducts: []),
-                                        categoryName:
-                                            state.categoriesByChild[index].name,
+                                        categoryName: state
+                                            .categoriesByParent[index].name,
                                         categoryId:
-                                            state.categoriesByChild[index].id,
+                                            state.categoriesByParent[index].id,
                                       )));
                         },
                         child: SalesAvatar(
-                            name: state.categoriesByChild[index].name,
-                            image: state.categoriesByChild[index].image.src));
+                            name: state.categoriesByParent[index].name,
+                            image: state.categoriesByParent[index].image.src));
                   },
                 ),
               );

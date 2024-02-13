@@ -3,12 +3,13 @@ import 'package:caphore/features/categories/presentation/controller/categories_e
 import 'package:caphore/features/categories/presentation/controller/categories_state.dart';
 import 'package:caphore/features/categories/presentation/screeens/categoryproducts.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/salesavatar.dart';
+import 'package:caphore/features/goldenMall/mallcategoryproducts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class SubSubCategoriesComponent extends StatelessWidget {
-  const SubSubCategoriesComponent({Key? key}) : super(key: key);
+class Mall_sub_sub_sub_category extends StatelessWidget {
+  const Mall_sub_sub_sub_category({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +38,7 @@ class SubSubCategoriesComponent extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => CategoryProducts(
+                                  builder: (context) => mallCategoryProducts(
                                         event: GetCategoryProductsEvent(
                                             pageNum: 1,
                                             categoryId: state

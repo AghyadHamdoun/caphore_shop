@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
-
+import 'package:delayed_display/delayed_display.dart';
 import '../dynamicshowall.dart';
 
 class Homeproducts extends StatelessWidget {
@@ -38,7 +38,7 @@ class Homeproducts extends StatelessWidget {
           case RequestState.loaded:
             return Container(
               padding: EdgeInsets.symmetric(horizontal: 5.w),
-              width: double.infinity,
+              width: size.width,
               child: ListView.builder(
                 scrollDirection: Axis.vertical,
                 shrinkWrap: true,
@@ -47,50 +47,58 @@ class Homeproducts extends StatelessWidget {
                     ? state.allCategories.length
                     : 16,
                 itemBuilder: (BuildContext context, int index) {
-                  return Column(
-                    children: [
-                      CategoryNameAndShowAll(
-                        name: state.allCategories[index].name,
-                        showAllCallBack: () {
-                          if (state.allCategories[index].id == 693) {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => GoldenMall()),
-                            );
-                          } else {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => dynamicshowall(
-                                    event: GetCategoryProductsEvent(
-                                        pageNum: 1,
-                                        categoryId:
-                                            state.allCategories[index].id,
-                                        perPage: 100,
-                                        lastProducts: []),
-                                    categoryName:
-                                        state.allCategories[index].name,
-                                    categoryId: state.allCategories[index].id),
-                              ),
-                            );
-                          }
-                        },
-                      ),
-                      H_CategoryProductsComponent(
-                          event: GetCategoryProductsEvent(
-                              pageNum: 1,
-                              categoryId: state.allCategories[index].id,
-                              perPage: 100,
-                              lastProducts: []),
-                          categoryId: state.allCategories[index].id),
-                      (index == 5)
-                          ? const ImageSliderTwoWithIndex()
-                          : const SizedBox(
-                              height: 0,
-                              width: 0,
-                            )
-                    ],
+                  return DelayedDisplay(
+                    delay: Duration(seconds: 1 + (index)),
+                    slidingCurve: Curves.easeInOut,
+                    fadeIn: true,
+                    fadingDuration: Duration(seconds: 2 + (index)),
+                    slidingBeginOffset: Offset(size.width, 0),
+                    child: Column(
+                      children: [
+                        CategoryNameAndShowAll(
+                          name: state.allCategories[index].name,
+                          showAllCallBack: () {
+                            if (state.allCategories[index].id == 693) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => GoldenMall()),
+                              );
+                            } else {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => dynamicshowall(
+                                      event: GetCategoryProductsEvent(
+                                          pageNum: 1,
+                                          categoryId:
+                                              state.allCategories[index].id,
+                                          perPage: 100,
+                                          lastProducts: []),
+                                      categoryName:
+                                          state.allCategories[index].name,
+                                      categoryId:
+                                          state.allCategories[index].id),
+                                ),
+                              );
+                            }
+                          },
+                        ),
+                        H_CategoryProductsComponent(
+                            event: GetCategoryProductsEvent(
+                                pageNum: 1,
+                                categoryId: state.allCategories[index].id,
+                                perPage: 100,
+                                lastProducts: []),
+                            categoryId: state.allCategories[index].id),
+                        (index == 5)
+                            ? const ImageSliderTwoWithIndex()
+                            : const SizedBox(
+                                height: 0,
+                                width: 0,
+                              )
+                      ],
+                    ),
                   );
                 },
               ),

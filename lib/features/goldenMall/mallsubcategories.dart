@@ -6,6 +6,7 @@ import 'package:caphore/features/categories/presentation/controller/categories_e
 import 'package:caphore/features/categories/presentation/controller/categories_state.dart';
 import 'package:caphore/features/categories/presentation/screeens/sub_sub_categories.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/salesavatar.dart';
+import 'package:caphore/features/goldenMall/mallsubsubcategories.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -46,7 +47,7 @@ class MallsubCategoriesComponent extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => SubSubCategories(
+                                  builder: (context) => MallSubSubCategories(
                                     event: GetCategoryProductsEvent(
                                         pageNum: 1,
                                         categoryId:

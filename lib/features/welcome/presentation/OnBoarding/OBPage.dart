@@ -27,12 +27,12 @@ class _OBPageState extends State<OBPage> {
           image: "assets/images/1R.png",
           text1: "اختر ما تريد!",
           text2:
-              "يحتوي كافور مول الكثير من المنتجات\nالمميزة والأنيقةالتي يحتاجها الجميع"),
+              "يحتوي كافور مول الكثير من المنتجات\nالمميزة والأنيقة التي يحتاجها الجميع"),
       const OnBoardingTwo(
           image: "assets/images/2R.png",
           text1: "سهولة الطلب",
           text2:
-              "اطلب ما تريدعن طريق الواتس اب\nوالتواصل مع صاحب المتجر مباشرة"),
+              "اطلب ما تريد عن طريق الواتس اب\nوالتواصل مع صاحب المتجر مباشرة"),
       const OnBoardingTree(
           image: "assets/images/3R.png",
           text1: "استلم طلبك",

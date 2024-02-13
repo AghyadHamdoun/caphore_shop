@@ -1,7 +1,5 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:caphore/core/utils/app_color.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -20,6 +18,8 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var p = int.parse(price);
+    var op = int.parse(orginalprice);
     Size size = MediaQuery.of(context).size;
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
@@ -39,21 +39,45 @@ class ProductCard extends StatelessWidget {
             children: [
               SizedBox(
                 height: size.height / 5.5,
-                child: Container(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      scale: 1,
-                      fit: BoxFit.cover,
-                      alignment: Alignment.topCenter,
-                      image: NetworkImage(
-                        image,
+                child: Stack(
+                  alignment: Alignment.topLeft,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          scale: 1,
+                          fit: BoxFit.cover,
+                          alignment: Alignment.topCenter,
+                          image: NetworkImage(
+                            image,
+                          ),
+                        ),
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20.r),
+                          topRight: Radius.circular(20.r),
+                        ),
                       ),
                     ),
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20.r),
-                      topRight: Radius.circular(20.r),
-                    ),
-                  ),
+                    (orginalprice.isNotEmpty && orginalprice != price)
+                        ? Container(
+                            padding: EdgeInsets.symmetric(
+                                vertical: 1.h, horizontal: 5.w),
+                            decoration: BoxDecoration(
+                              color: Colors.red,
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(20.r),
+                              ),
+                            ),
+                            child: Text(
+                              "وفر  ${op - p}",
+                              style: const TextStyle(color: Colors.white),
+                            ),
+                          )
+                        : const SizedBox(
+                            height: 0,
+                            width: 0,
+                          ),
+                  ],
                 ),
               ),
               SizedBox(
@@ -103,12 +127,6 @@ class ProductCard extends StatelessWidget {
                           ),
                         )
                       : null,
-                  trailing: SvgPicture.asset(
-                    'assets/images/buy.svg',
-                    color: AppColor.accentColor,
-                    height: 20.h,
-                    width: 25.w,
-                  ),
                 ),
               ),
             ],

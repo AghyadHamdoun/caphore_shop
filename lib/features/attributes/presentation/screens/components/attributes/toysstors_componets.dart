@@ -77,7 +77,7 @@ class ToysStorsComponent extends StatelessWidget {
                       MaterialPageRoute(
                         builder: (context) => StoreProducts(
                           event: GetTermProductsEvent(
-                              attribute: 'Library',
+                              attribute: 'stationery',
                               termId: state.libraryTerms[index].id,
                               perPage: 100,
                               pageNum: 1),
