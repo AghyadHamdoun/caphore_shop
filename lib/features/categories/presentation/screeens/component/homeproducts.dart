@@ -5,8 +5,10 @@ import 'package:caphore/features/attributes/presentation/screens/components/bann
 import 'package:caphore/features/categories/presentation/controller/categories_bloc.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_event.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_state.dart';
+import 'package:caphore/features/categories/presentation/screeens/component/categories_component.dart';
 import 'package:caphore/features/categories/presentation/screeens/component/products/H_CategoryProductsComponent.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/CategoryNameAndShowAll.dart';
+import 'package:caphore/features/categories/presentation/screeens/widgets/ImageSliderWithIndex.dart';
 import 'package:caphore/features/goldenMall/goldenmall.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -55,6 +57,18 @@ class Homeproducts extends StatelessWidget {
                     slidingBeginOffset: Offset(size.width, 0),
                     child: Column(
                       children: [
+                        (index == 0)
+                            ? const ImageSliderWithIndex()
+                            : const SizedBox(
+                                height: 0,
+                                width: 0,
+                              ),
+                        (index == 0)
+                            ? const CategoriesComponent()
+                            : const SizedBox(
+                                height: 0,
+                                width: 0,
+                              ),
                         CategoryNameAndShowAll(
                           name: state.allCategories[index].name,
                           showAllCallBack: () {

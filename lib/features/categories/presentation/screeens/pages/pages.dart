@@ -44,10 +44,6 @@ class _MyPagesState extends State<MyPages> {
           BlocProvider(
               create: (context) =>
                   categoryBloc..add(const GetAllCategoriesEvent(page: 1))),
-          BlocProvider(
-              create: (context) => attributesBloc
-                ..add(const GetBannersTermsEvent(
-                    pageNum: 1, attributeId: 34, perPage: 100)))
         ],
         child: SafeArea(
           child: WillPopScope(
@@ -68,10 +64,10 @@ class _MyPagesState extends State<MyPages> {
                 controller: controller,
                 physics: const NeverScrollableScrollPhysics(),
                 children: [
-                const  Brands(),
+                  const Brands(),
                   Stores(),
-              const    Home(),
-                 const Restaurants(),
+                  const Home(),
+                  const Restaurants(),
                   const ControlPanel(),
                 ],
               ),

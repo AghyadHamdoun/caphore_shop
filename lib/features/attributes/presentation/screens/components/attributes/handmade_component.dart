@@ -30,6 +30,8 @@ class HandMadeStorsComponent extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) => StoreProducts(
+                      attribute: 'handmade',
+                      termid: state.handmadeTerms[index].id,
                       event: GetTermProductsEvent(
                           attribute: 'handmade',
                           termId: state.handmadeTerms[index].id,

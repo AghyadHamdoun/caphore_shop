@@ -32,8 +32,6 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin {
               shrinkWrap: false,
               physics: const BouncingScrollPhysics(),
               children: const [
-                SizedBox(child: ImageSliderWithIndex()),
-                CategoriesComponent(),
                 Homeproducts(),
               ],
             ),

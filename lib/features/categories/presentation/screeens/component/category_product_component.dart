@@ -27,6 +27,10 @@ class CategoryProductComponent extends StatelessWidget {
     return BlocProvider(
       create: (context) => bloc..add(event),
       child: BlocBuilder<CategoriesBloc, CategoriesState>(
+        buildWhen: (previous, current) =>
+            (previous.loadMore != current.loadMore ||
+                previous.categoryProducts.length !=
+                    current.categoryProducts.length),
         builder: (context, state) {
           switch (state.categoryProductsState) {
             case RequestState.loading:
@@ -75,6 +79,7 @@ class CategoryProductComponent extends StatelessWidget {
                   if (state.loadMore == RequestState.loaded)
                     InkWell(
                       onTap: () {
+                        print("widget${state.categoryProducts.length}");
                         bloc.add(GetCategoryProductsEvent(
                             pageNum: ++pageNumber,
                             categoryId: categoryId,
@@ -102,7 +107,7 @@ class CategoryProductComponent extends StatelessWidget {
                   else
                     state.loadMore == RequestState.loading
                         ? LottieBuilder.asset('assets/lottie/loading.json')
-                        : SizedBox(),
+                        : const SizedBox(),
                 ],
               );
             case RequestState.error:

@@ -5,6 +5,7 @@ import 'package:caphore/features/attributes/presentation/controller/attributes_b
 import 'package:caphore/features/attributes/presentation/controller/attributes_state.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/attrebutename.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/textformfild.dart';
+import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -55,6 +56,7 @@ class _BrandsState extends State<Brands> with AutomaticKeepAliveClientMixin {
                   ],
                 );
               case RequestState.loaded:
+
                 return Scaffold(
                     body: Column(
                       children: [

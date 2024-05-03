@@ -30,6 +30,8 @@ class FastFoodResturantsComponent extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) => StoreProducts(
+                      attribute: 'fast-food',
+                      termid: state.fastfoodTerms[index].id,
                       event: GetTermProductsEvent(
                           attribute: 'fast-food',
                           termId: state.fastfoodTerms[index].id,

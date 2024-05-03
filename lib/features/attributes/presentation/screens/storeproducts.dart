@@ -14,12 +14,15 @@ class StoreProducts extends StatelessWidget {
   final AttributesEvent event;
   final String storeName;
   final String image;
-
+  final String attribute;
+  final int termid;
   const StoreProducts(
       {super.key,
       required this.event,
       required this.storeName,
-      required this.image});
+      required this.image,
+      required this.attribute,
+      required this.termid});
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +56,10 @@ class StoreProducts extends StatelessWidget {
                             const SizedBox(
                               height: 10,
                             ),
-                            const TermProductComponent()
+                            TermProductComponent(
+                              attribute: attribute,
+                              termid: termid,
+                            )
                           ],
                         ),
                       ),

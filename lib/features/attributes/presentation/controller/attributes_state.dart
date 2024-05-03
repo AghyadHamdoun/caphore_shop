@@ -79,6 +79,7 @@ class AttributesState extends Equatable {
 
   //
   final List<Product> termProducts;
+  final RequestState loadMore;
   final RequestState termProductsState;
   final String termProductsMessage;
 
@@ -162,6 +163,7 @@ class AttributesState extends Equatable {
       this.bannersTermsMessage = '',
       //
       this.termProducts = const [],
+      this.loadMore = RequestState.loaded,
       this.termProductsState = RequestState.loading,
       this.termProductsMessage = '',
       //
@@ -238,10 +240,13 @@ class AttributesState extends Equatable {
       final List<Term>? coffeeTerms,
       final RequestState? coffeeTermsState,
       final String? coffeeTermsMessage,
+      //
       final List<Term>? bannersTerms,
       final RequestState? bannersTermsState,
       final String? bannersTermsMessage,
+      //
       final List<Product>? termProducts,
+      final RequestState? loadMore,
       final RequestState? termProductsState,
       final String? termProductsMessage,
       //
@@ -334,7 +339,9 @@ class AttributesState extends Equatable {
         //
         termProducts: termProducts ?? this.termProducts,
         termProductsState: termProductsState ?? this.termProductsState,
+        loadMore: loadMore ?? this.loadMore,
         termProductsMessage: termProductsMessage ?? this.termProductsMessage,
+        //
         currentSlider: currentSlider ?? this.currentSlider);
   }
 
@@ -419,6 +426,7 @@ class AttributesState extends Equatable {
         termProducts,
         termProductsMessage,
         termProductsState,
+        loadMore,
 
         currentSlider
       ];

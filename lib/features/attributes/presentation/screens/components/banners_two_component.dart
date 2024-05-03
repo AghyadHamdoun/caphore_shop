@@ -36,20 +36,22 @@ class ImageSliderTwoWithIndex extends StatelessWidget {
             }
           }
           return Padding(
-            padding:  EdgeInsets.symmetric(horizontal: 10.w),
+            padding: EdgeInsets.symmetric(horizontal: 10.w),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 CarouselSlider(
                   items: images.mapIndexed(
-                        (ind, item) {
+                    (ind, item) {
                       return InkWell(
                         onTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (context) => StoreProducts(
+                                attribute: attributeName[ind],
+                                termid: int.parse(termId[ind]),
                                 event: GetTermProductsEvent(
                                     attribute: attributeName[ind],
                                     termId: int.parse(termId[ind]),
@@ -78,8 +80,7 @@ class ImageSliderTwoWithIndex extends StatelessWidget {
                     },
                   ).toList(),
                   options: CarouselOptions(
-                      onPageChanged: (index, reason) {
-                      },
+                      onPageChanged: (index, reason) {},
                       autoPlay: true,
                       enableInfiniteScroll: true,
                       aspectRatio: 2.1.r,

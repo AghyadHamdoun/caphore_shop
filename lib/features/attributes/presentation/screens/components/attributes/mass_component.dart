@@ -30,6 +30,8 @@ class MassComponent extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) => StoreProducts(
+                      attribute: 'jumla-section',
+                      termid: state.massTerms[index].id,
                       event: GetTermProductsEvent(
                           attribute: 'jumla-section',
                           termId: state.massTerms[index].id,

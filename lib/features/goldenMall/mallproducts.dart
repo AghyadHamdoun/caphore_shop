@@ -3,7 +3,9 @@ import 'package:caphore/features/categories/presentation/controller/categories_b
 import 'package:caphore/features/categories/presentation/controller/categories_event.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_state.dart';
 import 'package:caphore/features/categories/presentation/screeens/categoryproducts.dart';
+import 'package:caphore/features/categories/presentation/screeens/component/mallsubcategories.dart';
 import 'package:caphore/features/categories/presentation/screeens/component/products/H_CategoryProductsComponent.dart';
+import 'package:caphore/features/categories/presentation/screeens/component/products/MallComponent/MallBannersComponent.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/CategoryNameAndShowAll.dart';
 import 'package:caphore/features/goldenMall/mall_HcategoriesProductComponent.dart';
 import 'package:caphore/features/categories/presentation/screeens/dynamicshowall.dart';
@@ -57,6 +59,18 @@ class MallProductsComponent extends StatelessWidget {
                           slidingBeginOffset: Offset(size.width, 0),
                           child: Column(
                             children: [
+                              (index == 0)
+                                  ? MallBannersComponent()
+                                  : const SizedBox(
+                                      height: 0,
+                                      width: 0,
+                                    ),
+                              (index == 0)
+                                  ? MallsubCategoriesComponent()
+                                  : const SizedBox(
+                                      height: 0,
+                                      width: 0,
+                                    ),
                               CategoryNameAndShowAll(
                                 name: state.categoriesByParent[index].name,
                                 showAllCallBack: () {

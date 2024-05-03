@@ -30,6 +30,8 @@ class PerfumesStorsComponent extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) => StoreProducts(
+                      attribute: 'gifts',
+                      termid: state.perfumesTerms[index].id,
                       event: GetTermProductsEvent(
                           attribute: 'gifts',
                           termId: state.perfumesTerms[index].id,

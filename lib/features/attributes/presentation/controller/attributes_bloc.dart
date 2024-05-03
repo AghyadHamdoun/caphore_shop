@@ -6,6 +6,7 @@ import 'package:caphore/features/attributes/data/models/terms_model.dart';
 import 'package:caphore/features/attributes/presentation/controller/attributes_event.dart';
 import 'package:caphore/features/attributes/presentation/controller/attributes_state.dart';
 import 'package:caphore/features/attributes/domain/usecases/get_terms_usecase.dart';
+import 'package:caphore/features/categories/domain/entities/products.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../domain/usecases/get_term_products_usecase.dart';
@@ -26,24 +27,24 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
       if (terms != '' && terms != null) {
         var myTerms = await jsonDecode(terms);
         myTerms = List<TermModel>.from((myTerms).map(
-              (e) => TermModel.fromJson(e),
+          (e) => TermModel.fromJson(e),
         ));
         emit(state.copyWith(
-          //state
+            //state
             brandsTerms: myTerms,
             brandsTermsState: RequestState.loaded));
       }
       final result = await getTermsUseCase(TermsParameters(
           id: event.attributeId, page: event.pageNum, perPage: event.perPage));
       result.fold(
-              (l) => emit(state.copyWith(
-            //state
+          (l) => emit(state.copyWith(
+              //state
               brandsTermsMessage: l.message,
               brandsTermsState: RequestState.error)), (r) {
         String terms = jsonEncode(r);
         Preferences.saveBrands(terms);
         emit(state.copyWith(
-          //state
+            //state
             brandsTerms: r,
             brandsTermsState: RequestState.loaded));
       });
@@ -57,24 +58,24 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
       if (terms != '' && terms != null) {
         var myTerms = await jsonDecode(terms);
         myTerms = List<TermModel>.from((myTerms).map(
-              (e) => TermModel.fromJson(e),
+          (e) => TermModel.fromJson(e),
         ));
         emit(state.copyWith(
-          //state
+            //state
             clothingTerms: myTerms,
             clothingTermsState: RequestState.loaded));
       }
       final result = await getTermsUseCase(TermsParameters(
           id: event.attributeId, page: event.pageNum, perPage: event.perPage));
       result.fold(
-              (l) => emit(state.copyWith(
-            //state
+          (l) => emit(state.copyWith(
+              //state
               clothingTermsMessage: l.message,
               clothingTermsState: RequestState.error)), (r) {
         String terms = jsonEncode(r);
         Preferences.saveClothing(terms);
         emit(state.copyWith(
-          //state
+            //state
             clothingTerms: r,
             clothingTermsState: RequestState.loaded));
       });
@@ -84,24 +85,24 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
       if (terms != '' && terms != null) {
         var myTerms = await jsonDecode(terms);
         myTerms = List<TermModel>.from((myTerms).map(
-              (e) => TermModel.fromJson(e),
+          (e) => TermModel.fromJson(e),
         ));
         emit(state.copyWith(
-          //state
+            //state
             shoesandbagsTerms: myTerms,
             shoesandbagsTermsState: RequestState.loaded));
       }
       final result = await getTermsUseCase(TermsParameters(
           id: event.attributeId, page: event.pageNum, perPage: event.perPage));
       result.fold(
-              (l) => emit(state.copyWith(
-            //state
+          (l) => emit(state.copyWith(
+              //state
               shoesandbagsTermsMessage: l.message,
               shoesandbagsTermsState: RequestState.error)), (r) {
         String terms = jsonEncode(r);
         Preferences.saveShoesAndBags(terms);
         emit(state.copyWith(
-          //state
+            //state
             shoesandbagsTerms: r,
             shoesandbagsTermsState: RequestState.loaded));
       });
@@ -112,24 +113,24 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
       if (terms != '' && terms != null) {
         var myTerms = await jsonDecode(terms);
         myTerms = List<TermModel>.from((myTerms).map(
-              (e) => TermModel.fromJson(e),
+          (e) => TermModel.fromJson(e),
         ));
         emit(state.copyWith(
-          //state
+            //state
             electronicequipmentTerms: myTerms,
             electronicequipmentTermsState: RequestState.loaded));
       }
       final result = await getTermsUseCase(TermsParameters(
           id: event.attributeId, page: event.pageNum, perPage: event.perPage));
       result.fold(
-              (l) => emit(state.copyWith(
-            //state
+          (l) => emit(state.copyWith(
+              //state
               electronicequipmentTermsMessage: l.message,
               electronicequipmentTermsState: RequestState.error)), (r) {
         String terms = jsonEncode(r);
         Preferences.saveElectronicEquipment(terms);
         emit(state.copyWith(
-          //state
+            //state
             electronicequipmentTerms: r,
             electronicequipmentTermsState: RequestState.loaded));
       });
@@ -140,24 +141,24 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
       if (terms != '' && terms != null) {
         var myTerms = await jsonDecode(terms);
         myTerms = List<TermModel>.from((myTerms).map(
-              (e) => TermModel.fromJson(e),
+          (e) => TermModel.fromJson(e),
         ));
         emit(state.copyWith(
-          //state
+            //state
             houseandkitchenTerms: myTerms,
             houseandkitchenTermsState: RequestState.loaded));
       }
       final result = await getTermsUseCase(TermsParameters(
           id: event.attributeId, page: event.pageNum, perPage: event.perPage));
       result.fold(
-              (l) => emit(state.copyWith(
-            //state
+          (l) => emit(state.copyWith(
+              //state
               houseandkitchenTermsMessage: l.message,
               houseandkitchenTermsState: RequestState.error)), (r) {
         String terms = jsonEncode(r);
         Preferences.saveHouseAndKitchen(terms);
         emit(state.copyWith(
-          //state
+            //state
             houseandkitchenTerms: r,
             houseandkitchenTermsState: RequestState.loaded));
       });
@@ -167,24 +168,24 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
       if (terms != '' && terms != null) {
         var myTerms = await jsonDecode(terms);
         myTerms = List<TermModel>.from((myTerms).map(
-              (e) => TermModel.fromJson(e),
+          (e) => TermModel.fromJson(e),
         ));
         emit(state.copyWith(
-          //state
+            //state
             makeupTerms: myTerms,
             makeupTermsState: RequestState.loaded));
       }
       final result = await getTermsUseCase(TermsParameters(
           id: event.attributeId, page: event.pageNum, perPage: event.perPage));
       result.fold(
-              (l) => emit(state.copyWith(
-            //state
+          (l) => emit(state.copyWith(
+              //state
               makeupTermsMessage: l.message,
               makeupTermsState: RequestState.error)), (r) {
         String terms = jsonEncode(r);
         Preferences.saveMakeUp(terms);
         emit(state.copyWith(
-          //state
+            //state
             makeupTerms: r,
             makeupTermsState: RequestState.loaded));
       });
@@ -194,24 +195,24 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
       if (terms != '' && terms != null) {
         var myTerms = await jsonDecode(terms);
         myTerms = List<TermModel>.from((myTerms).map(
-              (e) => TermModel.fromJson(e),
+          (e) => TermModel.fromJson(e),
         ));
         emit(state.copyWith(
-          //state
+            //state
             watchesandaccessoriesTerms: myTerms,
             watchesandaccessoriesTermsState: RequestState.loaded));
       }
       final result = await getTermsUseCase(TermsParameters(
           id: event.attributeId, page: event.pageNum, perPage: event.perPage));
       result.fold(
-              (l) => emit(state.copyWith(
-            //state
+          (l) => emit(state.copyWith(
+              //state
               watchesandaccessoriesTermsMessage: l.message,
               watchesandaccessoriesTermsState: RequestState.error)), (r) {
         String terms = jsonEncode(r);
         Preferences.saveWatchesAndAccessories(terms);
         emit(state.copyWith(
-          //state
+            //state
             watchesandaccessoriesTerms: r,
             watchesandaccessoriesTermsState: RequestState.loaded));
       });
@@ -221,24 +222,24 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
       if (terms != '' && terms != null) {
         var myTerms = await jsonDecode(terms);
         myTerms = List<TermModel>.from((myTerms).map(
-              (e) => TermModel.fromJson(e),
+          (e) => TermModel.fromJson(e),
         ));
         emit(state.copyWith(
-          //state
+            //state
             perfumesTerms: myTerms,
             perfumesTermsState: RequestState.loaded));
       }
       final result = await getTermsUseCase(TermsParameters(
           id: event.attributeId, page: event.pageNum, perPage: event.perPage));
       result.fold(
-              (l) => emit(state.copyWith(
-            //state
+          (l) => emit(state.copyWith(
+              //state
               perfumesTermsMessage: l.message,
               perfumesTermsState: RequestState.error)), (r) {
         String terms = jsonEncode(r);
         Preferences.savePerfumes(terms);
         emit(state.copyWith(
-          //state
+            //state
             perfumesTerms: r,
             perfumesTermsState: RequestState.loaded));
       });
@@ -248,24 +249,24 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
       if (terms != '' && terms != null) {
         var myTerms = await jsonDecode(terms);
         myTerms = List<TermModel>.from((myTerms).map(
-              (e) => TermModel.fromJson(e),
+          (e) => TermModel.fromJson(e),
         ));
         emit(state.copyWith(
-          //state
+            //state
             handmadeTerms: myTerms,
             handmadeTermsState: RequestState.loaded));
       }
       final result = await getTermsUseCase(TermsParameters(
           id: event.attributeId, page: event.pageNum, perPage: event.perPage));
       result.fold(
-              (l) => emit(state.copyWith(
-            //state
+          (l) => emit(state.copyWith(
+              //state
               handmadeTermsMessage: l.message,
               handmadeTermsState: RequestState.error)), (r) {
         String terms = jsonEncode(r);
         Preferences.saveHandMade(terms);
         emit(state.copyWith(
-          //state
+            //state
             handmadeTerms: r,
             handmadeTermsState: RequestState.loaded));
       });
@@ -275,24 +276,24 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
       if (terms != '' && terms != null) {
         var myTerms = await jsonDecode(terms);
         myTerms = List<TermModel>.from((myTerms).map(
-              (e) => TermModel.fromJson(e),
+          (e) => TermModel.fromJson(e),
         ));
         emit(state.copyWith(
-          //state
+            //state
             petsTerms: myTerms,
             petsTermsState: RequestState.loaded));
       }
       final result = await getTermsUseCase(TermsParameters(
           id: event.attributeId, page: event.pageNum, perPage: event.perPage));
       result.fold(
-              (l) => emit(state.copyWith(
-            //state
+          (l) => emit(state.copyWith(
+              //state
               petsTermsMessage: l.message,
               petsTermsState: RequestState.error)), (r) {
         String terms = jsonEncode(r);
         Preferences.savePets(terms);
         emit(state.copyWith(
-          //state
+            //state
             petsTerms: r,
             petsTermsState: RequestState.loaded));
       });
@@ -302,24 +303,24 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
       if (terms != '' && terms != null) {
         var myTerms = await jsonDecode(terms);
         myTerms = List<TermModel>.from((myTerms).map(
-              (e) => TermModel.fromJson(e),
+          (e) => TermModel.fromJson(e),
         ));
         emit(state.copyWith(
-          //state
+            //state
             toysTerms: myTerms,
             toysTermsState: RequestState.loaded));
       }
       final result = await getTermsUseCase(TermsParameters(
           id: event.attributeId, page: event.pageNum, perPage: event.perPage));
       result.fold(
-              (l) => emit(state.copyWith(
-            //state
+          (l) => emit(state.copyWith(
+              //state
               toysTermsMessage: l.message,
               toysTermsState: RequestState.error)), (r) {
         String terms = jsonEncode(r);
         Preferences.saveToys(terms);
         emit(state.copyWith(
-          //state
+            //state
             toysTerms: r,
             toysTermsState: RequestState.loaded));
       });
@@ -329,24 +330,24 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
       if (terms != '' && terms != null) {
         var myTerms = await jsonDecode(terms);
         myTerms = List<TermModel>.from((myTerms).map(
-              (e) => TermModel.fromJson(e),
+          (e) => TermModel.fromJson(e),
         ));
         emit(state.copyWith(
-          //state
+            //state
             libraryTerms: myTerms,
             libraryTermsState: RequestState.loaded));
       }
       final result = await getTermsUseCase(TermsParameters(
           id: event.attributeId, page: event.pageNum, perPage: event.perPage));
       result.fold(
-              (l) => emit(state.copyWith(
-            //state
+          (l) => emit(state.copyWith(
+              //state
               libraryTermsMessage: l.message,
               libraryTermsState: RequestState.error)), (r) {
         String terms = jsonEncode(r);
         Preferences.saveLibrary(terms);
         emit(state.copyWith(
-          //state
+            //state
             libraryTerms: r,
             libraryTermsState: RequestState.loaded));
       });
@@ -356,24 +357,24 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
       if (terms != '' && terms != null) {
         var myTerms = await jsonDecode(terms);
         myTerms = List<TermModel>.from((myTerms).map(
-              (e) => TermModel.fromJson(e),
+          (e) => TermModel.fromJson(e),
         ));
         emit(state.copyWith(
-          //state
+            //state
             massTerms: myTerms,
             massTermsState: RequestState.loaded));
       }
       final result = await getTermsUseCase(TermsParameters(
           id: event.attributeId, page: event.pageNum, perPage: event.perPage));
       result.fold(
-              (l) => emit(state.copyWith(
-            //state
+          (l) => emit(state.copyWith(
+              //state
               massTermsMessage: l.message,
               massTermsState: RequestState.error)), (r) {
         String terms = jsonEncode(r);
         Preferences.saveMass(terms);
         emit(state.copyWith(
-          //state
+            //state
             massTerms: r,
             massTermsState: RequestState.loaded));
       });
@@ -384,24 +385,24 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
       if (terms != '' && terms != null) {
         var myTerms = await jsonDecode(terms);
         myTerms = List<TermModel>.from((myTerms).map(
-              (e) => TermModel.fromJson(e),
+          (e) => TermModel.fromJson(e),
         ));
         emit(state.copyWith(
-          //state
+            //state
             fastfoodTerms: myTerms,
             fastfoodTermsState: RequestState.loaded));
       }
       final result = await getTermsUseCase(TermsParameters(
           id: event.attributeId, page: event.pageNum, perPage: event.perPage));
       result.fold(
-              (l) => emit(state.copyWith(
-            //state
+          (l) => emit(state.copyWith(
+              //state
               fastfoodTermsMessage: l.message,
               fastfoodTermsState: RequestState.error)), (r) {
         String terms = jsonEncode(r);
         Preferences.saveFastFood(terms);
         emit(state.copyWith(
-          //state
+            //state
             fastfoodTerms: r,
             fastfoodTermsState: RequestState.loaded));
       });
@@ -411,24 +412,24 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
       if (terms != '' && terms != null) {
         var myTerms = await jsonDecode(terms);
         myTerms = List<TermModel>.from((myTerms).map(
-              (e) => TermModel.fromJson(e),
+          (e) => TermModel.fromJson(e),
         ));
         emit(state.copyWith(
-          //state
+            //state
             arabfoodTerms: myTerms,
             arabfoodTermsState: RequestState.loaded));
       }
       final result = await getTermsUseCase(TermsParameters(
           id: event.attributeId, page: event.pageNum, perPage: event.perPage));
       result.fold(
-              (l) => emit(state.copyWith(
-            //state
+          (l) => emit(state.copyWith(
+              //state
               arabfoodTermsMessage: l.message,
               arabfoodTermsState: RequestState.error)), (r) {
         String terms = jsonEncode(r);
         Preferences.saveArabFood(terms);
         emit(state.copyWith(
-          //state
+            //state
             arabfoodTerms: r,
             arabfoodTermsState: RequestState.loaded));
       });
@@ -438,24 +439,24 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
       if (terms != '' && terms != null) {
         var myTerms = await jsonDecode(terms);
         myTerms = List<TermModel>.from((myTerms).map(
-              (e) => TermModel.fromJson(e),
+          (e) => TermModel.fromJson(e),
         ));
         emit(state.copyWith(
-          //state
+            //state
             sweetTerms: myTerms,
             sweetTermsState: RequestState.loaded));
       }
       final result = await getTermsUseCase(TermsParameters(
           id: event.attributeId, page: event.pageNum, perPage: event.perPage));
       result.fold(
-              (l) => emit(state.copyWith(
-            //state
+          (l) => emit(state.copyWith(
+              //state
               sweetTermsMessage: l.message,
               sweetTermsState: RequestState.error)), (r) {
         String terms = jsonEncode(r);
         Preferences.saveSweet(terms);
         emit(state.copyWith(
-          //state
+            //state
             sweetTerms: r,
             sweetTermsState: RequestState.loaded));
       });
@@ -465,24 +466,24 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
       if (terms != '' && terms != null) {
         var myTerms = await jsonDecode(terms);
         myTerms = List<TermModel>.from((myTerms).map(
-              (e) => TermModel.fromJson(e),
+          (e) => TermModel.fromJson(e),
         ));
         emit(state.copyWith(
-          //state
+            //state
             coffeeTerms: myTerms,
             coffeeTermsState: RequestState.loaded));
       }
       final result = await getTermsUseCase(TermsParameters(
           id: event.attributeId, page: event.pageNum, perPage: event.perPage));
       result.fold(
-              (l) => emit(state.copyWith(
-            //state
+          (l) => emit(state.copyWith(
+              //state
               coffeeTermsMessage: l.message,
               coffeeTermsState: RequestState.error)), (r) {
         String terms = jsonEncode(r);
         Preferences.saveCoffee(terms);
         emit(state.copyWith(
-          //state
+            //state
             coffeeTerms: r,
             coffeeTermsState: RequestState.loaded));
       });
@@ -492,29 +493,54 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
       final result = await getTermsUseCase(TermsParameters(
           id: event.attributeId, page: event.pageNum, perPage: event.perPage));
       result.fold(
-              (l) => emit(state.copyWith(
-            //state
+          (l) => emit(state.copyWith(
+              //state
               bannersTermsMessage: l.message,
               bannersTermsState: RequestState.error)),
-              (r) => emit(state.copyWith(
-            //state
+          (r) => emit(state.copyWith(
+              //state
               bannersTerms: r,
               bannersTermsState: RequestState.loaded)));
     });
 
     //term products event
     on<GetTermProductsEvent>((event, emit) async {
+      emit(state.copyWith(loadMore: RequestState.loading));
+
       final result = await getTermsProductsUseCase(TermProductsParameters(
           page: event.pageNum,
           perPage: event.perPage,
           attribute: event.attribute,
           termId: event.termId));
       result.fold(
-              (l) => emit(state.copyWith(
-              termProductsMessage: l.message,
-              termProductsState: RequestState.error)),
-              (r) => emit(state.copyWith(
-              termProducts: r, termProductsState: RequestState.loaded)));
+        (l) => emit(state.copyWith(
+            termProductsMessage: l.message,
+            termProductsState: RequestState.error)),
+        (r) {
+          print(state.loadMore);
+          print(state.termProducts);
+          print("++++++++++++++++++++++++++++");
+          print(r);
+          print(state.termProducts.length);
+
+          List<Product> products = state.termProducts + r;
+          if (r.isEmpty) {
+            emit(state.copyWith(
+              loadMore: RequestState.error,
+              termProducts: products,
+              termProductsState: RequestState.loaded,
+            ));
+          } else {
+            emit(state.copyWith(
+                termProducts: products,
+                termProductsState: RequestState.loaded,
+                loadMore: RequestState.loaded));
+          }
+          print("++++++++++++++++++++++++++++");
+          print(state.termProducts.length);
+          print(state.loadMore);
+        },
+      );
     });
 
     on<CurrentSliderEvent>((event, emit) {

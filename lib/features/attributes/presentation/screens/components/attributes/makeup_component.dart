@@ -30,18 +30,20 @@ class MakeUpComponent extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) => StoreProducts(
+                      attribute: 'skin-care',
+                      termid: state.makeupTerms[index].id,
                       event: GetTermProductsEvent(
                           attribute: 'skin-care',
                           termId: state.makeupTerms[index].id,
                           perPage: 100,
                           pageNum: 1),
                       storeName: state.makeupTerms[index].name,
-                      image: (state.makeupTerms[index].description
-                          .split(';')[2])
-                          .isEmpty
-                          ? ''
-                          : (state.makeupTerms[index].description
-                          .split(';')[2]),
+                      image:
+                          (state.makeupTerms[index].description.split(';')[2])
+                                  .isEmpty
+                              ? ''
+                              : (state.makeupTerms[index].description
+                                  .split(';')[2]),
                     ),
                   ),
                 );
@@ -50,12 +52,10 @@ class MakeUpComponent extends StatelessWidget {
                 height: 120.h,
                 child: CategoryCard(
                   name: state.makeupTerms[index].name,
-                  image: (state.makeupTerms[index].description
-                      .split(';')[1])
-                      .isEmpty
+                  image: (state.makeupTerms[index].description.split(';')[1])
+                          .isEmpty
                       ? ''
-                      : (state.makeupTerms[index].description
-                      .split(';')[1]),
+                      : (state.makeupTerms[index].description.split(';')[1]),
                 ),
               ),
             );

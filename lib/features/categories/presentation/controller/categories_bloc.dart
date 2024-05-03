@@ -33,7 +33,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
       final result =
           await getAllCategoriesUseCase(const AllCategoriesParameters(page: 1));
       final result2 =
-      await getAllCategoriesUseCase(const AllCategoriesParameters(page: 2));
+          await getAllCategoriesUseCase(const AllCategoriesParameters(page: 2));
       result.fold(
           (l) => emit(state.copyWith(
               allCategoriesMessage: l.message,
@@ -44,16 +44,15 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
             a.add(e);
           }
         }
-       result2.fold((l) => null, (r2) {
-         for (var e in r2) {
-           if (e.parent == 0 && e.image.src != '') {
-             a.add(e);
-           }
-         }
-         return  null;
-       });
-        a.sort((a,b)=>a.description.compareTo(b.description));
-
+        result2.fold((l) => null, (r2) {
+          for (var e in r2) {
+            if (e.parent == 0 && e.image.src != '') {
+              a.add(e);
+            }
+          }
+          return null;
+        });
+        a.sort((a, b) => a.description.compareTo(b.description));
 
         emit(state.copyWith(
             allCategories: a,
@@ -64,16 +63,16 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
 
     //get categories by parent
     on<GetCategoriesByParentEvent>((event, emit) async {
-      final result =
-      await getCategoriesByParentUseCase( CategoriesByParentParameters(parent: event.parent));
+      final result = await getCategoriesByParentUseCase(
+          CategoriesByParentParameters(parent: event.parent));
       result.fold(
-              (l) => emit(state.copyWith(
+          (l) => emit(state.copyWith(
               categoriesByParentMessage: l.message,
               categoriesByParentState: RequestState.error)), (r) {
-                for(var a in r){
-                  print(a.description + a.name);
-                }
-                r.sort((a, b) =>a.description.compareTo(b.description));
+        for (var a in r) {
+          print(a.description + a.name);
+        }
+        r.sort((a, b) => a.description.compareTo(b.description));
         emit(state.copyWith(
             categoriesByParentState: RequestState.loaded,
             categoriesByParent: r));
@@ -82,19 +81,16 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
 
     //get categories by child
     on<GetCategoriesByChildEvent>((event, emit) async {
-      final result =
-      await getCategoriesByParentUseCase( CategoriesByParentParameters(parent: event.parent));
+      final result = await getCategoriesByParentUseCase(
+          CategoriesByParentParameters(parent: event.parent));
       result.fold(
-              (l) => emit(state.copyWith(
+          (l) => emit(state.copyWith(
               categoriesByChildMessage: l.message,
               categoriesByChildState: RequestState.error)), (r) {
         emit(state.copyWith(
-            categoriesByChildState: RequestState.loaded,
-            categoriesByChild: r));
+            categoriesByChildState: RequestState.loaded, categoriesByChild: r));
       });
     });
-
-
 
     //Product Details Event
     on<GetProductDetailsEvent>((event, emit) async {});
@@ -110,24 +106,31 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
       result.fold(
           (l) => emit(state.copyWith(
               categoryProductsMessage: l.message,
-              categoryProductsState: RequestState.error)),
-          (r) {
-            List<Product> products = event.lastProducts + r;
-            if (r.isEmpty) {
-              emit(state.copyWith(
-                loadMore: RequestState.error,
-                categoryProducts: products,
-                categoryProductsState: RequestState.loaded,
-              ));
-            }
-            else {
-              emit(state.copyWith(
-                  categoryProducts: products,
-                  categoryProductsState: RequestState.loaded,
-                  loadMore: RequestState.loaded
-              ));
-            }
-             });
+              categoryProductsState: RequestState.error)), (r) {
+        print(state.loadMore);
+        print(state.categoryProducts);
+        print("++++++++++++++++++++++++++++");
+        print(r);
+        print(state.categoryProducts.length);
+        List<Product> products = event.lastProducts + r;
+        if (r.isEmpty) {
+          emit(state.copyWith(
+            loadMore: RequestState.error,
+            categoryProducts: products,
+            categoryProductsState: RequestState.loaded,
+          ));
+        } else {
+          emit(state.copyWith(
+              categoryProducts: products,
+              categoryProductsState: RequestState.loaded,
+              loadMore: RequestState.loaded));
+        }
+        print("++++++++++++++++++++++++++++");
+        print(state.categoryProducts);
+        print("++++++++++++++++++++++++++++");
+        print(state.categoryProducts.length);
+        print(state.loadMore);
+      });
     });
 
     //last Products Event
@@ -168,7 +171,6 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
 
     //men clothing event
     on<GetMenClothingProductsEvent>((event, emit) async {
-
       emit(state.copyWith(menClothingProductsState: RequestState.loading));
 
       final result = await getCategoryProductsUseCase(
@@ -186,7 +188,6 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     });
     // women clothing event
     on<GetWomenClothingProductsEvent>((event, emit) async {
-
       emit(state.copyWith(womenClothingProductsState: RequestState.loading));
 
       final result = await getCategoryProductsUseCase(
@@ -206,7 +207,6 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     //children clothing event
 
     on<GetChildrenClothingProductsEvent>((event, emit) async {
-
       emit(state.copyWith(childrenClothingProductsState: RequestState.loading));
 
       final result = await getCategoryProductsUseCase(
@@ -225,7 +225,6 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
 
     //food products event
     on<GetFoodProductsEvent>((event, emit) async {
-
       emit(state.copyWith(foodProductsState: RequestState.loading));
 
       final result = await getCategoryProductsUseCase(
@@ -243,7 +242,6 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
 
     //shoes and bags products event
     on<GetShoesAndBagsProductsEvent>((event, emit) async {
-
       emit(state.copyWith(shoesAndBagsProductsState: RequestState.loading));
 
       final result = await getCategoryProductsUseCase(
@@ -262,8 +260,8 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
 
     //watches and accessories products event
     on<GetWatchesAndAccessoriesProductsEvent>((event, emit) async {
-
-      emit(state.copyWith(watchesAndAccessoriesProductsState: RequestState.loading));
+      emit(state.copyWith(
+          watchesAndAccessoriesProductsState: RequestState.loading));
 
       final result = await getCategoryProductsUseCase(
           CategoryProductsParameters(
@@ -281,7 +279,6 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
 
     //mobiles products event
     on<GetMobilesProductsEvent>((event, emit) async {
-
       emit(state.copyWith(mobilesProductsState: RequestState.loading));
 
       final result = await getCategoryProductsUseCase(
@@ -299,7 +296,6 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
 
     //perfumes products event
     on<GetPerfumesProductsEvent>((event, emit) async {
-
       emit(state.copyWith(mobilesProductsState: RequestState.loading));
 
       final result = await getCategoryProductsUseCase(
@@ -318,7 +314,6 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
 
     //house and kitchen products event
     on<GetHouseAndKitchenProductsEvent>((event, emit) async {
-
       emit(state.copyWith(houseAndKitchenProductsState: RequestState.loading));
 
       final result = await getCategoryProductsUseCase(
@@ -353,7 +348,6 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
 
     //makeup products event
     on<GetMakeUpProductsEvent>((event, emit) async {
-
       emit(state.copyWith(makeUpProductsState: RequestState.loading));
 
       final result = await getCategoryProductsUseCase(
@@ -371,7 +365,6 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
 
     //pets products event
     on<GetPetsProductsEvent>((event, emit) async {
-
       emit(state.copyWith(petsProductsState: RequestState.loading));
 
       final result = await getCategoryProductsUseCase(
@@ -388,23 +381,20 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     });
     //search products event
     on<GetSearchProductsEvent>((event, emit) async {
-      if(event.search != ''){
+      if (event.search != '') {
         emit(state.copyWith(searchProductsState: RequestState.loading));
         final result = await getSearchProductsUseCase(SearchProductsParameters(
             search: event.search, page: event.pageNum, perPage: event.perPage));
         result.fold(
-                (l) => emit(state.copyWith(
+            (l) => emit(state.copyWith(
                 searchProductsMessage: l.message,
                 searchProductsState: RequestState.error)),
-                (r) => emit(state.copyWith(
+            (r) => emit(state.copyWith(
                 searchProducts: r, searchProductsState: RequestState.loaded)));
-      }else{
+      } else {
         emit(state.copyWith(
-          searchProducts: [],
-          searchProductsState: RequestState.loaded
-        ));
+            searchProducts: [], searchProductsState: RequestState.loaded));
       }
-
     });
 
     //
@@ -412,28 +402,24 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
       emit(state.copyWith(currentSlider: event.currentSlider));
     });
   }
-  void addAllProducts(){
+  void addAllProducts() {
     add(const GetMenClothingProductsEvent(
-    pageNum: 1, categoryId: 44, perPage: 20));
+        pageNum: 1, categoryId: 44, perPage: 20));
     add(const GetWomenClothingProductsEvent(
-    pageNum: 1, categoryId: 42, perPage: 20));
+        pageNum: 1, categoryId: 42, perPage: 20));
     add(const GetChildrenClothingProductsEvent(
-    pageNum: 1, categoryId: 61, perPage: 20));
-    add(const GetFoodProductsEvent(
-    pageNum: 1, categoryId: 195, perPage: 20));
+        pageNum: 1, categoryId: 61, perPage: 20));
+    add(const GetFoodProductsEvent(pageNum: 1, categoryId: 195, perPage: 20));
     add(const GetShoesAndBagsProductsEvent(
-    pageNum: 1, categoryId: 102, perPage: 20));
+        pageNum: 1, categoryId: 102, perPage: 20));
     add(const GetWatchesAndAccessoriesProductsEvent(
-    pageNum: 1, categoryId: 118, perPage: 20));
+        pageNum: 1, categoryId: 118, perPage: 20));
     add(const GetMobilesProductsEvent(
-    pageNum: 1, categoryId: 123, perPage: 20));
+        pageNum: 1, categoryId: 123, perPage: 20));
     add(const GetPerfumesProductsEvent(
-    pageNum: 1, categoryId: 108, perPage: 20));
-    add(const GetMakeUpProductsEvent(
-    pageNum: 1, categoryId: 112, perPage: 20));
-    add(const GetPetsProductsEvent(
-    pageNum: 1, categoryId: 421, perPage: 20));
-    add(const GetOffersProductsEvent(
-    pageNum: 1, categoryId: 644, perPage: 20));
+        pageNum: 1, categoryId: 108, perPage: 20));
+    add(const GetMakeUpProductsEvent(pageNum: 1, categoryId: 112, perPage: 20));
+    add(const GetPetsProductsEvent(pageNum: 1, categoryId: 421, perPage: 20));
+    add(const GetOffersProductsEvent(pageNum: 1, categoryId: 644, perPage: 20));
   }
 }

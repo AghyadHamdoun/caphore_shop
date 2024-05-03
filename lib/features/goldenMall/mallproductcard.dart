@@ -153,7 +153,7 @@ class MallProductCard extends StatelessWidget {
                       )),
                   // add button
                   SizedBox(
-                    height: 25.h,
+                    height: size.height / 30,
                     child: ElevatedButton(
                       onPressed: () {
                         bloc.add(AddProductToBasket(productModel: product));
@@ -161,7 +161,10 @@ class MallProductCard extends StatelessWidget {
                       },
                       style: ElevatedButton.styleFrom(
                           backgroundColor: AppColor.accentColor),
-                      child: Text("أضف الى السلة"),
+                      child: const Text(
+                        "أضف الى السلة",
+                        style: TextStyle(color: AppColor.whiteColor),
+                      ),
                     ),
                   ),
                   SizedBox(

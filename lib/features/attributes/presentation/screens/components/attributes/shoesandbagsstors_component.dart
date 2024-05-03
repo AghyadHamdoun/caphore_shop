@@ -30,6 +30,8 @@ class ShoesAndBagsStorsComponent extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) => StoreProducts(
+                      attribute: 'bags-n-shoes',
+                      termid: state.shoesandbagsTerms[index].id,
                       event: GetTermProductsEvent(
                           attribute: 'bags-n-shoes',
                           termId: state.shoesandbagsTerms[index].id,

@@ -30,6 +30,8 @@ class SweetsResturantsComponent extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) => StoreProducts(
+                      attribute: 'sweets',
+                      termid: state.sweetTerms[index].id,
                       event: GetTermProductsEvent(
                           attribute: 'sweets',
                           termId: state.sweetTerms[index].id,

@@ -1,6 +1,7 @@
 import 'package:caphore/core/utils/enums.dart';
 import 'package:caphore/features/attributes/presentation/controller/attributes_bloc.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/CategoryCard.dart';
+import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -35,38 +36,43 @@ class BrandsComponent extends StatelessWidget {
               itemCount: state.brandsTerms.length,
               physics: const BouncingScrollPhysics(),
               itemBuilder: (BuildContext context, int index) {
-                return InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => StoreProducts(
-                          event: GetTermProductsEvent(
-                              attribute: 'brand',
-                              termId: state.brandsTerms[index].id,
-                              perPage: 100,
-                              pageNum: 1),
-                          storeName: state.brandsTerms[index].name,
-                          image: (state.brandsTerms[index].description
-                                      .split(';')[2])
-                                  .isEmpty
-                              ? ''
-                              : (state.brandsTerms[index].description
-                                  .split(';')[2]),
+                return DelayedDisplay(
+                  delay: Duration(seconds: 2 + (index)),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => StoreProducts(
+                            attribute: 'brand',
+                            termid: state.brandsTerms[index].id,
+                            event: GetTermProductsEvent(
+                                attribute: 'brand',
+                                termId: state.brandsTerms[index].id,
+                                perPage: 100,
+                                pageNum: 1),
+                            storeName: state.brandsTerms[index].name,
+                            image: (state.brandsTerms[index].description
+                                        .split(';')[2])
+                                    .isEmpty
+                                ? ''
+                                : (state.brandsTerms[index].description
+                                    .split(';')[2]),
+                          ),
                         ),
+                      );
+                    },
+                    child: SizedBox(
+                      height: 120.h,
+                      child: CategoryCard(
+                        name: state.brandsTerms[index].name,
+                        image:
+                            (state.brandsTerms[index].description.split(';')[1])
+                                    .isEmpty
+                                ? ''
+                                : (state.brandsTerms[index].description
+                                    .split(';')[1]),
                       ),
-                    );
-                  },
-                  child: SizedBox(
-                    height: 120.h,
-                    child: CategoryCard(
-                      name: state.brandsTerms[index].name,
-                      image:
-                          (state.brandsTerms[index].description.split(';')[1])
-                                  .isEmpty
-                              ? ''
-                              : (state.brandsTerms[index].description
-                                  .split(';')[1]),
                     ),
                   ),
                 );

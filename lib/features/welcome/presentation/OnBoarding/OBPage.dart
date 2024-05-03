@@ -70,7 +70,7 @@ class _OBPageState extends State<OBPage> {
                 padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 5.h),
                 child: Text(
                   "   التالي   ",
-                  style: TextStyle(fontSize: 20.sp),
+                  style: TextStyle(fontSize: 20.sp, color: Colors.white),
                 ),
               ),
             ),

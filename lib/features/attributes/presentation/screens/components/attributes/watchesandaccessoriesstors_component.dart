@@ -30,6 +30,8 @@ class WatchesAndAccessoriesStorsComponent extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) => StoreProducts(
+                      attribute: 'watches-n-glasses',
+                      termid: state.watchesandaccessoriesTerms[index].id,
                       event: GetTermProductsEvent(
                           attribute: 'watches-n-glasses',
                           termId: state.watchesandaccessoriesTerms[index].id,

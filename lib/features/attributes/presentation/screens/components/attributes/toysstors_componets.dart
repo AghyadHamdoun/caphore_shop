@@ -32,6 +32,8 @@ class ToysStorsComponent extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) => StoreProducts(
+                          attribute: 'kids-toys',
+                          termid: state.toysTerms[index].id,
                           event: GetTermProductsEvent(
                               attribute: 'kids-toys',
                               termId: state.toysTerms[index].id,
@@ -76,6 +78,8 @@ class ToysStorsComponent extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) => StoreProducts(
+                          attribute: 'stationery',
+                          termid: state.libraryTerms[index].id,
                           event: GetTermProductsEvent(
                               attribute: 'stationery',
                               termId: state.libraryTerms[index].id,

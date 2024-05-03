@@ -30,6 +30,8 @@ class ElectronicEquipmentStorsComponent extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) => StoreProducts(
+                      attribute: 'electronics',
+                      termid: state.electronicequipmentTerms[index].id,
                       event: GetTermProductsEvent(
                           attribute: 'electronics',
                           termId: state.electronicequipmentTerms[index].id,

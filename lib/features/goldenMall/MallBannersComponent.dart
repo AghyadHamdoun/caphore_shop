@@ -39,26 +39,7 @@ class MallBannersComponent extends StatelessWidget {
               CarouselSlider(
                 items: images.mapIndexed(
                   (ind, item) {
-                    return
-                        //  InkWell(
-                        //   onTap: () {
-                        //     Navigator.push(
-                        //       context,
-                        //       MaterialPageRoute(
-                        //         builder: (context) => StoreProducts(
-                        //           event: GetTermProductsEvent(
-                        //               attribute: attributeName[ind],
-                        //               termId: int.parse(termId[ind]),
-                        //               perPage: 100,
-                        //               pageNum: 1),
-                        //           storeName: 'الماركات',
-                        //           image: item,
-                        //         ),
-                        //       ),
-                        //     );
-                        //   },
-                        //   child:
-                        Padding(
+                    return Padding(
                       padding: EdgeInsets.only(bottom: 10.h),
                       child: Container(
                         width: double.infinity,

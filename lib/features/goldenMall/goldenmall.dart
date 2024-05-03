@@ -26,26 +26,25 @@ class GoldenMall extends StatelessWidget {
       builder: (context, state) {
         return SafeArea(
           child: Scaffold(
-            floatingActionButton:
-                 Container(
-                    width: size.width / 6,
-                    child: FittedBox(
-                      child: FloatingActionButton(
-                        backgroundColor: AppColor.primaryColor,
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => CartScreen()),
-                          );
-                        },
-                        child: Icon(
-                          Icons.shopping_cart,
-                          size: 40.r,
-                        ),
-                      ),
-                    ),
+            floatingActionButton: Container(
+              width: size.width / 6,
+              child: FittedBox(
+                child: FloatingActionButton(
+                  backgroundColor: AppColor.primaryColor,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => CartScreen()),
+                    );
+                  },
+                  child: Icon(
+                    Icons.shopping_cart,
+                    color: AppColor.whiteColor,
+                    size: 40.r,
                   ),
+                ),
+              ),
+            ),
             body: Column(
               children: [
                 Padding(
@@ -58,11 +57,7 @@ class GoldenMall extends StatelessWidget {
                     padding: EdgeInsets.only(top: 10.h),
                     shrinkWrap: false,
                     physics: const BouncingScrollPhysics(),
-                    children: const [
-                      MallBannersComponent(),
-                      MallsubCategoriesComponent(),
-                      MallProductsComponent()
-                    ],
+                    children: const [MallProductsComponent()],
                   ),
                 ),
               ],
