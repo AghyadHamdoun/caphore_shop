@@ -11,7 +11,7 @@ abstract class CategoriesEvent extends Equatable {
 class GetAllCategoriesEvent extends CategoriesEvent {
   final int page;
 
- const GetAllCategoriesEvent({required this.page});
+  const GetAllCategoriesEvent({required this.page});
 }
 
 class GetCategoriesByParentEvent extends CategoriesEvent {
@@ -40,8 +40,12 @@ class GetCategoryProductsEvent extends CategoriesEvent {
   final int perPage;
   final List<Product> lastProducts;
 
-  const GetCategoryProductsEvent(
-      {required this.pageNum, required this.categoryId, required this.perPage,required this.lastProducts,});
+  const GetCategoryProductsEvent({
+    required this.pageNum,
+    required this.categoryId,
+    required this.perPage,
+    required this.lastProducts,
+  });
 }
 
 class GetLastProductsEvent extends CategoriesEvent {
@@ -190,4 +194,12 @@ class GetOffersProductsEvent extends CategoriesEvent {
 
   const GetOffersProductsEvent(
       {required this.pageNum, required this.categoryId, required this.perPage});
+}
+
+class ChangeSearchIconEvent extends CategoriesEvent {
+  final bool searchicon;
+
+  const ChangeSearchIconEvent({
+    required this.searchicon,
+  });
 }

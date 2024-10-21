@@ -7,7 +7,6 @@ import 'package:caphore/features/categories/presentation/screeens/widgets/salesa
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 
 class CategoriesComponent extends StatelessWidget {
   const CategoriesComponent({Key? key}) : super(key: key);
@@ -32,26 +31,26 @@ class CategoriesComponent extends StatelessWidget {
                       if (state.allCategories[index].id == 693) {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) =>const GoldenMall()),
+                          MaterialPageRoute(
+                              builder: (context) => const GoldenMall()),
                         );
                       } else {
                         Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => SubCategoryProducts(
-                                      event: GetCategoryProductsEvent(
-                                          pageNum: 1,
-                                          categoryId:
-                                              state.allCategories[index].id,
-                                          perPage: 100,
-                                          lastProducts: []),
-                                      categoryName:
-                                          state.allCategories[index].name,
-                                      subEvent: GetCategoriesByParentEvent(
-                                          parent:
-                                              state.allCategories[index].id),
-                                      categoryId: state.allCategories[index].id,
-                                    )));
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SubCategoryProducts(
+                              event: GetCategoryProductsEvent(
+                                  pageNum: 1,
+                                  categoryId: state.allCategories[index].id,
+                                  perPage: 100,
+                                  lastProducts: const []),
+                              categoryName: state.allCategories[index].name,
+                              subEvent: GetCategoriesByParentEvent(
+                                  parent: state.allCategories[index].id),
+                              categoryId: state.allCategories[index].id,
+                            ),
+                          ),
+                        );
                       }
                     },
                     child: SalesAvatar(

@@ -76,7 +76,7 @@ class Homeproducts extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => GoldenMall()),
+                                    builder: (context) => const GoldenMall()),
                               );
                             } else {
                               Navigator.push(

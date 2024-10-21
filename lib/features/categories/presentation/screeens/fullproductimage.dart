@@ -2,7 +2,6 @@ import 'package:caphore/features/categories/presentation/controller/categories_b
 import 'package:caphore/features/categories/presentation/controller/categories_event.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_state.dart';
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -31,51 +30,56 @@ class Fullproductimage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  CarouselSlider(
-                    items: imeges
-                        .map(
-                          (item) => Padding(
-                            padding: EdgeInsets.only(bottom: 10.h),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: NetworkImage(item),
-                                  fit: BoxFit.contain,
-                                ),
-                                borderRadius: BorderRadius.circular(20.r),
-                              ),
-                            ),
-                          ),
-                        )
-                        .toList(),
-                    options: CarouselOptions(
-                        onPageChanged: (index, reason) {
-                          bloc.add(CurrentSliderEvent(currentSlider: index));
-                        },
-                        enableInfiniteScroll: false,
-                        viewportFraction: 1,
-                        autoPlay: true,
-                        aspectRatio: 1),
-                  ),
                   SizedBox(
-                    height: 10.h,
-                    child: ListView.builder(
-                      shrinkWrap: true,
+                    height: size.height / 1.3,
+                    child: CarouselView(
+                      itemExtent: size.width,
+                      itemSnapping: true,
                       scrollDirection: Axis.horizontal,
-                      itemCount: imeges.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return Container(
-                          height: 10.h,
-                          width: 10.w,
-                          margin: EdgeInsets.symmetric(horizontal: 5.h),
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: state.currentSlider == index
-                                ? Colors.orange
-                                : Colors.grey,
-                          ),
-                        );
-                      },
+                      padding: EdgeInsets.all(5.h),
+                      children: List.generate(
+                        imeges.length,
+                        (int index) {
+                          return Column(
+                            children: [
+                              Container(
+                                height: size.height / 1.3 - 30.h,
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                      image: NetworkImage(imeges[index]),
+                                      fit: BoxFit.fill),
+                                  borderRadius: BorderRadius.circular(20.r),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 10.h,
+                              ),
+                              SizedBox(
+                                height: 10.h,
+                                child: ListView.builder(
+                                  shrinkWrap: true,
+                                  scrollDirection: Axis.horizontal,
+                                  itemCount: imeges.length,
+                                  itemBuilder: (BuildContext context, int i) {
+                                    return Container(
+                                      height: 10.h,
+                                      width: 10.w,
+                                      margin:
+                                          EdgeInsets.symmetric(horizontal: 5.h),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: i == index
+                                            ? Colors.orange
+                                            : Colors.grey,
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ),
+                            ],
+                          );
+                        },
+                      ),
                     ),
                   ),
                 ],

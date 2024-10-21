@@ -2,11 +2,11 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class networkcontrol extends GetxController {
+class Networkcontrol extends GetxController {
   final connectivity = Connectivity();
 
   @override
-  void onInit() async {
+  void onInit() {
     super.onInit();
     connectivity.onConnectivityChanged.listen(onConnectivityupdate);
   }

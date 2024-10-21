@@ -1,12 +1,12 @@
 buildscript {
-    ext.kotlin_version = '1.7.20'
+    ext.kotlin_version = '1.8.22'
     repositories {
         google()
         mavenCentral()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.4.2'
+        classpath 'com.android.tools.build:gradle:8.1.1'
         // START: FlutterFire Configuration
         classpath 'com.google.gms:google-services:4.3.14'
         // END: FlutterFire Configuration
@@ -18,6 +18,8 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        maven { url "https://maven.google.com" }  // Ensure Google Maven is included
+        maven { url "https://jitpack.io" }  // Add this repository for missing dependencies
 //        maven {
 //            url "${project(':background_fetch').projectDir}/libs"
 //        }
@@ -25,6 +27,14 @@ allprojects {
 }
 
 rootProject.buildDir = '../build'
+subprojects {
+    configurations.all {
+        resolutionStrategy {
+            force 'com.android.tools.external.com-intellij:intellij-core:30.0.0'
+            force 'com.android.tools.external.com-intellij:kotlin-compiler:30.0.0'
+        }
+    }
+}
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
 }

@@ -401,6 +401,12 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     on<CurrentSliderEvent>((event, emit) {
       emit(state.copyWith(currentSlider: event.currentSlider));
     });
+    on<ChangeSearchIconEvent>((event, emit) {
+      emit(state.copyWith(
+          searchProducts: [],
+          searchicon: event.searchicon,
+          searchProductsState: RequestState.loading));
+    });
   }
   void addAllProducts() {
     add(const GetMenClothingProductsEvent(

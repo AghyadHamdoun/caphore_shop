@@ -23,17 +23,17 @@ class AttributesBloc extends Bloc<AttributesEvent, AttributesState> {
     on<GetBrandTermsEvent>((event, emit) async {
       emit(state.copyWith(brandsTermsState: RequestState.loading));
 
-      String? terms = Preferences.getBrands();
-      if (terms != '' && terms != null) {
-        var myTerms = await jsonDecode(terms);
-        myTerms = List<TermModel>.from((myTerms).map(
-          (e) => TermModel.fromJson(e),
-        ));
-        emit(state.copyWith(
-            //state
-            brandsTerms: myTerms,
-            brandsTermsState: RequestState.loaded));
-      }
+      // String? terms = Preferences.getBrands();
+      // if (terms != '' && terms != null) {
+      //   var myTerms = await jsonDecode(terms);
+      //   myTerms = List<TermModel>.from((myTerms).map(
+      //     (e) => TermModel.fromJson(e),
+      //   ));
+      //   emit(state.copyWith(
+      //       //state
+      //       brandsTerms: myTerms,
+      //       brandsTermsState: RequestState.loaded));
+      // }
       final result = await getTermsUseCase(TermsParameters(
           id: event.attributeId, page: event.pageNum, perPage: event.perPage));
       result.fold(

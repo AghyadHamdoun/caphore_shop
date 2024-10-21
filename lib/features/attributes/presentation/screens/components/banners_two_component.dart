@@ -4,10 +4,8 @@ import 'package:caphore/features/attributes/presentation/controller/attributes_e
 import 'package:caphore/features/attributes/presentation/controller/attributes_state.dart';
 import 'package:caphore/features/attributes/presentation/screens/storeproducts.dart';
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:collection/collection.dart';
 
 class ImageSliderTwoWithIndex extends StatelessWidget {
   const ImageSliderTwoWithIndex({
@@ -16,6 +14,8 @@ class ImageSliderTwoWithIndex extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
     var bloc = sl<AttributesBloc>();
     return BlocProvider(
       create: (context) => bloc
@@ -41,51 +41,75 @@ class ImageSliderTwoWithIndex extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                CarouselSlider(
-                  items: images.mapIndexed(
-                    (ind, item) {
-                      return InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => StoreProducts(
-                                attribute: attributeName[ind],
-                                termid: int.parse(termId[ind]),
-                                event: GetTermProductsEvent(
-                                    attribute: attributeName[ind],
-                                    termId: int.parse(termId[ind]),
-                                    perPage: 100,
-                                    pageNum: 1),
-                                storeName: 'المطاعم',
-                                image: item,
-                              ),
-                            ),
-                          );
-                        },
-                        child: Padding(
-                          padding: EdgeInsets.only(bottom: 10.h),
-                          child: Container(
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: NetworkImage(item),
-                                fit: BoxFit.fill,
-                              ),
-                              borderRadius: BorderRadius.circular(20.r),
-                            ),
+                SizedBox(
+                  height: size.height / 4,
+                  child: CarouselView(
+                    onTap: (index) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => StoreProducts(
+                            attribute: attributeName[index],
+                            termid: int.parse(termId[index]),
+                            event: GetTermProductsEvent(
+                                attribute: attributeName[index],
+                                termId: int.parse(termId[index]),
+                                perPage: 100,
+                                pageNum: 1),
+                            storeName: 'المطاعم',
+                            image: images[index],
                           ),
                         ),
                       );
                     },
-                  ).toList(),
-                  options: CarouselOptions(
-                      onPageChanged: (index, reason) {},
-                      autoPlay: true,
-                      enableInfiniteScroll: true,
-                      aspectRatio: 2.1.r,
-                      viewportFraction: 1,
-                      enlargeCenterPage: true),
+                    itemExtent: size.width,
+                    itemSnapping: true,
+                    scrollDirection: Axis.horizontal,
+                    padding: EdgeInsets.all(5.h),
+                    children: List.generate(
+                      images.length,
+                      (int index) {
+                        return Column(
+                          children: [
+                            Container(
+                              height: size.height / 4 - 30.h,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: NetworkImage(images[index]),
+                                    fit: BoxFit.fill),
+                                borderRadius: BorderRadius.circular(20.r),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 10.h,
+                            ),
+                            SizedBox(
+                              height: 10.h,
+                              child: ListView.builder(
+                                shrinkWrap: true,
+                                scrollDirection: Axis.horizontal,
+                                itemCount: images.length,
+                                itemBuilder: (BuildContext context, int i) {
+                                  return Container(
+                                    height: 10.h,
+                                    width: 10.w,
+                                    margin:
+                                        EdgeInsets.symmetric(horizontal: 5.h),
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: i == index
+                                          ? Colors.orange
+                                          : Colors.grey,
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
+                          ],
+                        );
+                      },
+                    ),
+                  ),
                 ),
               ],
             ),

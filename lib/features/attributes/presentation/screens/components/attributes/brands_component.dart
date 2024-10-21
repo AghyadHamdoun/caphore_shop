@@ -36,43 +36,40 @@ class BrandsComponent extends StatelessWidget {
               itemCount: state.brandsTerms.length,
               physics: const BouncingScrollPhysics(),
               itemBuilder: (BuildContext context, int index) {
-                return DelayedDisplay(
-                  delay: Duration(seconds: 2 + (index)),
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => StoreProducts(
-                            attribute: 'brand',
-                            termid: state.brandsTerms[index].id,
-                            event: GetTermProductsEvent(
-                                attribute: 'brand',
-                                termId: state.brandsTerms[index].id,
-                                perPage: 100,
-                                pageNum: 1),
-                            storeName: state.brandsTerms[index].name,
-                            image: (state.brandsTerms[index].description
-                                        .split(';')[2])
-                                    .isEmpty
-                                ? ''
-                                : (state.brandsTerms[index].description
-                                    .split(';')[2]),
-                          ),
+                return InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => StoreProducts(
+                          attribute: 'brand',
+                          termid: state.brandsTerms[index].id,
+                          event: GetTermProductsEvent(
+                              attribute: 'brand',
+                              termId: state.brandsTerms[index].id,
+                              perPage: 100,
+                              pageNum: 1),
+                          storeName: state.brandsTerms[index].name,
+                          image: (state.brandsTerms[index].description
+                                      .split(';')[2])
+                                  .isEmpty
+                              ? ''
+                              : (state.brandsTerms[index].description
+                                  .split(';')[2]),
                         ),
-                      );
-                    },
-                    child: SizedBox(
-                      height: 120.h,
-                      child: CategoryCard(
-                        name: state.brandsTerms[index].name,
-                        image:
-                            (state.brandsTerms[index].description.split(';')[1])
-                                    .isEmpty
-                                ? ''
-                                : (state.brandsTerms[index].description
-                                    .split(';')[1]),
                       ),
+                    );
+                  },
+                  child: SizedBox(
+                    height: 120.h,
+                    child: CategoryCard(
+                      name: state.brandsTerms[index].name,
+                      image:
+                          (state.brandsTerms[index].description.split(';')[1])
+                                  .isEmpty
+                              ? ''
+                              : (state.brandsTerms[index].description
+                                  .split(';')[1]),
                     ),
                   ),
                 );

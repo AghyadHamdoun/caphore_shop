@@ -3,11 +3,11 @@ import 'package:caphore/features/categories/presentation/controller/categories_e
 import 'package:caphore/features/categories/presentation/controller/categories_state.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/productcard.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:caphore/core/utils/app_color.dart';
 import 'package:lottie/lottie.dart';
-
 import '../../../../../core/utils/enums.dart';
 import '../../controller/categories_bloc.dart';
 import '../product.dart';
@@ -23,49 +23,76 @@ class Search extends StatelessWidget {
       create: (context) => bloc,
       child: BlocBuilder<CategoriesBloc, CategoriesState>(
         builder: (context, state) {
+          // Size size = MediaQuery.of(context).size;
           return SafeArea(
             child: Scaffold(
               body: Padding(
                 padding: EdgeInsets.only(top: 3.h),
                 child: Column(
                   children: [
-                    Form(
-                      child: TextFormField(
-                        onChanged: (string) {
-                          bloc.add(GetSearchProductsEvent(
-                              pageNum: 1, search: string, perPage: 100));
-                        },
-                        controller: controller,
-                        enabled: true,
-                        style: TextStyle(color: Colors.white, fontSize: 18.sp),
-                        decoration: InputDecoration(
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: AppColor.accentColor, width: 2.w),
-                            borderRadius: BorderRadius.circular(20),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 5.w),
+                      child: Form(
+                        child: TextFormField(
+                          cursorColor: Colors.white,
+                          onChanged: (value) {
+                            (value.isEmpty)
+                                ? bloc.add(const ChangeSearchIconEvent(
+                                    searchicon: false))
+                                : bloc.add(const ChangeSearchIconEvent(
+                                    searchicon: true));
+                          },
+                          onEditingComplete: () {
+                            bloc.add(GetSearchProductsEvent(
+                                pageNum: 1,
+                                search: controller.text,
+                                perPage: 100));
+                          },
+                          controller: controller,
+                          enabled: true,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18.sp,
+                            decoration: TextDecoration.none,
+                            decorationThickness: 0,
                           ),
-                          hintText: 'اضغط هنا للبحث ..',
-                          hintStyle:
-                              const TextStyle(color: AppColor.accentColor),
-                          filled: true,
-                          fillColor: AppColor.primaryColor,
-                          suffixIcon: InkWell(
-                            onTap: () {
-                              bloc.add(GetSearchProductsEvent(
-                                  pageNum: 1,
-                                  search: controller.text,
-                                  perPage: 100));
-                            },
-                            child: Icon(
-                              Icons.search,
-                              size: 33.sp,
-                              color: AppColor.accentColor,
+                          decoration: InputDecoration(
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: AppColor.accentColor, width: 2.w),
+                              borderRadius: BorderRadius.circular(20),
                             ),
-                          ),
-                          border: OutlineInputBorder(
-                            borderSide:
-                                const BorderSide(color: AppColor.accentColor),
-                            borderRadius: BorderRadius.circular(20),
+                            hintText: 'اكتب عن ماذا تريد البحث',
+                            hintStyle:
+                                const TextStyle(color: AppColor.accentColor),
+                            filled: true,
+                            fillColor: AppColor.primaryColor,
+                            suffixIcon: IconButton(
+                              onPressed: () {
+                                (state.searchicon == false)
+                                    ? null
+                                    : bloc.add(GetSearchProductsEvent(
+                                        pageNum: 1,
+                                        search: controller.text,
+                                        perPage: 100));
+                              },
+                              icon: (state.searchicon == false)
+                                  ? Icon(
+                                      Icons.search,
+                                      size: 25.sp,
+                                      color: AppColor.accentColor,
+                                    )
+                                  : Icon(
+                                      Icons.check,
+                                      size: 25.sp,
+                                      color: AppColor.accentColor,
+                                    ),
+                            ),
+                            border: OutlineInputBorder(
+                              borderSide:
+                                  const BorderSide(color: AppColor.accentColor),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
                           ),
                         ),
                       ),
@@ -108,7 +135,7 @@ class Search extends StatelessWidget {
                                 return Expanded(
                                   child: GridView.builder(
                                     gridDelegate:
-                                        SliverGridDelegateWithFixedCrossAxisCount(
+                                        const SliverGridDelegateWithFixedCrossAxisCount(
                                             crossAxisCount: 2,
                                             childAspectRatio: 0.62),
                                     itemCount: state.searchProducts.length,

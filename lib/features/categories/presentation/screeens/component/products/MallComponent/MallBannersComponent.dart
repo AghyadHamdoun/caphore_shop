@@ -2,12 +2,9 @@ import 'package:caphore/core/services/services_locator.dart';
 import 'package:caphore/features/attributes/presentation/controller/attributes_bloc.dart';
 import 'package:caphore/features/attributes/presentation/controller/attributes_event.dart';
 import 'package:caphore/features/attributes/presentation/controller/attributes_state.dart';
-import 'package:caphore/features/attributes/presentation/screens/storeproducts.dart';
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:collection/collection.dart';
 
 class MallBannersComponent extends StatelessWidget {
   const MallBannersComponent({
@@ -15,6 +12,8 @@ class MallBannersComponent extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
     var bloc = sl<AttributesBloc>();
     return BlocProvider(
       create: (context) => bloc
@@ -36,54 +35,59 @@ class MallBannersComponent extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              CarouselSlider(
-                items: images.mapIndexed(
-                  (ind, item) {
-                    return
-                        //  InkWell(
-                        //   onTap: () {
-                        //     Navigator.push(
-                        //       context,
-                        //       MaterialPageRoute(
-                        //         builder: (context) => StoreProducts(
-                        //           event: GetTermProductsEvent(
-                        //               attribute: attributeName[ind],
-                        //               termId: int.parse(termId[ind]),
-                        //               perPage: 100,
-                        //               pageNum: 1),
-                        //           storeName: 'الماركات',
-                        //           image: item,
-                        //         ),
-                        //       ),
-                        //     );
-                        //   },
-                        //   child:
-                        Padding(
-                      padding: EdgeInsets.only(bottom: 10.h),
-                      child: Container(
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: NetworkImage(item),
-                            fit: BoxFit.fill,
+              SizedBox(
+                height: size.height / 6,
+                child: CarouselView(
+                  itemExtent: size.width,
+                  itemSnapping: true,
+                  scrollDirection: Axis.horizontal,
+                  elevation: 5,
+                  padding: EdgeInsets.all(5.h),
+                  children: List.generate(
+                    images.length,
+                    (int index) {
+                      //  InkWell(
+                      //   onTap: () {
+                      //     Navigator.push(
+                      //       context,
+                      //       MaterialPageRoute(
+                      //         builder: (context) => StoreProducts(
+                      //           event: GetTermProductsEvent(
+                      //               attribute: attributeName[ind],
+                      //               termId: int.parse(termId[ind]),
+                      //               perPage: 100,
+                      //               pageNum: 1),
+                      //           storeName: 'الماركات',
+                      //           image: item,
+                      //         ),
+                      //       ),
+                      //     );
+                      //   },
+                      return Padding(
+                        padding: EdgeInsets.only(bottom: 10.h),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: NetworkImage(images[index]),
+                                fit: BoxFit.fill),
+                            borderRadius: BorderRadius.circular(20.r),
                           ),
-                          borderRadius: BorderRadius.circular(20.r),
                         ),
-                      ),
-                    );
-                    // );
-                  },
-                ).toList(),
-                options: CarouselOptions(
-                    onPageChanged: (index, reason) {
-                      bloc.add(CurrentSliderEvent(currentSlider: index));
+                      );
                     },
-                    autoPlay: true,
-                    enableInfiniteScroll: true,
-                    aspectRatio: 2.1.r,
-                    viewportFraction: 1,
-                    enlargeCenterPage: true),
+                  ),
+                ),
               ),
+              // options: CarouselOptions(
+              //     onPageChanged: (index, reason) {
+              //       bloc.add(CurrentSliderEvent(currentSlider: index));
+              //     },
+              //     autoPlay: true,
+              //     enableInfiniteScroll: true,
+              //     aspectRatio: 2.1.r,
+              //     viewportFraction: 1,
+              //     enlargeCenterPage: true),
+
               SizedBox(
                 height: 10.h,
                 child: ListView.builder(

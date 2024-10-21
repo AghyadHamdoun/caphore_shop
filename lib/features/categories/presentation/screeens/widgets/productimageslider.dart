@@ -1,12 +1,11 @@
 import 'package:caphore/features/categories/presentation/controller/categories_bloc.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_state.dart';
+import 'package:caphore/features/categories/presentation/screeens/fullproductimage.dart';
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/services/services_locator.dart';
-import '../../controller/categories_event.dart';
 
 class Productimageslider extends StatelessWidget {
   final List<String> imeges;
@@ -18,6 +17,8 @@ class Productimageslider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
     var bloc = sl<CategoriesBloc>();
     return BlocProvider(
       create: (context) => bloc,
@@ -27,52 +28,63 @@ class Productimageslider extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              CarouselSlider(
-                items: imeges
-                    .map(
-                      (item) => Padding(
-                        padding: EdgeInsets.only(bottom: 10.h),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: NetworkImage(item),
-                              fit: BoxFit.fill,
-                            ),
-                            borderRadius: BorderRadius.circular(20.r),
-                          ),
-                        ),
-                      ),
-                    )
-                    .toList(),
-                options: CarouselOptions(
-                  onPageChanged: (index, reason) {
-                    bloc.add(CurrentSliderEvent(currentSlider: index));
-                  },
-                  enableInfiniteScroll: false,
-                  viewportFraction: 1,
-                  autoPlay: true,
-                  aspectRatio: 1.1.r,
-                ),
-              ),
               SizedBox(
-                height: 10.h,
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  itemCount: imeges.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                      height: 10.h,
-                      width: 10.w,
-                      margin: EdgeInsets.symmetric(horizontal: 5.h),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: state.currentSlider == index
-                            ? Colors.orange
-                            : Colors.grey,
-                      ),
+                height: size.height / 2.5,
+                child: CarouselView(
+                  onTap: (value) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              Fullproductimage(imeges: imeges)),
                     );
                   },
+                  itemExtent: size.width,
+                  itemSnapping: true,
+                  scrollDirection: Axis.horizontal,
+                  padding: EdgeInsets.all(5.h),
+                  children: List.generate(
+                    imeges.length,
+                    (int index) {
+                      return Column(
+                        children: [
+                          Container(
+                            height: size.height / 2.5 - 30.h,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: NetworkImage(imeges[index]),
+                                  fit: BoxFit.fill),
+                              borderRadius: BorderRadius.circular(20.r),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 10.h,
+                          ),
+                          SizedBox(
+                            height: 10.h,
+                            child: ListView.builder(
+                              shrinkWrap: true,
+                              scrollDirection: Axis.horizontal,
+                              itemCount: imeges.length,
+                              itemBuilder: (BuildContext context, int i) {
+                                return Container(
+                                  height: 10.h,
+                                  width: 10.w,
+                                  margin: EdgeInsets.symmetric(horizontal: 5.h),
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: i == index
+                                        ? Colors.orange
+                                        : Colors.grey,
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                        ],
+                      );
+                    },
+                  ),
                 ),
               ),
             ],

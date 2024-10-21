@@ -169,6 +169,8 @@ class AttributesState extends Equatable {
       //
       this.currentSlider = 0});
 
+  get allCategories => null;
+
   AttributesState copyWith(
       {
       // attribute terms

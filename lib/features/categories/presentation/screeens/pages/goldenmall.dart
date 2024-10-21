@@ -14,7 +14,6 @@ import 'package:caphore/features/categories/presentation/screeens/component/prod
 import 'package:caphore/features/categories/presentation/screeens/component/products/MallComponent/salts_component.dart';
 import 'package:caphore/features/categories/presentation/screeens/pages/pages.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/CategoryNameAndShowAll.dart';
-import 'package:caphore/features/categories/presentation/screeens/widgets/ImageSliderWithIndex.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/textformfild.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

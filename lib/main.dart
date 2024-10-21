@@ -16,6 +16,8 @@ import 'package:get/get.dart';
 
 void main() async {
   AwesomeNotifications().initialize(
+
+    //it will more time cuz we delted .gradel
       // set the icon to null if you want to use the default app icon
       null,
       [
@@ -24,7 +26,7 @@ void main() async {
             channelKey: 'basic_channel',
             channelName: 'Basic notifications',
             channelDescription: 'Notification channel for basic tests',
-            defaultColor: Color(0xFF9D50DD),
+            defaultColor: const Color(0xFF9D50DD),
             ledColor: Colors.white)
       ],
       // Channel groups are only visual and are not required
@@ -38,7 +40,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   await Preferences.init();
-  injection.init();
+  Injection.init();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
@@ -54,7 +56,6 @@ void main() async {
       child: const MyApp()));
 }
 
-
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
@@ -64,8 +65,8 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   @override
-  void initState()  {
-     FirebaseApi().initNotifications();
+  void initState() {
+    FirebaseApi().initNotifications();
     AwesomeNotifications().isNotificationAllowed().then((value) {
       if (!value) {
         AwesomeNotifications().requestPermissionToSendNotifications();

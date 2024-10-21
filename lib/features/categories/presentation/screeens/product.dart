@@ -137,27 +137,27 @@ class ProductScreen extends StatelessWidget {
                   //...
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.bar_chart_sharp,
-                      size: 30.r,
-                    ),
-                    Text(
-                      "    جميع مشاهدات اليوم   ",
-                      style: TextStyle(
-                          fontSize: 18.sp,
-                          color: const Color.fromARGB(255, 84, 78, 78)),
-                    ),
-                    Text(
-                      viwes,
-                      style: TextStyle(fontSize: 20.sp, color: Colors.black),
-                    )
-                  ],
-                ),
-              ),
+              // Padding(
+              //   padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
+              //   child: Row(
+              //     children: [
+              //       Icon(
+              //         Icons.bar_chart_sharp,
+              //         size: 30.r,
+              //       ),
+              //       Text(
+              //         "    جميع مشاهدات اليوم   ",
+              //         style: TextStyle(
+              //             fontSize: 18.sp,
+              //             color: const Color.fromARGB(255, 84, 78, 78)),
+              //       ),
+              //       Text(
+              //         viwes,
+              //         style: TextStyle(fontSize: 20.sp, color: Colors.black),
+              //       )
+              //     ],
+              //   ),
+              // ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
                 child: Text(

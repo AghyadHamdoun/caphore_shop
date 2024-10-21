@@ -1,8 +1,8 @@
 import 'package:caphore/core/network/neworkcontrol.dart';
 import 'package:get/get.dart';
 
-class injection {
+class Injection {
   static void init() {
-    Get.put<networkcontrol>(networkcontrol(), permanent: true);
+    Get.put<Networkcontrol>(Networkcontrol(), permanent: true);
   }
 }
