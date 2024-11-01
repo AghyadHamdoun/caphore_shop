@@ -9,7 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CategoriesComponent extends StatelessWidget {
-  const CategoriesComponent({Key? key}) : super(key: key);
+  const CategoriesComponent({super.key});
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -19,7 +19,7 @@ class CategoriesComponent extends StatelessWidget {
         builder: (context, state) {
           return Container(
             color: Colors.white12,
-            height: size.height / 4.9,
+            height: size.height / 5,
             padding: EdgeInsets.symmetric(horizontal: 5.w),
             width: double.infinity,
             child: ListView.builder(

@@ -37,117 +37,52 @@ class ImageSliderWithIndex extends StatelessWidget {
               termId.add(banners[i + 2]);
             }
           }
-          return Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: size.height / 3.7,
-                child: CarouselView(
-                  itemExtent: size.width,
-                  itemSnapping: true,
-                  scrollDirection: Axis.horizontal,
-                  onTap: (index) {
-                    if (attributeName[index] == "Categorie") {
-                      categorienavigator(int.parse(termId[index]),
-                          attributeName[index], context);
-                    } else {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => StoreProducts(
+          return SizedBox(
+            height: size.height / 4,
+            child: CarouselView(
+              itemExtent: size.width / 1.1,
+              itemSnapping: true,
+              scrollDirection: Axis.horizontal,
+              elevation: 8,
+              onTap: (index) {
+                if (attributeName[index] == "Categorie") {
+                  categorienavigator(
+                      int.parse(termId[index]), attributeName[index], context);
+                } else {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => StoreProducts(
+                        attribute: attributeName[index],
+                        termid: int.parse(termId[index]),
+                        event: GetTermProductsEvent(
                             attribute: attributeName[index],
-                            termid: int.parse(termId[index]),
-                            event: GetTermProductsEvent(
-                                attribute: attributeName[index],
-                                termId: int.parse(termId[index]),
-                                perPage: 100,
-                                pageNum: 1),
-                            storeName: 'الماركات',
-                            image: images[index],
-                          ),
-                        ),
-                      );
-                    }
-                  },
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 8.w, vertical: 10.h),
-                  children: List.generate(
-                    images.length,
-                    (int index) {
-                      return Column(
-                        children: [
-                          Container(
-                            height: size.height / 3.6 - 50.h,
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: NetworkImage(images[index]),
-                                  fit: BoxFit.fill),
-                              borderRadius: BorderRadius.circular(20.r),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 10.h,
-                          ),
-                          SizedBox(
-                            height: 10.h,
-                            child: ListView.builder(
-                              shrinkWrap: true,
-                              scrollDirection: Axis.horizontal,
-                              itemCount: images.length,
-                              itemBuilder: (BuildContext context, int i) {
-                                return Container(
-                                  height: 10.h,
-                                  width: 10.w,
-                                  margin: EdgeInsets.symmetric(horizontal: 5.h),
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: i == index
-                                        ? Colors.orange
-                                        : Colors.grey,
-                                  ),
-                                );
-                              },
-                            ),
-                          ),
-                        ],
-                      );
-                    },
-                  ),
-                ),
+                            termId: int.parse(termId[index]),
+                            perPage: 100,
+                            pageNum: 1),
+                        storeName: 'الماركات',
+                        image: images[index],
+                      ),
+                    ),
+                  );
+                }
+              },
+              padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 10.h),
+              children: List.generate(
+                images.length,
+                (int index) {
+                  return Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20.r),
+                    ),
+                    child: Image.network(
+                      images[index],
+                      fit: BoxFit.cover,
+                    ),
+                  );
+                },
               ),
-              // options: CarouselOptions(
-              //     onPageChanged: (index, reason) {
-              //       bloc.add(CurrentSliderEvent(currentSlider: index));
-              //     },
-              //     autoPlay: true,
-              //     enableInfiniteScroll: true,
-              //     aspectRatio: 2.1.r,
-              //     viewportFraction: 1,
-              //     enlargeCenterPage: true),
-
-              // SizedBox(
-              //   height: 10.h,
-              //   child: ListView.builder(
-              //     shrinkWrap: true,
-              //     scrollDirection: Axis.horizontal,
-              //     itemCount: images.length,
-              //     itemBuilder: (BuildContext context, int index) {
-              //       return Container(
-              //         height: 10.h,
-              //         width: 10.w,
-              //         margin: EdgeInsets.symmetric(horizontal: 5.h),
-              //         decoration: BoxDecoration(
-              //           shape: BoxShape.circle,
-              //           color: index == state.currentSlider
-              //               ? Colors.orange
-              //               : Colors.grey,
-              //         ),
-              //       );
-              //     },
-              //   ),
-              // ),
-            ],
+            ),
           );
         },
       ),

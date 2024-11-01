@@ -23,7 +23,7 @@ class ImageSlider extends StatelessWidget {
           imeges.length,
           (int index) {
             return Padding(
-              padding: EdgeInsets.only(bottom: 10.h),
+              padding: EdgeInsets.only(bottom: 30.h),
               child: Container(
                 decoration: BoxDecoration(
                   image: DecorationImage(

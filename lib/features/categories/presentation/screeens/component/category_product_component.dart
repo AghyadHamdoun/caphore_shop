@@ -12,7 +12,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 
 // ignore: must_be_immutable
-class CategoryProductComponent extends StatelessWidget {
+class CategoryProductComponent extends StatefulWidget {
   final CategoriesEvent event;
   final int categoryId;
 
@@ -20,13 +20,19 @@ class CategoryProductComponent extends StatelessWidget {
       {Key? key, required this.event, required this.categoryId})
       : super(key: key);
 
+  @override
+  State<CategoryProductComponent> createState() =>
+      _CategoryProductComponentState();
+}
+
+class _CategoryProductComponentState extends State<CategoryProductComponent> {
   int pageNumber = 2;
 
   @override
   Widget build(BuildContext context) {
     var bloc = sl<CategoriesBloc>();
     return BlocProvider(
-      create: (context) => bloc..add(event),
+      create: (context) => bloc..add(widget.event),
       child: BlocBuilder<CategoriesBloc, CategoriesState>(
         buildWhen: (previous, current) =>
             (previous.loadMore != current.loadMore ||
@@ -83,7 +89,7 @@ class CategoryProductComponent extends StatelessWidget {
                         print("widget${state.categoryProducts.length}");
                         bloc.add(GetCategoryProductsEvent(
                             pageNum: ++pageNumber,
-                            categoryId: categoryId,
+                            categoryId: widget.categoryId,
                             perPage: 26,
                             lastProducts: state.categoryProducts));
                       },

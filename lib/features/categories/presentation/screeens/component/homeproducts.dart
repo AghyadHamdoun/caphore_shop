@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:caphore/core/utils/enums.dart';
+import 'package:caphore/features/attributes/presentation/screens/components/attributes/brands_component_horizantel.dart';
 import 'package:caphore/features/attributes/presentation/screens/components/banners_two_component.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_bloc.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_event.dart';
@@ -18,7 +19,7 @@ import 'package:delayed_display/delayed_display.dart';
 import '../dynamicshowall.dart';
 
 class Homeproducts extends StatelessWidget {
-  const Homeproducts({Key? key}) : super(key: key);
+  const Homeproducts({super.key});
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -103,14 +104,21 @@ class Homeproducts extends StatelessWidget {
                                 pageNum: 1,
                                 categoryId: state.allCategories[index].id,
                                 perPage: 100,
-                                lastProducts: []),
+                                lastProducts: const []),
                             categoryId: state.allCategories[index].id),
                         (index == 5)
                             ? const ImageSliderTwoWithIndex()
                             : const SizedBox(
                                 height: 0,
                                 width: 0,
-                              )
+                              ),
+                        (state.allCategories.length < 16)
+                            ? (index == state.allCategories.length - 1)
+                                ? const BrandsComponentHorizontal()
+                                : const SizedBox.shrink()
+                            : (index == 15)
+                                ? const BrandsComponentHorizontal()
+                                : const SizedBox.shrink(),
                       ],
                     ),
                   );

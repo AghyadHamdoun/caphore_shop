@@ -1,7 +1,6 @@
 import 'package:caphore/core/utils/enums.dart';
 import 'package:caphore/features/attributes/presentation/controller/attributes_bloc.dart';
 import 'package:caphore/features/categories/presentation/screeens/widgets/CategoryCard.dart';
-import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,7 +11,7 @@ import '../../../controller/attributes_state.dart';
 import '../../storeproducts.dart';
 
 class BrandsComponent extends StatelessWidget {
-  const BrandsComponent({Key? key}) : super(key: key);
+  const BrandsComponent({super.key});
 
   @override
   Widget build(BuildContext context) {

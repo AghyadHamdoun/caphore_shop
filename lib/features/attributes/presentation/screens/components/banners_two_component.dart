@@ -26,7 +26,6 @@ class ImageSliderTwoWithIndex extends StatelessWidget {
           List<String> images = [];
           List<String> attributeName = [];
           List<String> termId = [];
-
           if (state.bannersTerms.isNotEmpty) {
             List<String> banners = state.bannersTerms[1].description.split(';');
             for (int i = 0; i < banners.length; i += 3) {
@@ -35,83 +34,53 @@ class ImageSliderTwoWithIndex extends StatelessWidget {
               termId.add(banners[i + 2]);
             }
           }
+          CarouselController carouselController = CarouselController(
+            initialItem: 0,
+          );
           return Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10.w),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(
-                  height: size.height / 4,
-                  child: CarouselView(
-                    onTap: (index) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => StoreProducts(
+            padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+            child: SizedBox(
+              height: size.height / 4,
+              child: CarouselView(
+                onTap: (index) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => StoreProducts(
+                        attribute: attributeName[index],
+                        termid: int.parse(termId[index]),
+                        event: GetTermProductsEvent(
                             attribute: attributeName[index],
-                            termid: int.parse(termId[index]),
-                            event: GetTermProductsEvent(
-                                attribute: attributeName[index],
-                                termId: int.parse(termId[index]),
-                                perPage: 100,
-                                pageNum: 1),
-                            storeName: 'المطاعم',
-                            image: images[index],
-                          ),
-                        ),
-                      );
-                    },
-                    itemExtent: size.width,
-                    itemSnapping: true,
-                    scrollDirection: Axis.horizontal,
-                    padding: EdgeInsets.all(5.h),
-                    children: List.generate(
-                      images.length,
-                      (int index) {
-                        return Column(
-                          children: [
-                            Container(
-                              height: size.height / 4 - 30.h,
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    image: NetworkImage(images[index]),
-                                    fit: BoxFit.fill),
-                                borderRadius: BorderRadius.circular(20.r),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 10.h,
-                            ),
-                            SizedBox(
-                              height: 10.h,
-                              child: ListView.builder(
-                                shrinkWrap: true,
-                                scrollDirection: Axis.horizontal,
-                                itemCount: images.length,
-                                itemBuilder: (BuildContext context, int i) {
-                                  return Container(
-                                    height: 10.h,
-                                    width: 10.w,
-                                    margin:
-                                        EdgeInsets.symmetric(horizontal: 5.h),
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: i == index
-                                          ? Colors.orange
-                                          : Colors.grey,
-                                    ),
-                                  );
-                                },
-                              ),
-                            ),
-                          ],
-                        );
-                      },
+                            termId: int.parse(termId[index]),
+                            perPage: 100,
+                            pageNum: 1),
+                        storeName: 'المطاعم',
+                        image: images[index],
+                      ),
                     ),
-                  ),
+                  );
+                },
+                itemExtent: size.width / 1.2,
+                itemSnapping: true,
+                scrollDirection: Axis.horizontal,
+                padding: EdgeInsets.all(5.h),
+                controller: carouselController,
+                elevation: 5,
+                children: List.generate(
+                  images.length,
+                  (int index) {
+                    return Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20.r),
+                      ),
+                      child: Image.network(
+                        images[index],
+                        fit: BoxFit.cover,
+                      ),
+                    );
+                  },
                 ),
-              ],
+              ),
             ),
           );
         },

@@ -44,6 +44,13 @@ class _MyPagesState extends State<MyPages> {
           BlocProvider(
               create: (context) =>
                   categoryBloc..add(const GetAllCategoriesEvent(page: 1))),
+          BlocProvider(
+            create: (context) => attributesBloc
+              ..add(
+                const GetBrandTermsEvent(
+                    pageNum: 1, perPage: 100, attributeId: 7, isRefresh: false),
+              ),
+          ),
         ],
         child: SafeArea(
           child: WillPopScope(
