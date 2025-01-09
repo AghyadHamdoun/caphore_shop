@@ -52,7 +52,7 @@ class ImageSliderTwoWithIndex extends StatelessWidget {
                         event: GetTermProductsEvent(
                             attribute: attributeName[index],
                             termId: int.parse(termId[index]),
-                            perPage: 100,
+                            perPage: 20,
                             pageNum: 1),
                         storeName: 'المطاعم',
                         image: images[index],

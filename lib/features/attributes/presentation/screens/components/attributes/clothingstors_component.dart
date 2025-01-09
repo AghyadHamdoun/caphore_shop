@@ -35,7 +35,7 @@ class ClothingStorsComponent extends StatelessWidget {
                       event: GetTermProductsEvent(
                           attribute: 'clothes',
                           termId: state.clothingTerms[index].id,
-                          perPage: 100,
+                          perPage: 20,
                           pageNum: 1),
                       storeName: state.clothingTerms[index].name,
                       image:

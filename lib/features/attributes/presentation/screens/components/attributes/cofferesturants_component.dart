@@ -9,7 +9,7 @@ import '../../../controller/attributes_state.dart';
 import '../../storeproducts.dart';
 
 class CoffeeResturantsComponent extends StatelessWidget {
-  const CoffeeResturantsComponent({Key? key}) : super(key: key);
+  const CoffeeResturantsComponent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class CoffeeResturantsComponent extends StatelessWidget {
                       event: GetTermProductsEvent(
                           attribute: 'guest-patronage',
                           termId: state.coffeeTerms[index].id,
-                          perPage: 100,
+                          perPage: 20,
                           pageNum: 1),
                       storeName: state.coffeeTerms[index].name,
                       image:

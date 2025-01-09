@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:caphore/core/utils/enums.dart';
 import 'package:caphore/features/attributes/presentation/screens/components/attributes/brands_component_horizantel.dart';
 import 'package:caphore/features/attributes/presentation/screens/components/banners_two_component.dart';
@@ -46,9 +44,9 @@ class Homeproducts extends StatelessWidget {
                 scrollDirection: Axis.vertical,
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                itemCount: (state.allCategories.length < 16)
+                itemCount: (state.allCategories.length < 14)
                     ? state.allCategories.length
-                    : 16,
+                    : 14,
                 itemBuilder: (BuildContext context, int index) {
                   return DelayedDisplay(
                     delay: Duration(seconds: 1 + (index)),
@@ -88,8 +86,8 @@ class Homeproducts extends StatelessWidget {
                                           pageNum: 1,
                                           categoryId:
                                               state.allCategories[index].id,
-                                          perPage: 100,
-                                          lastProducts: []),
+                                          perPage: 20,
+                                          lastProducts: const []),
                                       categoryName:
                                           state.allCategories[index].name,
                                       categoryId:
@@ -103,7 +101,7 @@ class Homeproducts extends StatelessWidget {
                             event: GetCategoryProductsEvent(
                                 pageNum: 1,
                                 categoryId: state.allCategories[index].id,
-                                perPage: 100,
+                                perPage: 10,
                                 lastProducts: const []),
                             categoryId: state.allCategories[index].id),
                         (index == 5)
@@ -112,11 +110,11 @@ class Homeproducts extends StatelessWidget {
                                 height: 0,
                                 width: 0,
                               ),
-                        (state.allCategories.length < 16)
+                        (state.allCategories.length < 14)
                             ? (index == state.allCategories.length - 1)
                                 ? const BrandsComponentHorizontal()
                                 : const SizedBox.shrink()
-                            : (index == 15)
+                            : (index == 13)
                                 ? const BrandsComponentHorizontal()
                                 : const SizedBox.shrink(),
                       ],

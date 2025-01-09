@@ -73,7 +73,7 @@ class mallCategoryProductComponent extends StatelessWidget {
                         bloc.add(GetCategoryProductsEvent(
                             pageNum: ++pageNumber,
                             categoryId: categoryId,
-                            perPage: 100,
+                            perPage: 26,
                             lastProducts: state.categoryProducts));
                       },
                       child: Container(

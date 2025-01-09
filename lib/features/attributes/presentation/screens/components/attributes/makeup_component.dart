@@ -35,7 +35,7 @@ class MakeUpComponent extends StatelessWidget {
                       event: GetTermProductsEvent(
                           attribute: 'skin-care',
                           termId: state.makeupTerms[index].id,
-                          perPage: 100,
+                          perPage: 20,
                           pageNum: 1),
                       storeName: state.makeupTerms[index].name,
                       image:

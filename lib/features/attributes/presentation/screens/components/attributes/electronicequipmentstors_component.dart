@@ -35,7 +35,7 @@ class ElectronicEquipmentStorsComponent extends StatelessWidget {
                       event: GetTermProductsEvent(
                           attribute: 'electronics',
                           termId: state.electronicequipmentTerms[index].id,
-                          perPage: 100,
+                          perPage: 20,
                           pageNum: 1),
                       storeName: state.electronicequipmentTerms[index].name,
                       image: (state.electronicequipmentTerms[index].description

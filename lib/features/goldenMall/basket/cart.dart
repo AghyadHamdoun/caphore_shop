@@ -271,7 +271,7 @@ class CartScreen extends StatelessWidget {
                         size: 80.r,
                       ),
                       Container(
-                        padding: EdgeInsets.symmetric(horizontal: 20.w),
+                          padding: EdgeInsets.symmetric(horizontal: 20.w),
                           alignment: Alignment.center,
                           width: double.infinity,
                           child: Text(
@@ -280,24 +280,37 @@ class CartScreen extends StatelessWidget {
                                 fontSize: 24.sp, color: AppColor.textColor),
                           )),
                       Container(
-                          padding: EdgeInsets.symmetric(horizontal: 40.w),
-                          alignment: Alignment.center,
-                          width: double.infinity,
-                          child: Text(
-                            "قبل الشروع في الدفع ,يجب عليك اضافة بعض المنتجات الى عربة التسوق الخاصة بك. سوف تجد الكثير من المنتجات الشيقة على صفحة التسوق الخاصة بنا",
-                           style: TextStyle(
-                                fontSize: 18.sp, color: Colors.grey,),
-                            textAlign: TextAlign.center,
-                          )),
-                      SizedBox(height: 10.h,),
+                        padding: EdgeInsets.symmetric(horizontal: 40.w),
+                        alignment: Alignment.center,
+                        width: double.infinity,
+                        child: Text(
+                          "قبل الشروع في الدفع ,يجب عليك اضافة بعض المنتجات الى عربة التسوق الخاصة بك. سوف تجد الكثير من المنتجات الشيقة على صفحة التسوق الخاصة بنا",
+                          style: TextStyle(
+                            fontSize: 18.sp,
+                            color: Colors.grey,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10.h,
+                      ),
                       SizedBox(
                         height: 40.h,
-                        child: ElevatedButton(style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColor.accentColor,
-                        ),onPressed: (){
-                          Navigator.of(context).pop();
-                        }
-                            , child: Text("عودة لقائمة التسوق")),
+                        child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: AppColor.accentColor,
+                            ),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: Text(
+                              "عودة لقائمة التسوق",
+                              style: TextStyle(
+                                fontSize: 18.sp,
+                                color: Colors.white,
+                              ),
+                            )),
                       )
                     ],
                   ),

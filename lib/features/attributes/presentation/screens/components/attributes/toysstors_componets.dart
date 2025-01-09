@@ -9,7 +9,7 @@ import '../../../controller/attributes_state.dart';
 import '../../storeproducts.dart';
 
 class ToysStorsComponent extends StatelessWidget {
-  const ToysStorsComponent({Key? key}) : super(key: key);
+  const ToysStorsComponent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class ToysStorsComponent extends StatelessWidget {
                           event: GetTermProductsEvent(
                               attribute: 'kids-toys',
                               termId: state.toysTerms[index].id,
-                              perPage: 100,
+                              perPage: 20,
                               pageNum: 1),
                           storeName: state.toysTerms[index].name,
                           image:
@@ -83,7 +83,7 @@ class ToysStorsComponent extends StatelessWidget {
                           event: GetTermProductsEvent(
                               attribute: 'stationery',
                               termId: state.libraryTerms[index].id,
-                              perPage: 100,
+                              perPage: 26,
                               pageNum: 1),
                           storeName: state.libraryTerms[index].name,
                           image: (state.libraryTerms[index].description

@@ -9,7 +9,7 @@ import '../../../controller/attributes_state.dart';
 import '../../storeproducts.dart';
 
 class WatchesAndAccessoriesStorsComponent extends StatelessWidget {
-  const WatchesAndAccessoriesStorsComponent({Key? key}) : super(key: key);
+  const WatchesAndAccessoriesStorsComponent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class WatchesAndAccessoriesStorsComponent extends StatelessWidget {
                       event: GetTermProductsEvent(
                           attribute: 'watches-n-glasses',
                           termId: state.watchesandaccessoriesTerms[index].id,
-                          perPage: 100,
+                          perPage: 20,
                           pageNum: 1),
                       storeName: state.watchesandaccessoriesTerms[index].name,
                       image: (state

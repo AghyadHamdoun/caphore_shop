@@ -9,7 +9,7 @@ import '../../../controller/attributes_state.dart';
 import '../../storeproducts.dart';
 
 class PetsStorsComponent extends StatelessWidget {
-  const PetsStorsComponent({Key? key}) : super(key: key);
+  const PetsStorsComponent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class PetsStorsComponent extends StatelessWidget {
                       event: GetTermProductsEvent(
                           attribute: 'pet-care-center',
                           termId: state.petsTerms[index].id,
-                          perPage: 100,
+                          perPage: 20,
                           pageNum: 1),
                       storeName: state.petsTerms[index].name,
                       image: (state.petsTerms[index].description.split(';')[2])

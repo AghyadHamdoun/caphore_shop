@@ -35,7 +35,7 @@ class MassComponent extends StatelessWidget {
                       event: GetTermProductsEvent(
                           attribute: 'jumla-section',
                           termId: state.massTerms[index].id,
-                          perPage: 100,
+                          perPage: 20,
                           pageNum: 1),
                       storeName: state.massTerms[index].name,
                       image: (state.massTerms[index].description.split(';')[2])

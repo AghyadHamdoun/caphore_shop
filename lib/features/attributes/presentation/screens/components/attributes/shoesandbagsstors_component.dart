@@ -35,7 +35,7 @@ class ShoesAndBagsStorsComponent extends StatelessWidget {
                       event: GetTermProductsEvent(
                           attribute: 'bags-n-shoes',
                           termId: state.shoesandbagsTerms[index].id,
-                          perPage: 100,
+                          perPage: 20,
                           pageNum: 1),
                       storeName: state.shoesandbagsTerms[index].name,
                       image: (state.shoesandbagsTerms[index].description

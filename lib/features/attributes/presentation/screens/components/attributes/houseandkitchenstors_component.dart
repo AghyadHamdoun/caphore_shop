@@ -9,7 +9,7 @@ import '../../../controller/attributes_state.dart';
 import '../../storeproducts.dart';
 
 class HouseAndKitchenStorsComponent extends StatelessWidget {
-  const HouseAndKitchenStorsComponent({Key? key}) : super(key: key);
+  const HouseAndKitchenStorsComponent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class HouseAndKitchenStorsComponent extends StatelessWidget {
                       event: GetTermProductsEvent(
                           attribute: 'house-supplies',
                           termId: state.houseandkitchenTerms[index].id,
-                          perPage: 100,
+                          perPage: 20,
                           pageNum: 1),
                       storeName: state.houseandkitchenTerms[index].name,
                       image: (state.houseandkitchenTerms[index].description

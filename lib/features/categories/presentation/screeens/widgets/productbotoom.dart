@@ -36,6 +36,11 @@ class ProductBottom extends StatelessWidget {
       required this.product});
   @override
   Widget build(BuildContext context) {
+    const snackBar = SnackBar(
+      duration: Duration(seconds: 1),
+      backgroundColor: AppColor.accentColor,
+      content: Text('تم الاضافة الى السلة'),
+    );
     var bloc = sl<GoldenBloc>();
     return BlocConsumer<GoldenBloc, GoldenState>(
       bloc: bloc,
@@ -98,8 +103,14 @@ class ProductBottom extends StatelessWidget {
                               fixedSize: Size(250.w, 40.h)),
                           onPressed: () {
                             bloc.add(AddProductToBasket(productModel: product));
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(snackBar);
                           },
-                          icon: Icon(Icons.shopping_cart, size: 30.h),
+                          icon: Icon(
+                            Icons.shopping_cart,
+                            size: 30.h,
+                            color: AppColor.whiteColor,
+                          ),
                           label: Text(
                             "اضف الى السلة",
                             style: TextStyle(

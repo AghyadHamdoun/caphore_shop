@@ -35,7 +35,7 @@ class HandMadeStorsComponent extends StatelessWidget {
                       event: GetTermProductsEvent(
                           attribute: 'handmade',
                           termId: state.handmadeTerms[index].id,
-                          perPage: 100,
+                          perPage: 20,
                           pageNum: 1),
                       storeName: state.handmadeTerms[index].name,
                       image:

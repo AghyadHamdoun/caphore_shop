@@ -34,10 +34,6 @@ class _CategoryProductComponentState extends State<CategoryProductComponent> {
     return BlocProvider(
       create: (context) => bloc..add(widget.event),
       child: BlocBuilder<CategoriesBloc, CategoriesState>(
-        buildWhen: (previous, current) =>
-            (previous.loadMore != current.loadMore ||
-                previous.categoryProducts.length !=
-                    current.categoryProducts.length),
         builder: (context, state) {
           switch (state.categoryProductsState) {
             case RequestState.loading:
@@ -64,12 +60,14 @@ class _CategoryProductComponentState extends State<CategoryProductComponent> {
                       return InkWell(
                         onTap: () {
                           Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => ProductScreen(
-                                        product: state.categoryProducts[index],
-                                        products: state.categoryProducts,
-                                      )));
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ProductScreen(
+                                product: state.categoryProducts[index],
+                                products: state.categoryProducts,
+                              ),
+                            ),
+                          );
                         },
                         child: ProductCard(
                           productname: state.categoryProducts[index].name,

@@ -1,3 +1,4 @@
+import 'package:caphore/core/utils/app_color.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_bloc.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_event.dart';
 import 'package:caphore/features/categories/presentation/controller/categories_state.dart';
@@ -26,57 +27,42 @@ class Fullproductimage extends StatelessWidget {
         builder: (context, state) {
           return SafeArea(
             child: Scaffold(
+              backgroundColor: AppColor.whiteColor,
               body: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(
-                    height: size.height / 1.3,
+                    height: size.height / 2,
                     child: CarouselView(
-                      itemExtent: size.width,
+                      itemExtent:
+                          (imeges.length > 1) ? size.width / 1.2 : size.width,
                       itemSnapping: true,
                       scrollDirection: Axis.horizontal,
-                      padding: EdgeInsets.all(5.h),
+                      // padding: EdgeInsets.all(5.h),
                       children: List.generate(
                         imeges.length,
                         (int index) {
-                          return Column(
-                            children: [
-                              Container(
-                                height: size.height / 1.3 - 30.h,
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                      image: NetworkImage(imeges[index]),
-                                      fit: BoxFit.fill),
-                                  borderRadius: BorderRadius.circular(20.r),
-                                ),
-                              ),
-                              SizedBox(
-                                height: 10.h,
-                              ),
-                              SizedBox(
-                                height: 10.h,
-                                child: ListView.builder(
-                                  shrinkWrap: true,
-                                  scrollDirection: Axis.horizontal,
-                                  itemCount: imeges.length,
-                                  itemBuilder: (BuildContext context, int i) {
-                                    return Container(
-                                      height: 10.h,
-                                      width: 10.w,
-                                      margin:
-                                          EdgeInsets.symmetric(horizontal: 5.h),
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: i == index
-                                            ? Colors.orange
-                                            : Colors.grey,
-                                      ),
-                                    );
-                                  },
-                                ),
-                              ),
-                            ],
+                          return Container(
+                            decoration: BoxDecoration(
+                              color: AppColor.whiteColor,
+
+                              // boxShadow: [
+                              //   BoxShadow(
+                              //       color: Colors.black.withOpacity(0.4),
+                              //       blurRadius: 50.r)
+                              // ],
+                              // image: DecorationImage(
+                              //     image: NetworkImage(
+                              //       imeges[index],
+                              //     ),
+                              //     fit: BoxFit.cover),
+                              borderRadius: BorderRadius.circular(20.r),
+                            ),
+                            child: Image.network(
+                              imeges[index],
+                              fit: BoxFit.cover,
+                            ),
                           );
                         },
                       ),

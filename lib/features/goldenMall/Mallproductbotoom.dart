@@ -119,7 +119,7 @@ class MallProductBottom extends StatelessWidget {
                           fixedSize: Size(250.w, 40.h)),
                       onPressed: () {
                         generatetext();
-                        whatsapp(number, sum, text,bloc);
+                        whatsapp(number, sum, text, bloc);
                       },
                       icon: LottieBuilder.asset(
                         "assets/lottie/animation_ljzsiq8i.json",
@@ -128,7 +128,8 @@ class MallProductBottom extends StatelessWidget {
                       ),
                       label: Text(
                         "اشتري الان",
-                        style: TextStyle(fontSize: 18.sp),
+                        style: TextStyle(
+                            fontSize: 18.sp, color: AppColor.whiteColor),
                       ),
                     ),
               SizedBox(
@@ -142,7 +143,7 @@ class MallProductBottom extends StatelessWidget {
   }
 }
 
-whatsapp(String number, int sum, String text,GoldenBloc bloc) async {
+whatsapp(String number, int sum, String text, GoldenBloc bloc) async {
   var contact = "+$number";
 
   var androidUrl =

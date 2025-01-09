@@ -9,7 +9,7 @@ import '../../../controller/attributes_state.dart';
 import '../../storeproducts.dart';
 
 class FastFoodResturantsComponent extends StatelessWidget {
-  const FastFoodResturantsComponent({Key? key}) : super(key: key);
+  const FastFoodResturantsComponent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class FastFoodResturantsComponent extends StatelessWidget {
                       event: GetTermProductsEvent(
                           attribute: 'fast-food',
                           termId: state.fastfoodTerms[index].id,
-                          perPage: 100,
+                          perPage: 20,
                           pageNum: 1),
                       storeName: state.fastfoodTerms[index].name,
                       image:

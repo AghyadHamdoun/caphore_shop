@@ -77,7 +77,7 @@ class dynamicshowall extends StatelessWidget {
                                                       .categoriesByParent[index]
                                                       .id,
                                                   pageNum: 1,
-                                                  perPage: 100,
+                                                  perPage: 20,
                                                   lastProducts: []),
                                               categoryName: state
                                                   .categoriesByParent[index]
@@ -94,8 +94,8 @@ class dynamicshowall extends StatelessWidget {
                                             pageNum: 1,
                                             categoryId: state
                                                 .categoriesByParent[index].id,
-                                            perPage: 100,
-                                            lastProducts: []),
+                                            perPage: 10,
+                                            lastProducts: const []),
                                         categoryId:
                                             state.categoriesByParent[index].id),
                                   ],

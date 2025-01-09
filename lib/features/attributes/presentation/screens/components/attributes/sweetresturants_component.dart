@@ -9,7 +9,7 @@ import '../../../controller/attributes_state.dart';
 import '../../storeproducts.dart';
 
 class SweetsResturantsComponent extends StatelessWidget {
-  const SweetsResturantsComponent({Key? key}) : super(key: key);
+  const SweetsResturantsComponent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class SweetsResturantsComponent extends StatelessWidget {
                       event: GetTermProductsEvent(
                           attribute: 'sweets',
                           termId: state.sweetTerms[index].id,
-                          perPage: 100,
+                          perPage: 20,
                           pageNum: 1),
                       storeName: state.sweetTerms[index].name,
                       image: (state.sweetTerms[index].description.split(';')[2])

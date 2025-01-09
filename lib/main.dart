@@ -16,8 +16,6 @@ import 'package:get/get.dart';
 
 void main() async {
   AwesomeNotifications().initialize(
-
-    //it will more time cuz we delted .gradel
       // set the icon to null if you want to use the default app icon
       null,
       [

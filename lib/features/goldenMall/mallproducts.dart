@@ -82,7 +82,7 @@ class MallProductsComponent extends StatelessWidget {
                                               pageNum: 1,
                                               categoryId: state
                                                   .categoriesByParent[index].id,
-                                              perPage: 100,
+                                              perPage: 20,
                                               lastProducts: []),
                                           categoryName: state
                                               .categoriesByParent[index].name,
@@ -97,7 +97,7 @@ class MallProductsComponent extends StatelessWidget {
                                       pageNum: 1,
                                       categoryId:
                                           state.categoriesByParent[index].id,
-                                      perPage: 100,
+                                      perPage: 10,
                                       lastProducts: []),
                                   categoryId:
                                       state.categoriesByParent[index].id),

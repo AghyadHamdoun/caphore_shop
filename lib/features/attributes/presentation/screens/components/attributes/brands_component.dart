@@ -46,7 +46,7 @@ class BrandsComponent extends StatelessWidget {
                           event: GetTermProductsEvent(
                               attribute: 'brand',
                               termId: state.brandsTerms[index].id,
-                              perPage: 100,
+                              perPage: 20,
                               pageNum: 1),
                           storeName: state.brandsTerms[index].name,
                           image: (state.brandsTerms[index].description

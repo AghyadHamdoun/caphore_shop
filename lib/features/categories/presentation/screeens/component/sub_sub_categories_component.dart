@@ -42,8 +42,8 @@ class SubSubCategoriesComponent extends StatelessWidget {
                                             pageNum: 1,
                                             categoryId: state
                                                 .categoriesByChild[index].id,
-                                            perPage: 100,
-                                            lastProducts: []),
+                                            perPage: 20,
+                                            lastProducts: const []),
                                         categoryName:
                                             state.categoriesByChild[index].name,
                                         categoryId:

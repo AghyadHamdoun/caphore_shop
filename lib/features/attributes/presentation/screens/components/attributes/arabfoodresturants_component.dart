@@ -35,7 +35,7 @@ class ArabFoodResturantsComponent extends StatelessWidget {
                       event: GetTermProductsEvent(
                           attribute: 'arabic-kitchen',
                           termId: state.arabfoodTerms[index].id,
-                          perPage: 100,
+                          perPage: 20,
                           pageNum: 1),
                       storeName: state.arabfoodTerms[index].name,
                       image:

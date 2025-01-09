@@ -10,12 +10,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 
+// ignore: must_be_immutable
 class TermProductComponent extends StatelessWidget {
   final String attribute;
   final int termid;
   TermProductComponent(
-      {Key? key, required this.attribute, required this.termid})
-      : super(key: key);
+      {super.key, required this.attribute, required this.termid});
   int pageNumber = 2;
 
   @override
@@ -76,7 +76,7 @@ class TermProductComponent extends StatelessWidget {
                           attribute: attribute,
                           termId: termid,
                           pageNum: pageNumber++,
-                          perPage: 26));
+                          perPage: 20));
                     },
                     child: Container(
                       decoration: BoxDecoration(

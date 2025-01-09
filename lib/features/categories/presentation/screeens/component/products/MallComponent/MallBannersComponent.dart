@@ -36,13 +36,13 @@ class MallBannersComponent extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(
-                height: size.height / 6,
+                height: size.height / 5,
                 child: CarouselView(
-                  itemExtent: size.width,
+                  itemExtent: size.width / 1.1,
                   itemSnapping: true,
                   scrollDirection: Axis.horizontal,
                   elevation: 5,
-                  padding: EdgeInsets.all(5.h),
+                  padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
                   children: List.generate(
                     images.length,
                     (int index) {
@@ -64,7 +64,7 @@ class MallBannersComponent extends StatelessWidget {
                       //     );
                       //   },
                       return Padding(
-                        padding: EdgeInsets.only(bottom: 10.h),
+                        padding: EdgeInsets.only(bottom: 0.h),
                         child: Container(
                           decoration: BoxDecoration(
                             image: DecorationImage(
@@ -87,28 +87,6 @@ class MallBannersComponent extends StatelessWidget {
               //     aspectRatio: 2.1.r,
               //     viewportFraction: 1,
               //     enlargeCenterPage: true),
-
-              SizedBox(
-                height: 10.h,
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  itemCount: images.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                      height: 10.h,
-                      width: 10.w,
-                      margin: EdgeInsets.symmetric(horizontal: 5.h),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: index == state.currentSlider
-                            ? Colors.orange
-                            : Colors.grey,
-                      ),
-                    );
-                  },
-                ),
-              ),
             ],
           );
         },

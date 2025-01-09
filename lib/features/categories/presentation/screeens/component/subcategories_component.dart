@@ -8,7 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SubCategoriesComponent extends StatelessWidget {
-  const SubCategoriesComponent({Key? key}) : super(key: key);
+  const SubCategoriesComponent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -42,8 +42,8 @@ class SubCategoriesComponent extends StatelessWidget {
                                       pageNum: 1,
                                       categoryId:
                                           state.categoriesByParent[index].id,
-                                      perPage: 100,
-                                      lastProducts: []),
+                                      perPage: 20,
+                                      lastProducts: const []),
                                   categoryName:
                                       state.categoriesByParent[index].name,
                                   categoryId:

@@ -39,7 +39,7 @@ class Productimageslider extends StatelessWidget {
                               Fullproductimage(imeges: imeges)),
                     );
                   },
-                  itemExtent: size.width,
+                  itemExtent: size.width / 1.1,
                   itemSnapping: true,
                   scrollDirection: Axis.horizontal,
                   padding: EdgeInsets.all(5.h),
@@ -49,7 +49,8 @@ class Productimageslider extends StatelessWidget {
                       return Column(
                         children: [
                           Container(
-                            height: size.height / 2.5 - 30.h,
+                            height: size.height / 2.6,
+                            // width: size.width,
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                   image: NetworkImage(imeges[index]),
@@ -57,30 +58,28 @@ class Productimageslider extends StatelessWidget {
                               borderRadius: BorderRadius.circular(20.r),
                             ),
                           ),
-                          SizedBox(
-                            height: 10.h,
-                          ),
-                          SizedBox(
-                            height: 10.h,
-                            child: ListView.builder(
-                              shrinkWrap: true,
-                              scrollDirection: Axis.horizontal,
-                              itemCount: imeges.length,
-                              itemBuilder: (BuildContext context, int i) {
-                                return Container(
-                                  height: 10.h,
-                                  width: 10.w,
-                                  margin: EdgeInsets.symmetric(horizontal: 5.h),
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: i == index
-                                        ? Colors.orange
-                                        : Colors.grey,
-                                  ),
-                                );
-                              },
-                            ),
-                          ),
+
+                          // SizedBox(
+                          //   height: 10.h,
+                          //   child: ListView.builder(
+                          //     shrinkWrap: true,
+                          //     scrollDirection: Axis.horizontal,
+                          //     itemCount: imeges.length,
+                          //     itemBuilder: (BuildContext context, int i) {
+                          //       return Container(
+                          //         height: 10.h,
+                          //         width: 10.w,
+                          //         margin: EdgeInsets.symmetric(horizontal: 5.h),
+                          //         decoration: BoxDecoration(
+                          //           shape: BoxShape.circle,
+                          //           color: i == index
+                          //               ? Colors.orange
+                          //               : Colors.grey,
+                          //         ),
+                          //       );
+                          //     },
+                          //   ),
+                          // ),
                         ],
                       );
                     },

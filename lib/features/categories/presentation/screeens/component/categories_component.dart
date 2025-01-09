@@ -42,7 +42,7 @@ class CategoriesComponent extends StatelessWidget {
                               event: GetCategoryProductsEvent(
                                   pageNum: 1,
                                   categoryId: state.allCategories[index].id,
-                                  perPage: 100,
+                                  perPage: 20,
                                   lastProducts: const []),
                               categoryName: state.allCategories[index].name,
                               subEvent: GetCategoriesByParentEvent(
