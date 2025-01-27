@@ -36,7 +36,7 @@ class MallBannersComponent extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(
-                height: size.height / 5,
+                height: size.height / 4,
                 child: CarouselView(
                   itemExtent: size.width / 1.1,
                   itemSnapping: true,

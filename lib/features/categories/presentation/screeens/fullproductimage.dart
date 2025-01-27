@@ -61,7 +61,7 @@ class Fullproductimage extends StatelessWidget {
                             ),
                             child: Image.network(
                               imeges[index],
-                              fit: BoxFit.cover,
+                              fit: BoxFit.fill,
                             ),
                           );
                         },

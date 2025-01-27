@@ -77,7 +77,7 @@ class ImageSliderWithIndex extends StatelessWidget {
                     ),
                     child: Image.network(
                       images[index],
-                      fit: BoxFit.cover,
+                      fit: BoxFit.fill,
                     ),
                   );
                 },

@@ -39,7 +39,8 @@ class Productimageslider extends StatelessWidget {
                               Fullproductimage(imeges: imeges)),
                     );
                   },
-                  itemExtent: size.width / 1.1,
+                  itemExtent:
+                      (imeges.length > 1) ? size.width / 1.2 : size.width,
                   itemSnapping: true,
                   scrollDirection: Axis.horizontal,
                   padding: EdgeInsets.all(5.h),
